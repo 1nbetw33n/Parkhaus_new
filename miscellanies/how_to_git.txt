@@ -1,0 +1,27 @@
+git clone https://github.com/Masternuss/se1-team20.git
+
+cd se1-team-team20/
+
+git config user.name bella
+
+git config user.email a.ab@mail.de
+
+create new_folder
+
+git add new_folder
+
+cd into folder
+
+create file
+
+git add filename
+
+git commit filename
+
+add comment under last #
+
+git push origin main
+
+git pull origin main
+
+
