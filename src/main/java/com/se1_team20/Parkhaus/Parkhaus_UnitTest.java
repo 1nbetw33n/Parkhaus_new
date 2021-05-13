@@ -1,4 +1,4 @@
-package com.example.Parkhaus;
+package com.se1_team20.Parkhaus;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;

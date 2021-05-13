@@ -1,4 +1,4 @@
-package com.example.Parkhaus;
+package com.se1_team20.Parkhaus;
 
 public class ParkhausServletDummy {
 
