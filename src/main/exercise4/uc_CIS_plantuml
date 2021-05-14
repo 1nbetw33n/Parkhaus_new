@@ -2,7 +2,7 @@
 left to right direction
 skinparam packageStyle rectangle
 
-package cd_CIS {
+package uc's_CIS {
     agent EasyCard
     agent HypoBank
     agent CheckVisa
@@ -17,54 +17,48 @@ package cd_CIS {
       memby -- (pay conference)
       memby -- (define filters for notifications)
       (define filters for notifications) <. (future notifications) : <<extend>>
-      (pay with creditcard) -- EasyCard
-      (pay with sepa) -- (HypoBank)
+      (pay with creditcard) "0..*" -- "1" EasyCard
+      (pay with sepa) "0..*" -- "1" (HypoBank)
       (pay with creditcard) .> (pay conference) : <<extend>>
       (pay with sepa) .> (pay conference) : <<extend>>
     }
-  
 
 
-   
+
+
     left to right direction
     skinparam packageStyle rectangle
     rectangle uc_book_conference {
     (book national conference)  .> (book conference) : <<extend>>
     (pay conference) <. (book national conference) : <<include>>
     }
-   
 
-   
+
+
     left to right direction
     skinparam packageStyle rectangle
     rectangle uc_book_international_conference {
 
-    (**extension points** \n 	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) -- CheckVisa
+    (**extension points** \n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) "0..*" -- "1" CheckVisa
 
     (notification) <. (visa not valid) : <<include>>
 
     (book international conference) .> (book conference) : <<extend>>
 
-    (book international conference) .> (**extension points** \n 	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) : <<include>>
+    (book international conference) .> (**extension points** \n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) : <<include>>
 
-    (**extension points** \n 	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) <. (pay conference) : <<extend>>
-    note right of (pay conference) 
-    	**condition**: visa valid
-    	**Extension point**: redirection to payment
+    (**extension points** \n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) <. (pay conference) : <<extend>>
+    note right of (pay conference)
+    **condition**: visa valid
+    **Extension point**: redirection to payment
     end note
 
-    (**extension points** \n 	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) <. (visa not valid) : <<extend>>
+    (**extension points** \n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) <. (visa not valid) : <<extend>>
     note left
-    	**condition**: visa not valid
-    	**Extension point**: cancellation
+    **condition**: visa not valid
+    **Extension point**: cancellation
     end note
     }
 }
 
 @enduml
-
-
-
-
-
-
