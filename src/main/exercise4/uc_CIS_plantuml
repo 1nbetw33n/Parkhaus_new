@@ -21,6 +21,7 @@ package uc's_CIS {
       (pay with sepa) "0..*" -- "1" (HypoBank)
       (pay with creditcard) .> (pay conference) : <<extend>>
       (pay with sepa) .> (pay conference) : <<extend>>
+      (future notifications) -> memby
     }
 
 
@@ -39,6 +40,7 @@ package uc's_CIS {
     skinparam packageStyle rectangle
     rectangle uc_book_international_conference {
 
+    (notification) -> memby
     (**extension points** \n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) "0..*" -- "1" CheckVisa
 
     (notification) <. (visa not valid) : <<include>>
@@ -62,3 +64,9 @@ package uc's_CIS {
 }
 
 @enduml
+
+
+
+
+
+
