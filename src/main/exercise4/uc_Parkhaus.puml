@@ -14,8 +14,10 @@ rectangle SystemUse {
 }
 
 rectangle ParkingSpace {
+  (\n ----------------------------------------------------------------------------
+  -----------------------------------------------------------------------------
+  ---------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>)
   (spot) <. (parkCar) : <<include>>
-
 }
 
 rectangle PaymentProcess {
