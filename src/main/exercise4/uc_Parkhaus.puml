@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+package Parkhauswtv {
+actor Simulation
+actor Customer
+actor Manager
+
+rectangle SystemUse {
+  Customer -- (startAll)
+  (start) .> (startAll) : <<include>>
+  Customer -- (parkCar)
+}
+
+rectangle ParkingSpace {
+  (spot) <. (parkCar) : <<include>>
+
+}
+
+rectangle PaymentProcess {
+  (checkout) .> (payment) : <<include>>
+
+  Customer - (buy ticket)
+
+  Customer - (checkout)
+  (help) .> (checkout) : <<extend>>
+  (checkout) -- Manager
+  }
+
+rectangle Overlay {
+  Customer -> (availableSpace)
+  Manager -> (revenue)
+}
+
+
+
+}
+@enduml
