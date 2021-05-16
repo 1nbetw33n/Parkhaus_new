@@ -8,14 +8,20 @@ actor Customer
 actor Manager
 
 rectangle SystemUse {
-  Customer -- (startAll)
+  Simulation -- (startAll)
   (start) .> (startAll) : <<include>>
   Customer -- (parkCar)
 }
 
 rectangle ParkingSpace {
-  (\n ---------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>)
+  (** Extension Points **\n ---------------------------------- \n <size:18>No available Spot</size> \n <size:18></size>) as E1
+  E1 .> (spot) : <<include>>
   (spot) <. (parkCar) : <<include>>
+  (special spot) .> (spot) : <<extend>>
+  (leave extra space for special spot) .> (special spot) : <<include>>
+  (waiting queue) .> E1 : <<extend>>
+  (leave) .> E1 : <<extend>>
+
 }
 
 rectangle PaymentProcess {
@@ -32,9 +38,6 @@ rectangle Overlay {
   Customer -> (availableSpace)
   Manager -> (revenue)
 }
-
-
-    (**extension points** \n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) "0..*" -- "1" CheckVisa
 
 }
 @enduml
