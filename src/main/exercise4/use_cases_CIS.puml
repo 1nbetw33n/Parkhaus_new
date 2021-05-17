@@ -4,70 +4,63 @@ left to right direction
 skinparam packageStyle rectangle
 
 package uc's_CIS {
-    agent EasyCard
-    agent HypoBank
-    agent CheckVisa
+    agent EasyCard as EC
+    agent HypoBank as HB
+    agent CheckVisa as CV
     actor user
     actor memby
     user <|-- memby
 
     rectangle uc_ConferenceInformationSystem_CIS {
-      user -- (register)
-      user -- (log in)
-      memby -- (book conference)
-      memby -- (pay conference)
-      memby -- (define filters for notifications)
-      (define filters for notifications) <. (future notifications) : <<extend>>
-      (pay with creditcard) "0..*" -- "1" EasyCard
-      (pay with sepa) "0..*" -- "1" (HypoBank)
-      (pay with creditcard) .> (pay conference) : <<extend>>
-      (pay with sepa) .> (pay conference) : <<extend>>
-      (future notifications) -> memby
+        (define filters for notifications) as (filters)
+        (future notifications) as (funo)
+        (pay with creditcard) as (payCC)
+        (pay with SEPA) as (payS)
+        (pay conference) as (pc)
+        (book conference) as (bc)
+
+        user -- (register)
+        user -- (log in)
+        memby -- (bc)
+        memby -- (pc)
+        memby -- (filters)
+        (filters) <. (funo) : <<extend>>
+        (payCC) "0..*" -- "1" EC
+        (payS) "0..*" -- "1" HB
+        (payCC) .> (pc) : <<extend>>
+        (payS) .> (pc) : <<extend>>
+        (funo) -> memby
     }
-
-
 
 
     left to right direction
     skinparam packageStyle rectangle
     rectangle uc_book_conference {
-    (book national conference)  .> (book conference) : <<extend>>
-    (pay conference) <. (book national conference) : <<include>>
+        (book national conference) as (bnc)
+        (bnc)  .> (bc) : <<extend>>
+        (pc) <. (bnc) : <<include>>
     }
-
 
 
     left to right direction
     skinparam packageStyle rectangle
     rectangle uc_book_international_conference {
-
-    (notification) -> memby
-    (**extension points** \n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) "0..*" -- "1" CheckVisa
-
-    (notification) <. (visa not valid) : <<include>>
-
-    (book international conference) .> (book conference) : <<extend>>
-
-    (book international conference) .> (**extension points** \n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) : <<include>>
-
-    (**extension points** \n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) <. (pay conference) : <<extend>>
-    note right of (pay conference)
-    **condition**: visa valid
-    **Extension point**: redirection to payment
-    end note
-
-    (**extension points** \n ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) <. (visa not valid) : <<extend>>
-    note left
-    **condition**: visa not valid
-    **Extension point**: cancellation
-    end note
+        (cancellation notification) as (cn)
+        (book international conference) as (bic)
+        (visa not valid) as (vnv)
+        (**extension points** \n ----------------------------------- \n <size:18>visa not valid</size> \n <size:18>book international conference</size>) as (ep_bic)
+        note "**condition**: visa not valid \n**Extension point**: cancellation" as n1
+        note "**condition**: visa valid \n**Extension point**: redirection to payment" as n2
+        (cn) -> memby
+        (ep_bic) "0..*" -- "1" CV
+        (cn) <. (vnv) : <<include>>
+        (bic) .> (bc) : <<extend>>
+        (bic) .> (ep_bic) : <<include>>
+        (ep_bic) <. n1 : <<extend>>
+        n1 .. (vnv)
+        (ep_bic) <. n2 : <<extend>>
+        n2 .. (pc)
     }
 }
 
 @enduml
-
-
-
-
-
-
