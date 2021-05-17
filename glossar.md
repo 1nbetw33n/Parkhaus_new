@@ -2,20 +2,36 @@
 ---------------------
 <!DOCTYPE html>
 <html>
-    <head>
-        <h2>Aliases</h2>
-    </head>
+   <head>
+       <h2>Aliases</h2>
+   </head>
     <body>
-        <h3>Annabella Abshagen Aliases</h3>
         <ul style="list-style-type: square;">
-            <li>bella</li>
-            <li>1nbetw33n</li>
-        </ul>
+            <li><h4>Annabella Abshagen</h4>
+                <ul>
+                    <li>bella</li>
+                    <li>1nbetw33n</li>
+                </ul>
+            </li>
+            <li><h4>next name</h4>
+                <ul>
+                    <li>bla: 1</li>
+                </ul>
+            </li>
     </body>
     
-    <head>
+
+   <head>
         <h2>Commits from former repo:</h2>
-    </head>
+   </head>
+    <body>
+        <ul style="list-style-type: square;">
+            <li><h4>Annabella Abshagen:         43</h4></li>
+            <li><h4>Lukas Busse:                19</h4></li>
+            <li><h4>Inderprit Multani:          2</h4></li>
+            <li><h4>Rahgawi Rajakumaraswamy:    2</h4></li>
+   </body>
+           
 </html>
 
 
