@@ -3,45 +3,45 @@ left to right direction
 skinparam packageStyle rectangle
 
 package Parkhaus {
-actor Simulation as S
-actor Customer as C
-actor Manager as M
+    actor Simulation as S
+    actor Customer as C
+    actor Manager as M
 
-rectangle SystemUse {
-  S -- (startAll)
-  (startAll) as (sA)
-  (parkCar) as pC
-  (start) .> (sA) : <<include>>
-  C -- (pC)
+    rectangle SystemUse {
+        S -- (startAll)
+        (startAll) as (sA)
+        (parkCar) as pC
+        (start) .> (sA) : <<include>>
+        C -- (pC)
+    }
+
+
+    rectangle ParkingSpace {
+        (** Extension Points **\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>book spot</size> \n <size:18>No available Spot</size>) as E1
+        (special spot) as (ss)
+        (leave extra space for special spot) as (extra spot)
+        E1 .> (spot) : <<include>>
+        (spot) <. (pC) : <<include>>
+        (ss) .> (spot) : <<extend>>
+        (extra spot) .> (ss) : <<include>>
+        (waiting queue) .> E1 : <<extend>>
+        (leave) .> E1 : <<extend>>
+    }
+
+
+    rectangle PaymentProcess {
+     (checkout) .> (payment) : <<include>>
+        C - (buy ticket)
+        C - (checkout)
+        (help) .> (checkout) : <<extend>>
+        (checkout) -- M
+    }
+
+
+    rectangle Overlay {
+        C -> (availableSpace)
+        M -> (revenue)
+    }
 }
 
-
-rectangle ParkingSpace {
-  (** Extension Points **\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>book spot</size> \n <size:18>No available Spot</size>) as E1
-  (special spot) as (ss)
-  (leave extra space for special spot) as (extra spot)
-  E1 .> (spot) : <<include>>
-  (spot) <. (pC) : <<include>>
-  (ss) .> (spot) : <<extend>>
-  (extra spot) .> (ss) : <<include>>
-  (waiting queue) .> E1 : <<extend>>
-  (leave) .> E1 : <<extend>>
-}
-
-
-rectangle PaymentProcess {
-  (checkout) .> (payment) : <<include>>
-  C - (buy ticket)
-  C - (checkout)
-  (help) .> (checkout) : <<extend>>
-  (checkout) -- M
-  }
-
-
-rectangle Overlay {
-  C -> (availableSpace)
-  M -> (revenue)
-}
-
-}
 @enduml
