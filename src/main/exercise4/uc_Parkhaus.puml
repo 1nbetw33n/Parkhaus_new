@@ -11,6 +11,7 @@ package Parkhaus {
         S -- (startAll)
         (startAll) as (sA)
         (parkCar) as pC
+
         (start) .> (sA) : <<include>>
         C -- (pC)
     }
@@ -18,15 +19,23 @@ package Parkhaus {
 
     rectangle ParkingSpace {
         (** Extension Points **\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>book spot</size> \n <size:18>leave</size> \n <size:18>enter queue</size>) as E1
+        note "**condition**: free spot available \n**Extension point**: entering spot" as n1
+        note "**condition**: no free spot, want to wait \n**Extension point**: entering queue" as n2
+        note "**condition**: no free spot, dont want to wait \n**Extension point**: leaving Parkhaus" as n3
+        (enter spot) as (es)
         (special spot) as (ss)
         (leave extra space for special spot) as (extra spot)
-        (spot) .> E1 : <<extend>>
-	    (waiting queue) .> E1 : <<extend>>
-        (leave) .> E1 : <<extend>>
-        (spot) <. (pC) : <<include>>
-        (ss) .> (spot) : <<extend>>
-        (extra spot) .> (ss) : <<include>>
+        (waiting queue) as (wq)
 
+        (pC) .> E1 : <<include>>
+        E1 <. n1 : <<extend>>
+        n1 .. (es)
+        E1 <. n2 : <<extend>>
+        n2 .. (leave)
+        E1 <. n3 : <<extend>>
+        n3 .. (wq)
+        (es) <. (ss) : <<extend>>
+        (ss) .> (extra spot) : <<include>>
     }
 
 
