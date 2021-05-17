@@ -19,18 +19,16 @@
                 </ul>
             </li>
     </body>
-    
-
-   <head>
+    <head>
         <h2>Commits from former repo:</h2>
-   </head>
+    </head>
     <body>
-        <ul style="list-style-type: square;">
-            <li><h4>Annabella Abshagen:         43</h4></li>
-            <li><h4>Lukas Busse:                19</h4></li>
-            <li><h4>Inderprit Multani:          2</h4></li>
-            <li><h4>Rahgawi Rajakumaraswamy:    2</h4></li>
-   </body>
+         <ul style="list-style-type: square;">
+             <li><h4>Annabella Abshagen:         43</h4></li>
+             <li><h4>Lukas Busse:                19</h4></li>
+             <li><h4>Inderprit Multani:          2</h4></li>
+             <li><h4>Rahgawi Rajakumaraswamy:    2</h4></li>
+    </body>
            
 </html>
 
