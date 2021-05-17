@@ -2,41 +2,45 @@
 left to right direction
 skinparam packageStyle rectangle
 
-package Parkhauswtv {
-actor Simulation
-actor Customer
-actor Manager
+package Parkhaus {
+actor Simulation as S
+actor Customer as C
+actor Manager as M
 
 rectangle SystemUse {
-  Simulation -- (startAll)
-  (start) .> (startAll) : <<include>>
-  Customer -- (parkCar)
+  S -- (startAll)
+  (startAll) as (sA)
+  (parkCar) as pC
+  (start) .> (sA) : <<include>>
+  C -- (pC)
 }
+
 
 rectangle ParkingSpace {
-  (** Extension Points **\n ---------------------------------- \n <size:18>No available Spot</size> \n <size:18></size>) as E1
+  (** Extension Points **\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>book spot</size> \n <size:18>No available Spot</size>) as E1
+  (special spot) as (ss)
+  (leave extra space for special spot) as (extra spot)
   E1 .> (spot) : <<include>>
-  (spot) <. (parkCar) : <<include>>
-  (special spot) .> (spot) : <<extend>>
-  (leave extra space for special spot) .> (special spot) : <<include>>
+  (spot) <. (pC) : <<include>>
+  (ss) .> (spot) : <<extend>>
+  (extra spot) .> (ss) : <<include>>
   (waiting queue) .> E1 : <<extend>>
   (leave) .> E1 : <<extend>>
-
 }
+
 
 rectangle PaymentProcess {
   (checkout) .> (payment) : <<include>>
-
-  Customer - (buy ticket)
-
-  Customer - (checkout)
+  C - (buy ticket)
+  C - (checkout)
   (help) .> (checkout) : <<extend>>
-  (checkout) -- Manager
+  (checkout) -- M
   }
 
+
 rectangle Overlay {
-  Customer -> (availableSpace)
-  Manager -> (revenue)
+  C -> (availableSpace)
+  M -> (revenue)
 }
 
 }
