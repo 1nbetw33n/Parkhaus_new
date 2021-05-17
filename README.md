@@ -7,6 +7,7 @@
     <br>
     <em>We also appreciate, telling us all our <sup>logical</sup> <sub>errors</sub><b>:)</b></em>
     <br>
+    <br>
     <b>Aliases, method specifications and general infos in can be found in glossar</b>
   </body>
 </html>
