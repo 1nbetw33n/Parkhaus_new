@@ -13,9 +13,9 @@
                     <li>1nbetw33n</li>
                 </ul>
             </li>
-            <li><h4>next name</h4>
+            <li><h4>Lukas Busse</h4>
                 <ul>
-                    <li>bla</li>
+                    <li>Masternuss</li>
                 </ul>
             </li>
             <li><h4>next name</h4>
