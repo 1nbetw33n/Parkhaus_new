@@ -37,7 +37,6 @@
 
 
 
-
 ## Begriffe:
 
 ### 1. Extra Parkplätze
