@@ -1,27 +1,26 @@
 @startuml
-'https://plantuml.com/class-diagram
+ class customer{
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+    name: String
+    parkscheinnr:int
+    telefonnr:int
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
+ }
 
-class ArrayList {
-Object[] elementData
-size()
+
+
+ class manager{
+
+
+ }
+
+class simulation{
+
+
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
 
-@enduml
+
+
+ @enduml
