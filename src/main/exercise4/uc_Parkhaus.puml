@@ -17,15 +17,16 @@ package Parkhaus {
 
 
     rectangle ParkingSpace {
-        (** Extension Points **\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>book spot</size> \n <size:18>No available Spot</size>) as E1
+        (** Extension Points **\n ----------------------------------------------------------------------------------------------------------------------------------------------------------------- \n <size:18>book spot</size> \n <size:18>leave</size> \n <size:18>enter queue</size>) as E1
         (special spot) as (ss)
         (leave extra space for special spot) as (extra spot)
-        E1 .> (spot) : <<include>>
+        (spot) .> E1 : <<extend>>
+	    (waiting queue) .> E1 : <<extend>>
+        (leave) .> E1 : <<extend>>
         (spot) <. (pC) : <<include>>
         (ss) .> (spot) : <<extend>>
         (extra spot) .> (ss) : <<include>>
-        (waiting queue) .> E1 : <<extend>>
-        (leave) .> E1 : <<extend>>
+
     }
 
 
