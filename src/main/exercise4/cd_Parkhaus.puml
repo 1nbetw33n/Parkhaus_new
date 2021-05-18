@@ -58,6 +58,17 @@ package cd_Parkhaus {
     }
 
 
+    Payment <<interface>>
+    Parking <<interface>>
+    OverlayAble <<interface>>
+    System <<interface>>
+    Payment <|.. PaymentProcess
+    Parking <|.. ParkingSpace
+    Overlay <|.. OverlayAble
+    System <|.. SystemUse
+    Simulation <<entity>>
+    Manager <<entity>>
+    Customer <<entity>>
 
 
 
