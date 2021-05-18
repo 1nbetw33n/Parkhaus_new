@@ -24,11 +24,16 @@ package cd_Parkhaus {
 
 
     class PaymentProcess {
-
+        + public CPaymentProcess( )
+          + public payWithCreditCard ():boolean
+          + public payWithSEPA():boolean
     }
 
 
     class ParkingSpace  {
+
+     -private SpaceNo:int
+     +public ParkingSpace()
 
     }
 
@@ -54,6 +59,15 @@ package cd_Parkhaus {
 
 
     abstract class Customer {
+
+         -name:String
+               -billNo:int
+               -price:double
+               public customergroup: String
+               -disablity:boolean
+
+
+          +public Customer(String Cname,int billNo, double price)
 
     }
 
