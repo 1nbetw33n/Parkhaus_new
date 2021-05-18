@@ -8,11 +8,11 @@ package Parkhaus {
     actor Manager as M
 
     rectangle SystemUse {
-        S -- (startAll)
         (startAll) as (sA)
         (parkCar) as pC
 
         (start) .> (sA) : <<include>>
+        S -- (sA)
         C -- (pC)
     }
 
