@@ -1,26 +1,67 @@
 @startuml
- class customer{
+skinparam classAttributeIconSize 0
 
-    name: String
-    parkscheinnr:int
-    telefonnr:int
+package cd_Parkhaus {
 
+    interface Payment {
 
- }
-
+    }
 
 
- class manager{
+    interface Parking {
+
+    }
 
 
- }
+    interface OverlayAble {
 
-class simulation{
+    }
+
+
+    interface System {
+
+    }
+
+
+    class PaymentProcess {
+
+    }
+
+
+    class ParkingSpace  {
+
+    }
+
+
+    class Overlay {
+
+    }
+
+
+    class SystemUse {
+
+    }
+
+
+    class Simulation {
+
+    }
+
+
+    class Manager {
+
+    }
+
+
+    abstract class Customer {
+
+    }
+
+
+
 
 
 }
-
-
 
 
  @enduml
