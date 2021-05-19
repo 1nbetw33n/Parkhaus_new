@@ -1,0 +1,26 @@
+@startuml
+
+package sd_bookInternationalConference {
+    actor memby as m
+
+    control bookingInterfaceController as bIC
+    control searchInterConferenceController as sICC
+    control bookInterConferenceController as bICC
+
+    control interConferencesDataBaseController as iCDBC
+    control visaDataBaseController as vDBC
+
+    boundary bookingInterface as bI
+    boundary searchInterConferenceMask as sICM
+    boundary bookInterConferenceMask as bICM
+    boundary checkVisa as cV
+
+    entity interConferencesList as iCL
+    entity visaInfo as vI
+
+    database interConferencesDataBase as iCDB
+    database visaDataBase as vDD
+
+}
+
+@enduml
