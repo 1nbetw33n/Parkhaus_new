@@ -8,7 +8,6 @@
     </head>
     <body>
         <ul style="list-style-type: square;">
-            <ul>
                 <li>
                     se1-starter-repo
                 </li>
@@ -19,18 +18,20 @@
                     personal_spaces with separation into sub directories for each person
                 </li>
                 <li>
-                    team_space with seapration into sub directories for each exercise
+                    team_space with separation into sub directories for each exercise
                 </li>
-            </ul>
+        </ul>
     </body>
-    <body>    
-    <br></b>
-    <i><b>Enjoy</b> and let us know if you <b>found some <del>trashy Code</del> Errors!:)</b></i>
-    <br>
-    <em>We also appreciate, telling us all our <sup>logical</sup> <sub>errors</sub><b>:)</b></em>
-    <br>
+    <body>
     <br>
     <b>Aliases, method specifications and general infos stored in glossar</b>
+    <br>
+    <br>
+    <i><b>Enjoy</b> and let us know if you <b>found some <del>trashy Code</del> Errors!:)</b></i>
+    <br>
+    <em>We also <b>appreciate</b>, telling us all our <sup>logical</sup> <sub>errors</sub><b>:)</b></em>
+    <br>
+    <br>
   </body>
 </html>
     
