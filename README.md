@@ -18,7 +18,7 @@
                     personal_spaces with separation into sub directories for each person
                 </li>
                 <li>
-                    team_space with separation into sub directories for each exercise
+                    team_space with separations into sub directories for each exercise
                 </li>
         </ul>
     </body>
