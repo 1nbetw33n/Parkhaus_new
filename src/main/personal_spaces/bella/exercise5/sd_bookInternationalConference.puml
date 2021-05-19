@@ -21,6 +21,23 @@ package sd_bookInternationalConference {
     database interConferencesDataBase as iCDB
     database visaDataBase as vDD
 
+
+    m -> bI : start search
+    bI -> bIC : start search mask
+    sICM <- bIC : show search mask
+    m <. sICM : search mask
+
+    m -> sICM : enter keywords (x)
+
+    m -> sICM : start search for keywords (x)
+    siCM -> sICC : start search for x
+
+
+
+
+
+
+
 }
 
 @enduml
