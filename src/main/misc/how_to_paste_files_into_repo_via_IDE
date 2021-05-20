@@ -1,0 +1,8 @@
+
+
+this has been tested for .txt, .png and .pdf so far.
+
+1. select file in your file manager on your local system
+2. copy file
+3. go into your IDE and right-click on the directory you want to paste the file into
+4. select paste (4th option from top)
