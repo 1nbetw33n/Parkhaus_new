@@ -1,19 +1,87 @@
 @startuml
-actor Kunde
 
 rectangle ConferenceInformationSystem {
-  entity KundenInfo
+  actor user
+  actor member
+  member -up-> user
 
-  boundary SuchMaske
-  boundary BuchungsMaske
+  rectangle loginProcess {
+    boundary login
+    boundary register
+    control loginController
+    control alreadyRegistered
 
-  Kunde -right- SuchMaske
-  Kunde -right- BuchungsMaske
+    user -right- register
+    member -right- login
 
-  control CISController
+    loginController ..> register
+    loginController ..> alreadyRegistered
+    alreadyRegistered ..> login
+  }
 
-  CISController .up.> SuchMaske
-  CISController .left.> BuchungsMaske
-  CISController ..> KundenInfo
+  rectangle BookInternationalConference {
+    boundary suchMask
+    boundary buchungsMask
+    boundary filterMask
+    control bookController
+    control filterController
+    entity conferenceInformation
+
+    member -up- suchMask
+    member -up- buchungsMask
+    member -up- filterMask
+
+
+
+    bookController ..> buchungsMask
+    bookController .left.> conferenceInformation
+    bookController ..> suchMask
+    filterController ..> filterMask
+    filterController .right.> conferenceInformation
+
+
+  }
+
+  rectangle bookNationalConference {
+    control nationalController
+
+    nationalController ..> bookController
+
+
+  }
+
+  rectangle bookInternationalConference {
+    control internationalController
+    control checkVisa
+    entity noVisa
+
+
+    internationalController ..> bookController
+  }
+
+  rectangle paymentMethod {
+    boundary paymentMask
+    control paymentController
+    entity sepa
+    entity visa
+
+    member -left- paymentMask
+
+    paymentController .right.> paymentMask
+    paymentController .up.> visa
+    paymentController .up.> sepa
+    paymentController ..> conferenceInformation
+  }
+
+  rectangle eMailResponse {
+    control emailController
+    entity emailAnswer
+
+    emailController ..> emailAnswer
+    emailController ..> filterController
+    emailAnswer --> member
+
+  }
+
 }
 @enduml
