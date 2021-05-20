@@ -1,22 +1,66 @@
 @startuml
-'https://plantuml.com/use-case-diagram
 
-:Main Admin: as Admin
-(Use the application) as (Use)
+package Parkhaus {
 
-User -> (Start)
-User --> (Use)
+actor customer as c
+actor manager as m
+control parkhausController
 
-Admin ---> (Use)
+    rectangle PaymentProcess {
+        boundary paymentPage
+        control payController
+        control ticketController
+        entity customerInformation
+        entity bill
 
-note right of Admin : This is an example.
+        payController .up.> customerInformation
+        payController .left.> paymentPage
+        payController ..> bill
 
-note right of (Use)
-A note can also
-be on several lines
-end note
+        ticketController .left.> payController
 
-note "This note is connected\nto several objects." as N2
-(Start) .. N2
-N2 .. (Use)
+        c -up- paymentPage
+
+
+    }
+
+    rectangle Help {
+        boundary helpPage
+        boundary helpMask
+        control helpController
+        entity faq
+
+        helpController ..> helpPage
+        helpController ..> faq
+        helpController ..> helpMask
+
+        c -up- helpPage
+
+        parkhausController ..> helpController
+
+
+    }
+
+    rectangle Management {
+
+        boundary managementOverview
+        control revenueController
+        entity revenueList
+
+        m -down- managementOverview
+        revenueController ..> managementOverview
+        revenueController ..> customerInformation
+        revenueController ..> revenueList
+
+    }
+
+    rectangle ParkingSpace {
+
+    }
+
+    parkhausController .left.> payController
+
+
+}
+
 @enduml
