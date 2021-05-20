@@ -55,28 +55,38 @@ boundary parkhausMainPage
 
     rectangle ParkingSpace {
         boundary parkCarMask
-        boundary parkCar
+        boundary queueMask
         control parkingSpaceController
-        entity availableSpace
+        control errorSpaceController
+        control queueController
+        entity allSpace
+        entity specialSpace
+
 
 
         parkingSpaceController .up.> parkCarMask
-        parkingSpaceController .up.> parkCar
-        parkingSpaceController .up.> availableSpace
+        parkingSpaceController .up.> allSpace
+        parkingSpaceController .up.> specialSpace
+        parkingSpaceController .up.> errorSpaceController
+
+        errorSpaceController ..> allSpace
+        errorSpaceController ..> specialSpace
+
+        queueController ..> errorSpaceController
+        queueController ..> queueMask
+        queueController ..> parkingSpaceController
 
         c - parkCarMask
-        c - parkCar
-
-
+        c - queueMask
 
 
 
     }
 
-    parkhausController .up.> parkingSpaceController
-    parkhausController .left.> payController
-    parkhausController .down.> helpController
-    parkhausController .down.> parkhausMainPage
+    parkhausController ..> parkingSpaceController
+    parkhausController ..> payController
+    parkhausController ..> helpController
+    parkhausController ..> parkhausMainPage
     c - parkhausMainPage
 
 
