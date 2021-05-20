@@ -5,19 +5,17 @@ package Parkhaus {
 actor customer as c
 actor manager as m
 control parkhausController
+boundary parkhausMainPage
 
     rectangle PaymentProcess {
         boundary paymentPage
         control payController
-        control ticketController
         entity customerInformation
         entity bill
 
         payController .up.> customerInformation
         payController .left.> paymentPage
         payController ..> bill
-
-        ticketController .left.> payController
 
         c -up- paymentPage
 
@@ -26,18 +24,16 @@ control parkhausController
 
     rectangle Help {
         boundary helpPage
-        boundary helpMask
+        boundary helpSearchMask
         control helpController
-        entity faq
+        entity faqPDF
 
         helpController ..> helpPage
-        helpController ..> faq
-        helpController ..> helpMask
+        helpController ..> faqPDF
+        helpController ..> helpSearchMask
 
         c -up- helpPage
-
-        parkhausController ..> helpController
-
+        c -up- helpSearchMask
 
     }
 
@@ -48,17 +44,40 @@ control parkhausController
         entity revenueList
 
         m -down- managementOverview
+        m - parkhausMainPage
+
+        parkhausController ..> revenueController
         revenueController ..> managementOverview
-        revenueController ..> customerInformation
         revenueController ..> revenueList
+        revenueController ..> bill
 
     }
 
     rectangle ParkingSpace {
+        boundary parkCarMask
+        boundary parkCar
+        control parkingSpaceController
+        entity availableSpace
+
+
+        parkingSpaceController .up.> parkCarMask
+        parkingSpaceController .up.> parkCar
+        parkingSpaceController .up.> availableSpace
+
+        c - parkCarMask
+        c - parkCar
+
+
+
+
 
     }
 
+    parkhausController .up.> parkingSpaceController
     parkhausController .left.> payController
+    parkhausController .down.> helpController
+    parkhausController .down.> parkhausMainPage
+    c - parkhausMainPage
 
 
 }
