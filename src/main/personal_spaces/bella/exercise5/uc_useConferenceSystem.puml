@@ -1,0 +1,40 @@
+
+@startuml
+
+package uc_useConferenceInformationSystem_v1 {
+    actor memby as m
+
+    rectangle ConferenceInformationSystem {
+        control CIS_Controller as cisc
+
+        boundary logInMask as lM
+        boundary searchMask as sM
+        boundary results as r
+        boundary bookingMask as bM
+        boundary paymentMask as pM
+        boundary notificationMask as nM
+
+        entity membyInfo as mI
+
+        m -right- lM
+        m -right- sM
+        m -right- r
+        m -right- bM
+        m -right- pM
+        m -right- nM
+
+        cisc .up.> nM
+        cisc .up.> lM
+        cisc .down.> pM
+        cisc .down.> bM
+        cisc .down.> r
+        cisc .left.> sM
+
+        cisc .right.> mI
+
+
+    }
+
+}
+
+@enduml
