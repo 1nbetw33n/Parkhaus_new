@@ -81,6 +81,8 @@ rectangle ConferenceInformationSystem {
     emailController ..> filterController
     emailAnswer --> member
 
+
+
   }
 
 }
