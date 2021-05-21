@@ -85,7 +85,7 @@ boundary parkhausMainPage
 
     parkhausController ..> parkingSpaceController
     parkhausController ..> payController
-    parkhausController ..> helpController
+    parkhausController ..> helpPage
     parkhausController ..> parkhausMainPage
     c - parkhausMainPage
 
