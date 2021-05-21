@@ -1,6 +1,6 @@
 @startuml
 
-package sd_bookInternationalConference {
+
     actor memby as m
 
     control bookingInterfaceController as bIC
@@ -19,6 +19,8 @@ package sd_bookInternationalConference {
 
     database interConferencesDataBase as iCDB
     database visaDataBase as vDD
+
+    autonumber
 
     /'SEARCH AN INTERNATIONAL CONFERENCE AND GET THE RESULTS'/
     m -> bI : start search
@@ -50,6 +52,6 @@ package sd_bookInternationalConference {
     bICM <-- vI : asHTML()
     bICC <-- bICM : list of results in HTML
     m <-- bICC : results of visa check (if visa is valid -> redirection to payment)
-}
+
 
 @enduml
