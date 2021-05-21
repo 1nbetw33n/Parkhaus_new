@@ -1,0 +1,23 @@
+@startuml
+package sd_Parkhaus {
+ control helpController
+ boundary helpSearchMask
+ boundary helpPage
+ database faq
+ entity searchResultList
+
+
+customer -> helpPage : start help
+
+helpPage -> helpPageController : start help mask
+
+helpSearchMask <- helpPageController : show help mask
+
+customer <. helpSearchMask : help search mask
+
+helpSearchMask -> helpPageController : enter keywords(x)
+
+
+
+}
+@enduml
