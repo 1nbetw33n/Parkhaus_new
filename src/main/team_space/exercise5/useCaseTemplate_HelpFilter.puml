@@ -1,6 +1,0 @@
-
-customer -> helpPage : start help
-helpPage -> helpPageController : start help mask
-helpSearchMask <- helpPageController : show help mask
-customer <. helpSearchMask : help search mask
-helpSearchMask -> helpPageController :
