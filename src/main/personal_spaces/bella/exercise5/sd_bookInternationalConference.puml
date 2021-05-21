@@ -50,16 +50,6 @@ package sd_bookInternationalConference {
     bICM <. vI : asHTML()
     bICC <. bICM : list of results in HTML
     m <. bICC : results of visa check (if visa is valid -> redirection to payment)
-
-
-
-
-
-
-
-
-
-
 }
 
 @enduml
