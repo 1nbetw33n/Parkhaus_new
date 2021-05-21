@@ -1,27 +1,42 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+package cd_FilterHelpPage {
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
+    class parkhausController {
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
+    }
 
-class ArrayList {
-Object[] elementData
-size()
-}
+    interface parkhausControllerIF {
+        + startHelp(): boolean
+    }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+    class helpPage {
+        + startHelpPage(): boolean
+    }
+
+    interface helpPageIF {
+        + startHelpPage(): boolean
+    }
+
+    class helpPageController {
+        + showHelpMask(): boolean
+    }
+
+    interface helpPageControllerIF {
+        + showHelpMask(): boolean
+    }
+
+    class helpSearchMask {
+        + getHelpSearchMask(boolean): helpSearchMask
+    }
+
+    interface helpSearchMaskIF {
+        + getHelpSearchMask(boolean): helpSearchMask
+        'Up to debate and change Lukas 21.05.21
+
+    }
+
 }
 
 @enduml
