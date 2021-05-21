@@ -24,32 +24,32 @@ package sd_bookInternationalConference {
     m -> bI : start search
     bI -> bIC : start search mask
     sICM <- bIC : show search mask
-    m <. sICM : search mask
+    m <-- sICM : search mask
     m -> sICM : enter keywords (x)
     m -> sICM : start search for keywords (x)
     sICM -> sICC : start search for x
     sICC -> iCDBC : start sql query
     iCDB <- iCDBC : sql query
     iCDB -> iCDBC : return results
-    iCDBC .> iCL : new
-    sICC <. iCL : asHTML()
-    sICM <. sICC : list of results in HTML
-    m <. sICM : results
+    iCDBC --> iCL : new
+    sICC <-- iCL : asHTML()
+    sICM <-- sICC : list of results in HTML
+    m <-- sICM : results
 
     /'BOOK AN INTERNATIONAL CONFERENCE AND PERFORM A VISA CHECK'/
     m -> bP : start booking process
     bP -> bICC : start booking mask
     bICC -> bICM : show booking mask
-    m <. bICM : booking mask
+    m <-- bICM : booking mask
     m -> bICC : enter credentials (x)
     m -> bICC : start booking process (x)
     vDC <- bICC : start sql query
     vDC -> vDB : sql query
     vDC <- vDB : return results
-    vDC .> vI : new
-    bICM <. vI : asHTML()
-    bICC <. bICM : list of results in HTML
-    m <. bICC : results of visa check (if visa is valid -> redirection to payment)
+    vDC --> vI : new
+    bICM <-- vI : asHTML()
+    bICC <-- bICM : list of results in HTML
+    m <-- bICC : results of visa check (if visa is valid -> redirection to payment)
 }
 
 @enduml
