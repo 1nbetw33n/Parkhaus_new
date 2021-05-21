@@ -26,11 +26,11 @@ boundary parkhausMainPage
         boundary helpPage
         boundary helpSearchMask
         control helpController
-        entity faqPDF
+        entity faqDatabase
         entity searchResultsList
 
         helpController ..> helpPage
-        helpController ..> faqPDF
+        helpController ..> faqDatabase
         helpController ..> helpSearchMask
         helpController ..> searchResultsList
 

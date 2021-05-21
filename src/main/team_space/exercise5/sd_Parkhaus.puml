@@ -8,12 +8,12 @@ database faq
 entity searchResultList
 
 
-customer -> helpPage : start help
-helpPage -> helpPageController : start help mask
-helpSearchMask <- helpPageController : show help mask
-customer <. helpSearchMask : help search mask
-customer -> helpSearchMask : enter keyword(s) (x)
-customer -> helpSearchMask : start search for keyword(s) (x)
+customer -> helpPage: start help
+helpPage -> helpPageController: start help mask
+helpSearchMask <- helpPageController: show help mask
+customer <. helpSearchMask: help search mask
+customer -> helpSearchMask: enter keyword(s) (x)
+customer -> helpSearchMask: start search for keyword(s) (x)
 
 
 
