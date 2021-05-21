@@ -27,10 +27,12 @@ boundary parkhausMainPage
         boundary helpSearchMask
         control helpController
         entity faqPDF
+        entity searchResultsList
 
         helpController ..> helpPage
         helpController ..> faqPDF
         helpController ..> helpSearchMask
+        helpController ..> searchResultsList
 
         c -up- helpPage
         c -up- helpSearchMask
@@ -85,7 +87,7 @@ boundary parkhausMainPage
 
     parkhausController ..> parkingSpaceController
     parkhausController ..> payController
-    parkhausController ..> helpController
+    parkhausController ..> helpPage
     parkhausController ..> parkhausMainPage
     c - parkhausMainPage
 
