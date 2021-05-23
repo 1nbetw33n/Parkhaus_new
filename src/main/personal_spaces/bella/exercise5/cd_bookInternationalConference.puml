@@ -1,0 +1,106 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package cd_bookInternationalConference {
+    class ConferenceController {
+
+    }
+
+
+    class memby {
+
+    }
+
+
+    class BookingPageController{
+
+    }
+
+
+    class SearchInternationalConferenceController {
+
+    }
+
+
+    class BookInternationalConferenceoController {
+
+    }
+
+
+    class InternationalConferenceDataBaseController {
+
+    }
+
+
+    class VisaDataController {
+
+    }
+
+
+    interface BookingPageable {
+    StartSearch(): boolean
+
+    }
+
+
+    class BookingPage {
+    +StartSearch(): boolean
+    }
+
+
+    interface SearchInternationalConferenceMaskable {
+
+    }
+
+
+    class SearchInternationalConferenceMask {
+
+    }
+
+
+    interface BookInternationalConferenceMaskable {
+
+    }
+
+
+    class BookInternationalConferenceMask {
+
+    }
+
+
+    interface CheckVisable {
+
+    }
+
+
+    class CheckVisa {
+
+    }
+
+
+    class InternationalConferenceList {
+
+    }
+
+
+    class VisaInfo {
+
+    }
+
+
+    class InternationalConferenceDataBase {
+
+    }
+
+
+    class VisaDataBase {
+
+    }
+
+
+
+
+
+
+}
+@enduml
