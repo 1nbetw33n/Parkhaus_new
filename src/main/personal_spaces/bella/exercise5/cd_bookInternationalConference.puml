@@ -2,6 +2,11 @@
 skinparam classAttributeIconSize 0
 
 package cd_bookInternationalConference {
+
+    interface ConferenceControllable {
+
+    }
+
     class ConferenceController {
 
     }
@@ -12,25 +17,48 @@ package cd_bookInternationalConference {
     }
 
 
-    class BookingPageController{
-
+    interface BookingPageControllable {
+        startSearchMask():boolean
     }
 
+    class BookingPageController{
+        #startSearchMask():boolean
+    }
+
+
+    interface SearchInternationalConferenceControllable {
+        startSearchForX():boolean
+        asHTML():boolean
+    }
 
     class SearchInternationalConferenceController {
+        #startSearchForX():boolean
+        #asHTML():boolean
+    }
+
+
+    interface BookInternationalConferenceControllable {
+
+    }
+
+    class BookInternationalConferenceController {
 
     }
 
 
-    class BookInternationalConferenceoController {
+    interface InternationalConferenceDataBaseControllable {
 
     }
-
 
     class InternationalConferenceDataBaseController {
-
+        #startSQLQuery():boolean
+        #returnSQLQueryResults():boolean
     }
 
+
+    interface VisaDataControllable {
+
+    }
 
     class VisaDataController {
 
@@ -38,23 +66,29 @@ package cd_bookInternationalConference {
 
 
     interface BookingPageable {
-    StartSearch(): boolean
+    startSearch():boolean
 
     }
 
 
     class BookingPage {
-    +StartSearch(): boolean
+    +startSearch():boolean
     }
 
 
     interface SearchInternationalConferenceMaskable {
-
+        showSearchMask():SearchMask
+        enterKeywords(x):boolean
+        startSearchForKeywords(x):boolean
+        listOfResultsInHTML(): InternationalConferenceList
     }
 
 
     class SearchInternationalConferenceMask {
-
+        #showSearchMask():SearchMask
+        #enterKeywords(x):boolean
+        #startSearchForKeywords(x):boolean
+        #listOfResultsInHTML(): InternationalConferenceList
     }
 
 
@@ -89,7 +123,7 @@ package cd_bookInternationalConference {
 
 
     class InternationalConferenceDataBase {
-
+        #sqlQuery():boolean
     }
 
 
