@@ -3,17 +3,8 @@ skinparam classAttributeIconSize 0
 
 package cd_bookInternationalConference {
 
-    interface ConferenceControllable {
-
-    }
-
-    class ConferenceController {
-
-    }
-
 
     class memby {
-
     }
 
 
@@ -26,110 +17,137 @@ package cd_bookInternationalConference {
     }
 
 
+    interface ConferenceControllable {
+        asHTML():boolean
+    }
+
     interface SearchInternationalConferenceControllable {
         startSearchForX():boolean
-        asHTML():boolean
+    }
+
+    abstract class ConferenceController {
+        #asHTML():boolean
     }
 
     class SearchInternationalConferenceController {
         #startSearchForX():boolean
-        #asHTML():boolean
     }
 
 
     interface BookInternationalConferenceControllable {
-
+        startBookingMask():boolean
+        startBookingX():boolean
     }
 
     class BookInternationalConferenceController {
-
+        #startBookingMask():boolean
+        #startBookingX():boolean
     }
 
 
-    interface InternationalConferenceDataBaseControllable {
-
+    interface DataBaseControllable {
+        startSQLQuery():boolean
+        returnSQLQueryResults():boolean
     }
 
-    class InternationalConferenceDataBaseController {
+    abstract class DataBaseController {
         #startSQLQuery():boolean
         #returnSQLQueryResults():boolean
     }
 
-
-    interface VisaDataControllable {
-
+    class InternationalConferenceDataBaseController {
     }
 
-    class VisaDataController {
-
+    class VisaDataBaseController {
     }
 
 
     interface BookingPageable {
-    startSearch():boolean
-
+        startSearch():boolean
+        startBooking():boolean
     }
-
 
     class BookingPage {
-    +startSearch():boolean
+        +startSearch():boolean
+        +startBooking():boolean
     }
 
+
+    interface Maskable {
+        listOfResultsInHTML(): results
+    }
+
+    abstract class Mask {
+        #listOfResultsInHTML(): results
+    }
 
     interface SearchInternationalConferenceMaskable {
         showSearchMask():SearchMask
         enterKeywords(x):boolean
         startSearchForKeywords(x):boolean
-        listOfResultsInHTML(): InternationalConferenceList
     }
-
 
     class SearchInternationalConferenceMask {
         #showSearchMask():SearchMask
         #enterKeywords(x):boolean
         #startSearchForKeywords(x):boolean
-        #listOfResultsInHTML(): InternationalConferenceList
     }
-
 
     interface BookInternationalConferenceMaskable {
-
+        showBookingMask(): BookingMask
+        enterCredentials(x):boolean
+        startBookingProcess(x):boolean
     }
-
 
     class BookInternationalConferenceMask {
-
+        #showBookingMask(): BookingMask
+        #enterCredentials(x):boolean
+        #startBookingProcess(x):boolean
     }
 
-
-    interface CheckVisable {
-
-    }
-
-
-    class CheckVisa {
-
-    }
 
 
     class InternationalConferenceList {
-
     }
-
 
     class VisaInfo {
-
     }
 
 
-    class InternationalConferenceDataBase {
+    interface DataBaseable {
+        sqlQuery():boolean
+    }
+
+    abstract class DataBase {
         #sqlQuery():boolean
     }
 
+    class InternationalConferenceDataBase {
+    }
 
     class VisaDataBase {
-
     }
+
+
+    memby <<entity>>
+    BookingPageControllable <<interface>>
+    ConferenceControllable <<interface>>
+    SearchInternationalConferenceControllable <<interface>>
+    BookInternationalConferenceControllable <<interface>>
+    DataBaseControllable <<interface>>
+    BookingPageable <<interface>>
+    Maskable <<interface>>
+    SearchInternationalConferenceMaskable <<interface>>
+    BookInternationalConferenceMaskable <<interface>>
+    DataBaseable <<interface>>
+    ConferenceController <<abstract>>
+    DataBaseController <<abstract>>
+    Mask <<abstract>>
+    DataBase <<abstract>>
+
+
+
+
 
 
 
