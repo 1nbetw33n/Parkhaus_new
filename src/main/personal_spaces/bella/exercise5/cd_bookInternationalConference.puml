@@ -106,7 +106,6 @@ package cd_bookInternationalConference {
     }
 
 
-
     class InternationalConferenceList {
     }
 
@@ -146,29 +145,22 @@ package cd_bookInternationalConference {
     DataBase <<abstract>>
 
 
-    BookingPageController <|-- BookingPageControllable
-    ConferenceController <|-- ConferenceControllable
-    SearchInternationalConferenceController <|-- SearchInternationalConferenceControllable
-    BookInternationalConferenceController <|-- BookInternationalConferenceControllable
-    DataBaseController <|-- DataBaseControllable
-    BookingPage <|-- BookingPage
-    Mask <|-- Maskable
-    SearchInternationalConferenceMask <|-- SearchInternationalConferenceMaskable
-    DataBase <|-- DataBaseable
-    DataBaseController <|-- DataBaseControllable
+    BookingPageControllable <|.. BookingPageController
+    ConferenceControllable <|.. ConferenceController
+    SearchInternationalConferenceControllable <|.. SearchInternationalConferenceController
+    BookInternationalConferenceControllable <|.. BookInternationalConferenceController
+    BookingPageable <|.. BookingPage
+    Maskable <|.. Mask
+    SearchInternationalConferenceMaskable <|.. SearchInternationalConferenceMask
+    BookInternationalConferenceMaskable <|.. BookInternationalConferenceMask
+    DataBaseable <|.. DataBase
+    DataBaseControllable <|.. DataBaseController
     Mask <|-- BookInternationalConferenceMask
     Mask <|-- SearchInternationalConferenceMask
     DataBase <|-- InternationalConferenceDataBase
     DataBase <|-- VisaDataBase
-
-
-
-
-
-
-
-
-
+    DataBaseController <|-- InternationalConferenceDataBaseController
+    DataBaseController <|-- VisaDataBaseController
 
 }
 @enduml
