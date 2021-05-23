@@ -146,6 +146,22 @@ package cd_bookInternationalConference {
     DataBase <<abstract>>
 
 
+    BookingPageController <|-- BookingPageControllable
+    ConferenceController <|-- ConferenceControllable
+    SearchInternationalConferenceController <|-- SearchInternationalConferenceControllable
+    BookInternationalConferenceController <|-- BookInternationalConferenceControllable
+    DataBaseController <|-- DataBaseControllable
+    BookingPage <|-- BookingPage
+    Mask <|-- Maskable
+    SearchInternationalConferenceMask <|-- SearchInternationalConferenceMaskable
+    DataBase <|-- DataBaseable
+    DataBaseController <|-- DataBaseControllable
+    Mask <|-- BookInternationalConferenceMask
+    Mask <|-- SearchInternationalConferenceMask
+    DataBase <|-- InternationalConferenceDataBase
+    DataBase <|-- VisaDataBase
+
+
 
 
 
