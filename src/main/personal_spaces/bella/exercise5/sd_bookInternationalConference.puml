@@ -43,8 +43,9 @@
     bP -> bICC : start booking mask
     bICC -> bICM : show booking mask
     m <-- bICM : booking mask
-    m -> bICC : enter credentials (x)
-    m -> bICC : start booking process (x)
+    m -> bICM : enter credentials (x)
+    m -> bICM : start booking process (x)
+    bICC <- bICM : start booking x
     vDC <- bICC : start sql query
     vDC -> vDB : sql query
     vDC <- vDB : return results
