@@ -1,44 +1,46 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class DataBaseServlet {
-}
+
 
     package Parkhaus {
+
+        abstract class DataBaseServlet {
+        }
 
         package cd_FilterHelpPage {
 
 
-             interface helpPageIF {
+             interface HelpPageIF {
                 startHelpPage()
              }
 
-             class helpPage {
-                 + startHelpPage()
+             class HelpPage {
+                 +startHelpPage()
              }
 
 
              'the parameters makes the method failsafe
-             interface helpSearchMaskIF {
-                 sowHelpSearchMask(boolean b): helpSearchMask
+             interface HelpSearchMaskIF {
+                 sowHelpSearchMask(boolean b): HelpSearchMask
                  enterKeywords(x)
                  startSearchForKeywords(x)
                  listOfResultsInHTML()
              }
 
-             class helpSearchMask {
-                 +showHelpSearchMask(boolean b): helpSearchMask
+             class HelpSearchMask {
+                 +showHelpSearchMask(boolean b): HelpSearchMask
                  +enterKeywords(String x)
                  +startSearchForKeywords(String x)
                  +listOfResultsInHTML()
              }
 
 
-             interface helpPageControllerIF {
+             interface HelpPageControllerIF {
                  startHelpMask()
              }
 
-             class helpPageController {
+             class HelpPageController {
                  +startHelpMask()
              }
 
@@ -53,13 +55,12 @@ abstract class DataBaseServlet {
                   -searchResultList: SearchResultList
                   +startSearchingKeyword(String x)
                   +sendResults(): SearchResultList
-                  +asHTML())
+                  +asHTML()
              }
 
 
              interface FAQDatabaseServletIF {
                   sqlQuery(): list<Object>
-
              }
 
              class FAQDataBaseServlet {
@@ -71,17 +72,24 @@ abstract class DataBaseServlet {
              }
 
 
+             HelpPageIF <<interface>>
+             HelpSearchMaskIF <<interface>>
+             HelpPageControllerIF <<interface>>
+             FAQDatabaseServletControllerIF <<interface>>
+             FAQDatabaseServletIF <<interface>>
+             DataBaseServlet <<abstract>>
 
-
-
-
-
-
-
-
-
+             HelpPageIF <|.. HelpPage
+             HelpSearchMaskIF <|.. HelpSearchMask
+             HelpPageControllerIF <|.. HelpPageController
+             FAQDatabaseServletControllerIF <|.. FAQDatabaseServletController
+             FAQDatabaseServletIF  <|.. FAQDataBaseServlet
+             DataBaseServlet <|-- FAQDataBaseServlet
 
          }
+    }
+    'created: 21.5.21: bella, lukas
+    'changed: 24.5.21: bella, lukas, rahgawi
 
 
 
