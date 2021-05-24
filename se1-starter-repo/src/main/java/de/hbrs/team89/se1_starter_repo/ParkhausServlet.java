@@ -84,11 +84,11 @@ public abstract class ParkhausServlet extends HttpServlet {
                 if ( params.length > 4 ){
                     String priceString = params[4];
                     if ( ! "_".equals( priceString ) ){
-                        // for JSON format skip over text and proceed to next integer
-                        float price = (float)new Scanner( priceString ).useDelimiter("\\D+").nextInt();
-                        price /= 100.0f;  // like Integer.parseInt( priceString ) / 100.0f;
-                        // store new sum in ServletContext
-                        getContext().setAttribute("sum"+NAME(), getPersistentSum() + price );
+                            // for JSON format skip over text and proceed to next integer
+                            float price = (float)new Scanner( priceString ).useDelimiter("\\D+").nextInt();
+                            price /= 100.0f;  // like Integer.parseInt( priceString ) / 100.0f;
+                            // store new sum in ServletContext
+                            getContext().setAttribute("sum"+NAME(), getPersistentSum() + price );
                     }
                 }
                 System.out.println( "leave," + oldCar );

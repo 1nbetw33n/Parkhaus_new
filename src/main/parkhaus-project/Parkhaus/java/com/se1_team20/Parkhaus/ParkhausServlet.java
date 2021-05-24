@@ -1,13 +1,21 @@
 package com.se1_team20.Parkhaus;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 
 @WebServlet("/ParkhausServlet")
-public class ParkhausServlet extends HttpServlet {
+public abstract class ParkhausServlet extends HttpServlet {
+
+    /* abstract methods, to be defined in subclasses */
+    abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
+    abstract int getMAX(); // maximum number of parking slots of a single parking level
+    abstract String getCONFIG(); // configuration of a single parking level
 
     final protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html");
@@ -64,6 +72,7 @@ public class ParkhausServlet extends HttpServlet {
 
         String[] params =           body.split(",");
         String event =              params[0];
+        String[] restParams =       Arrays.copyOfRange(params, 1, params.length);
 
         //block variables for ServletContexts of buttons, so we can do the math with them
         Double totalRevenue =       getTotalRevenue();
@@ -88,20 +97,27 @@ public class ParkhausServlet extends HttpServlet {
             averageRevenue = totalRevenue / ++totalCars;
 
             //stores variables in ServletContexts, so they will be returned when hitting the corresponding buttons
-            getApplication().setAttribute("total_revenue", totalRevenue);
-            getApplication().setAttribute("average_revenue", averageRevenue);
-            getApplication().setAttribute("total_cars", totalCars);
-            getApplication().setAttribute("get_bill", price);
-        }
+            getContext().setAttribute("total_revenue", totalRevenue);
+            getContext().setAttribute("average_revenue", averageRevenue);
+            getContext().setAttribute("total_cars", totalCars);
+            getContext().setAttribute("get_bill", price);
+
+        } else if ("enter".equals(event)) {
+            CarIF newCar = new Car( restParams );
+            cars().add( newCar );
+            System.out.println( "enter," + newCar );
+            // re-direct car to another parking lot
+            // out.println( locator( newCar ) );
+            }
     }
 
 
-    final private ServletContext getApplication(){ return getServletConfig().getServletContext();}
+    final private ServletContext getContext(){ return getServletConfig().getServletContext();}
 
 
     final private Double getTotalRevenue(){
         Double totalRevenue;
-        ServletContext application = getApplication();
+        ServletContext application = getContext();
         totalRevenue = (Double) application.getAttribute("total_revenue");
         totalRevenue = (totalRevenue == null) ? 0.0 : totalRevenue;
         return totalRevenue;
@@ -110,7 +126,7 @@ public class ParkhausServlet extends HttpServlet {
 
     final private Double getAverageRevenue(){
         Double averageRevenue;
-        ServletContext application = getApplication();
+        ServletContext application = getContext();
         averageRevenue = (Double) application.getAttribute("average_revenue");
         averageRevenue = (averageRevenue == null) ? 0. : averageRevenue;
         return averageRevenue;
@@ -119,7 +135,7 @@ public class ParkhausServlet extends HttpServlet {
 
     final private Long getTotalCars(){
         Long totalCars;
-        ServletContext application = getApplication();
+        ServletContext application = getContext();
         totalCars = (Long) application.getAttribute("total_cars");
         totalCars = (totalCars == null) ? 0 : totalCars;
         return totalCars;
@@ -128,7 +144,7 @@ public class ParkhausServlet extends HttpServlet {
 
     final private Double getBill(){
         Double bill;
-        ServletContext application = getApplication();
+        ServletContext application = getContext();
         bill = (Double) application.getAttribute("get_bill");
         bill = (bill == null) ? 0. : bill;
         return bill;
@@ -158,6 +174,27 @@ public class ParkhausServlet extends HttpServlet {
             }
         }
         return stringBuilder.toString();
+    }
+
+    /**
+     * @return the list of all cars stored in the servlet context so far
+     */
+    @SuppressWarnings("unchecked")
+    List<CarIF> cars(){
+        if ( getContext().getAttribute( "cars"+ getNAME() ) == null ){
+            getContext().setAttribute( "cars"+ getNAME(), new ArrayList<Car>() );
+        }
+        return (List<CarIF>) getContext().getAttribute( "cars"+ getNAME() );
+    }
+
+
+    /**
+     * TODO: replace this by your own function
+     * @return the number of the free parking lot to which the next incoming car will be directed
+     */
+    int locator( CarIF car ){
+        // numbers of parking lots start at 1, not zero
+        return 1 + (( cars().size() - 1 ) % this.getMAX());
     }
 
     final public void destroy(){ System.out.println("Server annihilated"); }
