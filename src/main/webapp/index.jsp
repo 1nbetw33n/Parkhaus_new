@@ -32,14 +32,14 @@
 				{
 				    "extra_class":"get_bill",
 				    "extra_inner":"Your Bill",
-				    "extra_popup":"Show hwo much you have to pay"
+				    "extra_popup_title":"Show hwo much you have to pay"
 				}
 		    ],
 		    "extra_charts":[
 		        {
 		            "extra_class":"my_chart",
 		            "extra_inner":"My Chart",
-		            "extra_popup":"Show my Chart"
+		            "extra_popup_title":"Show my Chart"
 		        }
 		    ]
 	    }
