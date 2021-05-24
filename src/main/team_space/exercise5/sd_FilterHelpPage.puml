@@ -6,7 +6,7 @@ actor customer
 boundary helpPage
 boundary helpSearchMask
 control helpPageController
-control faqDatabaseController
+control faqDatabaseServletController
 entity faqDatabaseServlet
 
 
@@ -21,13 +21,13 @@ helpSearchMask <- helpPageController: show help mask
 customer <-- helpSearchMask: help search mask
 customer -> helpSearchMask: enter keyword/s (x)
 customer -> helpSearchMask: start search for keyword/s (x)
-helpSearchMask -> faqDatabaseController : start search for x
-faqDatabaseController -> faqDatabaseServlet: SQL-Query
-faqDatabaseServlet -> faqDatabaseController: sends results
-faqDatabaseController --> searchResultList: new
-searchResultList --> faqDatabaseController:
-faqDatabaseController -> faqDatabaseController : asHTML()
-faqDatabaseController --> helpSearchMask: list of results in HTML
+helpSearchMask -> faqDatabaseServletController : start search for x
+faqDatabaseServletController -> faqDatabaseServlet: SQL-Query
+faqDatabaseServlet -> faqDatabaseServletController: sends results
+faqDatabaseServletController --> searchResultList: new
+searchResultList --> faqDatabaseServletController:
+faqDatabaseServletController -> faqDatabaseServletController : asHTML()
+faqDatabaseServletController --> helpSearchMask: list of results in HTML
 helpSearchMask --> customer: filtered faqDatabase
 @enduml
 'created: 21.5.21: bella, lukas, rahgawi

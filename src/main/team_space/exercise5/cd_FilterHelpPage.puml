@@ -1,7 +1,8 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-package cd_FilterHelpPage {
+abstract class DataBaseServlet {
+}
 
     package Parkhaus {
 
@@ -9,38 +10,79 @@ package cd_FilterHelpPage {
 
 
              interface helpPageIF {
-                 + startHelpPage(): boolean
+                startHelpPage()
              }
 
              class helpPage {
-                 + startHelpPage(): boolean
+                 + startHelpPage()
+             }
+
+
+             'the parameters makes the method failsafe
+             interface helpSearchMaskIF {
+                 sowHelpSearchMask(boolean b): helpSearchMask
+                 enterKeywords(x)
+                 startSearchForKeywords(x)
+                 listOfResultsInHTML()
+             }
+
+             class helpSearchMask {
+                 +showHelpSearchMask(boolean b): helpSearchMask
+                 +enterKeywords(String x)
+                 +startSearchForKeywords(String x)
+                 +listOfResultsInHTML()
              }
 
 
              interface helpPageControllerIF {
-                 + showHelpMask(): boolean
+                 startHelpMask()
              }
 
              class helpPageController {
-                 + showHelpMask(): boolean
+                 +startHelpMask()
              }
 
 
-             interface helpSearchMaskIF {
-                 + getHelpSearchMask(boolean): helpSearchMask
-                 'Up to debate and change Lukas 21.05.21
+             interface FAQDatabaseServletControllerIF {
+                  startSearchingKeyword(String x)
+                  sendResults(): SearchResultList
+                  asHTML()
              }
 
-             class helpSearchMask {
-                 + getHelpSearchMask(boolean): helpSearchMask
+             class FAQDatabaseServletController {
+                  -searchResultList: SearchResultList
+                  +startSearchingKeyword(String x)
+                  +sendResults(): SearchResultList
+                  +asHTML())
              }
 
 
-             class faqDataBaseServlet
+             interface FAQDatabaseServletIF {
+                  sqlQuery(): list<Object>
+
+             }
+
+             class FAQDataBaseServlet {
+                  +sqlQuery()
+             }
+
+
+             class SearchResultList {
+             }
+
+
+
+
+
+
+
+
+
+
 
 
          }
 
-    }
+
 
 @enduml
