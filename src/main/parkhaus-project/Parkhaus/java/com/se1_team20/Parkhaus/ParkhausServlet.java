@@ -96,7 +96,7 @@ public abstract class ParkhausServlet extends HttpServlet {
             price = (price != null) ? price / 100 : price;
 
             //doing the math for the buttons
-            totalRevenue += price;
+            totalRevenue  += price;
             averageRevenue = totalRevenue / ++totalCars;
 
             //stores variables in ServletContexts, so they will be returned when hitting the corresponding buttons
