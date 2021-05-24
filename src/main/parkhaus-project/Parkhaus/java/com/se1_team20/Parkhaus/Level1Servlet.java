@@ -1,4 +1,4 @@
-package de.hbrs.team89.se1_starter_repo;
+package com.se1_team20.Parkhaus;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -14,17 +14,17 @@ import java.util.List;
 public class Level1Servlet extends ParkhausServlet {
 
     @Override
-    String NAME(){
+    String getNAME(){
         return "Level1";
     }
 
     @Override
-    int MAX(){ // maximum number of parking slots on level 1
+    int getMAX(){ // maximum number of parking slots on level 1
         return 11;
     }
 
     @Override
-    String config(){
+    String getCONFIG(){
         return ""; // use default config
         // Config Format is "Max, open_from, open_to, delay, simulation_speed"
         // e.g. return this.MAX() + ",5,23,100,10";  // TODO replace by your own parameters
