@@ -11,7 +11,7 @@ entity searchResultList
 
 autonumber
 
-customer -> helpPage: start help
+customer -> helpPage: start help page
 helpPage -> helpPageController: start help mask
 helpSearchMask <- helpPageController: show help mask
 customer <-- helpSearchMask: help search mask
