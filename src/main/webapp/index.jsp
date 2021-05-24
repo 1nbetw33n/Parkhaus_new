@@ -36,6 +36,11 @@
 				}
 		    ],
 		    "extra_charts":[
+		        {
+		            "extra_class":"my_chart",
+		            "extra_inner":"My Chart",
+		            "extra_popup":"Show my Chart"
+		        }
 		    ]
 	    }
 '>
