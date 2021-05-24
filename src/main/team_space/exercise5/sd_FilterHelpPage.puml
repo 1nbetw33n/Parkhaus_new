@@ -4,23 +4,31 @@
 
 actor customer
 boundary helpPage
-control helpPageController
 boundary helpSearchMask
-database faqDatabase
+control helpPageController
+control faqDatabaseController
+entity faqDatabase
+
+
+
 entity searchResultList
 
 autonumber
 
-customer -> helpPage: start help
+customer -> helpPage: start help page
 helpPage -> helpPageController: start help mask
 helpSearchMask <- helpPageController: show help mask
 customer <-- helpSearchMask: help search mask
 customer -> helpSearchMask: enter keyword/s (x)
 customer -> helpSearchMask: start search for keyword/s (x)
-helpPageController -> faqDatabase: SQL-Query
-faqDatabase -> helpPageController: sends results
-helpPageController --> searchResultList: new
-searchResultList --> helpPageController: asHTML()
-helpPageController --> helpSearchMask: list of results in HTML
+helpSearchMask -> faqDatabaseController : start search for x
+faqDatabaseController -> faqDatabase: SQL-Query
+faqDatabase -> faqDatabaseController: sends results
+faqDatabaseController --> searchResultList: new
+searchResultList --> faqDatabaseController:
+faqDatabaseController -> faqDatabaseController : asHTML()
+faqDatabaseController --> helpSearchMask: list of results in HTML
 helpSearchMask --> customer: filtered faqDatabase
 @enduml
+'created: 21.5.21: bella, lukas, rahgawi
+'edited: 24.5.21: bella, lukas

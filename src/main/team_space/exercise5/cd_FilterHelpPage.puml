@@ -3,40 +3,44 @@
 
 package cd_FilterHelpPage {
 
-    class parkhausController {
+    package Parkhaus {
+
+        package cd_FilterHelpPage {
+
+
+             interface helpPageIF {
+                 + startHelpPage(): boolean
+             }
+
+             class helpPage {
+                 + startHelpPage(): boolean
+             }
+
+
+             interface helpPageControllerIF {
+                 + showHelpMask(): boolean
+             }
+
+             class helpPageController {
+                 + showHelpMask(): boolean
+             }
+
+
+             interface helpSearchMaskIF {
+                 + getHelpSearchMask(boolean): helpSearchMask
+                 'Up to debate and change Lukas 21.05.21
+             }
+
+             class helpSearchMask {
+                 + getHelpSearchMask(boolean): helpSearchMask
+             }
+
+
+             class faqDataBaseServlet
+
+
+         }
 
     }
-
-    interface parkhausControllerIF {
-        + startHelp(): boolean
-    }
-
-    class helpPage {
-        + startHelpPage(): boolean
-    }
-
-    interface helpPageIF {
-        + startHelpPage(): boolean
-    }
-
-    class helpPageController {
-        + showHelpMask(): boolean
-    }
-
-    interface helpPageControllerIF {
-        + showHelpMask(): boolean
-    }
-
-    class helpSearchMask {
-        + getHelpSearchMask(boolean): helpSearchMask
-    }
-
-    interface helpSearchMaskIF {
-        + getHelpSearchMask(boolean): helpSearchMask
-        'Up to debate and change Lukas 21.05.21
-
-    }
-
-}
 
 @enduml
