@@ -7,7 +7,7 @@ boundary helpPage
 boundary helpSearchMask
 control helpPageController
 control faqDatabaseController
-entity faqDatabase
+entity faqDatabaseServlet
 
 
 
@@ -22,8 +22,8 @@ customer <-- helpSearchMask: help search mask
 customer -> helpSearchMask: enter keyword/s (x)
 customer -> helpSearchMask: start search for keyword/s (x)
 helpSearchMask -> faqDatabaseController : start search for x
-faqDatabaseController -> faqDatabase: SQL-Query
-faqDatabase -> faqDatabaseController: sends results
+faqDatabaseController -> faqDatabaseServlet: SQL-Query
+faqDatabaseServlet -> faqDatabaseController: sends results
 faqDatabaseController --> searchResultList: new
 searchResultList --> faqDatabaseController:
 faqDatabaseController -> faqDatabaseController : asHTML()
