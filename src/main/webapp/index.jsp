@@ -12,7 +12,7 @@
 </script><ccm-parkhaus-9-1-9
         key='{
 		    "name":"CarHome",
-		    "server_url":"http://localhost:8080/Parkhaus_war_exploded/ParkhausServlet",
+		    "server_url":"http://localhost:8080/Parkhaus_war_exploded/level1-servlet",
 		    "extra_buttons":[
 			    {
 				    "extra_class":"total_revenue",
