@@ -49,12 +49,15 @@ public abstract class ParkhausServlet extends HttpServlet {
             System.out.println("total_cars = " + totalCars);
 
             //prints the bill when a car leaves
-        } else if ("cmd".equals(command) && "get_bill".equals(param)){
+        } else if ("cmd".equals(command) && "get_bill".equals(param)) {
             Double bill = getBill();
             response.setContentType("text/html");
             final PrintWriter OUT = response.getWriter();
             OUT.println(bill + ",-");
             System.out.println("your bill = €" + bill);
+
+        } else if("cmd".equals(command) && "my_chart".equals(param)) {
+
 
             //command doesnt match with the specified commands above
         } else {
