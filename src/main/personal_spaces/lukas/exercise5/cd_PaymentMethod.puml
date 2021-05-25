@@ -1,0 +1,40 @@
+@startuml
+
+class InterNationalController {
+    + payConference() :
+}
+interface InterNationalControllerIF {
+    + payConference() :
+}
+
+class PaymentMask {
+    ~ startMask() :
+    ~ showConnection() :
+}
+interface PaymentMaskIF {
+    ~ startMask() :
+    ~ showConnection() :
+}
+
+class PaymentController {
+    ~ paymentRequest() :
+    ~ chooseOption(Integer) :
+    - serverRequest() : boolean
+
+}
+interface PaymentControllerIF {
+    ~ paymentRequest() :
+    ~ chooseOption(Integer) :
+    - serverRequest() : boolean
+
+}
+
+InterNationalControllerIF <|-- InterNationalController
+
+PaymentMaskIF <|-- PaymentMask
+
+PaymentControllerIF <|-- PaymentController
+
+
+
+@enduml
