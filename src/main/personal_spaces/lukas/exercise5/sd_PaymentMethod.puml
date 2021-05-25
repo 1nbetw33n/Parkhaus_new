@@ -1,0 +1,23 @@
+@startuml
+
+actor Customer
+control InterNationalController
+boundary PaymentMask
+control PaymentController
+entity VisaSepaServer
+
+autonumber
+
+Customer -> InterNationalController : Customer books specific conference
+InterNationalController -> PaymentController : sends paymentRequest()
+PaymentController -> PaymentMask : start PaymentMask
+PaymentMask --> Customer : show PaymentMask
+Customer -> PaymentController : chooses Sepa or Visa
+PaymentController -> VisaSepaServer : request Server Information
+VisaSepaServer -> PaymentController : sends Information to establish connection
+PaymentController -> PaymentMask : show established connection
+PaymentMask --> Customer : shows Server - Connection
+
+
+
+@enduml
