@@ -1,6 +1,6 @@
 @startuml
 
-title __minimized fsa__
+title **minimized fsa**
 [*] -right-> C
 
 C --> C : a
