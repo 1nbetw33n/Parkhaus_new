@@ -1,0 +1,20 @@
+@startuml
+
+title __minimized fsa__
+[*] -right-> C
+
+C --> C : a
+C --> D : b
+D --> D : a
+D --> E : b
+E --> E : a
+E --> E : b
+A --> C : a
+A --> B : b
+B --> A : a
+B --> E : b
+
+B -left-> [*]
+D -left-> [*]
+
+@enduml
