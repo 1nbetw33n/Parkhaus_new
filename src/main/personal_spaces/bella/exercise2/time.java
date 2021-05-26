@@ -13,7 +13,6 @@ public class time implements calculable_time{
     }
 
 
-
     public time calculate_time(final time TIME, final String OPERATOR) throws Exception{
         if (!(OPERATOR.equals("+")) || !(OPERATOR.equals("-"))){
             throw new Exception("illegal operation. only '+' and '-' permitted");
