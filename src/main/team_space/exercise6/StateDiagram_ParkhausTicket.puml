@@ -21,5 +21,6 @@ Ticket_Payment: do/ Print Ticket
 Ticket_Payment: exit/ Pay Ticket
 Ticket_Payment -> Leave_Parkhaus: customer leaves parkhaus
 Leave_Parkhaus: entry/ delete instance of ticket_String
+Leave_Parkhaus -> [*]
 
 @enduml
