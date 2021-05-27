@@ -1,24 +1,25 @@
 @startuml
-'https://plantuml.com/state-diagram
+title __Zustandsdiagramm Parkhaus-Ticket__
+state fork1 <<fork>>
+state fork2 <<fork>>
 
-scale 350 width
-[*] --> NotShooting
+[*] --> fork1: Drive in Parkhaus
+fork1 --> Ticket_Type: default customer
+fork1 --> Leave_Parkhaus: [Is "Firmenkunde" or "Abo"]
 
-state NotShooting {
-  [*] --> Idle
-  Idle --> Configuring : EvConfig
-  Configuring --> Idle : EvConfig
-}
+Ticket_Type -> fork2
+Ticket_Type: entry/ Display Options
+Ticket_Type: do/ Customer chooses Type (Time/Tages)
+fork2 -> Ticket_Time: default ticket
+fork2 -> Ticket_Payment: [Is Tagesticket]
 
-state Configuring {
-  [*] --> NewValueSelection
-  NewValueSelection --> NewValuePreview : EvNewValue
-  NewValuePreview --> NewValueSelection : EvNewValueRejected
-  NewValuePreview --> NewValueSelection : EvNewValueSaved
+Ticket_Time: entry/ start time
+Ticket_Time: exit/ stop time
+Ticket_Time -> Ticket_Payment: redirection to payment
+Ticket_Payment: entry/ calculate Price
+Ticket_Payment: do/ Print Ticket
+Ticket_Payment: exit/ Pay Ticket
+Ticket_Payment -> Leave_Parkhaus: customer leaves parkhaus
+Leave_Parkhaus: entry/ delete instance of ticket_String
 
-  state NewValuePreview {
-     State1 -> State2
-  }
-
-}
 @enduml
