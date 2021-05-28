@@ -10,7 +10,7 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/personal_spaces/bella/exercise3/java" />
+          <root url="file://$MODULE_DIR$/src/main/parkhaus-project/Parkhaus/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
         </sourceRoots>
       </configuration>
