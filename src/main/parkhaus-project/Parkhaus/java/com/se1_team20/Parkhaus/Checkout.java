@@ -21,4 +21,27 @@
 package com.se1_team20.Parkhaus;
 
 public class Checkout {
-}
+    double price;
+    int bill_Number;
+
+
+
+
+    public Checkout(double price, int bill_Number){
+        this.price       = price;
+        this.bill_Number = bill_Number;
+
+
+    }
+
+    public void setPrice() {
+
+
+    }
+
+
+
+
+
+
+    }
