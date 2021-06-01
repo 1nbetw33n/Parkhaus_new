@@ -20,16 +20,20 @@
 
 package com.se1_team20.Parkhaus;
 
+
+
+
 public class Checkout {
-    double price;
-    int bill_Number;
+
+double price;
+long bill_num;
+long duration;
 
 
 
 
-    public Checkout(double price, int bill_Number){
-        this.price       = price;
-        this.bill_Number = bill_Number;
+    public Checkout(double price, long bill_Number, long duration){
+
 
 
     }
@@ -40,8 +44,11 @@ public class Checkout {
     }
 
 
+   public double getPrice(double total_amount){
+
+    return total_amount;
+   }
 
 
 
-
-    }
+}
