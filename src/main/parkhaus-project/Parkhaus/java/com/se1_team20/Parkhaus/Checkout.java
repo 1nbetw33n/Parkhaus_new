@@ -21,7 +21,7 @@
 package com.se1_team20.Parkhaus;
 
 
-
+/* TODO: sollte die klasse eigene instanzvariablen haben? */
 
 public class Checkout {
 
