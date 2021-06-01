@@ -39,6 +39,7 @@ long duration;
     }
 
     /* TODO: sollte die checkout methode in der lage sein, den preis zu verändern? */
+    /* TODO: sollte die klasse checkout instanziierbar sein, oder eine helperklasse mit statischen methoden sein? */
     public void setPrice() {
 
 
