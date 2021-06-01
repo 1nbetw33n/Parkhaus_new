@@ -38,6 +38,7 @@ long duration;
 
     }
 
+    /* TODO: sollte die checkout methode in der lage sein, den preis zu verändern? */
     public void setPrice() {
 
 
@@ -48,6 +49,7 @@ long duration;
 
     return total_amount;
    }
+
 
 
 
