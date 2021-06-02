@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CheckoutServletTest {
 
     CheckoutServlet checkoutServlet = new CheckoutServlet();
-    ParkhausServlet level1Servlet = new Level1Servlet() {
+    ParkhausServlet level1Servlet = new Level1Servlet();
 
     Checkout checkout = new Checkout(3,55,10);
     double total_amount = 10;
@@ -57,10 +57,8 @@ class CheckoutServletTest {
         // CheckoutServlet uses ParkhausServlet -> Maybe implement Controller to gain Abstraction (up to you)
         // Very unsure how to implement this, because we cant work with Httprequest i think... We could outsource this into a function like cars()
         assertEquals(1,level1Servlet.cars());
-        checkoutServlet.checkout();
+//        checkoutServlet.checkout();
         assertEquals(0,level1Servlet.cars());
-
-
     }
 
     @Test
