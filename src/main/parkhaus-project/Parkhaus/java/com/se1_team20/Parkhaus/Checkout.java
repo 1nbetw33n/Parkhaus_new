@@ -29,7 +29,7 @@ public class Checkout {
     private double bill;    //Payment to be payed by the driver before checking out.
     long bill_num;   // Ticketnumber
     private long duration;   // Parkdauer
-
+    private String PaymentOption;
     //Saves the important information for every car.
     public Checkout(double price, long bill_Number, long duration){
 
@@ -54,7 +54,7 @@ public class Checkout {
     }
 
     public double getPrice(double total_amount){
-
+        total_amount= duration * price;  // Berechnung von gesamtpreis des Parkdauers
         return total_amount;
     }
 
@@ -71,7 +71,19 @@ public class Checkout {
     }
 
 
+    public void paymentOption(){        //Bezahlungsoptionen
+         switch(PaymentOption){
+             case "IBAN":
+                 System.out.println("Please give your IBAN:");
+            break;
+             case "CreditCardOption":
+                 System.out.println("PLease give your Cardnumber, the expiry Date and the security code of your Creditcard:");
+                break;
 
+         }
+
+
+    }
 
 
 
