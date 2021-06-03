@@ -55,7 +55,7 @@ public class CashUni {
                 .map(x -> x / kurse.stream()
                                             .filter(y -> y.ECTS > 5)
                                             .count())
-                .reduce(0, Double::sum);
+                                                    .reduce(0, Double::sum);
     }
 
 
