@@ -58,5 +58,4 @@ public class CashUni {
                                                     .reduce(0, Double::sum);
     }
 
-
 }
