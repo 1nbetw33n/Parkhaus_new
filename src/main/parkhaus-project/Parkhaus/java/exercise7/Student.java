@@ -20,16 +20,21 @@
 
 package exercise7;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Student {
 
     protected boolean istBerufstätig;
+    protected List<Kurs> kurse;
 
     public Student(boolean berufstätig , Kurs[] kurse){
-
+        this.istBerufstätig = berufstätig;
+        this.kurse = Arrays.asList(kurse);
     }
 
-    public void addKurs(){
-
+    public void addKurs(Kurs kurs){
+        kurse.add(kurs);
     }
 
 }

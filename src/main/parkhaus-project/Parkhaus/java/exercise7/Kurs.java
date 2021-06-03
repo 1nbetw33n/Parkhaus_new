@@ -23,11 +23,13 @@ package exercise7;
 public class Kurs {
 
     protected boolean hatZertifikat;
-    private int ECTS;
+    protected  int ECTS;
     public int gebühr;
 
     public Kurs(boolean zertifikat, int ects, int gebühr){
-
+        this.hatZertifikat = zertifikat;
+        this.ECTS = ects;
+        this.gebühr = gebühr;
     }
 
 }

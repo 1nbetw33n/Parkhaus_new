@@ -40,11 +40,20 @@ public class CashUni {
     }
 
     public int sumStuds(){
-        return 0;
+        return studs.stream()
+                .filter(x -> x.istBerufstätig)
+                .mapToInt(x -> x.kurse.stream()
+                        .map(y -> y.gebühr)
+                        .reduce(0, Integer::sum))
+                                .reduce(0, Integer::sum);
     }
 
-    public  double avg(){
-        return .0;
+    public double avg(){
+        return kurse.stream()
+                .filter(x -> x.ECTS > 5)
+                .mapToDouble(x -> x.gebühr)
+                .map(x -> x / kurse.size())
+                .reduce(0, Double::sum);
     }
 
 
