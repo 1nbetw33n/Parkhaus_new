@@ -46,12 +46,12 @@ class CashUniTest {
         this.counter = 0L;
         this.kurs1  = new Kurs(true, 6, 200);
         this.kurs2  = new Kurs(true, 9, 300);
-        this.kurs3  = new Kurs(false, 3, 100);
-        this.stud1    = new Student(true, List<Kurs>(this.kurs1, this.kurs2, this.kurs3));
-        this.stud2    = new Student(true, List<Kurs>(this.kurs1));
-        this.stud3    = new Student(false, List<Kurs>(this.kurs1, this.kurs3));
-        this.kurse = List<Kurs>(this.kurs1, this.kurs2, this.kurs3);
-        this.studs = List<Student>(this.stud1, this.stud2, this.stud3);
+        this.kurs3  = new Kurs(false, 3,100);
+        this.stud1  = new Student(true, List<Kurs>(this.kurs1, this.kurs2, this.kurs3));
+        this.stud2  = new Student(true, List<Kurs>(this.kurs1));
+        this.stud3  = new Student(false,List<Kurs>(this.kurs1, this.kurs3));
+        this.kurse  = List<>(this.kurs1, this.kurs2, this.kurs3);
+        this.studs  = List<>(this.stud1, this.stud2, this.stud3);
         this.cashUni  = new CashUni(this.kurse, this.studs);
     }
 
@@ -61,9 +61,9 @@ class CashUniTest {
         this.stud1    = null;
         this.stud2    = null;
         this.stud3    = null;
-        this.  kurs1  = null;
-        this.  kurs2  = null;
-        this.  kurs3  = null;
+        this.kurs1  = null;
+        this.kurs2  = null;
+        this.kurs3  = null;
         this.cashUni =  null;
         this.kurse = null;
         this.studs = null;
@@ -75,7 +75,7 @@ class CashUniTest {
 
     @Test
     void sumStuds() {
-        assertEquals(0, 0, "That's not working like it should! -"  + ++this.counter);
+        assertEquals(0, 0, "That's not working like it should! Try Again:) -"  + ++this.counter);
     }
 
     @Test
