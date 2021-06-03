@@ -28,7 +28,7 @@ public class CashUni {
     List<Kurs> kurse;
     List<Student> studs;
 
-    public CashUni(Kurs[] kurse, Student[] studs){
+    public CashUni(Kurs[] kurse, Student... studs){
         this.kurse = Arrays.asList(kurse);
         this.studs = Arrays.asList(studs);
     }
