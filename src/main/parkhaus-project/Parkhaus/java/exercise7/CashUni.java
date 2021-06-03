@@ -20,6 +20,7 @@
 
 package exercise7;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class CashUni {
@@ -27,9 +28,9 @@ public class CashUni {
     List<Kurs> kurse;
     List<Student> studs;
 
-    public CashUni(List<Kurs> kurse, List<Student> studs){
-        this.kurse = kurse;
-        this.studs = studs;
+    public CashUni(Kurs[] kurse, Student[] studs){
+        this.kurse = Arrays.asList(kurse);
+        this.studs = Arrays.asList(studs);
     }
 
     public int sumKurse(){
