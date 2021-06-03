@@ -52,7 +52,9 @@ public class CashUni {
         return kurse.stream()
                 .filter(x -> x.ECTS > 5)
                 .mapToDouble(x -> x.gebühr)
-                .map(x -> x / kurse.size())
+                .map(x -> x / kurse.stream()
+                                            .filter(y -> y.ECTS > 5)
+                                            .count())
                 .reduce(0, Double::sum);
     }
 
