@@ -22,13 +22,14 @@ package exercise7;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CashUniTest {
 
-    private Long counter;
+    private Long                   counter;
     private  Student             stud1;
     private  Student             stud2;
     private  Student             stud3;
@@ -72,8 +73,10 @@ class CashUniTest {
     }
 
     @Test
+    @DisplayName("tests CashUni.sumStuds()")
+    /* tests if, this returns correctly the sum of all course costs of all working students */
     void sumStuds() {
-        assertEquals(0, 0, "That's not working like it should! Try Again:) -"  + ++this.counter);
+        assertEquals(800, this.cashUni.sumStuds(), "That's not working like it should! Try Again:) -"  + ++this.counter);
     }
 
     @Test
