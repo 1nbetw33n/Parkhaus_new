@@ -20,14 +20,23 @@
 
 package exercise7;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class CashUni {
 
-    public CashUni(Kurs[] kurse, Student[] studs){
+    List<Kurs> kurse;
+    List<Student> studs;
 
+    public CashUni(Kurs[] kurse, Student[] studs){
+        this.kurse = Arrays.asList(kurse);
+        this.studs = Arrays.asList(studs);
     }
 
     public int sumKurse(){
-        return 0;
+        return kurse.stream()
+                .mapToInt(x -> x.gebühr)
+                .reduce(0, Integer::sum);
     }
 
     public int sumStuds(){
