@@ -17,6 +17,10 @@ import java.util.List;
 @WebServlet("/ParkhausServlet")
 public abstract class ParkhausServlet extends HttpServlet {
 
+    /**
+     * TODO: Funktional ParkhausServlet im arbeiten -> Wo? Welche berechnung braucht das?
+     */
+
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
     abstract int getMAX(); // maximum number of parking slots of a single parking level
