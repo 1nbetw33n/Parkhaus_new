@@ -29,7 +29,7 @@ public class Car implements CarIF {
     @Override
     public int duration()
     {
-        return (int)end() - (int)begin();
+        return Integer.parseInt(params[3]);
     }
 
     @Override
