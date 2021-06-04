@@ -26,13 +26,13 @@ public abstract class ParkhausServlet extends HttpServlet {
         response.setContentType("text/html");
 
         String[] requestParamString = request.getQueryString().split("=");
-        String command              = requestParamString[0];
-        String param                = requestParamString[1];
+        String command                     = requestParamString[0];
+        String param                          = requestParamString[1];
 
         //calculate total revenue for all cars
         if ("cmd".equals(command) && "total_revenue".equals(param)){
             response.setContentType("text/html");
-            Double totalRevenue  = getTotalRevenue();
+            Double totalRevenue   = getTotalRevenue();
             final PrintWriter OUT = response.getWriter();
             OUT.println(totalRevenue + ",-");
             System.out.println("total_revenue = €" + totalRevenue);
@@ -41,14 +41,14 @@ public abstract class ParkhausServlet extends HttpServlet {
         } else if ("cmd".equals(command) && "average_revenue".equals(param)) {
             response.setContentType("text/html");
             Double averageRevenue = getAverageRevenue();
-            final PrintWriter OUT = response.getWriter();
+            final PrintWriter OUT    = response.getWriter();
             OUT.println(averageRevenue + ",-");
             System.out.println("average_revenue = €" + averageRevenue);
 
             //count all cars that leaves the parkhaus
         } else if ("cmd".equals(command) && "total_cars".equals(param)) {
             response.setContentType("text/html");
-            Long totalCars        = getTotalCars();
+            Long totalCars             = getTotalCars();
             final PrintWriter OUT = response.getWriter();
             OUT.println(totalCars);
             System.out.println("total_cars = " + totalCars);
@@ -56,7 +56,7 @@ public abstract class ParkhausServlet extends HttpServlet {
             //prints the bill when a car leaves
         } else if ("cmd".equals(command) && "get_bill".equals(param)) {
             response.setContentType("text/html");
-            Double bill           = getBill();
+            Double bill                   = getBill();
             final PrintWriter OUT = response.getWriter();
             OUT.println(bill + ",-");
             System.out.println("your bill = €" + bill);
@@ -74,7 +74,7 @@ public abstract class ParkhausServlet extends HttpServlet {
         response.setContentType("text/html");
 
         //getting the String containing of: event, nr, begin, duration, price, ticket, color, slot
-        String body              = getBody(request);
+        String body                       = getBody(request);
         System.out.println(body);
 
         String[] params               =           body.split(",");
