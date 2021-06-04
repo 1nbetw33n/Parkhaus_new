@@ -1,12 +1,15 @@
 package com.se1_team20.Parkhaus;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 
 
 
@@ -23,13 +26,13 @@ public abstract class ParkhausServlet extends HttpServlet {
         response.setContentType("text/html");
 
         String[] requestParamString = request.getQueryString().split("=");
-        String command              = requestParamString[0];
-        String param                = requestParamString[1];
+        String command                     = requestParamString[0];
+        String param                          = requestParamString[1];
 
         //calculate total revenue for all cars
         if ("cmd".equals(command) && "total_revenue".equals(param)){
             response.setContentType("text/html");
-            Double totalRevenue  = getTotalRevenue();
+            Double totalRevenue   = getTotalRevenue();
             final PrintWriter OUT = response.getWriter();
             OUT.println(totalRevenue + ",-");
             System.out.println("total_revenue = €" + totalRevenue);
@@ -38,14 +41,14 @@ public abstract class ParkhausServlet extends HttpServlet {
         } else if ("cmd".equals(command) && "average_revenue".equals(param)) {
             response.setContentType("text/html");
             Double averageRevenue = getAverageRevenue();
-            final PrintWriter OUT = response.getWriter();
+            final PrintWriter OUT    = response.getWriter();
             OUT.println(averageRevenue + ",-");
             System.out.println("average_revenue = €" + averageRevenue);
 
             //count all cars that leaves the parkhaus
         } else if ("cmd".equals(command) && "total_cars".equals(param)) {
             response.setContentType("text/html");
-            Long totalCars        = getTotalCars();
+            Long totalCars             = getTotalCars();
             final PrintWriter OUT = response.getWriter();
             OUT.println(totalCars);
             System.out.println("total_cars = " + totalCars);
@@ -53,7 +56,7 @@ public abstract class ParkhausServlet extends HttpServlet {
             //prints the bill when a car leaves
         } else if ("cmd".equals(command) && "get_bill".equals(param)) {
             response.setContentType("text/html");
-            Double bill           = getBill();
+            Double bill                   = getBill();
             final PrintWriter OUT = response.getWriter();
             OUT.println(bill + ",-");
             System.out.println("your bill = €" + bill);
@@ -71,20 +74,20 @@ public abstract class ParkhausServlet extends HttpServlet {
         response.setContentType("text/html");
 
         //getting the String containing of: event, nr, begin, duration, price, ticket, color, slot
-        String body = getBody(request);
+        String body                       = getBody(request);
         System.out.println(body);
 
-        String[] params =           body.split(",");
-        String event =              params[0];
-        String[] restParams =       Arrays.copyOfRange(params, 1, params.length);
+        String[] params               =  body.split(",");
+        String event                     =  params[0];
+        String[] restParams         =  Arrays.copyOfRange(params, 1, params.length);
 
         //block variables for ServletContexts of buttons, so we can do the math with them
-        Double totalRevenue =       getTotalRevenue();
-        Double averageRevenue =     getAverageRevenue();
-        Long totalCars =            getTotalCars();
+        Double totalRevenue       = getTotalRevenue();
+        Double averageRevenue  = getAverageRevenue();
+        Long totalCars                  = getTotalCars();
 
         StringBuilder priceString = new StringBuilder();
-        Double price  =             0.;
+        Double price                     = 0.;
 
         //when a car leaves the parkhaus the following will happen
         if ("leave".equals(event)){
@@ -97,7 +100,7 @@ public abstract class ParkhausServlet extends HttpServlet {
             price = (price != null) ? price / 100 : price;
 
             //doing the math for the buttons
-            totalRevenue  += price;
+            totalRevenue   += price;
             averageRevenue = totalRevenue / ++totalCars;
 
             //stores variables in ServletContexts, so they will be returned when hitting the corresponding buttons
@@ -122,8 +125,8 @@ public abstract class ParkhausServlet extends HttpServlet {
     final private Double getTotalRevenue(){
         Double totalRevenue;
         ServletContext application = getContext();
-        totalRevenue               = (Double) application.getAttribute("total_revenue");
-        totalRevenue               = (totalRevenue == null) ? 0.0 : totalRevenue;
+        totalRevenue                     = (Double) application.getAttribute("total_revenue");
+        totalRevenue                     = (totalRevenue == null) ? 0.0 : totalRevenue;
         return totalRevenue;
     }
 
@@ -131,8 +134,8 @@ public abstract class ParkhausServlet extends HttpServlet {
     final private Double getAverageRevenue(){
         Double averageRevenue;
         ServletContext application = getContext();
-        averageRevenue             = (Double) application.getAttribute("average_revenue");
-        averageRevenue             = (averageRevenue == null) ? 0. : averageRevenue;
+        averageRevenue                = (Double) application.getAttribute("average_revenue");
+        averageRevenue                = (averageRevenue == null) ? 0. : averageRevenue;
         return averageRevenue;
     }
 
@@ -145,8 +148,8 @@ public abstract class ParkhausServlet extends HttpServlet {
     final private Long getTotalCars(){
         Long totalCars;
         ServletContext application = getContext();
-        totalCars                  = (Long) application.getAttribute("total_cars");
-        totalCars                  = (totalCars == null) ? 0 : totalCars;
+        totalCars                            = (Long) application.getAttribute("total_cars");
+        totalCars                            = (totalCars == null) ? 0 : totalCars;
         return totalCars;
     }
 
@@ -154,14 +157,14 @@ public abstract class ParkhausServlet extends HttpServlet {
     final private Double getBill(){
         Double bill;
         ServletContext application = getContext();
-        bill                       = (Double) application.getAttribute("get_bill");
-        bill                       = (bill == null) ? 0. : bill;
+        bill                                      = (Double) application.getAttribute("get_bill");
+        bill                                      = (bill == null) ? 0. : bill;
         return bill;
     }
 
 
     final private static String getBody(HttpServletRequest request) throws IOException{
-        StringBuilder stringBuilder   = new StringBuilder();
+        StringBuilder stringBuilder        = new StringBuilder();
         BufferedReader bufferedReader = null;
 
         try{
@@ -170,7 +173,7 @@ public abstract class ParkhausServlet extends HttpServlet {
             if (inStream != null){
                 bufferedReader    = new BufferedReader(new InputStreamReader(inStream));
                 char[] charBuffer = new char[128];
-                int bytesRead     = -1;
+                int bytesRead        = -1;
 
                 while ((bytesRead = bufferedReader.read(charBuffer)) > 0){
                     stringBuilder.append(charBuffer, 0, bytesRead);
