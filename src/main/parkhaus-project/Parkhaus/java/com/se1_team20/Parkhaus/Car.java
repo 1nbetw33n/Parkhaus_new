@@ -26,12 +26,12 @@ public class Car implements CarIF {
 
     @Override
     public int duration() {
-        return Integer.parseInt(this.params[3]);
+        return 0;
     }
 
     @Override
     public int price() {
-        return Integer.parseInt(this.params[4]);
+        return 0;
     }
 
     @Override
