@@ -73,7 +73,7 @@ public abstract class ParkhausServlet extends HttpServlet {
     final protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        //getting the String containing of: event, nr, begin, duration, price, ticket, color, slot
+        //getting the String containing of: EVENT, NR, BEGIN, END, PRICE
         String body                       = getBody(request);
         System.out.println(body);
 
