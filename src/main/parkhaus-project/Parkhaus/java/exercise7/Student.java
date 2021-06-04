@@ -28,7 +28,7 @@ public class Student {
     protected boolean istBerufstätig;
     protected List<Kurs> kurse;
 
-    public Student(boolean berufstätig , Kurs[] kurse){
+    public Student(boolean berufstätig , Kurs... kurse){
         this.istBerufstätig = berufstätig;
         this.kurse = Arrays.asList(kurse);
     }

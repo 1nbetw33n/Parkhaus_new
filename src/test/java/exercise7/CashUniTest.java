@@ -22,63 +22,72 @@ package exercise7;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CashUniTest {
 
-    private Long counter;
-    private  Student   stud1;
-    private  Student   stud2;
-    private  Student   stud3;
-    private  Kurs        kurs1;
-    private  Kurs        kurs2;
-    private  Kurs        kurs3;
-    private List<Kurs> kurse;
-    private List<Student> studs;
-    private  CashUni cashUni;
+    private Long                   counter;
+    private  Student             stud1;
+    private  Student             stud2;
+    private  Student             stud3;
+    private  Kurs                  kurs1;
+    private  Kurs                  kurs2;
+    private  Kurs                  kurs3;
+    private Kurs[]                kurse;
+    private Student[]           studs;
+    private CashUni             cashUni;
 
     @BeforeEach
     void setUp() {
-        this.counter = 0L;
-        this.kurs1  = new Kurs(true, 6, 200);
-        this.kurs2  = new Kurs(true, 9, 300);
-        this.kurs3  = new Kurs(false, 3, 100);
-        this.stud1    = new Student(true, List<Kurs>(this.kurs1, this.kurs2, this.kurs3));
-        this.stud2    = new Student(true, List<Kurs>(this.kurs1));
-        this.stud3    = new Student(false, List<Kurs>(this.kurs1, this.kurs3));
-        this.kurse = List<Kurs>(this.kurs1, this.kurs2, this.kurs3);
-        this.studs = List<Student>(this.stud1, this.stud2, this.stud3);
+        this.counter   = 0L;
+        this.kurs1      = new Kurs(true, 6, 200);
+        this.kurs2      = new Kurs(true, 9, 300);
+        this.kurs3      = new Kurs(false, 3,100);
+        this.stud1      = new Student(true, new Kurs[]{this.kurs1, this.kurs2, this.kurs3});
+        this.stud2      = new Student(true, new Kurs[]{this.kurs1});
+        this.stud3      = new Student(false, new Kurs[]{this.kurs1, this.kurs3});
+        this.kurse      = new Kurs[]{this.kurs1, this.kurs2, this.kurs3};
+        this.studs      = new Student[]{this.stud1, this.stud2, this.stud3};
         this.cashUni  = new CashUni(this.kurse, this.studs);
     }
 
     @AfterEach
     void tearDown() {
-        this.counter = null;
-        this.stud1    = null;
-        this.stud2    = null;
-        this.stud3    = null;
-        this.  kurs1  = null;
-        this.  kurs2  = null;
-        this.  kurs3  = null;
+        this.counter  = null;
+        this.stud1     = null;
+        this.stud2     = null;
+        this.stud3     = null;
+        this.kurs1     = null;
+        this.kurs2     = null;
+        this.kurs3     = null;
         this.cashUni =  null;
-        this.kurse = null;
-        this.studs = null;
+        this.kurse     = null;
+        this.studs     = null;
     }
 
     @Test
+    @DisplayName("tests CashUni.sumKurse()")
+    /* tests, if the sum of all courses, without dups, is calculated correctly */
     void sumKurse() {
+        assertEquals(600, this.cashUni.sumKurse(), "That's not working like it should! Try Again:) -"  + ++this.counter);
+
     }
 
     @Test
+    @DisplayName("tests CashUni.sumStuds()")
+    /* tests if, this calculates correctly the sum of all course costs of all working students */
     void sumStuds() {
-        assertEquals(0, 0, "That's not working like it should! -"  + ++this.counter);
+        assertEquals(800, this.cashUni.sumStuds(), "That's not working like it should! Try Again:) -"  + ++this.counter);
     }
 
     @Test
+    @DisplayName("tests CashUni.avg()")
+    /* tests, if this calculates correctly the average costs of all course with ECTS > 5 */
     void avg() {
+        assertEquals(250, this.cashUni.avg(), "That's not working like it should! Try Again:) -"  + ++this.counter);
     }
+
 }
