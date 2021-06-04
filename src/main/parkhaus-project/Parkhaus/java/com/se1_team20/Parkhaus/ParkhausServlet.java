@@ -77,17 +77,17 @@ public abstract class ParkhausServlet extends HttpServlet {
         String body                       = getBody(request);
         System.out.println(body);
 
-        String[] params               =           body.split(",");
-        String event                     =              params[0];
-        String[] restParams         =       Arrays.copyOfRange(params, 1, params.length);
+        String[] params               =  body.split(",");
+        String event                     =  params[0];
+        String[] restParams         =  Arrays.copyOfRange(params, 1, params.length);
 
         //block variables for ServletContexts of buttons, so we can do the math with them
-        Double totalRevenue       =       getTotalRevenue();
-        Double averageRevenue  =     getAverageRevenue();
-        Long totalCars                  =            getTotalCars();
+        Double totalRevenue       = getTotalRevenue();
+        Double averageRevenue  = getAverageRevenue();
+        Long totalCars                  = getTotalCars();
 
         StringBuilder priceString = new StringBuilder();
-        Double price                     =             0.;
+        Double price                     = 0.;
 
         //when a car leaves the parkhaus the following will happen
         if ("leave".equals(event)){
