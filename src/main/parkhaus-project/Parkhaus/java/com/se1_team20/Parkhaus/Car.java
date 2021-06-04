@@ -23,19 +23,19 @@ public class Car implements CarIF {
     @Override
     public long end()
     {
-        return Long.parseLong(params[3]);
+        return Long.parseLong(params[2]);
     }
 
     @Override
     public int duration()
     {
-        return Integer.parseInt(this.params[4]);
+        return (int)end() - (int)begin();
     }
 
     @Override
     public int price()
     {
-        return Integer.parseInt(this.params[5]);
+        return Integer.parseInt(this.params[3]);
     }
 
     @Override
