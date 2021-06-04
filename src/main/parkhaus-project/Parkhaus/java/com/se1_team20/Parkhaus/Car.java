@@ -23,13 +23,13 @@ public class Car implements CarIF {
     @Override
     public long end()
     {
-        return Long.parseLong(params[2]);
+        return (this.params[0].equals("leave")) ?  Long.parseLong(params[2]) : duration() - begin();
     }
 
     @Override
     public int duration()
     {
-        return Integer.parseInt(params[3]);
+        return  Integer.parseInt(params[3]);
     }
 
     @Override
