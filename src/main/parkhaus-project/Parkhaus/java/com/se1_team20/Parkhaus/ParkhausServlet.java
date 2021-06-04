@@ -136,10 +136,10 @@ public abstract class ParkhausServlet extends HttpServlet {
         return averageRevenue;
     }
 
-    /*
-        Variable zum speichern von Autos ist unnötig, wegen Stream()
-        Für 7.3 Ansatz
-        TODO: Veränderung von getTotalCars(), sodass keine eigene Variable benötigt wird.
+    /**
+     * Variable zum speichern von Autos ist unnötig, wegen Stream()
+     *   Für 7.3 Ansatz
+     *   TODO: Veränderung von getTotalCars(), sodass keine eigene Variable benötigt wird.
      */
 
     final private Long getTotalCars(){
