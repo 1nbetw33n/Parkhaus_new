@@ -11,12 +11,12 @@ public class Car implements CarIF {
 
     @Override
     public int nr() {
-        return 0;
+        return Integer.parseInt(params[1]);
     }
 
     @Override
     public long begin() {
-        return 0;
+        return Long.parseLong(params[2]);
     }
 
     @Override
