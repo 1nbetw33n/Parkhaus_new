@@ -73,7 +73,6 @@ class CashUniTest {
     /* tests, if the sum of all courses, without dups, is calculated correctly */
     void sumKurse() {
         assertEquals(600, this.cashUni.sumKurse(), "That's not working like it should! Try Again:) -"  + ++this.counter);
-
     }
 
     @Test
