@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServlet;
 @WebServlet("/CheckoutServlet")
 public class CheckoutServlet extends HttpServlet {
 
-    /**
+    /*
      *  Checkout Servlet soll:
      *  Checkout Klasse verwenden um eine Oberfläche anzuzeigen (im Browser -> index.jsp ruft dieses dann auf)
      *  Die Berechnungen finden in Checkout statt -> keine Berechnungen im Servlet - Lukas

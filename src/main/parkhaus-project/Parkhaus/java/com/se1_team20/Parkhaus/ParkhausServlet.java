@@ -143,18 +143,10 @@ public abstract class ParkhausServlet extends HttpServlet {
         return averageRevenue;
     }
 
-    /**
-     * Variable zum speichern von Autos ist unnötig, wegen Stream()
-     *   Für 7.3 Ansatz
-     *   TODO: Veränderung von getTotalCars(), sodass keine eigene Variable benötigt wird.
-     */
 
-    final private Long getTotalCars(){
-        Long totalCars;
-        ServletContext application = getContext();
-        totalCars                            = (Long) application.getAttribute("total_cars");
-        totalCars                            = (totalCars == null) ? 0 : totalCars;
-        return totalCars;
+    final private Long getTotalCars()
+    {
+        return (long) cars().size();
     }
 
 

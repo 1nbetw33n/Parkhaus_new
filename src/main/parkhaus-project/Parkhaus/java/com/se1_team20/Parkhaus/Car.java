@@ -3,8 +3,11 @@ package com.se1_team20.Parkhaus;
 import java.util.Arrays;
 
 public class Car implements CarIF {
+
     String[] params;
-    public Car( String[] params ){
+
+    public Car( String[] params )
+    {
         this.params = params;
     }
 
