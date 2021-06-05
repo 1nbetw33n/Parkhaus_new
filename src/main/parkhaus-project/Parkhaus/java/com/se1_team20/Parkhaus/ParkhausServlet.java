@@ -19,6 +19,8 @@ public abstract class ParkhausServlet extends HttpServlet {
 
     /**
      * TODO: Funktional ParkhausServlet im arbeiten -> Wo? Welche berechnung braucht das?
+     * TODO: evaluate cars()
+     * cars() stores all initialized cars and not just the ones entered
      */
 
     /* abstract methods, to be defined in subclasses */
@@ -65,7 +67,9 @@ public abstract class ParkhausServlet extends HttpServlet {
             OUT.println(bill + ",-");
             System.out.println("your bill = €" + bill);
 
+            //displays the chart
         } else if("cmd".equals(command) && "my_chart".equals(param)) {
+            /* TODO: needs to be implementing somewhere in the future */
 
             //command doesnt match with the specified commands above
         } else {
@@ -93,6 +97,7 @@ public abstract class ParkhausServlet extends HttpServlet {
         StringBuilder priceString = new StringBuilder();
         Double price                     = 0.;
 
+
         //when a car leaves the parkhaus the following will happen
         if ("leave".equals(event)){
             priceString.append(params[4]);
@@ -105,7 +110,7 @@ public abstract class ParkhausServlet extends HttpServlet {
 
             //doing the math for the buttons
             totalRevenue   += price;
-            averageRevenue = totalRevenue / ++totalCars;
+            averageRevenue = totalRevenue / getTotalCars();
 
             //stores variables in ServletContexts, so they will be returned when hitting the corresponding buttons
             getContext().setAttribute("total_revenue", totalRevenue);
@@ -123,10 +128,10 @@ public abstract class ParkhausServlet extends HttpServlet {
     }
 
 
-    final private ServletContext getContext(){ return getServletConfig().getServletContext();}
+    final protected ServletContext getContext(){ return getServletConfig().getServletContext();}
 
 
-    final private Double getTotalRevenue(){
+    final protected Double getTotalRevenue(){
         Double totalRevenue;
         ServletContext application = getContext();
         totalRevenue                     = (Double) application.getAttribute("total_revenue");
@@ -135,7 +140,7 @@ public abstract class ParkhausServlet extends HttpServlet {
     }
 
 
-    final private Double getAverageRevenue(){
+    final protected Double getAverageRevenue(){
         Double averageRevenue;
         ServletContext application = getContext();
         averageRevenue                = (Double) application.getAttribute("average_revenue");
@@ -144,13 +149,13 @@ public abstract class ParkhausServlet extends HttpServlet {
     }
 
 
-    final private Long getTotalCars()
-    {
-        return (long) cars().size();
-    }
+    /* TODO: fix this
+     * currently returns all initialized cars and not just the ones inside the parking garage
+     */
+    final protected Long getTotalCars() {return (long) cars().size();}
 
 
-    final private Double getBill(){
+    final protected Double getBill(){
         Double bill;
         ServletContext application = getContext();
         bill                                      = (Double) application.getAttribute("get_bill");
@@ -159,7 +164,7 @@ public abstract class ParkhausServlet extends HttpServlet {
     }
 
 
-    final private static String getBody(HttpServletRequest request) throws IOException{
+    final protected static String getBody(HttpServletRequest request) throws IOException{
         StringBuilder stringBuilder        = new StringBuilder();
         BufferedReader bufferedReader = null;
 
@@ -211,7 +216,8 @@ public abstract class ParkhausServlet extends HttpServlet {
         return 1 + (( cars().size() - 1 ) % this.getMAX());
     }
 
-    final public void destroy(){ System.out.println("Server annihilated"); }
+
+    final public void destroy(){ System.out.println("Server annihilated. Nothing shall remain of this servant"); }
 
 }
 
