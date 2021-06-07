@@ -68,7 +68,7 @@ public interface ParkingServletable{
 
     ServletContext getContext();
 
-    default void destroy() {System.out.println("Server annihilated. Nothing shall remain of this servant");}
+    void destroy();
 
 
 }

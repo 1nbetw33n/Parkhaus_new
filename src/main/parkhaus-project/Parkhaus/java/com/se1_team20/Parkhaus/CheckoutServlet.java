@@ -28,9 +28,6 @@ import java.io.IOException;
 
 @WebServlet("/CheckoutServlet")
 public class CheckoutServlet extends ParkingServlet {
-
-    final private static long serialVersionUID = 1L;
-
     /*
      *  Checkout Servlet soll:
      *  Checkout Klasse verwenden um eine Oberfläche anzuzeigen (im Browser -> index.jsp ruft dieses dann auf)
@@ -44,6 +41,9 @@ public class CheckoutServlet extends ParkingServlet {
      *  TODO: Texteingabe?
      *  TODO: Zurück zum ParkhausServlet?
      */
+
+    final private static long serialVersionUID = 1L;
+
 
     public void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
 

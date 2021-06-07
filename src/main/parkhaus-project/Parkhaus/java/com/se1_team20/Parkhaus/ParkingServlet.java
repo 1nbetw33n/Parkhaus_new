@@ -36,5 +36,9 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
 
     final public ServletContext getContext() { return getServletConfig().getServletContext();}
 
+    final public void destroy(){
+        System.out.println("Server annihilated. Nothing shall remain of this servant");
+    }
+
 
 }
