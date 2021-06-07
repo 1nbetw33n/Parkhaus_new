@@ -73,7 +73,8 @@ public class CheckoutServlet extends HttpServlet {
                 bufferedReader.close();
             }
         }
-
+        return stringBuilder.toString();
+    }
 
 
 
