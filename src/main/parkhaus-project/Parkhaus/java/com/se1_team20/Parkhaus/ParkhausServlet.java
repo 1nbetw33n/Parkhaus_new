@@ -3,10 +3,10 @@ package com.se1_team20.Parkhaus;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @WebServlet("/ParkhausServlet")
-public abstract class ParkhausServlet extends HttpServlet {
+public abstract class ParkhausServlet extends ParkingServlet {
 
     /**
      * TODO: Funktional ParkhausServlet im arbeiten -> Wo? Welche berechnung braucht das?
@@ -28,7 +28,7 @@ public abstract class ParkhausServlet extends HttpServlet {
     abstract int getMAX(); // maximum number of parking slots of a single parking level
     abstract String getCONFIG(); // configuration of a single parking level
 
-    final protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    final public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html");
 
         String[] requestParamString = request.getQueryString().split("=");
@@ -78,11 +78,11 @@ public abstract class ParkhausServlet extends HttpServlet {
     }
 
 
-    final protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    final public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
         //getting the String containing of: EVENT, NR, BEGIN, END, PRICE
-        String body                       = getBody(request);
+        String body                       = ParkingServletable.getBody(request);
         System.out.println(body);
 
         String[] params               =  body.split(",");
@@ -128,7 +128,7 @@ public abstract class ParkhausServlet extends HttpServlet {
     }
 
 
-    final protected ServletContext getContext(){ return getServletConfig().getServletContext();}
+
 
 
     final protected Double getTotalRevenue(){
@@ -164,37 +164,6 @@ public abstract class ParkhausServlet extends HttpServlet {
     }
 
 
-    final protected static String getBody(HttpServletRequest request) throws IOException{
-        StringBuilder stringBuilder        = new StringBuilder();
-        BufferedReader bufferedReader = null;
-
-        try{
-            InputStream inStream = request.getInputStream();
-
-            if (inStream != null){
-                bufferedReader    = new BufferedReader(new InputStreamReader(inStream));
-                char[] charBuffer = new char[128];
-                int bytesRead        = -1;
-
-                while ((bytesRead = bufferedReader.read(charBuffer)) > 0){
-                    stringBuilder.append(charBuffer, 0, bytesRead);
-                }
-
-            } else {
-                stringBuilder.append("");
-            }
-
-        } catch (final IOException E) {
-            E.printStackTrace();
-
-        } finally {
-            if (bufferedReader != null){
-                bufferedReader.close();
-            }
-        }
-        return stringBuilder.toString();
-    }
-
     /**
      * @return the list of all cars stored in the servlet context so far
      */
@@ -216,8 +185,6 @@ public abstract class ParkhausServlet extends HttpServlet {
         return 1 + (( cars().size() - 1 ) % this.getMAX());
     }
 
-
-    final public void destroy(){ System.out.println("Server annihilated. Nothing shall remain of this servant"); }
 
 }
 

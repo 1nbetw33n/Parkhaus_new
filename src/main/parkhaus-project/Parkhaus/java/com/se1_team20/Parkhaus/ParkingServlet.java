@@ -20,5 +20,21 @@
 
 package com.se1_team20.Parkhaus;
 
-public class ParkingServlet {
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public abstract class ParkingServlet extends HttpServlet implements ParkingServletable{
+
+
+    public abstract void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException;
+
+    public abstract void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException;
+
+    public ServletContext getContext() { return getServletConfig().getServletContext();}
+
+
 }
