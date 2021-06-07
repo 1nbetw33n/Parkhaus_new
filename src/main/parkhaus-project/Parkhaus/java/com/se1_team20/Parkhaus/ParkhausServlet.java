@@ -128,9 +128,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
     }
 
 
-
-
-
     final protected Double getTotalRevenue(){
         Double totalRevenue;
         ServletContext application = getContext();

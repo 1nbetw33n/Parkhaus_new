@@ -29,13 +29,7 @@ import java.io.IOException;
 @WebServlet("/CheckoutServlet")
 public class CheckoutServlet extends ParkingServlet {
 
-    public void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    public void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
-
-    }
+    final private static long serialVersionUID = 1L;
 
     /*
      *  Checkout Servlet soll:
@@ -50,6 +44,22 @@ public class CheckoutServlet extends ParkingServlet {
      *  TODO: Texteingabe?
      *  TODO: Zurück zum ParkhausServlet?
      */
+
+    public void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    public void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
+        handleRequest(request, response);
+    }
+
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+    }
+
+
+
+
 
 
 }

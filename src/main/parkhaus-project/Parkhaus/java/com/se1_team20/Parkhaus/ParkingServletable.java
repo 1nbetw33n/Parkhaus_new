@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public interface ParkingServletable {
+public interface ParkingServletable{
 
     static String getBody(HttpServletRequest request) throws IOException {
         StringBuilder  stringBuilder  = new StringBuilder();
