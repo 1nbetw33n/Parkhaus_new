@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <body>
@@ -14,6 +14,11 @@
 		    "name":"CarHome",
 		    "server_url":"http://localhost:8080/Parkhaus_war_exploded/level1-servlet",
 		    "extra_buttons":[
+		        {
+		            "extra_class":"checkout",
+		            "extra_inner":"CHECKOUT",
+		            "extra_popup_title":"GO TO CHECKOUT"
+		        },
 			    {
 				    "extra_class":"total_revenue",
 				    "extra_inner":"Total Revenue",
