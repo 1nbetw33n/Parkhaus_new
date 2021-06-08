@@ -47,41 +47,46 @@ public abstract class ParkhausServlet extends ParkingServlet {
             final PrintWriter OUT = response.getWriter();
             OUT.println(totalRevenue + ",-");
             System.out.println("total_revenue = €" + totalRevenue);
-
-            //calculate average revenue per car
-        } else if ("cmd".equals(command) && "average_revenue".equals(param))
+        }
+        //calculate average revenue per car
+        else if ("cmd".equals(command) && "average_revenue".equals(param))
         {
             response.setContentType("text/html");
             Double averageRevenue = getAverageRevenue();
             final PrintWriter OUT    = response.getWriter();
             OUT.println(averageRevenue + ",-");
             System.out.println("average_revenue = €" + averageRevenue);
-
-            //count all cars that leaves the parkhaus
-        } else if ("cmd".equals(command) && "total_cars".equals(param))
+        }
+        //count all cars that leaves the parkhaus
+        else if ("cmd".equals(command) && "total_cars".equals(param))
         {
             response.setContentType("text/html");
             Long totalCars             = getTotalCars();
             final PrintWriter OUT = response.getWriter();
             OUT.println(totalCars);
             System.out.println("total_cars = " + totalCars);
-
-            //prints the bill when a car leaves
-        } else if ("cmd".equals(command) && "get_bill".equals(param))
+        }
+        //prints the bill when a car leaves
+        else if ("cmd".equals(command) && "get_bill".equals(param))
         {
             response.setContentType("text/html");
             Double bill                   = getBill();
             final PrintWriter OUT = response.getWriter();
             OUT.println(bill + ",-");
             System.out.println("your bill = €" + bill);
+        }
+        /* enters checkout interface */
+        else if ("cmd".equals(command) && "checkout".equals(param))
+        {
 
-            //displays the chart
-        } else if("cmd".equals(command) && "my_chart".equals(param))
+        }
+        //displays the chart
+        else if("cmd".equals(command) && "my_chart".equals(param))
         {
             /* TODO: needs to be implementing somewhere in the future */
-
-            //command doesnt match with the specified commands above
-        } else
+        }
+        //command doesnt match with the specified commands above
+        else
         {
             System.out.println("invalid Command: " + request.getQueryString());
         }
