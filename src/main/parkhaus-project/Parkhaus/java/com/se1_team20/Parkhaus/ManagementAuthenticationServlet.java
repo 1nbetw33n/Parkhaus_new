@@ -31,10 +31,11 @@ public class ManagementAuthenticationServlet extends ParkingServlet{
 
     final private static long serialVersionUID = 1L;
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    }
 
-    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
+
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         response.setContentType("text/html");
         final String[] PARAMS = request.getQueryString()
                                        .split("=");
@@ -45,17 +46,21 @@ public class ManagementAuthenticationServlet extends ParkingServlet{
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
 
         RequestDispatcher requestDispatcherObject = null;
-        if (CMD == null || PARAM == null || "".equals(CMD) || "".equals(PARAM)) {
+        if (CMD == null || PARAM == null || "".equals(CMD) || "".equals(PARAM))
+        {
             OUT.write("<p id='errMsg' style= color: red; font-size: larger: 'Enter USERNAME & PASSWORD and try again</p>");
             requestDispatcherObject = request.getRequestDispatcher("/index.jsp");
             requestDispatcherObject.include(request, response);
-        } else {
+        } else
+        {
             System.out.println("Username?= " + CMD + ", Password?= " + PARAM);
 
-            if ((CMD.equalsIgnoreCase("mana-gem-ent")) && (PARAM.equals("easy-pass-word-ABC-01"))) {
+            if ((CMD.equalsIgnoreCase("mana-gem-ent")) && (PARAM.equals("easy-pass-word-ABC-01")))
+            {
                 requestDispatcherObject = request.getRequestDispatcher("/ManagementServlet");
                 requestDispatcherObject.forward(request, response);
-            } else {
+            } else
+            {
                 OUT.write("<p id='errMsg style='color: red; font-size: larger;'<YOU DONT HAVE ACCESS PERMISSION!</p>");
                 requestDispatcherObject = request.getRequestDispatcher("/index.jsp");
                 requestDispatcherObject.include(request, response);

@@ -31,7 +31,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
     abstract int getMAX(); // maximum number of parking slots of a single parking level
     abstract String getCONFIG(); // configuration of a single parking level
 
-    final public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    final public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         response.setContentType("text/html");
 
         String[] requestParamString = request.getQueryString().split("=");
@@ -39,7 +40,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         String param                          = requestParamString[1];
 
         //calculate total revenue for all cars
-        if ("cmd".equals(command) && "total_revenue".equals(param)){
+        if ("cmd".equals(command) && "total_revenue".equals(param))
+        {
             response.setContentType("text/html");
             Double totalRevenue   = getTotalRevenue();
             final PrintWriter OUT = response.getWriter();
@@ -47,7 +49,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
             System.out.println("total_revenue = €" + totalRevenue);
 
             //calculate average revenue per car
-        } else if ("cmd".equals(command) && "average_revenue".equals(param)) {
+        } else if ("cmd".equals(command) && "average_revenue".equals(param))
+        {
             response.setContentType("text/html");
             Double averageRevenue = getAverageRevenue();
             final PrintWriter OUT    = response.getWriter();
@@ -55,7 +58,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
             System.out.println("average_revenue = €" + averageRevenue);
 
             //count all cars that leaves the parkhaus
-        } else if ("cmd".equals(command) && "total_cars".equals(param)) {
+        } else if ("cmd".equals(command) && "total_cars".equals(param))
+        {
             response.setContentType("text/html");
             Long totalCars             = getTotalCars();
             final PrintWriter OUT = response.getWriter();
@@ -63,7 +67,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
             System.out.println("total_cars = " + totalCars);
 
             //prints the bill when a car leaves
-        } else if ("cmd".equals(command) && "get_bill".equals(param)) {
+        } else if ("cmd".equals(command) && "get_bill".equals(param))
+        {
             response.setContentType("text/html");
             Double bill                   = getBill();
             final PrintWriter OUT = response.getWriter();
@@ -71,17 +76,20 @@ public abstract class ParkhausServlet extends ParkingServlet {
             System.out.println("your bill = €" + bill);
 
             //displays the chart
-        } else if("cmd".equals(command) && "my_chart".equals(param)) {
+        } else if("cmd".equals(command) && "my_chart".equals(param))
+        {
             /* TODO: needs to be implementing somewhere in the future */
 
             //command doesnt match with the specified commands above
-        } else {
+        } else
+        {
             System.out.println("invalid Command: " + request.getQueryString());
         }
     }
 
 
-    final public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    final public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         response.setContentType("text/html");
 
         //getting the String containing of: EVENT, NR, BEGIN, END, PRICE
@@ -102,7 +110,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
 
         //when a car leaves the parkhaus the following will happen
-        if ("leave".equals(event)){
+        if ("leave".equals(event))
+        {
             priceString.append(params[4]);
 
             //parsing String
@@ -121,7 +130,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
             getContext().setAttribute("total_cars", totalCars);
             getContext().setAttribute("get_bill", price);
 
-        } else if ("enter".equals(event)) {
+        } else if ("enter".equals(event))
+        {
             CarIF newCar = new Car( restParams );
             cars().add( newCar );
             System.out.println( "enter," + newCar );
@@ -131,7 +141,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
     }
 
 
-    final protected Double getTotalRevenue(){
+    final protected Double getTotalRevenue()
+    {
         Double totalRevenue;
         ServletContext application = getContext();
         totalRevenue                     = (Double) application.getAttribute("total_revenue");
@@ -140,7 +151,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
     }
 
 
-    final protected Double getAverageRevenue(){
+    final protected Double getAverageRevenue()
+    {
         Double averageRevenue;
         ServletContext application = getContext();
         averageRevenue                = (Double) application.getAttribute("average_revenue");
@@ -155,7 +167,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
     final protected Long getTotalCars() {return (long) cars().size();}
 
 
-    final protected Double getBill(){
+    final protected Double getBill()
+    {
         Double bill;
         ServletContext application = getContext();
         bill                                      = (Double) application.getAttribute("get_bill");
@@ -168,8 +181,10 @@ public abstract class ParkhausServlet extends ParkingServlet {
      * @return the list of all cars stored in the servlet context so far
      */
     @SuppressWarnings("unchecked")
-    List<CarIF> cars(){
-        if ( getContext().getAttribute( "cars"+ getNAME() ) == null ){
+    List<CarIF> cars()
+    {
+        if ( getContext().getAttribute( "cars"+ getNAME() ) == null )
+        {
             getContext().setAttribute( "cars"+ getNAME(), new ArrayList<Car>() );
         }
         return (List<CarIF>) getContext().getAttribute( "cars"+ getNAME() );
@@ -180,7 +195,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
      * TODO: replace this by your own function
      * @return the number of the free parking lot to which the next incoming car will be directed
      */
-    int locator( CarIF car ){
+    int locator( CarIF car )
+    {
         // numbers of parking lots start at 1, not zero
         return 1 + (( cars().size() - 1 ) % this.getMAX());
     }

@@ -32,16 +32,11 @@ public class ManagementServlet extends ParkingServlet{
     final private static long serialVersionUID = 1L;
 
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    }
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        handleRequest(request, response);
-    }
-
-    public void handleRequest(HttpServletRequest request, HttpServletResponse response){
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+    {
         response.setContentType("text/html");
-
-
+        final String PARAM  = request.getQueryString().split("=")[0];
     }
 }
