@@ -39,7 +39,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         String command                     = requestParamString[0];
         String param                          = requestParamString[1];
 
-        //calculate total revenue for all cars
+        /* calculate total revenue for all cars */
         if ("cmd".equals(command) && "total_revenue".equals(param))
         {
             response.setContentType("text/html");
@@ -48,7 +48,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
             OUT.println(totalRevenue + ",-");
             System.out.println("total_revenue = €" + totalRevenue);
         }
-        //calculate average revenue per car
+        /* calculate average revenue per car */
         else if ("cmd".equals(command) && "average_revenue".equals(param))
         {
             response.setContentType("text/html");
@@ -57,7 +57,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
             OUT.println(averageRevenue + ",-");
             System.out.println("average_revenue = €" + averageRevenue);
         }
-        //count all cars that leaves the parkhaus
+        /* count all cars that leaves the parkhaus */
         else if ("cmd".equals(command) && "total_cars".equals(param))
         {
             response.setContentType("text/html");
@@ -66,7 +66,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
             OUT.println(totalCars);
             System.out.println("total_cars = " + totalCars);
         }
-        //prints the bill when a car leaves
+        /* prints the bill when a car leaves */
         else if ("cmd".equals(command) && "get_bill".equals(param))
         {
             response.setContentType("text/html");
@@ -80,12 +80,12 @@ public abstract class ParkhausServlet extends ParkingServlet {
         {
 
         }
-        //displays the chart
+        /* displays the chart */
         else if("cmd".equals(command) && "my_chart".equals(param))
         {
             /* TODO: needs to be implementing somewhere in the future */
         }
-        //command doesnt match with the specified commands above
+        /* command doesnt match with the specified commands above */
         else
         {
             System.out.println("invalid Command: " + request.getQueryString());
@@ -97,7 +97,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         response.setContentType("text/html");
 
-        //getting the String containing of: EVENT, NR, BEGIN, END, PRICE
+        /* getting the String containing of: [EVENT, NR, BEGIN, END, PRICE] */
         String body                       = ParkingServletable.getBody(request);
         System.out.println(body);
 
@@ -105,7 +105,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         String event                     =  params[0];
         String[] restParams         =  Arrays.copyOfRange(params, 1, params.length);
 
-        //block variables for ServletContexts of buttons, so we can do the math with them
+        /* block variables for ServletContexts of buttons, so we can do the math with them */
         Double totalRevenue       = getTotalRevenue();
         Double averageRevenue  = getAverageRevenue();
         Long totalCars                  = getTotalCars();
@@ -113,23 +113,22 @@ public abstract class ParkhausServlet extends ParkingServlet {
         StringBuilder priceString = new StringBuilder();
         Double price                     = 0.;
 
-
-        //when a car leaves the parkhaus the following will happen
+        /* when a car leaves the parkhaus the following will happen */
         if ("leave".equals(event))
         {
             priceString.append(params[4]);
 
-            //parsing String
+            /* parses String */
             price = (!(priceString.equals("_"))) ? Double.parseDouble(priceString.toString()) :  price;
 
-            //formats the price to xx.yy; e.g. makes 1234 to 12.34,-
+            /* formats the price to xx.yy; e.g. makes 1234 to 12.34,- */
             price = (price != null) ? price / 100 : price;
 
-            //doing the math for the buttons
+            /* doing the math for the buttons */
             totalRevenue   += price;
             averageRevenue = totalRevenue / getTotalCars();
 
-            //stores variables in ServletContexts, so they will be returned when hitting the corresponding buttons
+            /* stores variables in ServletContexts, so they will be returned when hitting the corresponding buttons */
             getContext().setAttribute("total_revenue", totalRevenue);
             getContext().setAttribute("average_revenue", averageRevenue);
             getContext().setAttribute("total_cars", totalCars);
@@ -140,8 +139,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
             CarIF newCar = new Car( restParams );
             cars().add( newCar );
             System.out.println( "enter," + newCar );
-            // re-direct car to another parking lot
-            // out.println( locator( newCar ) );
+            /* re-direct car to another parking lot
+            *  out.println( locator( newCar ) );
+            */
             }
     }
 
@@ -182,7 +182,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     }
 
 
-    /**
+    /*
      * @return the list of all cars stored in the servlet context so far
      */
     @SuppressWarnings("unchecked")
@@ -196,13 +196,13 @@ public abstract class ParkhausServlet extends ParkingServlet {
     }
 
 
-    /**
+    /*
      * TODO: replace this by your own function
      * @return the number of the free parking lot to which the next incoming car will be directed
      */
     int locator( CarIF car )
     {
-        // numbers of parking lots start at 1, not zero
+        /*  numbers of parking lots start at 1, not zero */
         return 1 + (( cars().size() - 1 ) % this.getMAX());
     }
 
