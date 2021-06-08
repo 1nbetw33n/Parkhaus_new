@@ -32,8 +32,6 @@ public class ManagementAuthenticationServlet extends ParkingServlet{
     final private static long serialVersionUID = 1L;
 
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
-
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");

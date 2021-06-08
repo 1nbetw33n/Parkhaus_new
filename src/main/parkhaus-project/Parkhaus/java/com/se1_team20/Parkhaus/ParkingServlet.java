@@ -29,15 +29,18 @@ import java.io.IOException;
 
 public abstract class ParkingServlet extends HttpServlet implements ParkingServletable{
 
+    /* default implementation */
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 
-    public abstract void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
-
+    /* default implementation */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { handleRequest(request, response); }
 
     public abstract void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
+    /* default implementation */
     final public ServletContext getContext() { return getServletConfig().getServletContext();}
 
+    /* default implementation */
     final public void destroy(){
         System.out.println("Server annihilated. Nothing shall remain of this servant");
     }

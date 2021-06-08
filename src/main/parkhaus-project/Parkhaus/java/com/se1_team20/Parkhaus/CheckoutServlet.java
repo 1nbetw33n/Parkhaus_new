@@ -45,13 +45,6 @@ public class CheckoutServlet extends ParkingServlet {
     final private static long serialVersionUID = 1L;
 
 
-    public void doGet(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException {}
-
-    public void doPost(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException
-    {
-        handleRequest(request, response);
-    }
-
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
