@@ -116,6 +116,14 @@ public abstract class ParkhausServlet extends ParkingServlet {
              */
             getContext().setAttribute("total_revenue", (getTotalRevenue() + (price / 100)));
             getContext().setAttribute("average_revenue", (getTotalRevenue() / getTotalCars()));
+            /*
+              * getContext().setAttribute(cars().stream()
+              *    .mapToDouble(x -> x.price())
+              *    .map(x -> x / (cars().stream()
+              *                              .count()))
+              *    .reduce(0, Double::sum)));
+              *
+             */
             getContext().setAttribute("total_cars", getTotalCars());
             getContext().setAttribute("get_bill", price);
         }
@@ -128,8 +136,12 @@ public abstract class ParkhausServlet extends ParkingServlet {
             /* re-direct car to another parking lot
             *  out.println( locator( newCar ) );
             */
+
         }
     }
+
+
+
 
 
     final protected Double getTotalRevenue()
