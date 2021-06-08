@@ -48,13 +48,14 @@ public class ManagementAuthenticationServlet extends ParkingServlet{
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         RequestDispatcher requestDispatcherObject = null;
 
-        /* checks for null or empty in */
+        /* checks entered input for null or "" */
         if (CMD == null || PARAM == null || "".equals(CMD) || "".equals(PARAM))
         {
             OUT.write("<p id='errMsg' style= color: red; font-size: larger: 'Enter USERNAME <u><b>AND</b></u> PASSWORD and try again</p>");
             requestDispatcherObject = request.getRequestDispatcher("/index.jsp");
             requestDispatcherObject.include(request, response);
         }
+        /* entered input =/= null or "" */
         else
         {
             System.out.println("Username?= " + CMD + ", Password?= " + PARAM);
