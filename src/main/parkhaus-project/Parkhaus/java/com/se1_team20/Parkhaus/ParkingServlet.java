@@ -32,7 +32,9 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
 
     public abstract void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
-    public abstract void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { handleRequest(request, response); }
+
+    public abstract void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
     final public ServletContext getContext() { return getServletConfig().getServletContext();}
 

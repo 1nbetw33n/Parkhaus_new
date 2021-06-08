@@ -1,14 +1,10 @@
 package com.se1_team20.Parkhaus;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 @WebServlet(name = "level1Servlet", value = "/level1-servlet")
 public class Level1Servlet extends ParkhausServlet {
@@ -31,5 +27,7 @@ public class Level1Servlet extends ParkhausServlet {
     }
 
 
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    }
 }

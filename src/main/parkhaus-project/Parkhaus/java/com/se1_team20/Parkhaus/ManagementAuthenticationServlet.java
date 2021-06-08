@@ -34,28 +34,35 @@ public class ManagementAuthenticationServlet extends ParkingServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        final String[] PARAMS = request.getQueryString().split("=");
-        final String CMD = PARAMS[0];
+        final String[] PARAMS = request.getQueryString()
+                                       .split("=");
+        final String CMD   = PARAMS[0];
         final String PARAM = PARAMS[1];
 
         final PrintWriter OUT = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
 
         RequestDispatcher requestDispatcherObject = null;
-        if (CMD == null || PARAM == null || "".equals(CMD) || "".equals(PARAM)){
+        if (CMD == null || PARAM == null || "".equals(CMD) || "".equals(PARAM)) {
             OUT.write("<p id='errMsg' style= color: red; font-size: larger: 'Enter USERNAME & PASSWORD and try again</p>");
             requestDispatcherObject = request.getRequestDispatcher("/index.jsp");
             requestDispatcherObject.include(request, response);
         } else {
             System.out.println("Username?= " + CMD + ", Password?= " + PARAM);
-        }
 
-            if ((CMD.equalsIgnoreCase("mana-gem-ent")) && (PARAM.equals("easy-pass-word-ABC-01"))){
+            if ((CMD.equalsIgnoreCase("mana-gem-ent")) && (PARAM.equals("easy-pass-word-ABC-01"))) {
                 requestDispatcherObject = request.getRequestDispatcher("/ManagementServlet");
+                requestDispatcherObject.forward(request, response);
+            } else {
+                OUT.write("<p id='errMsg style='color: red; font-size: larger;'<YOU DONT HAVE ACCESS PERMISSION!</p>");
+                requestDispatcherObject = request.getRequestDispatcher("/index.jsp");
+                requestDispatcherObject.include(request, response);
             }
-
-
+        }
+        OUT.write("</div></body></html>");
+        OUT.close();
     }
+
 }
