@@ -30,7 +30,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public interface ParkingServletable{
-
+    /*
+    * default implementation for getBody
+     * since getBody is for all servlets the same, its enough to implement it here
+     */
     static String getBody(HttpServletRequest request) throws IOException {
         StringBuilder  stringBuilder  = new StringBuilder();
         BufferedReader bufferedReader = null;
