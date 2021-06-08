@@ -25,6 +25,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/ManagementServlet")
 public class ManagementServlet extends ParkingServlet{
@@ -34,9 +35,15 @@ public class ManagementServlet extends ParkingServlet{
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 
-    public void handleRequest(HttpServletRequest request, HttpServletResponse response)
-    {
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         final String PARAM  = request.getQueryString().split("=")[0];
+        final PrintWriter OUT = response.getWriter();
+        OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
+        OUT.write("<h2>Management Interface</h2>");
+        OUT.write("<p style='color: purple; font-size: large;'>" + PARAM + "</p>");
+        OUT.write("</div></body></html>");
+        OUT.close();
     }
+
 }
