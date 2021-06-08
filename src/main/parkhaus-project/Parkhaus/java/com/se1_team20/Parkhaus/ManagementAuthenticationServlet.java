@@ -32,6 +32,10 @@ public class ManagementAuthenticationServlet extends ParkingServlet{
     final private static long serialVersionUID = 1L;
 
 
+    /* TODO: Fix the authentication */
+    /* right now the authentication is broken, because whatever you enter you will be redirected to ManagementServlet;
+        also entering nothing and then hitting login button will result in redirection to ManagementServlet
+     */
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
@@ -43,9 +47,10 @@ public class ManagementAuthenticationServlet extends ParkingServlet{
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         RequestDispatcher requestDispatcherObject = null;
 
+        /* checks for null or empty in */
         if (CMD == null || PARAM == null || "".equals(CMD) || "".equals(PARAM))
         {
-            OUT.write("<p id='errMsg' style= color: red; font-size: larger: 'Enter USERNAME & PASSWORD and try again</p>");
+            OUT.write("<p id='errMsg' style= color: red; font-size: larger: 'Enter USERNAME <u><b>AND</b></u> PASSWORD and try again</p>");
             requestDispatcherObject = request.getRequestDispatcher("/index.jsp");
             requestDispatcherObject.include(request, response);
         }

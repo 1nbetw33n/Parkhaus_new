@@ -27,7 +27,7 @@
 					<span id="user">Username: </span><label for="userInput"></label><input id="userInput" type="text" name="username" />
 				</div>
 				<div id="passwordDiv" class="paddingBtm">
-					<span id="pass">Password: </span><input id="passInput" type="password" name="password" />
+					<span id="pass">Password: </span><label for="passInput"></label><input id="passInput" type="password" name="password" />
 				</div>
 				<div id="loginBtn">
 					<input id="Btn" type="submit" value="Login" />

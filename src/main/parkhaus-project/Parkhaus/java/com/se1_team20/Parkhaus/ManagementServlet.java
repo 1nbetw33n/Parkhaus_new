@@ -36,6 +36,8 @@ public class ManagementServlet extends ParkingServlet{
         response.setContentType("text/html");
         final String PARAM  = request.getParameter("username");
         final PrintWriter OUT = response.getWriter();
+
+        /* html  stuff to display the top part of the management view */
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         OUT.write("<h2>Management Interface</h2>");
         OUT.write("<p style='color: purple; font-size: large;'>" + "Logged in as: " + PARAM + "</p>");
