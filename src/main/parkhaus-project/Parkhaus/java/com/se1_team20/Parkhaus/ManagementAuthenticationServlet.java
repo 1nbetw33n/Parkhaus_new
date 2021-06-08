@@ -33,8 +33,9 @@ public class ManagementAuthenticationServlet extends ParkingServlet{
 
 
     /* TODO: Fix the authentication */
-    /* right now the authentication is broken, because whatever you enter you will be redirected to ManagementServlet;
-        also entering nothing and then hitting login button will result in redirection to ManagementServlet
+    /*
+     right now the authentication is broken, because whatever you enter you will be redirected to ManagementServlet;
+     also entering nothing and then hitting login button will result in redirection to ManagementServlet
      */
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -57,14 +58,16 @@ public class ManagementAuthenticationServlet extends ParkingServlet{
         else
         {
             System.out.println("Username?= " + CMD + ", Password?= " + PARAM);
+            /* in case username AND password are both correct*/
             if ((CMD.equalsIgnoreCase("Management")) && (PARAM.equals("easy-pass-word")))
             {
                 requestDispatcherObject = request.getRequestDispatcher("/ManagementServlet");
                 requestDispatcherObject.forward(request, response);
             }
+            /* in case username and/or password are incorrect */
             else
             {
-                OUT.write("<p id='errMsg style='color: red; font-size: larger;'<YOU DONT HAVE ACCESS PERMISSION!</p>");
+                OUT.write("<p id='errMsg style='color: red; font-size: larger;'<<b>Password and/or Username wrong! Try again</b></p>");
                 requestDispatcherObject = request.getRequestDispatcher("/index.jsp");
                 requestDispatcherObject.include(request, response);
             }
