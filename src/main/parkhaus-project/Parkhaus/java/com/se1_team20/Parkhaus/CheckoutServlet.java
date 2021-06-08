@@ -45,11 +45,11 @@ public class CheckoutServlet extends ParkingServlet {
     final private static long serialVersionUID = 1L;
 
 
-    public void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException {
 
     }
 
-    public void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException {
         handleRequest(request, response);
     }
 

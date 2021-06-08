@@ -30,9 +30,9 @@ import java.io.IOException;
 public abstract class ParkingServlet extends HttpServlet implements ParkingServletable{
 
 
-    public abstract void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException;
+    public abstract void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
-    public abstract void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException;
+    public abstract void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
     final public ServletContext getContext() { return getServletConfig().getServletContext();}
 

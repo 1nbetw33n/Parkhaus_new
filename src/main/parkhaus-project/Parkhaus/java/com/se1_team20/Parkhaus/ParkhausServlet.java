@@ -14,6 +14,9 @@ import java.util.List;
 
 
 
+/* TODO: inspect, if we need the @WebServlet annotation for ParkhausServlet */
+/* we decided to use the different levels to display the interface, do we need this servlet as an web servlet? */
+
 @WebServlet("/ParkhausServlet")
 public abstract class ParkhausServlet extends ParkingServlet {
 
