@@ -55,7 +55,7 @@ public class ManagementAuthenticationServlet extends ParkingServlet{
         {
             System.out.println("Username?= " + CMD + ", Password?= " + PARAM);
 
-            if ((CMD.equalsIgnoreCase("mana-gem-ent")) && (PARAM.equals("easy-pass-word-ABC-01")))
+            if ((CMD.equalsIgnoreCase("Management")) && (PARAM.equals("easy-pass-word")))
             {
                 requestDispatcherObject = request.getRequestDispatcher("/ManagementServlet");
                 requestDispatcherObject.forward(request, response);

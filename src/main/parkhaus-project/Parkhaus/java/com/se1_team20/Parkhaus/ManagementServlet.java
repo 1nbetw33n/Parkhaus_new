@@ -37,11 +37,11 @@ public class ManagementServlet extends ParkingServlet{
 
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        final String PARAM  = request.getQueryString().split("=")[0];
+        final String PARAM  = request.getParameter("username");
         final PrintWriter OUT = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         OUT.write("<h2>Management Interface</h2>");
-        OUT.write("<p style='color: purple; font-size: large;'>" + PARAM + "</p>");
+        OUT.write("<p style='color: purple; font-size: large;'>" + "Logged in as: " + PARAM + "</p>");
         OUT.write("</div></body></html>");
         OUT.close();
     }
