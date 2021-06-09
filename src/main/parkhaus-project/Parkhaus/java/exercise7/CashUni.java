@@ -58,4 +58,14 @@ public class CashUni {
                                                     .reduce(0, Double::sum);
     }
 
+    /* simplified way to write method */
+    /*
+    public OptionalDouble avg(){
+        return kurse.stream()
+                    .filter(x -> x.ECTS > 5)
+                    .mapToDouble(x -> x.gebühr)
+                    .average();
+    }
+     */
+
 }
