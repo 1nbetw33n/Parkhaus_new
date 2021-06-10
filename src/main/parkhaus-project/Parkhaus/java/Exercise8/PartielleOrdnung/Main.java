@@ -19,7 +19,7 @@ public class Main {
 
         PartialOrdering po=new PartialOrdering(arr);
 
-        Iterator<String> iter = po.iterator();
+        Iterator<String> iter =  po.iterator();
 
 
 
