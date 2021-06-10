@@ -4,15 +4,14 @@ import java.util.Iterator;
 
 class PartialOrdering implements Iterable<String> {
 
-    private String[][] order;
+    private final String[][] order;
 
     public PartialOrdering(String[][] order){
         this.order = order;
     }
 
     public Iterator<String> iterator(){
-
-        return new TopSortIterator( this.order );
+        return (Iterator<String>) new TopSortIterator( this.order );
     }
 
     public static PartialOrdering studentLife(){

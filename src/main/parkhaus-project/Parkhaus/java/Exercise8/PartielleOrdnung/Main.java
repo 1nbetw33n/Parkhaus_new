@@ -2,6 +2,8 @@ package Exercise8.PartielleOrdnung;
 
 import Exercise8.IllegalArgumentException;
 
+import java.util.Iterator;
+
 public class Main {
 
     public static void main(String[]args) throws IllegalArgumentException {
@@ -17,7 +19,7 @@ public class Main {
 
         PartialOrdering po=new PartialOrdering(arr);
 
-        Iterator<String>iter= (Iterator<String>) po.iterator();
+        Iterator<String> iter = po.iterator();
 
 
 
