@@ -1,5 +1,7 @@
 package Exercise8.PartielleOrdnung;
 
+import Exercise8.IllegalArgumentException;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,7 +47,12 @@ class TopSortIterator implements java.util.Iterator<String>{
 
         zwischenspeicher=temp.toArray(zwischenspeicher);
 
-        while(!sort.isWellSorted(zwischenspeicher)){
+        while(true){
+            try {
+                if (sort.isWellSorted(zwischenspeicher)) break;
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
 
             index++;
         }
