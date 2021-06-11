@@ -31,7 +31,7 @@ class TopSortIterator implements java.util.Iterator<String>{
     }
 
     @Override
-    public String next() throws IllegalArgumentException {
+    public String next() {
 
         if(index!=0){
 
