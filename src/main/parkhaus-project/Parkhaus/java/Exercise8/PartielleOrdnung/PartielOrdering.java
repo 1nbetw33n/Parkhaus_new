@@ -11,7 +11,7 @@ class PartialOrdering implements Iterable<String> {
     }
 
     public Iterator<String> iterator(){
-        return (Iterator<String>) new TopSortIterator( this.order );
+        return new TopSortIterator( this.order );
     }
 
     public static PartialOrdering studentLife(){

@@ -2,7 +2,6 @@ package Exercise8.PartielleOrdnung;
 
 import Exercise8.IllegalArgumentException;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,6 +29,17 @@ class TopSortIterator implements java.util.Iterator<String>{
         }
 
     }
+
+
+    /* generic next() method */
+    /*
+    public String next(){
+        if (!hasNext()){
+            throw new NoSuchElementException();
+        }
+        return temp.get(index++);
+    }
+    */
 
     @Override
     public String next() {
@@ -60,6 +70,8 @@ class TopSortIterator implements java.util.Iterator<String>{
 
         return temp.get(index++);
     }
+
+
 
     @Override
     public boolean hasNext() {
