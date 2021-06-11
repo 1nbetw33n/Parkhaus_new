@@ -57,7 +57,13 @@ class TopSortIterator implements Iterator<String>{
 
     @Override
     public boolean hasnext() {
-        return false;
+
+        return index<temp.size()-1;
+    }
+
+    public void print(String value){
+
+        System.out.println(value);
     }
 
 }
