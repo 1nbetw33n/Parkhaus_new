@@ -1,30 +1,30 @@
 package Exercise8.PartielleOrdnung;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
-class TopSortIterator implements java.util.Iterator<String>{
+class TopSortIterator implements Iterator<String>{
 
     public String[][]arr;
-    List<String> strings=new ArrayList<>();
+    public String[]strings;
     StringSortImpl sort;
     public int index=0;
-    List<String> temp= new ArrayList<>();
+    List<String> temp= Arrays.asList();
 
     public TopSortIterator(String[][]arr){
 
         this.arr=arr;
+
+        strings=new String[arr.length*2];
 
         sort=new StringSortImpl(arr);
 
         //From multidimensional to single dimensional array
         for(int i=0;i< arr.length;i++){
 
-            for(int j=0;j<arr[i].length;j++){
+            for(int j=0;j<arr[0].length;j++){
 
-                strings.add(arr[i][j]);
+                strings[i]=arr[i][j];
             }
         }
 
@@ -35,20 +35,13 @@ class TopSortIterator implements java.util.Iterator<String>{
 
         if(index!=0){
 
-            while(temp.contains(strings.get(index))){
+            while(temp.contains(strings[index])){
 
-                if(index<strings.size()) {
-
-                    strings.remove(index);
-                }
-                {
-
-                }
+                index++;
             }
-
         }
 
-        temp.add(strings.get(index));
+        temp.add(strings[index]);
 
         String[]zwischenspeicher=new String[temp.size()];
 
@@ -56,16 +49,16 @@ class TopSortIterator implements java.util.Iterator<String>{
 
         while(!sort.isWellSorted(zwischenspeicher)){
 
-            //index++;
+            index++;
         }
 
         return temp.get(index++);
     }
 
     @Override
-    public boolean hasNext() {
+    public boolean hasnext() {
 
-        return index<strings.size();
+        return index<temp.size()-1;
     }
 
     public void print(String value){
