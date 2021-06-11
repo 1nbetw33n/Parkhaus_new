@@ -3,6 +3,7 @@ package Exercise8.PartielleOrdnung;
 import Exercise8.IllegalArgumentException;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 class TopSortIterator implements java.util.Iterator<String>{
@@ -10,8 +11,8 @@ class TopSortIterator implements java.util.Iterator<String>{
     public String[][]arr;
     StringSortImpl sort;
     public int index=0;
-    List<String> strings= Arrays.asList();
-    List<String> temp= Arrays.asList();
+    List<String> strings= new LinkedList<>();
+    List<String> temp= new LinkedList<>();
 
     public TopSortIterator(String[][]arr){
 
