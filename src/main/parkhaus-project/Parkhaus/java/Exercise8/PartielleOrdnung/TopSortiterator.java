@@ -8,8 +8,8 @@ class TopSortIterator implements java.util.Iterator<String>{
     public String[][]arr;
     StringSortImpl sort;
     public int index=0;
-    List<String> strings=new ArraysList<>()
-    List<String> temp= new ArraysList<>();
+    List<String> strings= Arrays.asList();
+    List<String> temp= Arrays.asList();
 
     public TopSortIterator(String[][]arr){
 
