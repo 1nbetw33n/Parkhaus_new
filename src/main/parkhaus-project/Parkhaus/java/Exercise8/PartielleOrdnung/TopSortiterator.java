@@ -3,19 +3,17 @@ package Exercise8.PartielleOrdnung;
 import java.util.Arrays;
 import java.util.List;
 
-class TopSortIterator implements Iterator<String>{
+class TopSortIterator implements java.util.Iterator<String>{
 
     public String[][]arr;
-    public String[]strings;
     StringSortImpl sort;
     public int index=0;
-    List<String> temp= Arrays.asList();
+    List<String> strings=new ArraysList<>()
+    List<String> temp= new ArraysList<>();
 
     public TopSortIterator(String[][]arr){
 
         this.arr=arr;
-
-        strings=new String[arr.length*2];
 
         sort=new StringSortImpl(arr);
 
@@ -24,7 +22,7 @@ class TopSortIterator implements Iterator<String>{
 
             for(int j=0;j<arr[0].length;j++){
 
-                strings[i]=arr[i][j];
+                strings.add(arr[i][j]);
             }
         }
 
@@ -35,13 +33,13 @@ class TopSortIterator implements Iterator<String>{
 
         if(index!=0){
 
-            while(temp.contains(strings[index])){
+            while(temp.contains(strings.get(index))){
 
-                index++;
+                strings.remove(index);
             }
         }
 
-        temp.add(strings[index]);
+        temp.add(strings.get(index));
 
         String[]zwischenspeicher=new String[temp.size()];
 
@@ -56,9 +54,9 @@ class TopSortIterator implements Iterator<String>{
     }
 
     @Override
-    public boolean hasnext() {
+    public boolean hasNext() {
 
-        return index<temp.size()-1;
+        return index<strings.size();
     }
 
     public void print(String value){
