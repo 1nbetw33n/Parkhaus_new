@@ -1,8 +1,10 @@
 package Exercise8.PartielleOrdnung;
 
-import Exercise8.IllegalArgumentException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 public class Main {
 
@@ -11,19 +13,24 @@ public class Main {
 
         String[][]arr={{"Aufstehen","Frühstücken"},{"Aufstehen","KaffeeTrinken"},{"Frühstücken","Lernen"},{"KaffeeTrinken","Lernen"}};
 
-        StringSortImpl s=new StringSortImpl(arr);
-
-
-        String[]arr2={"Aufstehen"};
-        System.out.println(s.isWellSorted(arr2));
 
         PartialOrdering po=new PartialOrdering(arr);
 
         Iterator<String> iter =  po.iterator();
 
+        TopSortIterator topsort=new TopSortIterator(arr);
+
+        System.out.println(topsort.strings);
+
+        while(iter.hasNext()){
+
+             String temp= iter.next();
+
+             topsort.print(temp);
+        }
 
 
-        System.out.println(iter.next());
+
 
 
 
