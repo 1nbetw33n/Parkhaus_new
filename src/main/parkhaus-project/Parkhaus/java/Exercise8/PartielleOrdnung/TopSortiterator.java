@@ -1,7 +1,5 @@
 package Exercise8.PartielleOrdnung;
 
-import Exercise8.IllegalArgumentException;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,6 +32,14 @@ class TopSortIterator implements Iterator<String>{
 
     @Override
     public String next() throws IllegalArgumentException {
+
+        if(index!=0){
+
+            while(temp.contains(strings[index])){
+
+                index++;
+            }
+        }
 
         temp.add(strings[index]);
 
