@@ -1,0 +1,63 @@
+@startuml
+interface Iterator{
+
+     +next():String
+     +hasnext():boolean
+}
+
+class PartialOrdering{
+
+    -order: final String[][]
+
+    +PartialOrdering(String[][] order)
+    +iterator():Iterator<String>
+    +studentlife():PartialOrdering
+    +main(String[]args):void
+
+}
+
+interface Iterable{
+
+    +iterator():Iterator<String>
+    +studentlife():PartialOrdering
+    +main(String[]args):void
+}
+
+Iterable<|--PartialOrdering
+
+interface StringSortIF{
+
+    +isWellSorted(String[]sequence):boolean
+}
+
+class StringSortImpl{
+
+    +dependencies: String[][];
+
+    +StringSortImpl(String[]dependencies)
+    +isWellSorted(String[]sequence):boolean
+
+}
+
+StringSortIF<|--StringSortImpl
+
+class TopSortiterator{
+
+    +arr:String[][]
+    +strings:String[]
+    +sort:StringSortImpl
+    +index:int
+    +List<String> temp= Arrays.asList();
+
+    +TopSortiterator(String[][]arr)
+    +next():String
+    +hasnext():boolean
+    +print(String value):void
+}
+
+Iterator<|--TopSortiterator
+
+
+@enduml
+
+//To DO: Beide Klassenmethoden studentlife und main müssen unterstrichen werden.
