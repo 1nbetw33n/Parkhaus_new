@@ -13,7 +13,7 @@
 			    });
 			});
 		</script>
-		<style type="text/css">
+		<style>
 			.paddingBtm{
 				padding-bottom: 12px;
 			}

@@ -1,5 +1,7 @@
 package Exercise8.PartielleOrdnung;
 
+import Exercise8.IllegalArgumentException;
+
 import java.util.Arrays;
 import java.util.List;
 
