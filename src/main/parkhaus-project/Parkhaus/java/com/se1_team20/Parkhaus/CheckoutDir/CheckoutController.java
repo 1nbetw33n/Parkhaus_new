@@ -26,6 +26,8 @@ public class CheckoutController {
     *
     * Übergabe der Daten der Views and die Servlets
     *
+    * Bearbeitung Bella + Test
+    *
      */
 
 }

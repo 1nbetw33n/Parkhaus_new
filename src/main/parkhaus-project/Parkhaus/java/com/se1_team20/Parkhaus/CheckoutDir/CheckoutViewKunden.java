@@ -25,5 +25,6 @@ public class CheckoutViewKunden {
     *
     * Konkrete Berechnung Ticketpreis
     *
+    * Bearbeitung Preet + Test
      */
 }

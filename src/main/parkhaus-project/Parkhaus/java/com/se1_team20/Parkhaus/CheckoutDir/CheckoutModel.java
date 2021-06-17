@@ -28,7 +28,7 @@ public class CheckoutModel {
     *  Wie viel Autos insgesamt
     *  Zeit von Kunde im Parkhaus
     *
-    *
+    * Bearbeitung Lukas + Test
     *
      */
 
