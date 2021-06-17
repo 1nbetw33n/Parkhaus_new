@@ -24,7 +24,7 @@ public class CheckoutModel {
 
     /*
     *  Model for Checkout:
-    *  Allgemeine Berechnungen die bei allen Benötigt werden:
+    *  Allgemeine Datenbeschaffung die bei allen Benötigt werden:
     *  Wie viel Autos insgesamt
     *  Zeit von Kunde im Parkhaus
     *
