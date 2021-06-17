@@ -20,7 +20,7 @@ class TopSortIterator implements java.util.Iterator<String>{
         sort=new StringSortImpl(arr);
 
         //From multidimensional to single dimensional array
-        for(int i=0;i< arr.length;i++){
+        for(int i=0;i<arr.length;i++){
 
             for(int j=0;j<arr[0].length;j++){
 
