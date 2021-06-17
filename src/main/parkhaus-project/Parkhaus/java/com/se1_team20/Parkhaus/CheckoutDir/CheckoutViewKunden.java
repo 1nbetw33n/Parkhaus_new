@@ -20,14 +20,11 @@
 
 package com.se1_team20.Parkhaus.CheckoutDir;
 
-public class CheckoutController {
-
+public class CheckoutViewKunden {
     /*
     *
-    * Übergabe der Daten der Views and die Servlets
+    * Konkrete Berechnung Ticketpreis
     *
-    * Bearbeitung Bella + Test
-    *
+    * Bearbeitung Preet + Test
      */
-
 }

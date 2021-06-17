@@ -20,14 +20,18 @@
 
 package com.se1_team20.Parkhaus.CheckoutDir;
 
-public class CheckoutController {
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-    /*
-    *
-    * Übergabe der Daten der Views and die Servlets
-    *
-    * Bearbeitung Bella + Test
-    *
-     */
+import static org.junit.jupiter.api.Assertions.*;
 
+class CheckoutModelTest {
+
+    @BeforeEach
+    void setUp() {
+    }
+
+    @AfterEach
+    void tearDown() {
+    }
 }
