@@ -20,5 +20,10 @@
 
 package com.se1_team20.Parkhaus.CheckoutDir;
 
-public class CheckoutModelView{
+public class CheckoutViewKunden {
+    /*
+    *
+    * Konkrete Berechnung Ticketpreis
+    *
+     */
 }
