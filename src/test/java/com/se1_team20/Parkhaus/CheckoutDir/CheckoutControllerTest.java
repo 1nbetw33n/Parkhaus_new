@@ -20,5 +20,18 @@
 
 package com.se1_team20.Parkhaus.CheckoutDir;
 
-public class CheckoutModelView{
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class CheckoutControllerTest {
+
+    @BeforeEach
+    void setUp() {
+    }
+
+    @AfterEach
+    void tearDown() {
+    }
 }

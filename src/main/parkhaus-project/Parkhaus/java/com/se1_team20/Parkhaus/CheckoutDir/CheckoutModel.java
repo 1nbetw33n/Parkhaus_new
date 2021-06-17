@@ -21,4 +21,15 @@
 package com.se1_team20.Parkhaus.CheckoutDir;
 
 public class CheckoutModel {
+
+    /*
+    *  Model for Checkout:
+    *  Allgemeine Datenbeschaffung die bei allen Benötigt werden:
+    *  Wie viel Autos insgesamt
+    *  Zeit von Kunde im Parkhaus
+    *
+    * Bearbeitung Lukas + Test
+    *
+     */
+
 }
