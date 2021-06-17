@@ -20,7 +20,7 @@
 		</style>
 	</head>
 	<body>
-		<center>
+		<div style="text-align: center;">
 			<h1>Management Authentication</h1>
 			<form id="loginFormId" name="loginForm" method="post" action="ManagementServlet">
 				<div id="usernameDiv" class="paddingBtm">
@@ -33,7 +33,7 @@
 					<input id="Btn" type="submit" value="Login" />
 				</div>
 			</form>
-		</center>
+		</div>
 	</body>
 
 	<head>
