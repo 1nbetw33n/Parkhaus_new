@@ -1,6 +1,6 @@
 package com.se1_team20.Parkhaus;
 
- interface CarIF {
+ public interface CarIF {
     int nr();
     long begin();
     long end();
