@@ -27,4 +27,14 @@ public class CheckoutViewKunden {
     *
     * Bearbeitung Preet + Test
      */
+
+    public void calculateticketprice(){
+
+
+    }
+
+    public void calculatetotalrevenue(){
+
+
+    }
 }
