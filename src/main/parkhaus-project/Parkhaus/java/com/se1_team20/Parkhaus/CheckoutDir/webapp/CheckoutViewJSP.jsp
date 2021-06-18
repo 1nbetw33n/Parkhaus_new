@@ -25,10 +25,23 @@
   Time: 16:19
   To change this template use File | Settings | File Templates.
 --%>
+
+
+/*
+ * TO DO: Ausgabe von Ticketpreis, Umsatz und duration
+ * TO DO: Den Ticket printen lassen.
+ * To DO: Die Ausgabe erfolgt durch den Checkoutservlet.
+ *
+
+ */
+
+
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Parkhaus Checkout</title>
 </head>
 <body>
 
