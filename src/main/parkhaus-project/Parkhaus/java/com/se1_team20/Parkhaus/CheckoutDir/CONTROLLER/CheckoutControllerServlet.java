@@ -18,9 +18,9 @@
  *
  */
 
-package com.se1_team20.Parkhaus.CheckoutDir;
+package com.se1_team20.Parkhaus.CheckoutDir.CONTROLLER;
 
-public class CheckoutController {
+public class CheckoutControllerServlet {
 
     /*
     *
