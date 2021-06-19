@@ -45,4 +45,6 @@ public class ManagementServlet extends ParkingServlet{
         OUT.close();
     }
 
+    protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
+
 }

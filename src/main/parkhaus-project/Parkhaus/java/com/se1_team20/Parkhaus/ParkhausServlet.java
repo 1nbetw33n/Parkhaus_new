@@ -1,7 +1,6 @@
 package com.se1_team20.Parkhaus;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +30,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     abstract int getMAX(); // maximum number of parking slots of a single parking level
     abstract String getCONFIG(); // configuration of a single parking level
 
-    final public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    final public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");
 
@@ -84,16 +83,51 @@ public abstract class ParkhausServlet extends ParkingServlet {
         }
     }
 
-
-    final public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    final public void handleBody(HttpServletRequest request,HttpServletResponse response) throws IOException
     {
-
-
+        response.setContentType("text/html");
+        /* getting the String containing of: [EVENT, NR, BEGIN, END, PRICE] */
+        String body                       = ParkingServletable.getBody(request);
+        System.out.println(body);
+        String[] params               =  body.split(",");
+        String event                     =  params[0];
+        String[] restParams         =  Arrays.copyOfRange(params, 1, params.length);
+        handleEvent(event, params, restParams);
     }
 
+    final public void handleEvent(final String EVENT, final String[] PARAMS, final String[] RESTPARAMS)
+    {
+        if ("enter".equals(EVENT))
+    {
+        handleEnter(RESTPARAMS);
+    }
+        else if ("leave".equals(EVENT))
+        {
+            handleLeave(PARAMS);
+        }
+    }
 
+    final protected void handleEnter(final String[] RESTPARAMS)
+    {
+        CarIF newCar = new Car( RESTPARAMS );
+        cars().add( newCar );
+        System.out.println( "enter," + newCar );
+        /* re-direct car to another parking lot
+         *  out.println( locator( newCar ) );
+         */
+    }
 
-
+    final protected void handleLeave(final String[] PARAMS)
+    {
+        StringBuilder priceString = new StringBuilder();
+        double            price           = 0.;
+        priceString.append(PARAMS[4]);
+        price = (!(priceString.toString().equals("_"))) ? Double.parseDouble(priceString.toString()) :  price;
+        getContext().setAttribute("total_revenue", (getTotalRevenue() + (price / 100)));
+        getContext().setAttribute("average_revenue", (getTotalRevenue() / getTotalCars()));
+        getContext().setAttribute("total_cars", getTotalCars());
+        getContext().setAttribute("get_bill", price);
+    }
 
     final protected Double getTotalRevenue()
     {

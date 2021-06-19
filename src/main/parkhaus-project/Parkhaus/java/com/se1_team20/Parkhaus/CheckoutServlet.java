@@ -50,9 +50,7 @@ public class CheckoutServlet extends ParkingServlet {
         response.setContentType("text/html");
     }
 
-
-
-
+    protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
 
 
 }
