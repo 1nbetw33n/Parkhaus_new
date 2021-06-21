@@ -53,4 +53,12 @@ class CheckoutModelTest {
     void kundenParkkostenTest() {
         assertEquals(502, cm.kundenParkkosten(carLeave));
     }
+
+    @Test
+    @DisplayName("Die KundenID für ein geparktes Auto wird korrekt angezeigt")
+    void kundenIDTest() {
+        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carEnter.id());
+        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carLeave.id());
+        assertEquals(carLeave.id(),carEnter.id());
+    }
 }
