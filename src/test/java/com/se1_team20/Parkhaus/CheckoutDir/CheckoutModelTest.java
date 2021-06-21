@@ -37,8 +37,8 @@ class CheckoutModelTest {
     @BeforeEach
     void setUp() {
         cm = new CheckoutModel();
-        carEnter = new Car(new String[]{"enter,173,1624278150403,_,_,8319c7d02f8b786e4f1a231af06da0c7,#714934,7,_,_,173"});
-        carLeave = new Car(new String[]{"leave,173,1624278155427,5018,502,8319c7d02f8b786e4f1a231af06da0c7,#714934,6,_,_,173"});
+        carEnter = new Car(new String[]{"enter","173","1624278150403","","","8319c7d02f8b786e4f1a231af06da0c7","#714934","7","_","_","173"});
+        carLeave = new Car(new String[]{"leave","173","1624278155427","5018","502","8319c7d02f8b786e4f1a231af06da0c7","#714934","6","","","173"});
     }
 
     @AfterEach
@@ -51,6 +51,6 @@ class CheckoutModelTest {
     @Test
     @DisplayName("Der Preis für ein geparktes Auto wird korrekt angezeigt")
     void kundenParkkostenTest() {
-        assertEquals(5018, cm.kundenParkkosten(carLeave));
+        assertEquals(502, cm.kundenParkkosten(carLeave));
     }
 }
