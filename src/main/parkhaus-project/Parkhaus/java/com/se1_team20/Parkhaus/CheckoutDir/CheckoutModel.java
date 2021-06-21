@@ -20,6 +20,8 @@
 
 package com.se1_team20.Parkhaus.CheckoutDir;
 
+import com.se1_team20.Parkhaus.Car;
+
 public class CheckoutModel {
 
     /*
@@ -31,5 +33,9 @@ public class CheckoutModel {
     * Bearbeitung Lukas + Test
     *
      */
+
+    protected int kundenParkkosten(Car car){
+        return car.price();
+    }
 
 }
