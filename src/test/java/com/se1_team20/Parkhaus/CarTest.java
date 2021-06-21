@@ -55,7 +55,7 @@ class CarTest {
     @DisplayName("Returns the starting time of the current car")
     void begin() {
         assertEquals(1624278150403L,carEnter.begin(),"Oops, carEnter is not showing begin");
-        assertEquals(1624278150403L,carLeave.begin(),"Oops, carLeave is not showing begin");
+        assertEquals(1624278150409L,carLeave.begin(),"Oops, carLeave is not showing begin");
     }
 
     @Test
