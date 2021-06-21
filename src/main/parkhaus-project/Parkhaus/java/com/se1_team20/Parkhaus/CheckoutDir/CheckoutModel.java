@@ -38,4 +38,8 @@ public class CheckoutModel {
         return car.price();
     }
 
+    protected String kundenID(Car car) {
+        return car.id();
+    }
+
 }

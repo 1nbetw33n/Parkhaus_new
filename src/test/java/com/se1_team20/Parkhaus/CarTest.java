@@ -46,7 +46,7 @@ class CarTest {
     }
     @Test
     @DisplayName("Returns the number of the current car")
-    void nr() {
+    void nrTest() {
         assertEquals(173, carEnter.nr());
         assertEquals(173, carLeave.nr());
     }
@@ -59,34 +59,43 @@ class CarTest {
     * Möglicherweise auch wegen Falschen Zahlen bei der Eingabe (konnte ich nicht genau prüfen
      */
 
-    void begin() {
+    void beginTest() {
         assertEquals(1624278150403L,carEnter.begin(),"Oops, carEnter is not showing begin");
         assertEquals(1624278150409L,carLeave.begin(),"Oops, carLeave is not showing begin");
     }
 
     @Test
     @DisplayName("Returns the end-time of the current car, shows null of there is none")
-    void end() {
+    void endTest() {
         assertEquals(1624278155427L, carLeave.end(), "Oops, carLeave is not showing correct end");
         assertEquals(0L, carEnter.end(), "Oops, carEnter is not showing correct end");
     }
 
     @Test
     @DisplayName("Returns the current duration")
-    void duration() {
+    void durationTest() {
         assertEquals(5018, carLeave.duration(),"Oops. carLeave does not show correct duration");
         assertEquals(0, carEnter.duration(),"Oops. carEnter does not show correct duration (0)");
     }
 
     @Test
     @DisplayName("Returns the price once the car left")
-    void price() {
+    void priceTest() {
         assertEquals(0, carEnter.price(),"Oops, carEnter does not show 0 for price");
         assertEquals(502, carLeave.price(), "Oops, carLeave does not show correct price");
     }
 
     @Test
+    @DisplayName("Returns the id of the car")
+    void idTest() {
+        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carLeave.id());
+        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carEnter.id());
+        assertEquals(carLeave.id(), carEnter.id());
+    }
+
+    @Test
     @DisplayName("Returns the whole String ")
     void testToString() {
+        assertEquals("leave,173,1624278155427,5018,502,8319c7d02f8b786e4f1a231af06da0c7,#714934,6,,,173", carLeave.toString());
     }
 }
