@@ -9,6 +9,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 
 
@@ -109,9 +111,13 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     final protected void handleEnter(final String[] RESTPARAMS)
     {
+        /*
+        * Benötigt noch Abfang, falls der Space bereits belegt ist -> So speichert es jedes Auto in der Liste
+        *
+         */
         CarIF newCar = new Car( RESTPARAMS );
         cars().add( newCar );
-        System.out.println( "enter," + newCar );
+        //System.out.println( "enter," + newCar );
         /* re-direct car to another parking lot
          *  out.println( locator( newCar ) );
          */
@@ -127,6 +133,11 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("average_revenue", (getTotalRevenue() / getTotalCars()));
         getContext().setAttribute("total_cars", getTotalCars());
         getContext().setAttribute("get_bill", price);
+
+
+        // Stream funktioniert noch nicht -> filterregeln müssen noch richtig gemacht werden :)
+        getContext().setAttribute("cars" + getNAME(), cars().stream().filter(x -> !x.id().equals(PARAMS[5])).collect(Collectors.toList()));
+
     }
 
     final protected Double getTotalRevenue()

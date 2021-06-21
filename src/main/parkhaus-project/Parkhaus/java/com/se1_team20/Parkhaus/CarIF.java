@@ -6,4 +6,5 @@ package com.se1_team20.Parkhaus;
     long end();
     int duration();
     int price();
+    String id();
 }
