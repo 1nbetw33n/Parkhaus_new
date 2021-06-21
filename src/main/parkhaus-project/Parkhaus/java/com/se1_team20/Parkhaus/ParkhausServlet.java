@@ -89,10 +89,11 @@ public abstract class ParkhausServlet extends ParkingServlet {
         /* getting the String containing of: [EVENT, NR, BEGIN, END, PRICE] */
         String body                       = ParkingServletable.getBody(request);
         System.out.println(body);
-        String[] params               =  body.split(",");
-        String event                     =  params[0];
-        String[] restParams         =  Arrays.copyOfRange(params, 1, params.length);
-        handleEvent(event, params, restParams);
+        handleEvent(
+                body.split(",")[0],
+                body.split(","),
+                Arrays.copyOfRange(body.split(","), 1, body.split(",").length)
+        );
     }
 
     final public void handleEvent(final String EVENT, final String[] PARAMS, final String[] RESTPARAMS)
@@ -111,10 +112,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         CarIF newCar = new Car( RESTPARAMS );
         cars().add( newCar );
-        System.out.println( "enter," + newCar );
-        /* re-direct car to another parking lot
-         *  out.println( locator( newCar ) );
-         */
     }
 
     final protected void handleLeave(final String[] PARAMS)
