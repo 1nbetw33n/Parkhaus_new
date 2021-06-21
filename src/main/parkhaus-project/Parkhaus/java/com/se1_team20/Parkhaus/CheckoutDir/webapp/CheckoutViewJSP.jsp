@@ -44,8 +44,8 @@
     <title>Parkhaus Checkout</title>
 </head>
 <body>
-<table>
-     <div align="center">
+
+<div align="center"></div>
      <table border="1">
            <tr bgcolor="gray">
                 <td> Parkticketnr.</td>
