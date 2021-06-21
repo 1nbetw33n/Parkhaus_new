@@ -24,22 +24,26 @@ public class Car implements CarIF {
     }
 
     @Override
+    // Now returns 0 if the car hasnt left yet
     public long end()
     {
-        return (this.params[0].equals("leave")) ?  Long.parseLong(params[2]) : duration() - begin();
+        return (this.params[0].equals("leave")) ?  Long.parseLong(params[2]) : 0;
     }
 
     @Override
+    // Now returns 0 if the car hasnt left yet
     public int duration()
     {
-        return  Integer.parseInt(params[3]);
+        return  (this.params[0].equals("leave")) ? Integer.parseInt(params[3]) : 0;
     }
 
     @Override
+    // Now returns 0 if the car hasnt left yet
     public int price()
     {
-        return Integer.parseInt(this.params[4]);
+        return (this.params[0].equals("leave")) ? Integer.parseInt(this.params[4]) : 0;
     }
+
 
     @Override
     public String toString(){

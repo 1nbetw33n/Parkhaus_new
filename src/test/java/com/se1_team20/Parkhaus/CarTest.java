@@ -23,6 +23,7 @@ package com.se1_team20.Parkhaus;
 import com.se1_team20.Parkhaus.CheckoutDir.CheckoutModel;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,8 +35,8 @@ class CarTest {
 
     @BeforeEach
     void setUp() {
-        carEnter = new Car(new String[]{"enter,173,1624278150403,_,_,8319c7d02f8b786e4f1a231af06da0c7,#714934,7,_,_,173"});
-        carLeave = new Car(new String[]{"leave,173,1624278155427,5018,502,8319c7d02f8b786e4f1a231af06da0c7,#714934,6,_,_,173"});
+        carEnter = new Car(new String[]{"enter", "173", "1624278150403", "", "", "8319c7d02f8b786e4f1a231af06da0c7", "#714934", "7", "", "", "173"});
+        carLeave = new Car(new String[]{"leave","173","1624278155427","5018","502","8319c7d02f8b786e4f1a231af06da0c7","#714934","6","","","173"});
     }
 
     @AfterEach
@@ -44,26 +45,42 @@ class CarTest {
         carLeave = null;
     }
     @Test
+    @DisplayName("Returns the number of the current car")
     void nr() {
+        assertEquals(173, carEnter.nr());
+        assertEquals(173, carLeave.nr());
     }
 
     @Test
+    @DisplayName("Returns the starting time of the current car")
     void begin() {
+        assertEquals(1624278150403L,carEnter.begin(),"Oops, carEnter is not showing begin");
+        assertEquals(1624278150403L,carLeave.begin(),"Oops, carLeave is not showing begin");
     }
 
     @Test
+    @DisplayName("Returns the end-time of the current car, shows null of there is none")
     void end() {
+        assertEquals(1624278155427L, carLeave.end(), "Oops, carLeave is not showing correct end");
+        assertEquals(0L, carEnter.end(), "Oops, carEnter is not showing correct end");
     }
 
     @Test
+    @DisplayName("Returns the current duration")
     void duration() {
+        assertEquals(5018, carLeave.duration(),"Oops. carLeave does not show correct duration");
+        assertEquals(0, carEnter.duration(),"Oops. carEnter does not show correct duration (0)");
     }
 
     @Test
+    @DisplayName("Returns the price once the car left")
     void price() {
+        assertEquals(0, carEnter.price(),"Oops, carEnter does not show 0 for price");
+        assertEquals(502, carLeave.price(), "Oops, carLeave does not show correct price");
     }
 
     @Test
+    @DisplayName("Returns the whole String ")
     void testToString() {
     }
 }
