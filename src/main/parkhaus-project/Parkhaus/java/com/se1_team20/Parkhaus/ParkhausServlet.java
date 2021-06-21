@@ -124,6 +124,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("average_revenue", (getTotalRevenue() / getTotalCars()));
         getContext().setAttribute("total_cars", getTotalCars());
         getContext().setAttribute("get_bill", price);
+
+        getContext().setAttribute("cars" + getNAME(), cars().stream().filter(x-> !x.id().equals(PARAMS[0])));
     }
 
     final protected Double getTotalRevenue()
