@@ -20,16 +20,7 @@
 
 package com.se1_team20.Parkhaus.CheckoutDir;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-
-import com.se1_team20.Parkhaus.Car;
 import com.se1_team20.Parkhaus.CarIF;
-import com.se1_team20.Parkhaus.ParkingServlet;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

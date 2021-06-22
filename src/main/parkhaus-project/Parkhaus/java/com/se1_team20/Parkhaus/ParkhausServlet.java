@@ -9,18 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @WebServlet("/ParkhausServlet")
 public abstract class ParkhausServlet extends ParkingServlet {
 
     /**
-     * TODO: Funktional ParkhausServlet im arbeiten -> Wo? Welche berechnung braucht das?
-     * TODO: evaluate cars()
-     * cars() stores all initialized cars and not just the ones entered
+     * handleEnter() does not check if there is available space
      */
 
     /* abstract methods, to be defined in subclasses */
