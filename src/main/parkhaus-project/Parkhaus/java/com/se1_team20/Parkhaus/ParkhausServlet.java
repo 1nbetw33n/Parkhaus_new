@@ -57,14 +57,13 @@ public abstract class ParkhausServlet extends ParkingServlet {
         System.out.println(body);
         handleEvent(
                 body.split(",")[0],
-                body.split(","),
-                Arrays.copyOfRange(body.split(","), 1, body.split(",").length)
+                body.split(",")
         );
     }
 
-    final public void handleEvent(final String EVENT, final String[] PARAMS, final String[] RESTPARAMS)
+    final public void handleEvent(final String EVENT, final String[] PARAMS)
     {
-        if ("enter".equals(EVENT)) {handleEnter(RESTPARAMS);}
+        if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
     }
 
@@ -89,7 +88,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("total_cars", getTotalCars());
         getContext().setAttribute("get_bill", price);
 
-        getContext().setAttribute("cars" + getNAME(), cars().stream().filter(x-> !x.id().equals(PARAMS[5])).collect(Collectors.toList()));
+        getContext().setAttribute("cars" + getNAME(), cars().stream().filter((x -> !x.id().equals(PARAMS[5]))).collect(Collectors.toList()));
     }
 
     final protected Double getTotalRevenue()
