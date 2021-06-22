@@ -31,6 +31,7 @@ import com.se1_team20.Parkhaus.ParkingServlet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ParkhausModel {
 
@@ -44,6 +45,8 @@ public class ParkhausModel {
      *
      */
 
+    List<CarIF> cars;
+
     protected int kundenParkkosten(Car car) {
         return car.price();
     }
@@ -54,6 +57,14 @@ public class ParkhausModel {
 
     public Double getDoubleAttribute(Double attribute) {
         return (attribute == null) ? 0. : attribute;
+    }
+
+    public void setCarsModel (List<CarIF> cars) {
+        this.cars = cars;
+    }
+
+    public List<CarIF> filterIDErase(List<CarIF> cars, String id) {
+        return  cars.stream().filter((x -> !x.id().equals(id))).collect(Collectors.toList());
     }
 
     /* TODO: fix this

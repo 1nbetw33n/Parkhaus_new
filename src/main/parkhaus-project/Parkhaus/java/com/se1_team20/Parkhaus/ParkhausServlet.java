@@ -88,7 +88,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("total_cars", getTotalCars());
         getContext().setAttribute("get_bill", price);
 
-        getContext().setAttribute("cars" + getNAME(), cars().stream().filter((x -> !x.id().equals(PARAMS[5]))).collect(Collectors.toList()));
+        getContext().setAttribute("cars" + getNAME(), pModel.filterIDErase(cars(),PARAMS[5]));
     }
 
 
@@ -101,6 +101,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     /*
      * @return the list of all cars stored in the servlet context so far
+     *
+     * Lukas: ParkhausModell implementierung hinzugefügt um Logik statisch zu transferieren
+     *  -> Funktionsaufruf sollte eigentlich entfallen, mir ist gerade keine bessere Lösung gekommen
      */
     @SuppressWarnings("unchecked")
     List<CarIF> cars()
@@ -109,7 +112,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
         {
             getContext().setAttribute( "cars"+ getNAME(), new ArrayList<Car>() );
         }
-        return (List<CarIF>) getContext().getAttribute( "cars"+ getNAME() );
+        List<CarIF> cars = (List<CarIF>) getContext().getAttribute( "cars"+ getNAME() );
+        pModel.setCarsModel(cars);
+        return cars;
     }
 
 
