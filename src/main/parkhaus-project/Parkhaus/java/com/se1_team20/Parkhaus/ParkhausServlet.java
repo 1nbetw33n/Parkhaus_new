@@ -35,8 +35,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         response.setContentType("text/html");
 
         String[] requestParamString = request.getQueryString().split("=");
-        String command                     = requestParamString[0];
-        String param                           = requestParamString[1];
+        String command              = requestParamString[0];
+        String param                = requestParamString[1];
 
         /* calculate total revenue for all cars */
         if ("cmd".equals(command) && "total_revenue".equals(param))

@@ -28,15 +28,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CheckoutModelTest {
+class ParkhausModelTest {
 
-    private CheckoutModel cm;
+    private ParkhausModel cm;
     private Car carEnter = new Car(null);
     private Car carLeave = new Car(null);
 
     @BeforeEach
     void setUp() {
-        cm = new CheckoutModel();
+        cm = new ParkhausModel();
         carEnter = new Car(new String[]{"enter","173","1624278150403","","","8319c7d02f8b786e4f1a231af06da0c7","#714934","7","_","_","173"});
         carLeave = new Car(new String[]{"leave","173","1624278155427","5018","502","8319c7d02f8b786e4f1a231af06da0c7","#714934","6","","","173"});
     }
