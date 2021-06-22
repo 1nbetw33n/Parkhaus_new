@@ -52,18 +52,19 @@ public abstract class ParkhausServlet extends ParkingServlet {
     final public void handleBody(HttpServletRequest request,HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");
-        /* getting the String containing of: [EVENT, NR, BEGIN, END, PRICE] */
+        /* getting the String containing of: [EVENT, NR, BEGIN, END, PRICE, ID] */
         String body                       = ParkingServletable.getBody(request);
         System.out.println(body);
         handleEvent(
                 body.split(",")[0],
-                body.split(",")
+                body.split(","),
+                Arrays.copyOfRange(body.split(","), 1, body.split(",").length)
         );
     }
 
-    final public void handleEvent(final String EVENT, final String[] PARAMS)
+    final public void handleEvent(final String EVENT, final String[] PARAMS, final String[] RESTPARAMS)
     {
-        if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
+        if ("enter".equals(EVENT)) {handleEnter(RESTPARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
     }
 
@@ -88,7 +89,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("total_cars", getTotalCars());
         getContext().setAttribute("get_bill", price);
 
-        getContext().setAttribute("cars" + getNAME(), cars().stream().filter((x -> !x.id().equals(PARAMS[5]))).collect(Collectors.toList()));
+        getContext().setAttribute("cars" + getNAME(), cars().stream()
+                                                            .filter(x-> (x.id().equals(PARAMS[5])))
+                                                            .collect(Collectors.toList()));
     }
 
     final protected Double getTotalRevenue()
