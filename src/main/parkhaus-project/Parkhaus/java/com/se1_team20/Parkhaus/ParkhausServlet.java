@@ -11,10 +11,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-
-
-
+import java.util.stream.Collectors;
 
 
 @WebServlet("/ParkhausServlet")
@@ -92,7 +89,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("total_cars", getTotalCars());
         getContext().setAttribute("get_bill", price);
 
-        getContext().setAttribute("cars" + getNAME(), cars().stream().filter(x-> !x.id().equals(PARAMS[5])));
+        getContext().setAttribute("cars" + getNAME(), cars().stream().filter(x-> !x.id().equals(PARAMS[5])).collect(Collectors.toList()));
     }
 
     final protected Double getTotalRevenue()
