@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Car implements CarIF {
 
-    String[] params;
+    private String[] params;
 
     public Car( String[] params )
     {
@@ -24,25 +24,41 @@ public class Car implements CarIF {
     }
 
     @Override
+    // Now returns 0 if the car hasnt left yet
     public long end()
     {
-        return (this.params[0].equals("leave")) ?  Long.parseLong(params[2]) : duration() - begin();
+        return (this.params[0].equals("leave")) ?  Long.parseLong(params[2]) : 0;
     }
 
     @Override
+    // Now returns 0 if the car hasnt left yet
     public int duration()
     {
-        return  Integer.parseInt(params[3]);
+        return  (this.params[0].equals("leave")) ? Integer.parseInt(params[3]) : 0;
     }
 
     @Override
+    // Now returns 0 if the car hasnt left yet
     public int price()
     {
-        return Integer.parseInt(this.params[4]);
+        return (this.params[0].equals("leave")) ? Integer.parseInt(this.params[4]) : 0;
     }
+
+    public String id() {
+        return this.params[5];
+    }
+
 
     @Override
     public String toString(){
-        return Arrays.toString( params );
+        StringBuilder builder = new StringBuilder();
+        for (String value: params) {
+            if (value == params[0]) {
+                builder.append(value);
+            } else {
+                builder.append("," + value);
+            }
+        }
+        return builder.toString();
     }
 }
