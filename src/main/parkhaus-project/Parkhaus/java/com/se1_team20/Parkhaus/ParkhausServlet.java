@@ -15,8 +15,7 @@ import java.util.List;
 
 
 
-/* TODO: inspect, if we need the @WebServlet annotation for ParkhausServlet */
-/* we decided to use the different levels to display the interface, do we need this servlet as an web servlet? */
+
 
 @WebServlet("/ParkhausServlet")
 public abstract class ParkhausServlet extends ParkingServlet {
@@ -68,14 +67,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     final public void handleEvent(final String EVENT, final String[] PARAMS, final String[] RESTPARAMS)
     {
-        if ("enter".equals(EVENT))
-    {
-        handleEnter(RESTPARAMS);
-    }
-        else if ("leave".equals(EVENT))
-        {
-            handleLeave(PARAMS);
-        }
+        if ("enter".equals(EVENT)) {handleEnter(RESTPARAMS);}
+        else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
     }
 
     final protected void handleEnter(final String[] RESTPARAMS)
