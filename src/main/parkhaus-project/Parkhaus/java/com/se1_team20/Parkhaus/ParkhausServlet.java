@@ -52,25 +52,24 @@ public abstract class ParkhausServlet extends ParkingServlet {
     final public void handleBody(HttpServletRequest request,HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");
-        /* getting the String containing of: [EVENT, NR, BEGIN, END, PRICE, ID] */
+        /* getting the String containing of: [EVENT, NR, BEGIN, END, PRICE] */
         String body                       = ParkingServletable.getBody(request);
         System.out.println(body);
         handleEvent(
                 body.split(",")[0],
-                body.split(","),
-                Arrays.copyOfRange(body.split(","), 1, body.split(",").length)
+                body.split(",")
         );
     }
 
-    final public void handleEvent(final String EVENT, final String[] PARAMS, final String[] RESTPARAMS)
+    final public void handleEvent(final String EVENT, final String[] PARAMS)
     {
-        if ("enter".equals(EVENT)) {handleEnter(RESTPARAMS);}
+        if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
     }
 
-    final protected void handleEnter(final String[] RESTPARAMS)
+    final protected void handleEnter(final String[] PARAMS)
     {
-        CarIF newCar = new Car( RESTPARAMS );
+        CarIF newCar = new Car( PARAMS );
         cars().add( newCar );
     }
 
@@ -89,45 +88,15 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("total_cars", getTotalCars());
         getContext().setAttribute("get_bill", price);
 
-        getContext().setAttribute("cars" + getNAME(), cars().stream()
-                                                            .filter(x-> (x.id().equals(PARAMS[5])))
-                                                            .collect(Collectors.toList()));
+        getContext().setAttribute("cars" + getNAME(), cars().stream().filter((x -> !x.id().equals(PARAMS[5]))).collect(Collectors.toList()));
     }
 
-    final protected Double getTotalRevenue()
-    {
-        Double totalRevenue;
-        ServletContext application = getContext();
-        totalRevenue                     = (Double) application.getAttribute("total_revenue");
-        totalRevenue                     = (totalRevenue == null) ? 0.0 : totalRevenue;
-        return totalRevenue;
-    }
-
-
-    final protected Double getAverageRevenue()
-    {
-        Double averageRevenue;
-        ServletContext application = getContext();
-        averageRevenue                = (Double) application.getAttribute("average_revenue");
-        averageRevenue                = (averageRevenue == null) ? 0. : averageRevenue;
-        return averageRevenue;
-    }
 
 
     /* TODO: fix this
      * currently returns all initialized cars and not just the ones inside the parking garage
      */
     final protected Long getTotalCars() {return (long) cars().size();}
-
-
-    final protected Double getBill()
-    {
-        Double bill;
-        ServletContext application = getContext();
-        bill                                      = (Double) application.getAttribute("get_bill");
-        bill                                      = (bill == null) ? 0. : bill;
-        return bill;
-    }
 
 
     /*
@@ -162,22 +131,12 @@ public abstract class ParkhausServlet extends ParkingServlet {
         System.out.println(attribute + " = €" + doubleAttribute);
     }
 
-    /*final protected void eventAverageRevenue(HttpServletResponse response) throws IOException {
-        final PrintWriter OUT    = response.getWriter();
-        OUT.println(getAverageRevenue() + ",-");
-        System.out.println("average_revenue = €" + getAverageRevenue());
-    }*/
     final protected void eventTotalCars(HttpServletResponse response) throws IOException {
         final PrintWriter OUT = response.getWriter();
         OUT.println(getTotalCars());
         System.out.println("total_cars = " + getTotalCars());
     }
 
-    /*final protected void eventGetBill(HttpServletResponse response) throws IOException {
-        final PrintWriter OUT = response.getWriter();
-        OUT.println(getBill() + ",-");
-        System.out.println("your bill = €" + getBill());
-    }*/
 
     final protected void eventCheckOut(HttpServletResponse response)
     {
@@ -188,7 +147,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         /* TODO: COMING SOON */
     }
-
 
 }
 
