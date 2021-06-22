@@ -22,6 +22,8 @@ package com.se1_team20.Parkhaus.CheckoutDir;
 
 import com.se1_team20.Parkhaus.Car;
 
+import javax.servlet.ServletContext;
+
 public class CheckoutModel {
 
     /*
@@ -40,6 +42,15 @@ public class CheckoutModel {
 
     protected String kundenID(Car car) {
         return car.id();
+    }
+
+    final protected Double getTotalRevenue()
+    {
+        Double         totalRevenue;
+        ServletContext application = getContext();
+        totalRevenue                     = (Double) application.getAttribute("total_revenue");
+        totalRevenue                     = (totalRevenue == null) ? 0.0 : totalRevenue;
+        return totalRevenue;
     }
 
 }
