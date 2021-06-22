@@ -21,6 +21,10 @@
 package com.se1_team20.Parkhaus.CheckoutDir;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
 import com.se1_team20.Parkhaus.Car;
 import com.se1_team20.Parkhaus.CarIF;
 import com.se1_team20.Parkhaus.ParkingServlet;
@@ -31,16 +35,16 @@ import java.util.List;
 public class ParkhausModel {
 
     /*
-    *  Model for Parkhaus
-    *  Allgemeine Datenbeschaffung die bei allen Benötigt werden:
-    *  Wie viel Autos insgesamt
-    *  Zeit von Kunde im Parkhaus
-    *
-    * Bearbeitung Lukas + Test
-    *
+     *  Model for Parkhaus
+     *  Allgemeine Datenbeschaffung die bei allen Benötigt werden:
+     *  Wie viel Autos insgesamt
+     *  Zeit von Kunde im Parkhaus
+     *
+     * Bearbeitung Lukas + Test
+     *
      */
 
-    protected int kundenParkkosten(Car car){
+    protected int kundenParkkosten(Car car) {
         return car.price();
     }
 
@@ -48,43 +52,32 @@ public class ParkhausModel {
         return car.id();
     }
 
-    final public ServletContext getContext() { return getServletConfig().getServletContext();}
-
-    final protected Double getTotalRevenue()
-    {
-        Double totalRevenue;
-        ServletContext application = getContext();
-        totalRevenue                     = (Double) application.getAttribute("total_revenue");
-        totalRevenue                     = (totalRevenue == null) ? 0.0 : totalRevenue;
-        return totalRevenue;
+    public Double getDoubleAttribute(Double attribute) {
+        return (attribute == null) ? 0. : attribute;
     }
 
-    final protected Double getBill()
-    {
-        Double bill;
-        ServletContext application = getContext();
-        bill                                      = (Double) application.getAttribute("get_bill");
-        bill                                      = (bill == null) ? 0. : bill;
-        return bill;
+    /* TODO: fix this
+     * currently returns all initialized cars and not just the ones inside the parking garage
+     */
+    final protected Long getTotalCars() {
+        return (long) cars().size();
     }
 
-    List<CarIF> cars()
-    {
-        if ( getContext().getAttribute( "cars"+ getNAME() ) == null )
-        {
-            getContext().setAttribute( "cars"+ getNAME(), new ArrayList<Car>() );
+    List<CarIF> cars() {
+        if (getContext().getAttribute("cars" + getNAME()) == null) {
+            getContext().setAttribute("cars" + getNAME(), new ArrayList<Car>());
         }
-        return (List<CarIF>) getContext().getAttribute( "cars"+ getNAME() );
+        return (List<CarIF>) getContext().getAttribute("cars" + getNAME());
     }
 
     /*
      * TODO: replace this by your own function
      * @return the number of the free parking lot to which the next incoming car will be directed
      */
-    int locator( CarIF car )
-    {
+
+    int locator(CarIF car) {
         /*  numbers of parking lots start at 1, not zero */
-        return 1 + (( cars().size() - 1 ) % this.getMAX());
+        return 1 + ((cars().size() - 1) % this.getMAX());
     }
 
 }
