@@ -59,25 +59,26 @@ public class ParkhausModel {
     /* TODO: fix this
      * currently returns all initialized cars and not just the ones inside the parking garage
      */
-    final protected Long getTotalCars() {
+    /*final protected Long getTotalCars() {
         return (long) cars().size();
-    }
+    }*/
 
-    List<CarIF> cars() {
+    /*List<CarIF> cars() {
         if (getContext().getAttribute("cars" + getNAME()) == null) {
             getContext().setAttribute("cars" + getNAME(), new ArrayList<Car>());
         }
         return (List<CarIF>) getContext().getAttribute("cars" + getNAME());
-    }
+    }*/
 
     /*
      * TODO: replace this by your own function
      * @return the number of the free parking lot to which the next incoming car will be directed
      */
 
-    int locator(CarIF car) {
-        /*  numbers of parking lots start at 1, not zero */
+    /*int locator(CarIF car) {
+        //  numbers of parking lots start at 1, not zero
         return 1 + ((cars().size() - 1) % this.getMAX());
-    }
+    }*/
+
 
 }

@@ -1,5 +1,7 @@
 package com.se1_team20.Parkhaus;
 
+import com.se1_team20.Parkhaus.CheckoutDir.ParkhausModel;
+
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,17 +32,22 @@ public abstract class ParkhausServlet extends ParkingServlet {
     abstract int getMAX(); // maximum number of parking slots of a single parking level
     abstract String getCONFIG(); // configuration of a single parking level
 
+    private ParkhausModel pModel;
+
     final public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");
         String[] requestParamString = request.getQueryString().split("=");
-        String command                     = requestParamString[0];
-        String param                           = requestParamString[1];
+        String command              = requestParamString[0];
+        String param                = requestParamString[1];
 
-        if ("cmd".equals(command) && "total_revenue".equals(param)) { eventTotalRevenue(response); }
-        else if ("cmd".equals(command) && "average_revenue".equals(param)) {eventAverageRevenue(response);}
+        ServletContext application = getContext();
+
+        if ("cmd".equals(command) && "total_revenue".equals(param)) { eventDoubleAttribute(response, application, "total_revenue"); }
+
+        else if ("cmd".equals(command) && "average_revenue".equals(param)) {eventDoubleAttribute(response, application, "average_revenue");}
         else if ("cmd".equals(command) && "total_cars".equals(param)) { eventTotalCars(response);}
-        else if ("cmd".equals(command) && "get_bill".equals(param)) {eventGetBill(response);}
+        else if ("cmd".equals(command) && "get_bill".equals(param)) {eventDoubleAttribute(response, application, "get_bill");}
         else if ("cmd".equals(command) && "checkout".equals(param)) {eventCheckOut(response);}
         else if("cmd".equals(command) && "my_chart".equals(param)) {eventMyChart(response);}
         else {System.out.println("invalid Command: " + request.getQueryString());}
@@ -83,12 +90,16 @@ public abstract class ParkhausServlet extends ParkingServlet {
         double            price           = 0.;
         priceString.append(PARAMS[4]);
         price = (!(priceString.toString().equals("_"))) ? Double.parseDouble(priceString.toString()) :  price;
-        getContext().setAttribute("total_revenue", (getTotalRevenue() + (price / 100)));
-        getContext().setAttribute("average_revenue", (getTotalRevenue() / getTotalCars()));
+
+        ServletContext application = getContext();
+        Double totalRev = pModel.getDoubleAttribute((Double) application.getAttribute("total_revenue"));
+
+        getContext().setAttribute("total_revenue", (totalRev + (price / 100)));
+        getContext().setAttribute("average_revenue", (totalRev / getTotalCars()));
         getContext().setAttribute("total_cars", getTotalCars());
         getContext().setAttribute("get_bill", price);
 
-        getContext().setAttribute("cars" + getNAME(), cars().stream().filter(x-> !x.id().equals(PARAMS[0])));
+        getContext().setAttribute("cars" + getNAME(), cars().stream().filter(x-> !x.id().equals(PARAMS[5])));
     }
 
     final protected Double getTotalRevenue()
@@ -152,28 +163,29 @@ public abstract class ParkhausServlet extends ParkingServlet {
     }
 
 
-    final protected void eventTotalRevenue(HttpServletResponse response) throws IOException {
+    final protected void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {
         final PrintWriter OUT = response.getWriter();
-        OUT.println(getTotalRevenue() + ",-");
-        System.out.println("total_revenue = €" + getTotalRevenue());
+        Double doubleAttribute = pModel.getDoubleAttribute((Double) application.getAttribute(attribute));
+        OUT.println(doubleAttribute + ",-");
+        System.out.println(attribute + " = €" + doubleAttribute);
     }
 
-    final protected void eventAverageRevenue(HttpServletResponse response) throws IOException {
+    /*final protected void eventAverageRevenue(HttpServletResponse response) throws IOException {
         final PrintWriter OUT    = response.getWriter();
         OUT.println(getAverageRevenue() + ",-");
         System.out.println("average_revenue = €" + getAverageRevenue());
-    }
+    }*/
     final protected void eventTotalCars(HttpServletResponse response) throws IOException {
         final PrintWriter OUT = response.getWriter();
         OUT.println(getTotalCars());
         System.out.println("total_cars = " + getTotalCars());
     }
 
-    final protected void eventGetBill(HttpServletResponse response) throws IOException {
+    /*final protected void eventGetBill(HttpServletResponse response) throws IOException {
         final PrintWriter OUT = response.getWriter();
         OUT.println(getBill() + ",-");
         System.out.println("your bill = €" + getBill());
-    }
+    }*/
 
     final protected void eventCheckOut(HttpServletResponse response)
     {
