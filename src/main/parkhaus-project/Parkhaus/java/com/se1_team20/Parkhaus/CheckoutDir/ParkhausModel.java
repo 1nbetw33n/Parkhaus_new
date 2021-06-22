@@ -34,6 +34,7 @@ public class ParkhausModel {
      *
      * Bearbeitung Lukas + Test
      *
+     * TODO: Interfaces für die jeweiligen Kategorien: CARS, Parkplätze, Berechnungen
      */
 
     List<CarIF> cars;
