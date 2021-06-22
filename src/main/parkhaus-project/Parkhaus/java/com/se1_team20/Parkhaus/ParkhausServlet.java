@@ -33,54 +33,17 @@ public abstract class ParkhausServlet extends ParkingServlet {
     final public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");
-
         String[] requestParamString = request.getQueryString().split("=");
         String command              = requestParamString[0];
         String param                = requestParamString[1];
 
-        /* calculate total revenue for all cars */
-        if ("cmd".equals(command) && "total_revenue".equals(param))
-        {
-            final PrintWriter OUT = response.getWriter();
-            OUT.println(getTotalRevenue() + ",-");
-            System.out.println("total_revenue = €" + getTotalRevenue());
-        }
-        /* calculate average revenue per car */
-        else if ("cmd".equals(command) && "average_revenue".equals(param))
-        {
-
-            final PrintWriter OUT    = response.getWriter();
-            OUT.println(getAverageRevenue() + ",-");
-            System.out.println("average_revenue = €" + getAverageRevenue());
-        }
-        /* count all cars that leaves the parkhaus */
-        else if ("cmd".equals(command) && "total_cars".equals(param))
-        {
-            final PrintWriter OUT = response.getWriter();
-            OUT.println(getTotalCars());
-            System.out.println("total_cars = " + getTotalCars());
-        }
-        /* prints the bill when a car leaves */
-        else if ("cmd".equals(command) && "get_bill".equals(param))
-        {
-            final PrintWriter OUT = response.getWriter();
-            OUT.println(getBill() + ",-");
-            System.out.println("your bill = €" + getBill());
-        }
-        /* enters checkout interface */
-        else if ("cmd".equals(command) && "checkout".equals(param))
-        {
-        }
-        /* displays the chart */
-        else if("cmd".equals(command) && "my_chart".equals(param))
-        {
-            /* TODO: needs to be implementing somewhere in the future */
-        }
-        /* command doesnt match with the specified commands above */
-        else
-        {
-            System.out.println("invalid Command: " + request.getQueryString());
-        }
+              if ("cmd".equals(command) && "total_revenue".equals(param)) { eventTotalRevenue(response); }
+        else if ("cmd".equals(command) && "average_revenue".equals(param)) {eventAverageRevenue(response);}
+        else if ("cmd".equals(command) && "total_cars".equals(param)) { eventTotalCars(response);}
+        else if ("cmd".equals(command) && "get_bill".equals(param)) {eventGetBill(response);}
+        else if ("cmd".equals(command) && "checkout".equals(param)) {eventCheckOut(response);}
+        else if("cmd".equals(command) && "my_chart".equals(param)) {eventMyChart(response);}
+        else {System.out.println("invalid Command: " + request.getQueryString());}
     }
 
     final public void handleBody(HttpServletRequest request,HttpServletResponse response) throws IOException
@@ -98,14 +61,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     final public void handleEvent(final String EVENT, final String[] PARAMS, final String[] RESTPARAMS)
     {
-        if ("enter".equals(EVENT))
-    {
-        handleEnter(RESTPARAMS);
-    }
-        else if ("leave".equals(EVENT))
-        {
-            handleLeave(PARAMS);
-        }
+        if ("enter".equals(EVENT)) { handleEnter(RESTPARAMS);}
+        else if ("leave".equals(EVENT)) { handleLeave(PARAMS);}
     }
 
     final protected void handleEnter(final String[] RESTPARAMS)
@@ -124,7 +81,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("average_revenue", (getTotalRevenue() / getTotalCars()));
         getContext().setAttribute("total_cars", getTotalCars());
         getContext().setAttribute("get_bill", price);
-
+        /*
+        TODO: currently broken
+         */
         getContext().setAttribute("cars" + getNAME(), cars().stream().filter(x-> !x.id().equals(PARAMS[0])));
     }
 
@@ -186,6 +145,39 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         /*  numbers of parking lots start at 1, not zero */
         return 1 + (( cars().size() - 1 ) % this.getMAX());
+    }
+
+    final protected void eventTotalRevenue(HttpServletResponse response) throws IOException {
+        final PrintWriter OUT = response.getWriter();
+        OUT.println(getTotalRevenue() + ",-");
+        System.out.println("total_revenue = €" + getTotalRevenue());
+    }
+
+    final protected void eventAverageRevenue(HttpServletResponse response) throws IOException {
+        final PrintWriter OUT    = response.getWriter();
+        OUT.println(getAverageRevenue() + ",-");
+        System.out.println("average_revenue = €" + getAverageRevenue());
+    }
+    final protected void eventTotalCars(HttpServletResponse response) throws IOException {
+        final PrintWriter OUT = response.getWriter();
+        OUT.println(getTotalCars());
+        System.out.println("total_cars = " + getTotalCars());
+    }
+
+    final protected void eventGetBill(HttpServletResponse response) throws IOException {
+        final PrintWriter OUT = response.getWriter();
+        OUT.println(getBill() + ",-");
+        System.out.println("your bill = €" + getBill());
+    }
+
+    final protected void eventCheckOut(HttpServletResponse response)
+    {
+        /* TODO: COMING SOON*/
+    }
+
+    final protected void eventMyChart(HttpServletResponse response)
+    {
+        /* TODO: COMING SOON */
     }
 
 
