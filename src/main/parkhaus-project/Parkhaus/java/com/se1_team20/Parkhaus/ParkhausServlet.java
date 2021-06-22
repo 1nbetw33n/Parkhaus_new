@@ -69,6 +69,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     final protected void handleEnter(final String[] PARAMS)
     {
+        //TODO: Parkplätze implementieren
         CarIF newCar = new Car( PARAMS );
         cars().add( newCar );
     }
