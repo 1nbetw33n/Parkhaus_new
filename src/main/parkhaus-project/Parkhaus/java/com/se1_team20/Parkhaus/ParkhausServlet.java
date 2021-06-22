@@ -32,7 +32,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     abstract int getMAX(); // maximum number of parking slots of a single parking level
     abstract String getCONFIG(); // configuration of a single parking level
 
-    private ParkhausModel pModel;
+    public ParkhausModel pModel =  new ParkhausModel();
 
     final public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
