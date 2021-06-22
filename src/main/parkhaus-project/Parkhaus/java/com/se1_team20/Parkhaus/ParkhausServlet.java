@@ -81,18 +81,15 @@ public abstract class ParkhausServlet extends ParkingServlet {
         Double totalRev = pModel.getDoubleAttribute((Double) application.getAttribute("total_revenue"));
 
         getContext().setAttribute("total_revenue", (totalRev + (price / 100)));
-        getContext().setAttribute("average_revenue", (totalRev / getTotalCars()));
-        getContext().setAttribute("total_cars", getTotalCars());
+        getContext().setAttribute("average_revenue", (totalRev / cars().size()));
+        getContext().setAttribute("total_cars", cars().size());
         getContext().setAttribute("get_bill", price);
 
         getContext().setAttribute("cars" + getNAME(), pModel.filterIDErase(cars(),PARAMS[5]));
     }
 
-    final protected Long getTotalCars() {return (long) cars().size();}
-
     /*
      * @return the list of all cars stored in the servlet context so far
-     *
      * Lukas: ParkhausModell implementierung hinzugefügt um Logik statisch zu transferieren
      *  -> Funktionsaufruf sollte eigentlich entfallen, mir ist gerade keine bessere Lösung gekommen
      */
@@ -110,17 +107,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
     }
 
 
-    /*
-     * TODO: replace this by your own function
-     * @return the number of the free parking lot to which the next incoming car will be directed
-     */
-    int locator( CarIF car )
-    {
-        /*  numbers of parking lots start at 1, not zero */
-        return 1 + (( cars().size() - 1 ) % this.getMAX());
-    }
-
-
     final protected void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {
         final PrintWriter OUT = response.getWriter();
         Double doubleAttribute = pModel.getDoubleAttribute((Double) application.getAttribute(attribute));
@@ -130,8 +116,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     final protected void eventTotalCars(HttpServletResponse response) throws IOException {
         final PrintWriter OUT = response.getWriter();
-        OUT.println(getTotalCars());
-        System.out.println("total_cars = " + getTotalCars());
+        OUT.println(cars().size());
+        System.out.println("total_cars = " + cars().size());
     }
 
 

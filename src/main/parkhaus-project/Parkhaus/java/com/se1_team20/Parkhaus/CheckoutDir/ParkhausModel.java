@@ -50,4 +50,11 @@ public class ParkhausModel {
         return  cars.stream().filter((x -> !x.id().equals(id))).collect(Collectors.toList());
     }
 
+    /* @return the number of the free parking lot to which the next incoming car will be directed */
+    public int locator(int max)
+    {
+        /*  numbers of parking lots start at 1, not zero */
+        return 1 + (( cars.size() - 1 ) % max);
+    }
+
 }
