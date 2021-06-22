@@ -92,13 +92,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("cars" + getNAME(), pModel.filterIDErase(cars(),PARAMS[5]));
     }
 
-
-
-    /* TODO: fix this
-     * currently returns all initialized cars and not just the ones inside the parking garage
-     */
     final protected Long getTotalCars() {return (long) cars().size();}
-
 
     /*
      * @return the list of all cars stored in the servlet context so far
@@ -106,6 +100,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      * Lukas: ParkhausModell implementierung hinzugefügt um Logik statisch zu transferieren
      *  -> Funktionsaufruf sollte eigentlich entfallen, mir ist gerade keine bessere Lösung gekommen
      */
+
     @SuppressWarnings("unchecked")
     List<CarIF> cars()
     {
