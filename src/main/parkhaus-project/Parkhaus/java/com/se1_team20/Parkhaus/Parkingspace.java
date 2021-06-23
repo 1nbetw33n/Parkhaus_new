@@ -21,4 +21,24 @@
 package com.se1_team20.Parkhaus;
 
 public class Parkingspace implements ParkingspaceIF {
+
+    private boolean available;
+    private String type;
+
+    public String getType(){
+        return type;
+    }
+
+    public void setType(String type){
+        this.type = type;
+    }
+
+    public boolean isAvailable(){
+        return available;
+    }
+
+    public void setAvailable(boolean available){
+        this.available = available;
+    }
+
 }

@@ -22,8 +22,9 @@ package com.se1_team20.Parkhaus;
 
 public interface ParkingspaceIF {
 
-    public String type();
-    public boolean available();
-
+    public String getType();
+    public void setType(String type);
+    public boolean isAvailable();
+    public void setAvailable(boolean available);
 
 }
