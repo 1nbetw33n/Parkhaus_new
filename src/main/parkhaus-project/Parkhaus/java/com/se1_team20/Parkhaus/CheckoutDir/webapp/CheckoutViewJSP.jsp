@@ -26,26 +26,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-
 /*
- * TO DO: Ausgabe von Ticketpreis, Umsatz und duration
- * TO DO: Den Ticket printen lassen.
- * To DO: Die Ausgabe erfolgt durch den Checkoutservlet.
- *
+ * TO DO:
 
- */
-
-
-
-
+*/
+<%@ page import="com.se1_team20.Parkhaus" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Parkhaus Checkout</title>
-</head>
-<body>
 
-<div align="center"></div>
+<html>
+    <head>
+        <title>Checkout</title>
+    </head>
+  <body>
+
+  <div align=com.se1_team20.Parkhaus.CheckoutServlet"center"></div>
      <table border="1">
            <tr bgcolor="gray">
                 <td> Parkticketnr.</td>
@@ -53,13 +48,22 @@
                 <td> Ticketpreis</td>
            </tr>
 
-            <tr>
-                 <td>#1232323</td>
-                 <td>12 Min.</td>
-                 <td>2€</td>
+         <%-- Fetching the attributes of the request object
+           which was previously set by the servlet
+            "StudentServlet.java"
+         --%>
+
+         <% ArrayList<String>std= (ArrayList<String>)request.getAttribute("data");
+
+            for(String s: std){%>
+         <%-- Arranging data in tabular form
+        --%>
+         <tr>
+                 <td><%=s.getTicketNr. %></td>
+                 <td><%=s.getDuration %></td>
+                 <td><%=s.getPrice %>%></td>
             </tr>
      </table>
 
-
-</body>
+  </body>
 </html>

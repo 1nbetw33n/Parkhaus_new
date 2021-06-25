@@ -33,6 +33,7 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet{
 
 
     /* TODO: Fix the authentication */
+    /* TODO: Create a jsp-File for creating the username and and the password */
     /*
      right now the authentication is broken, because whatever you enter you will be redirected to ManagementServlet;
      also entering nothing and then hitting login button will result in redirection to ManagementServlet

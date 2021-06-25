@@ -9,21 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-
-
-
 
 
 @WebServlet("/ParkhausServlet")
 public abstract class ParkhausServlet extends ParkingServlet {
 
     /**
-     * TODO: Funktional ParkhausServlet im arbeiten -> Wo? Welche berechnung braucht das?
-     * TODO: evaluate cars()
-     * cars() stores all initialized cars and not just the ones entered
+     * handleEnter() does not check if there is available space
      */
 
     /* abstract methods, to be defined in subclasses */
@@ -31,7 +24,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     abstract int getMAX(); // maximum number of parking slots of a single parking level
     abstract String getCONFIG(); // configuration of a single parking level
 
-    private ParkhausModel pModel;
+    public ParkhausModel pModel =  new ParkhausModel();
 
     final public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -60,20 +53,20 @@ public abstract class ParkhausServlet extends ParkingServlet {
         System.out.println(body);
         handleEvent(
                 body.split(",")[0],
-                body.split(","),
-                Arrays.copyOfRange(body.split(","), 1, body.split(",").length)
+                body.split(",")
         );
     }
 
-    final public void handleEvent(final String EVENT, final String[] PARAMS, final String[] RESTPARAMS)
+    final public void handleEvent(final String EVENT, final String[] PARAMS)
     {
-        if ("enter".equals(EVENT)) {handleEnter(RESTPARAMS);}
+        if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
     }
 
-    final protected void handleEnter(final String[] RESTPARAMS)
+    final protected void handleEnter(final String[] PARAMS)
     {
-        CarIF newCar = new Car( RESTPARAMS );
+        //TODO: Parkplätze implementieren
+        CarIF newCar = new Car( PARAMS );
         cars().add( newCar );
     }
 
@@ -88,52 +81,19 @@ public abstract class ParkhausServlet extends ParkingServlet {
         Double totalRev = pModel.getDoubleAttribute((Double) application.getAttribute("total_revenue"));
 
         getContext().setAttribute("total_revenue", (totalRev + (price / 100)));
-        getContext().setAttribute("average_revenue", (totalRev / getTotalCars()));
-        getContext().setAttribute("total_cars", getTotalCars());
+        getContext().setAttribute("average_revenue", (totalRev / cars().size()));
+        getContext().setAttribute("total_cars", cars().size());
         getContext().setAttribute("get_bill", price);
 
-        getContext().setAttribute("cars" + getNAME(), cars().stream().filter(x-> !x.id().equals(PARAMS[5])));
+        getContext().setAttribute("cars" + getNAME(), pModel.filterIDErase(cars(),PARAMS[5]));
     }
-
-    final protected Double getTotalRevenue()
-    {
-        Double totalRevenue;
-        ServletContext application = getContext();
-        totalRevenue                     = (Double) application.getAttribute("total_revenue");
-        totalRevenue                     = (totalRevenue == null) ? 0.0 : totalRevenue;
-        return totalRevenue;
-    }
-
-
-    final protected Double getAverageRevenue()
-    {
-        Double averageRevenue;
-        ServletContext application = getContext();
-        averageRevenue                = (Double) application.getAttribute("average_revenue");
-        averageRevenue                = (averageRevenue == null) ? 0. : averageRevenue;
-        return averageRevenue;
-    }
-
-
-    /* TODO: fix this
-     * currently returns all initialized cars and not just the ones inside the parking garage
-     */
-    final protected Long getTotalCars() {return (long) cars().size();}
-
-
-    final protected Double getBill()
-    {
-        Double bill;
-        ServletContext application = getContext();
-        bill                                      = (Double) application.getAttribute("get_bill");
-        bill                                      = (bill == null) ? 0. : bill;
-        return bill;
-    }
-
 
     /*
      * @return the list of all cars stored in the servlet context so far
+     * Lukas: ParkhausModell implementierung hinzugefügt um Logik statisch zu transferieren
+     *  -> Funktionsaufruf sollte eigentlich entfallen, mir ist gerade keine bessere Lösung gekommen
      */
+
     @SuppressWarnings("unchecked")
     List<CarIF> cars()
     {
@@ -141,18 +101,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
         {
             getContext().setAttribute( "cars"+ getNAME(), new ArrayList<Car>() );
         }
-        return (List<CarIF>) getContext().getAttribute( "cars"+ getNAME() );
-    }
-
-
-    /*
-     * TODO: replace this by your own function
-     * @return the number of the free parking lot to which the next incoming car will be directed
-     */
-    int locator( CarIF car )
-    {
-        /*  numbers of parking lots start at 1, not zero */
-        return 1 + (( cars().size() - 1 ) % this.getMAX());
+        List<CarIF> cars = (List<CarIF>) getContext().getAttribute( "cars"+ getNAME() );
+        pModel.setCarsModel(cars);
+        return cars;
     }
 
 
@@ -163,33 +114,35 @@ public abstract class ParkhausServlet extends ParkingServlet {
         System.out.println(attribute + " = €" + doubleAttribute);
     }
 
-    /*final protected void eventAverageRevenue(HttpServletResponse response) throws IOException {
-        final PrintWriter OUT    = response.getWriter();
-        OUT.println(getAverageRevenue() + ",-");
-        System.out.println("average_revenue = €" + getAverageRevenue());
-    }*/
     final protected void eventTotalCars(HttpServletResponse response) throws IOException {
         final PrintWriter OUT = response.getWriter();
-        OUT.println(getTotalCars());
-        System.out.println("total_cars = " + getTotalCars());
+        OUT.println(cars().size());
+        System.out.println("total_cars = " + cars().size());
     }
 
-    /*final protected void eventGetBill(HttpServletResponse response) throws IOException {
-        final PrintWriter OUT = response.getWriter();
-        OUT.println(getBill() + ",-");
-        System.out.println("your bill = €" + getBill());
-    }*/
 
     final protected void eventCheckOut(HttpServletResponse response)
     {
         /* TODO: COMING SOON*/
+
+        //ArrayList<String>std=new ArrayList<>();
+
+       /* request.setAttribute("data", std);
+
+          RequestDispatcher rd =  request.getRequestDispatcher("CheckoutViewJSP.jsp");
+
+          rd.forward(request,response);
+
+
+        */
+
+
     }
 
     final protected void eventMyChart(HttpServletResponse response)
     {
         /* TODO: COMING SOON */
     }
-
 
 }
 

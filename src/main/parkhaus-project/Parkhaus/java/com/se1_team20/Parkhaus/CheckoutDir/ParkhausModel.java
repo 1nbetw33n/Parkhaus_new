@@ -20,17 +20,9 @@
 
 package com.se1_team20.Parkhaus.CheckoutDir;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-
-import com.se1_team20.Parkhaus.Car;
 import com.se1_team20.Parkhaus.CarIF;
-import com.se1_team20.Parkhaus.ParkingServlet;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ParkhausModel {
 
@@ -42,43 +34,28 @@ public class ParkhausModel {
      *
      * Bearbeitung Lukas + Test
      *
+     * TODO: Interfaces für die jeweiligen Kategorien: CARS, Parkplätze, Berechnungen
      */
 
-    protected int kundenParkkosten(Car car) {
-        return car.price();
-    }
-
-    protected String kundenID(Car car) {
-        return car.id();
-    }
+    List<CarIF> cars;
 
     public Double getDoubleAttribute(Double attribute) {
         return (attribute == null) ? 0. : attribute;
     }
 
-    /* TODO: fix this
-     * currently returns all initialized cars and not just the ones inside the parking garage
-     */
-    /*final protected Long getTotalCars() {
-        return (long) cars().size();
-    }*/
+    public void setCarsModel (List<CarIF> cars) {
+        this.cars = cars;
+    }
 
-    /*List<CarIF> cars() {
-        if (getContext().getAttribute("cars" + getNAME()) == null) {
-            getContext().setAttribute("cars" + getNAME(), new ArrayList<Car>());
-        }
-        return (List<CarIF>) getContext().getAttribute("cars" + getNAME());
-    }*/
+    public List<CarIF> filterIDErase(List<CarIF> cars, String id) {
+        return  cars.stream().filter((x -> !x.id().equals(id))).collect(Collectors.toList());
+    }
 
-    /*
-     * TODO: replace this by your own function
-     * @return the number of the free parking lot to which the next incoming car will be directed
-     */
-
-    /*int locator(CarIF car) {
-        //  numbers of parking lots start at 1, not zero
-        return 1 + ((cars().size() - 1) % this.getMAX());
-    }*/
-
+    /* @return the number of the free parking lot to which the next incoming car will be directed */
+    public int locator(int max)
+    {
+        /*  numbers of parking lots start at 1, not zero */
+        return 1 + (( cars.size() - 1 ) % max);
+    }
 
 }

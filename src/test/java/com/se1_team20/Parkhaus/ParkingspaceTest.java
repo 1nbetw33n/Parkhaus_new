@@ -18,28 +18,20 @@
  *
  */
 
-package com.se1_team20.Parkhaus.CheckoutDir;
+package com.se1_team20.Parkhaus;
 
-import com.se1_team20.Parkhaus.Car;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-public class CheckoutModel {
+import static org.junit.jupiter.api.Assertions.*;
 
-    /*
-    *  Model for Checkout:
-    *  Allgemeine Datenbeschaffung die bei allen Benötigt werden:
-    *  Wie viel Autos insgesamt
-    *  Zeit von Kunde im Parkhaus
-    *
-    * Bearbeitung Lukas + Test
-    *
-     */
+class ParkingspaceTest {
 
-    protected int kundenParkkosten(Car car){
-        return car.price();
+    @BeforeEach
+    void setUp() {
     }
 
-    protected String kundenID(Car car) {
-        return car.id();
+    @AfterEach
+    void tearDown() {
     }
-
 }
