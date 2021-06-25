@@ -5,7 +5,7 @@
 <ul>
 <li>
 US1:Als User will ich einen Button haben,um die gesamte Parksimulation 
-    gleichzeitig zu starten.
+    gleichzeitig zu starten..
 
 </li>
 <li>
