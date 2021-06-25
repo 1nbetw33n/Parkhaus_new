@@ -2,7 +2,9 @@ package com.se1_team20.Parkhaus;
 
 import com.se1_team20.Parkhaus.CheckoutDir.ParkhausModel;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,9 +42,22 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else if ("cmd".equals(command) && "average_revenue".equals(param)) {eventDoubleAttribute(response, application, "average_revenue");}
         else if ("cmd".equals(command) && "total_cars".equals(param)) { eventTotalCars(response);}
         else if ("cmd".equals(command) && "get_bill".equals(param)) {eventDoubleAttribute(response, application, "get_bill");}
-        else if ("cmd".equals(command) && "checkout".equals(param)) {eventCheckOut(response);}
+        else if ("cmd".equals(command) && "checkout".equals(param)) /*{eventCheckOut(response);*/
+            {
+                try{
+                    handleRequest(request, response);
+                } catch (final Exception E) {
+                    E.printStackTrace();
+                }
+            }
         else if("cmd".equals(command) && "my_chart".equals(param)) {eventMyChart(response);}
         else {System.out.println("invalid Command: " + request.getQueryString());}
+    }
+
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        RequestDispatcher requestDispatcherObject = request.getRequestDispatcher("/CheckoutViewJSP.jsp");
+        requestDispatcherObject.include(request, response);
     }
 
     final public void handleBody(HttpServletRequest request,HttpServletResponse response) throws IOException
