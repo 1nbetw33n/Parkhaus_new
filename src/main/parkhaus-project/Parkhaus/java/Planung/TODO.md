@@ -1,8 +1,6 @@
 <html lang="">
-    <head>
-        <title>TODOs FÜRS MVP</title>
-</head>
 <body>
+    <h1>TODOs FÜRS PARKHAUS</h1>
     <ul style="list-style-type: square;">
         <li>Redirection to Checkout View</li> Lukas 
         <li>
