@@ -4,9 +4,9 @@
 </head>
 <body>
     <ul style="list-style-type: square;">
-        <li>Redirection to Checkout View</li>
+        <li>Redirection to Checkout View</li> Lukas 
         <li>
-            Implement Checkout View:
+            Implement Checkout View: Lukas + Bella 
             <ul>ParkTicketNr.</ul>
             <ul>Duration</ul>
             <ul>Price</ul>
@@ -17,13 +17,13 @@
         </li>
         <li>Redirection to Management View (OPTIONAL)</li>
         <li>
-            Charts für Management View:
+            Charts für Management View: Bella + Lukas 
             <ul>Average Revenue</ul>
             <ul>Total Cars</ul>
             <ul>Total Revenue</ul>
         </li>
         <li>
-            Markdown for:
+            Markdown for: (Rahgawi)
             <ul>MVP</ul>
             <ul>USER STORIES</ul>
             <ul>Erklärung durch welche Implementierung, welche User Story umgesetzt wird</ul>
@@ -31,11 +31,11 @@
         </li>
         <li>Names of all ServletContexts + Explanation</li>
         <li>
-            Parking Lot Implementation:
+            Parking Lot Implementation: Preet
             <ul>Different Types</ul>
         </li>
         <li>
-            Organize Repo:
+            Organize Repo: Bella
             <ul>Delete unused Classes</ul>
             <ul>Delete unused Code</ul>
             <ul>

@@ -62,7 +62,7 @@
          <%-- Arranging data in tabular form
         --%>
          <tr>
-                 <td><%=car.id() %></td>
+                 <td><%=car.nr() %></td>
                  <td><%=car.duration() %></td>
                  <td><%=car.price() %>%></td>
             </tr>
