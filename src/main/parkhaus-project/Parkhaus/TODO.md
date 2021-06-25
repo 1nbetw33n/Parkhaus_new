@@ -46,6 +46,11 @@
             </ul>
             <ul>Delete Personal Spaces</ul>
             </li>
+        <li>
+            Additional Ideas:
+            <ul> Checkout REGEX implementation (Bankverbindung etc.)</ul>
+            <ul> Checkout Payment Option (Paypal etc.)</ul>
+            </li>
     </ul>
 </body>
 </html>
