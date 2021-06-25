@@ -32,6 +32,8 @@
 */
 <%@ page import="com.se1_team20.Parkhaus" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="javax.servlet.ServletContext" %>
+<%@ page import="com.se1_team20.Parkhaus.CarIF" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -52,16 +54,17 @@
            which was previously set by the servlet
             "StudentServlet.java"
          --%>
-
+         <% ServletContext sc = request.getServletContext(); %>
+         <% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("cars"+ "Level1"); %>
          <% ArrayList<String>std= (ArrayList<String>)request.getAttribute("data");
 
-            for(String s: std){%>
+            for(CarIF car: cars){%>
          <%-- Arranging data in tabular form
         --%>
          <tr>
-                 <td><%=s.getTicketNr. %></td>
-                 <td><%=s.getDuration %></td>
-                 <td><%=s.getPrice %>%></td>
+                 <td><%=car.id() %></td>
+                 <td><%=car.duration() %></td>
+                 <td><%=car.price() %>%></td>
             </tr>
      </table>
 

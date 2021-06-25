@@ -26,26 +26,23 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-
 /*
- * TO DO: Ausgabe von Ticketpreis, Umsatz und duration
- * TO DO: Den Ticket printen lassen.
- * To DO: Die Ausgabe erfolgt durch den Checkoutservlet.
- *
+ * TO DO:
 
- */
-
-
-
-
+*/
+<%@ page import="com.se1_team20.Parkhaus" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="javax.servlet.ServletContext" %>
+<%@ page import="com.se1_team20.Parkhaus.CarIF" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Parkhaus Checkout</title>
-</head>
-<body>
 
-<div align="center"></div>
+<html>
+    <head>
+        <title>Checkout</title>
+    </head>
+  <body>
+
+  <div align=com.se1_team20.Parkhaus.CheckoutServlet"center"></div>
      <table border="1">
            <tr bgcolor="gray">
                 <td> Parkticketnr.</td>
@@ -53,13 +50,23 @@
                 <td> Ticketpreis</td>
            </tr>
 
-            <tr>
-                 <td>#1232323</td>
-                 <td>12 Min.</td>
-                 <td>2€</td>
+         <%-- Fetching the attributes of the request object
+           which was previously set by the servlet
+            "StudentServlet.java"
+         --%>
+         <% ServletContext sc = request.getServletContext(); %>
+         <% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("cars"+ "Level1"); %>
+         <% ArrayList<String>std= (ArrayList<String>)request.getAttribute("data");
+
+            for(CarIF car: cars){%>
+         <%-- Arranging data in tabular form
+        --%>
+         <tr>
+                 <td><%=car.id() %></td>
+                 <td><%=car.duration() %></td>
+                 <td><%=car.price() %>%></td>
             </tr>
      </table>
 
-
-</body>
+  </body>
 </html>
