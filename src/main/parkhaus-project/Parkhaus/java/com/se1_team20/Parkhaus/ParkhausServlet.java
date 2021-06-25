@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -124,6 +125,19 @@ public abstract class ParkhausServlet extends ParkingServlet {
     final protected void eventCheckOut(HttpServletResponse response)
     {
         /* TODO: COMING SOON*/
+
+        //ArrayList<String>std=new ArrayList<>();
+
+       /* request.setAttribute("data", std);
+
+          RequestDispatcher rd =  request.getRequestDispatcher("CheckoutViewJSP.jsp");
+
+          rd.forward(request,response);
+
+
+        */
+
+
     }
 
     final protected void eventMyChart(HttpServletResponse response)
