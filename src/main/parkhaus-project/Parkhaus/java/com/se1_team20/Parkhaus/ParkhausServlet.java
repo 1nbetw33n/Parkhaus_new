@@ -1,7 +1,5 @@
 package com.se1_team20.Parkhaus;
 
-import com.se1_team20.Parkhaus.CheckoutDir.ParkhausModel;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

@@ -22,12 +22,12 @@ package com.se1_team20.Parkhaus.CheckoutDir;
 
 import com.se1_team20.Parkhaus.Car;
 import com.se1_team20.Parkhaus.CarIF;
+import com.se1_team20.Parkhaus.ParkhausModel;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ParkhausModelTest {
 
     private ParkhausModel cm;
-    private Car carEnter = new Car(null);
+    private Car           carEnter = new Car(null);
     private Car carLeave = new Car(null);
     private List<CarIF> cars = null;
 
