@@ -20,6 +20,8 @@
 
 package com.se1_team20.Parkhaus;
 
+import com.se1_team20.Parkhaus.CHECKOUT.CheckoutServlet;
+import com.se1_team20.Parkhaus.PARKHAUS.ParkhausServlet;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -30,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CheckoutServletTest {
 
     CheckoutServlet checkoutServlet = new CheckoutServlet();
-    ParkhausServlet level1Servlet = new Level1Servlet();
+    ParkhausServlet level1Servlet   = new Level1Servlet();
 
     Checkout checkout = new Checkout(3,55,10);
     double total_amount = 10;

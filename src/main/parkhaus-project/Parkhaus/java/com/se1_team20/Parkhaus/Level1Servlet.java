@@ -1,5 +1,7 @@
 package com.se1_team20.Parkhaus;
 
+import com.se1_team20.Parkhaus.PARKHAUS.ParkhausServlet;
+
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "level1Servlet", value = "/level1-servlet")
