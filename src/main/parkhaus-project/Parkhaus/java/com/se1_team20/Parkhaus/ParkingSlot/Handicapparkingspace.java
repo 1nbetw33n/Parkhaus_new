@@ -21,4 +21,6 @@
 package com.se1_team20.Parkhaus.ParkingSlot;
 
 public class Handicapparkingspace {
+
+
 }

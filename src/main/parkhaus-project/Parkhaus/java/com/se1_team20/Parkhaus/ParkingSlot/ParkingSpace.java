@@ -22,5 +22,10 @@ package com.se1_team20.Parkhaus.ParkingSlot;
 
 public abstract class ParkingSpace {
 
+     public boolean ishandicap=false;
 
+     public ParkingSpace(boolean ishandicap){
+
+         this.ishandicap=ishandicap;
+     }
 }
