@@ -20,8 +20,6 @@
 
 package com.se1_team20.Parkhaus.PARKHAUS;
 
-import com.se1_team20.Parkhaus.Car;
-import com.se1_team20.Parkhaus.CarIF;
 import com.se1_team20.Parkhaus.ParkhausModel;
 
 import javax.servlet.RequestDispatcher;

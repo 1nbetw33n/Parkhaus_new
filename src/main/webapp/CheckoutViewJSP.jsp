@@ -33,7 +33,7 @@
 <%@ page import="com.se1_team20.Parkhaus" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="javax.servlet.ServletContext" %>
-<%@ page import="com.se1_team20.Parkhaus.CarIF" %>
+<%@ page import="com.se1_team20.Parkhaus.PARKHAUS.CarIF" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>

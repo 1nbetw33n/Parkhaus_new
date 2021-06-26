@@ -20,6 +20,8 @@
 
 package com.se1_team20.Parkhaus;
 
+import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

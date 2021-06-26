@@ -20,8 +20,8 @@
 
 package com.se1_team20.Parkhaus.CheckoutDir;
 
-import com.se1_team20.Parkhaus.Car;
-import com.se1_team20.Parkhaus.CarIF;
+import com.se1_team20.Parkhaus.PARKHAUS.Car;
+import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
 import com.se1_team20.Parkhaus.ParkhausModel;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
