@@ -1,7 +1,28 @@
-package com.se1_team20.Parkhaus;
+/*
+ *  copyright (c) 2021 se1_team20.
+ *  Planet Earth, Milky Way, Virgo Supercluster.
+ *  All rights reserved.
+ *
+ *  part of team20:
+ *
+ *  1nbetw33n
+ *  Masternuss
+ *  Preet149
+ *  Rahgawi
+ *
+ * This software is the confidential and proprietary information of
+ * se1_team20. ("Confidential Information"). You shall not disclose
+ * such Confidential Information and shall use it only in accordance
+ * with the terms of the license agreement you entered into with
+ * se1_team20.
+ *
+ */
 
-import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
-import com.se1_team20.Parkhaus.PARKHAUS.ParkingServletable;
+package com.se1_team20.Parkhaus.PARKHAUS;
+
+import com.se1_team20.Parkhaus.Car;
+import com.se1_team20.Parkhaus.CarIF;
+import com.se1_team20.Parkhaus.ParkhausModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
