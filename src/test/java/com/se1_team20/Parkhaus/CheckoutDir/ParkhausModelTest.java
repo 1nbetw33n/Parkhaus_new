@@ -22,7 +22,7 @@ package com.se1_team20.Parkhaus.CheckoutDir;
 
 import com.se1_team20.Parkhaus.PARKHAUS.Car;
 import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
-import com.se1_team20.Parkhaus.ParkhausModel;
+import com.se1_team20.Parkhaus.PARKHAUS.ParkhausModel;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
