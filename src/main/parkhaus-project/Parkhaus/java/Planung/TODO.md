@@ -34,18 +34,18 @@
         </li>
         <li>
             Organize Repo: Bella
-            <ul><strike>Delete unused Classes</strike></ul>
+            <ul><del>Delete unused Classes</del></ul>
             <ul>Delete unused Code</ul>
             <ul>
-                <strike>
+                <del>
                 Organize in Packages
                 <ul>Management</ul>
                 <ul>Views</ul>
                 <ul>Checkout</ul>
                 <ul>Parkhaus</ul>
-                </strike>
+                </del>
             </ul>
-            <ul><strike>Delete Personal Spaces</strike></ul>
+            <ul><del>Delete Personal Spaces</del></ul>
         </li>
         <li>
             Additional Ideas:
