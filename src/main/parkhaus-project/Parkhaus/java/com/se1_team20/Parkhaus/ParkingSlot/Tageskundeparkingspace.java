@@ -20,5 +20,10 @@
 
 package com.se1_team20.Parkhaus.ParkingSlot;
 
-public class Tageskundeparkingspace {
+public class Tageskundeparkingspace extends ParkingSpace {
+
+    public Tageskundeparkingspace(){
+
+        super();
+    }
 }

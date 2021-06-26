@@ -20,5 +20,10 @@
 
 package com.se1_team20.Parkhaus.ParkingSlot;
 
-public class Firmenparkingspace {
+public class Firmenparkingspace extends ParkingSpace{
+
+    public Firmenparkingspace(){
+
+        super();
+    }
 }
