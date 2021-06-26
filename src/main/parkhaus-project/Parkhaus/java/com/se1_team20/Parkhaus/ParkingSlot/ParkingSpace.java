@@ -30,12 +30,17 @@ public abstract class ParkingSpace {
 
          Random rnd=new Random();
 
-         this.ishandicap=rnd.nextBoolean();
+         this.ishandicap=rnd.nextBoolean();  //Mit Random wird entschieden ob der jeweilige Kunde eine Behinderung hat oder nicht.
      }
 
      public ParkingSpace(boolean value){
 
          this.ishandicap=value;
+     }
+
+     public boolean hatBehinderung(){
+
+         return this.ishandicap;
      }
 
 
