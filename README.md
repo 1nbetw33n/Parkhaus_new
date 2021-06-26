@@ -9,14 +9,9 @@
     <body>
         <ul style="list-style-type: square;">
                 <li>
-                    se1-starter-repo
-                </li>
-                <li>
                     misc - contains how_to's related to git
                 </li>
-                <li>
-                    personal_spaces with separation into sub directories for each person
-                </li>
+                <li><strong>parkhaus-project - contains the parkhaus project</strong></li>
                 <li>
                     team_space with separations into sub directories for each exercise
                 </li>
