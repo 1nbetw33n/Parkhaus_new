@@ -36,6 +36,12 @@ class Familienparkingspace{
     Familienparkingspace()
 }
 
+class Frauenparkingspace{
+
+   Frauenparkingspace()
+
+}
+
 
 
 Parkingspace<|--Handicapparkingspace
