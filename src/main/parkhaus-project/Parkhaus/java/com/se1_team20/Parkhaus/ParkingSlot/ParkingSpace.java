@@ -20,12 +20,25 @@
 
 package com.se1_team20.Parkhaus.ParkingSlot;
 
+import java.util.Random;
+
 public abstract class ParkingSpace {
 
      public boolean ishandicap=false;
 
-     public ParkingSpace(boolean ishandicap){
+     public ParkingSpace(){
 
-         this.ishandicap=ishandicap;
+         Random rnd=new Random();
+
+         this.ishandicap=rnd.nextBoolean();
      }
+
+     public ParkingSpace(boolean value){
+
+         this.ishandicap=value;
+     }
+
+
+
+
 }
