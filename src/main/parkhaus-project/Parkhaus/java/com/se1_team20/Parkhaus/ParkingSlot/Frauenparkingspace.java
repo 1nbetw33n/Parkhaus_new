@@ -22,6 +22,8 @@ package com.se1_team20.Parkhaus.ParkingSlot;
 
 public class Frauenparkingspace extends ParkingSpace{
 
+    //TO DO: Sinnvolle Methode und Attributen implementieren.
+
     public Frauenparkingspace(){
 
         super();

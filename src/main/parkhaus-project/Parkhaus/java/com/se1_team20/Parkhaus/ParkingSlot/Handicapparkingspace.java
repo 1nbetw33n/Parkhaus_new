@@ -20,7 +20,12 @@
 
 package com.se1_team20.Parkhaus.ParkingSlot;
 
-public class Handicapparkingspace {
+public class Handicapparkingspace extends ParkingSpace{
 
+    //TO DO: Sinnvolle Methode und Attributen implementieren.
 
+    public Handicapparkingspace(){
+
+        super(true);
+    }
 }
