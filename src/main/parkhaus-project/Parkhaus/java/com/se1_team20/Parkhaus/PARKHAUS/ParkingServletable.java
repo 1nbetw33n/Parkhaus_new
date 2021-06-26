@@ -18,7 +18,7 @@
  *
  */
 
-package com.se1_team20.Parkhaus;
+package com.se1_team20.Parkhaus.PARKHAUS;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

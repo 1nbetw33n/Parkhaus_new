@@ -20,6 +20,8 @@
 
 package com.se1_team20.Parkhaus;
 
+import com.se1_team20.Parkhaus.PARKHAUS.ParkingServletable;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +29,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public abstract class ParkingServlet extends HttpServlet implements ParkingServletable{
+public abstract class ParkingServlet extends HttpServlet implements ParkingServletable {
 
     /* default implementation */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {}
