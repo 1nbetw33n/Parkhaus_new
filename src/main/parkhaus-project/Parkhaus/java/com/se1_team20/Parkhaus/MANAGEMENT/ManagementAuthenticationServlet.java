@@ -18,7 +18,9 @@
  *
  */
 
-package com.se1_team20.Parkhaus;
+package com.se1_team20.Parkhaus.MANAGEMENT;
+
+import com.se1_team20.Parkhaus.ParkingServlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public abstract class ManagementAuthenticationServlet extends ParkingServlet{
+public abstract class ManagementAuthenticationServlet extends ParkingServlet {
 
     final private static long serialVersionUID = 1L;
 
