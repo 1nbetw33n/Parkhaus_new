@@ -15,15 +15,34 @@ abstract Parkingspace{
 
 }
 
-class Handicap{
+class Handicapparkingspace{
+
+   Handicapparkingspace()
 
 }
 
-Parkingspace<|--Handicap
-Parkingspace<|--Firmen
-Parkingspace<|--Tages
-Parkingspace<|--Familien
-Parkingspace<|--Frau
+class Firmenparkingspace{
+
+    Firmenparkingspace()
+}
+
+class Tagesparkingspace{
+
+    Tagesparkingspace()
+}
+
+class Familienparkingspace{
+
+    Familienparkingspace()
+}
+
+
+
+Parkingspace<|--Handicapparkingspace
+Parkingspace<|--Firmenparkingspace
+Parkingspace<|--Tagesparkingspace
+Parkingspace<|--Familienparkingspace
+Parkingspace<|--Frauenparkingspace
 
 
 @enduml
