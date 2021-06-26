@@ -18,9 +18,7 @@
  *
  */
 
-package com.se1_team20.Parkhaus;
-
-import com.se1_team20.Parkhaus.PARKHAUS.ParkingServletable;
+package com.se1_team20.Parkhaus.PARKHAUS;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

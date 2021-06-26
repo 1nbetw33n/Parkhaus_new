@@ -1,5 +1,6 @@
 package com.se1_team20.Parkhaus;
 
+import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
 import com.se1_team20.Parkhaus.PARKHAUS.ParkingServletable;
 
 import javax.servlet.RequestDispatcher;

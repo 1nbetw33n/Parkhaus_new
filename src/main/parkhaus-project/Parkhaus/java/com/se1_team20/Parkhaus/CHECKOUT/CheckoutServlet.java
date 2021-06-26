@@ -20,7 +20,7 @@
 
 package com.se1_team20.Parkhaus.CHECKOUT;
 
-import com.se1_team20.Parkhaus.ParkingServlet;
+import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

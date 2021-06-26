@@ -20,7 +20,7 @@
 
 package com.se1_team20.Parkhaus.MANAGEMENT;
 
-import com.se1_team20.Parkhaus.ParkingServlet;
+import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
