@@ -40,6 +40,8 @@ public class Level1Servlet extends ParkhausServlet {
         return ""; // use default config
         // Config Format is "Max, open_from, open_to, delay, simulation_speed"
         // e.g. return this.MAX() + ",5,23,100,10";  // TODO replace by your own parameters
+
+
     }
 
 }
