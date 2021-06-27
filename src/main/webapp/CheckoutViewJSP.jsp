@@ -30,7 +30,7 @@
  * TO DO:
 
 */
-<%--
+
 <%@ page import="com.se1_team20.Parkhaus" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="javax.servlet.ServletContext" %>
@@ -47,6 +47,7 @@
      <table border="1">
            <tr bgcolor="gray">
                 <td> Parkticketnr.</td>
+                <td>Kunde</td>
                 <td> Parkdauer</td>
                 <td> Ticketpreis</td>
            </tr>
@@ -64,6 +65,7 @@
         &ndash;%&gt;
          <tr>
                  <td><%=car.nr() %></td>
+                 <td><%=car.kunde() %></td>
                  <td><%=car.duration() %></td>
                  <td><%=car.price() %></td>
          </tr>
@@ -74,4 +76,4 @@
   </body>
 
 </html>
---%>
+
