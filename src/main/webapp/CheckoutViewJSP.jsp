@@ -50,23 +50,26 @@
                 <td> Ticketpreis</td>
            </tr>
 
-         <%-- Fetching the attributes of the request object
+         &lt;%&ndash; Fetching the attributes of the request object
            which was previously set by the servlet
             "StudentServlet.java"
-         --%>
+         &ndash;%&gt;
          <% ServletContext sc = request.getServletContext(); %>
          <% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("cars"+ "Level1"); %>
          <% ArrayList<String>std= (ArrayList<String>)request.getAttribute("data");
 
             for(CarIF car: cars){%>
-         <%-- Arranging data in tabular form
-        --%>
+         &lt;%&ndash; Arranging data in tabular form
+        &ndash;%&gt;
          <tr>
                  <td><%=car.nr() %></td>
                  <td><%=car.duration() %></td>
-                 <td><%=car.price() %>%></td>
-            </tr>
+                 <td><%=car.price() %></td>
+         </tr>
+
+        <% }%>
      </table>
 
   </body>
+
 </html>
