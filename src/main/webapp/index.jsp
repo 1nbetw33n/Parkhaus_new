@@ -44,10 +44,20 @@
 		<h1>Tomcat Parkhaus 9.1.9</h1>
 	<br>
 		<script src='https://ccmjs.github.io/mkaul-components/parkhaus/versions/ccm.parkhaus-9.1.9.js'></script>
+
 			<ccm-parkhaus-9-1-9
+
                 key='{
 					    "name":"CarHome",
 					    "server_url":"http://localhost:8080/Parkhaus_war_exploded/level1-servlet",
+
+					    "client_categories":["Handicapkunde",
+					                         "Frauenkunde",
+					                         "Tageskunde",
+					                         "Firmenkunde"
+					                         ],
+
+
 					    "extra_buttons":[
 					        {
 					            "extra_class":"checkout",
@@ -84,7 +94,9 @@
 					    ]
 	                }
 				'>
-		</ccm-parkhaus-9-1-9>
+		</ccm-parkhaus-9-1-9
+
+					>
 	</body>
 </html>
 
