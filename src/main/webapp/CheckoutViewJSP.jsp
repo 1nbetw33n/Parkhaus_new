@@ -30,6 +30,7 @@
  * TO DO:
 
 */
+<%--
 <%@ page import="com.se1_team20.Parkhaus" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="javax.servlet.ServletContext" %>
@@ -73,3 +74,4 @@
   </body>
 
 </html>
+--%>
