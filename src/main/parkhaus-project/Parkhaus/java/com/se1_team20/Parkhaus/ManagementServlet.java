@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/ManagementServlet")
-public class ManagementServlet extends ParkingServlet{
+public class ManagementServlet extends ManagementAuthenticationServlet{
 
     final private static long serialVersionUID = 1L;
 
