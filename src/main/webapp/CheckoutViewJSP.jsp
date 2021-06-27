@@ -1,4 +1,3 @@
-<%--
   ~ /* copyright (c) 2021 se1_team20.
   ~  Planet Earth, Milky Way, Virgo Supercluster.
   ~  All rights reserved.
@@ -16,7 +15,6 @@
   ~ with the terms of the license agreement you entered into with
   ~ se1_team20.
   ~  */
-  --%>
 
 <%--
   Created by IntelliJ IDEA.
@@ -31,6 +29,7 @@
 
 */
 
+<%--
 <%@ page import="com.se1_team20.Parkhaus" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="javax.servlet.ServletContext" %>
@@ -76,4 +75,5 @@
   </body>
 
 </html>
+--%>
 
