@@ -66,6 +66,7 @@ public class Car implements CarIF {
         return this.params[5];
     }
 
+    public String kunde(){ return this.params[8];}
 
     @Override
     public String toString(){

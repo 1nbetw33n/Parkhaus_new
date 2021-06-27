@@ -27,4 +27,6 @@ package com.se1_team20.Parkhaus.PARKHAUS;
     int duration();
     int price();
     String id();
+
+    String kunde();
 }
