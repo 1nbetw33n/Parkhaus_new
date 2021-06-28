@@ -26,6 +26,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public abstract class ManagementAuthenticationServlet extends ParkingServlet {
 
@@ -38,18 +39,22 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
      right now the authentication is broken, because whatever you enter you will be redirected to ManagementServlet;
      also entering nothing and then hitting login button will result in redirection to ManagementServlet
      */
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-   {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        if(username.equals("Management")&&password.equals("easy-pass-word"))
-        {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        final PrintWriter OUT      = response.getWriter();
+        String            username = request.getParameter("username");
+        String            password = request.getParameter("password");
+        if (username.equals("Management") && password.equals("easy-pass-word")) {
             response.sendRedirect("member.jsp");
+        } else {
+            OUT.println("<meta http-equiv='refresh' content='3;URL=ManagementAuthenticationView.jsp'>");//redirects after 3 seconds
+            OUT.println("<html><body><div id='servletResponse' style='text-align: center;'>");
+            OUT.println("<p style='color:red; font-size: large;'>ERROR! Invalid credentials!</p>");
+            OUT.println("</div></body></html>");
+            OUT.close();
         }
-        else
-        {
-            response.sendRedirect("error.jsp");
-        }
+    }
+
+}
 
        /* response.setContentType("text/html");
         final String[] PARAMS = request.getQueryString().split("=");
@@ -83,8 +88,8 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
                 OUT.write("<p id='errMsg style='color: red; font-size: larger;'<<b>Password and/or Username wrong! Try again</b></p>");
                 requestDispatcherObject = request.getRequestDispatcher("/index.jsp");
                 requestDispatcherObject.include(request, response);*/
-            }
-        }
+           // }
+       // }
        /*OUT.write("</div></body></html>");
         OUT.close();
     }
