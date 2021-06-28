@@ -18,7 +18,7 @@
  *
  */
 
-package com.se1_team20.Parkhaus;
+package com.se1_team20.Parkhaus.MANAGEMENT;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
