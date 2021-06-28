@@ -46,11 +46,8 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
         if (username.equals("Management") && password.equals("easy-pass-word")) {
             response.sendRedirect("member.jsp");
         } else {
-            OUT.println("<meta http-equiv='refresh' content='3;URL=ManagementAuthenticationView.jsp'>");//redirects after 3 seconds
-            OUT.println("<html><body><div id='servletResponse' style='text-align: center;'>");
-            OUT.println("<p style='color:red; font-size: large;'>ERROR! Invalid credentials!</p>");
-            OUT.println("</div></body></html>");
-            OUT.close();
+            OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects after 3 seconds
+            OUT.write("<script>alert('Invalid Credentials')</script>");
         }
     }
 
