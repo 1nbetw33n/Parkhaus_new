@@ -35,7 +35,6 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
     /* template implementation */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        handleRequest(request, response);
         handleBody(request,response);
     }
 

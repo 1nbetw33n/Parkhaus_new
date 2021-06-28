@@ -10,7 +10,7 @@
 <br>
 <script src='https://ccmjs.github.io/mkaul-components/parkhaus/versions/ccm.parkhaus-9.1.9.js'></script>
 	<ccm-parkhaus-9-1-9
-		config='{
+		key='{
 					    "name":"CarHome",
 					    "server_url":"http://localhost:8080/Parkhaus_war_exploded/level1-servlet",
 					    "client_categories":["Handicapkunde",
@@ -21,7 +21,7 @@
 
                         "price_factor":2, <%--Festlegung des Parkgebührs--%>
 
-                        "max":10  <%--Maximale Anzahl von Parkplätze.--%>
+                        "max":10,  <%--Maximale Anzahl von Parkplätze.--%>
 
                        "open_from": 6,
 

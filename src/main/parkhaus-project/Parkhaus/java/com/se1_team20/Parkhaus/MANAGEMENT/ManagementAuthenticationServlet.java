@@ -44,7 +44,7 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
         String password = request.getParameter("password");
         if(username.equals("Management")&&password.equals("easy-pass-word"))
         {
-            response.sendRedirect("Management");
+            response.sendRedirect("member.jsp");
         }
         else
         {
