@@ -1,4 +1,12 @@
-  ~ /* copyright (c) 2021 se1_team20.
+<%@ page import="com.se1_team20.Parkhaus.PARKHAUS.CarIF" %>
+<%@ page import="java.util.ArrayList" %>
+import com.se1_team20.Parkhaus;
+import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
+
+import javax.servlet.ServletContext;
+import java.util.ArrayList;
+  <%--
+  ~  copyright (c) 2021 se1_team20.
   ~  Planet Earth, Milky Way, Virgo Supercluster.
   ~  All rights reserved.
   ~
@@ -14,7 +22,8 @@
   ~ such Confidential Information and shall use it only in accordance
   ~ with the terms of the license agreement you entered into with
   ~ se1_team20.
-  ~  */
+--%>
+
 
 <%--
   Created by IntelliJ IDEA.
@@ -25,15 +34,11 @@
 --%>
 
 /*
- * TO DO:
+* TO DO:
 
 */
 
-<%--
-<%@ page import="com.se1_team20.Parkhaus" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="javax.servlet.ServletContext" %>
-<%@ page import="com.se1_team20.Parkhaus.PARKHAUS.CarIF" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -57,7 +62,7 @@
          &ndash;%&gt;
          <% ServletContext sc = request.getServletContext(); %>
          <% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("cars"+ "Level1"); %>
-         <% ArrayList<String>std= (ArrayList<String>)request.getAttribute("data");
+         <% ArrayList<String> std= (ArrayList<String>)request.getAttribute("data");
 
             for(CarIF car: cars){%>
          &lt;%&ndash; Arranging data in tabular form
@@ -75,5 +80,5 @@
   </body>
 
 </html>
---%>
+
 
