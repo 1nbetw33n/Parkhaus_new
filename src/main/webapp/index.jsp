@@ -22,7 +22,7 @@
 <body>
 <div style="text-align: center;">
 	<h1>Management Authentication</h1>
-	<form id="loginFormId" name="loginForm" method="post" action="ManagementServlet">
+	<form id="loginFormId" name="loginForm" method="post" action="ManagementAuthenticationServlet">
 		<div id="usernameDiv" class="paddingBtm">
 			<span id="user">Username: </span><label for="userInput"></label><input id="userInput" type="text" name="username" />
 		</div>
@@ -46,7 +46,7 @@
 
 <ccm-parkhaus-9-1-9
 
-		config='{
+		key='{
 					    "name":"CarHome",
 					    "server_url":"http://localhost:8080/Parkhaus_war_exploded/level1-servlet",
 					    "client_categories":["Handicapkunde",
@@ -55,9 +55,10 @@
 					                         "Firmenkunde"
 					                         ],
 
+
                         "price_factor":2, <%--Festlegung des Parkgebührs--%>
 
-                        "max":10  <%--Maximale Anzahl von Parkplätze.--%>
+                        "max":10,  <%--Maximale Anzahl von Parkplätze.--%>
 
                         "open_from": 6,
 
@@ -103,10 +104,10 @@
 					    ]
 	                }
 				'>
+
+
+
 </ccm-parkhaus-9-1-9>
-
-
-
 
 
 </body>

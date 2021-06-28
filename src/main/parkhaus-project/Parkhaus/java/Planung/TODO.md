@@ -6,6 +6,7 @@
         <li>
             Implement Checkout View: Lukas + Bella 
             <ul>ParkTicketNr</ul>
+            <ul>Kunde</ul>  
             <ul>Duration</ul>
             <ul>Price</ul>
             <ul>Button for Send Bill via Mail
