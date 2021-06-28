@@ -100,7 +100,11 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         //TODO: Parkplätze implementieren
         CarIF newCar = new Car( PARAMS );
+
         cars().add( newCar );
+
+        List<CarIF> parkingspace=new ArrayList<>();  //To Do: getMax als länge der Liste festlegen.
+
     }
 
     final protected void handleLeave(final String[] PARAMS)
@@ -113,7 +117,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         ServletContext application = getContext();
         Double totalRev = pModel.getDoubleAttribute((Double) application.getAttribute("total_revenue"));
 
-        getContext().setAttribute("total_revenue", (totalRev + (price / 100)));
+        getContext().setAttribute("total_revenue", (totalRev + (price*100)));
         getContext().setAttribute("average_revenue", (totalRev / cars().size()));
         getContext().setAttribute("total_cars", cars().size());
         getContext().setAttribute("get_bill", price);
@@ -128,7 +132,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
     @SuppressWarnings("unchecked")
-    List<CarIF> cars()
+    public List<CarIF> cars()
     {
         if ( getContext().getAttribute( "cars"+ getNAME() ) == null )
         {
