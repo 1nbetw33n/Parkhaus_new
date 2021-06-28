@@ -43,7 +43,7 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
         final PrintWriter OUT      = response.getWriter();
         String            username = request.getParameter("username");
         String            password = request.getParameter("password");
-        if (username.equals("Management") && password.equals("easy-pass-word")) {
+        if (username.equals("Management") && password.equals("easy-pass-word")) {//UNSAFE AS FUCK
             response.sendRedirect("member.jsp");
         } else {
             OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects after 3 seconds
