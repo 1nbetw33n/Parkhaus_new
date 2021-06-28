@@ -38,6 +38,11 @@
 					            "extra_inner":"CHECKOUT",
 					            "extra_popup_title":"GO TO CHECKOUT"
 					        },
+					        {
+					            "extra_class":"management",
+					            "extra_inner":"MANAGEMENT",
+					            "extra_popup_title":"GO TO MANAGEMENT VIEW"
+					        },
 						    {
 							    "extra_class":"total_revenue",
 							    "extra_inner":"Total Revenue",
