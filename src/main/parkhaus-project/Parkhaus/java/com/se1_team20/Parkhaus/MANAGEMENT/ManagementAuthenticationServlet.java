@@ -30,25 +30,22 @@ import java.io.PrintWriter;
 
 public abstract class ManagementAuthenticationServlet extends ParkingServlet {
 
+    /* TODO: Create a jsp-File for creating the username and the password */
+
     final private static long serialVersionUID = 1L;
 
-
-    /* TODO: Fix the authentication */
-    /* TODO: Create a jsp-File for creating the username and and the password */
-    /*
-     right now the authentication is broken, because whatever you enter you will be redirected to ManagementServlet;
-     also entering nothing and then hitting login button will result in redirection to ManagementServlet
-     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
         final PrintWriter OUT      = response.getWriter();
         String            username = request.getParameter("username");
         String            password = request.getParameter("password");
-        if (username.equals("Management") && password.equals("easy-pass-word")) {//UNSAFE AS FUCK
-            response.sendRedirect("member.jsp");
-        } else {
+        if (!username.equals("Management") || !password.equals("easy-pass-word")) //LETS HACK THIS:D
+        {
             OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects after 3 seconds
             OUT.write("<script>alert('Invalid Credentials')</script>");
+            OUT.close();
         }
+        else { response.sendRedirect("ManagementView.jsp"); }
     }
 
 }
