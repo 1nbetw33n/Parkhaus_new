@@ -39,6 +39,11 @@ public abstract class ParkhausServlet extends ParkingServlet {
      * handleEnter() does not check if there is available space
      */
 
+     private int max; // maximum number of parking slots of a single parking level
+     List<CarIF>autos=new ArrayList<>(max);
+
+
+
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
     abstract int getMAX(); // maximum number of parking slots of a single parking level
@@ -104,6 +109,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         //TODO: Parkplätze implementieren
         CarIF newCar = new Car( PARAMS );
         cars().add( newCar );
+
+        this.max=Integer.parseInt(PARAMS[7]);
     }
 
     final protected void handleLeave(final String[] PARAMS)
