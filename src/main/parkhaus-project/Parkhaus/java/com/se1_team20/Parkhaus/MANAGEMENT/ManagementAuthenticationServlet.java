@@ -22,12 +22,10 @@ package com.se1_team20.Parkhaus.MANAGEMENT;
 
 import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public abstract class ManagementAuthenticationServlet extends ParkingServlet {
 
@@ -46,7 +44,7 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
         String password = request.getParameter("password");
         if(username.equals("Management")&&password.equals("easy-pass-word"))
         {
-            response.sendRedirect("member.jsp");
+            response.sendRedirect("Management");
         }
         else
         {

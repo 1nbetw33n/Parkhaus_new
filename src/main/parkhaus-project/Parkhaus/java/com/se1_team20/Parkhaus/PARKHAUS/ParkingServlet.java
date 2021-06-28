@@ -30,7 +30,7 @@ import java.io.IOException;
 public abstract class ParkingServlet extends HttpServlet implements ParkingServletable {
 
     /* default implementation */
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {}
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {}
 
     /* template implementation */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

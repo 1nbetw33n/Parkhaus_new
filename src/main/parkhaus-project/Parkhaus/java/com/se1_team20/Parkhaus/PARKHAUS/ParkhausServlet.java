@@ -46,7 +46,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     public ParkhausModel pModel =  new ParkhausModel();
 
-    final public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
+    final public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
         String[] requestParamString = request.getQueryString().split("=");
@@ -60,22 +60,25 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else if ("cmd".equals(command) && "average_revenue".equals(param)) {eventDoubleAttribute(response, application, "average_revenue");}
         else if ("cmd".equals(command) && "total_cars".equals(param)) { eventTotalCars(response);}
         else if ("cmd".equals(command) && "get_bill".equals(param)) {eventDoubleAttribute(response, application, "get_bill");}
-        else if ("cmd".equals(command) && "checkout".equals(param)) /*{eventCheckOut(response);*/
-            {
-                try{
-                    handleRequest(request, response);
-                } catch (final Exception E) {
-                    E.printStackTrace();
-                }
-            }
-        else if("cmd".equals(command) && "my_chart".equals(param)) {eventMyChart(response);}
+        else if ("cmd".equals(command) && "checkout".equals(param))  {handleRequest(request, response);}
+        else if ("cmd".equals(command) && "management".equals(param)) {handleRequest(request, response);}
+        else if ("cmd".equals(command) && "my_chart".equals(param)) {eventMyChart(response);}
         else {System.out.println("invalid Command: " + request.getQueryString());}
     }
 
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        RequestDispatcher requestDispatcherObject = request.getRequestDispatcher("/CheckoutViewJSP.jsp");
-        requestDispatcherObject.include(request, response);
+        RequestDispatcher requestDispatcherObject = null;
+        if (request.getQueryString().split("=")[1].equals("checkout"))
+        {
+            requestDispatcherObject = request.getRequestDispatcher("CheckoutViewJSP.jsp");
+            requestDispatcherObject.forward(request, response);
+        }
+        else
+        {
+            requestDispatcherObject = request.getRequestDispatcher("ManagementAuthenticationView.jsp");
+            requestDispatcherObject.forward(request, response);
+        }
     }
 
     final public void handleBody(HttpServletRequest request,HttpServletResponse response) throws IOException
@@ -153,24 +156,24 @@ public abstract class ParkhausServlet extends ParkingServlet {
         System.out.println("total_cars = " + cars().size());
     }
 
-
+/*
     final protected void eventCheckOut(HttpServletResponse response)
     {
-        /* TODO: COMING SOON*/
+         TODO: COMING SOON
 
         //ArrayList<String>std=new ArrayList<>();
 
-       /* request.setAttribute("data", std);
+       request.setAttribute("data", std);
 
           RequestDispatcher rd =  request.getRequestDispatcher("CheckoutViewJSP.jsp");
 
           rd.forward(request,response);
 
-
+}
         */
 
 
-    }
+
 
     final protected void eventMyChart(HttpServletResponse response)
     {
