@@ -49,7 +49,7 @@
 <body>
 <div style="text-align: center;">
 	<h1>Management Authentication</h1>
-	<form id="loginFormId" name="loginForm" method="post" action="ManagemtServlet">
+	<form id="loginFormId" name="loginForm" method="post" action="ManagementServlet">
 		<div id="usernameDiv" class="paddingBtm">
 			<span id="user">Username: </span><label for="userInput"></label><input id="userInput" type="text" name="username" />
 		</div>
