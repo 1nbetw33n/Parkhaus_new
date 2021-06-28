@@ -34,4 +34,24 @@ public class Management {
           this.benutzername=benutzername;
           this.password=password;
     }
+
+    public String getNachname(){
+
+        return this.nachname;
+    }
+
+    public String getVorname(){
+
+        return this.vorname;
+    }
+
+    public String getBenutzername(){
+
+        return this.benutzername;
+    }
+
+    public int getPassword(){
+
+        return this.password;
+    }
 }
