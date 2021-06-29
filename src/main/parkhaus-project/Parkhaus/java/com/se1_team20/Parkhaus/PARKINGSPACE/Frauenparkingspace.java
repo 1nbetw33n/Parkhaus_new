@@ -20,25 +20,12 @@
 
 package com.se1_team20.Parkhaus.PARKINGSPACE;
 
-public class Parkingspace implements ParkingspaceIF {
+public class Frauenparkingspace extends ParkingSpace{
 
-    private boolean available;
-    private String type;
+    //TO DO: Sinnvolle Methode und Attributen implementieren.
 
-    public String getType(){
-        return type;
+    public Frauenparkingspace(){
+
+        super();
     }
-
-    public void setType(String type){
-        this.type = type;
-    }
-
-    public boolean isAvailable(){
-        return available;
-    }
-
-    public void setAvailable(boolean available){
-        this.available = available;
-    }
-
 }

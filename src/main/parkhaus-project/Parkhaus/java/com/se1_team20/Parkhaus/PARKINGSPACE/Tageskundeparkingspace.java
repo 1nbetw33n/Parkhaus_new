@@ -18,13 +18,13 @@
  *
  */
 
-package com.se1_team20.Parkhaus.ParkingSlot;
+package com.se1_team20.Parkhaus.PARKINGSPACE;
 
-public class Firmenparkingspace extends ParkingSpace{
+public class Tageskundeparkingspace extends ParkingSpace {
 
     //TO DO: Sinnvolle Methode und Attributen implementieren.
 
-    public Firmenparkingspace(){
+    public Tageskundeparkingspace(){
 
         super();
     }

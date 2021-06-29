@@ -20,8 +20,6 @@
 
 package com.se1_team20.Parkhaus.CHECKOUT;
 
-import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/CheckoutServlet")
-public class CheckoutServlet extends ParkingServlet {
+public class CheckoutServlet extends CheckoutAuthenticationServlet {
     /*
      *  Checkout Servlet soll:
      *  Checkout Klasse verwenden um eine Oberfläche anzuzeigen (im Browser -> index.jsp ruft dieses dann auf)

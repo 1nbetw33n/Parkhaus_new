@@ -74,7 +74,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         RequestDispatcher requestDispatcherObject = null;
         if (request.getQueryString().split("=")[1].equals("checkout"))
         {
-            requestDispatcherObject = request.getRequestDispatcher("CheckoutViewJSP.jsp");
+            requestDispatcherObject = request.getRequestDispatcher("CheckoutAuthenticationView.jsp");
             requestDispatcherObject.forward(request, response);
         }
         else
@@ -87,7 +87,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     final public void handleBody(HttpServletRequest request,HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");
-        /* getting the String containing of: [EVENT, NR, BEGIN, END, PRICE] */
+        //getting the String containing of: [EVENT, NR, BEGIN, END, PRICE]
         String body                       = ParkingServletable.getBody(request);
         System.out.println(body);
         handleEvent(
