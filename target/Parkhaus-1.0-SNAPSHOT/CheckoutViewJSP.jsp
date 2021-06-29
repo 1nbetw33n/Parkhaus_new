@@ -30,9 +30,9 @@
   <!DOCTYPE html>
 
   <html>
-    <body>
-        <script>alert("Button is Working!")</script>
-    </body>
+  <body>
+  <script>alert("Button is Working!")</script>
+  </body>
   </html>
 
 <%--
