@@ -8,7 +8,7 @@
 <br>
 <h1>Tomcat Parkhaus 9.1.9</h1>
 <br>
-<script src='https://ccmjs.github.io/mkaul-components/parkhaus/versions/ccm.parkhaus-9.1.9.js'></script>
+<script src='Config.js'></script>
 	<ccm-parkhaus-9-1-9
 		key='{
 					    "name":"CarHome",
