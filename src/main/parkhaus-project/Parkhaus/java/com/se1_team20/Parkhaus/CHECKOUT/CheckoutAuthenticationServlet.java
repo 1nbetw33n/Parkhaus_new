@@ -24,5 +24,36 @@ package com.se1_team20.Parkhaus.CHECKOUT;
 29.Jun.2021
 */
 
-public class CheckoutAuthenticationServlet {
+import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
+
+    final private static long serialVersionUID = 1L;
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        final String         TICKETID             = request.getParameter("username");
+        final PrintWriter OUT                     = response.getWriter();
+        OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
+        RequestDispatcher dispatcher = null;
+        if (!TICKETID.equals("12345")) //LETS HACK THIS:D
+        {
+            OUT.write("<meta http-equiv='refresh' content='0;URL=CheckoutAuthenticationView.jsp'>");//redirects after 3 seconds
+            OUT.write("<script>alert('Invalid Credentials')</script>");
+        }
+        else
+        {
+            dispatcher = request.getRequestDispatcher("CheckoutViewJSP.jsp");
+            dispatcher.forward(request, response);
+        }
+        OUT.write("</div></body></html>");
+        OUT.close();
+    }
 }
