@@ -74,7 +74,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         RequestDispatcher requestDispatcherObject = null;
         if (request.getQueryString().split("=")[1].equals("checkout"))
         {
-            requestDispatcherObject = request.getRequestDispatcher("CheckoutViewJSP.jsp");
+            requestDispatcherObject = request.getRequestDispatcher("CheckoutAuthenticationView.jsp");
             requestDispatcherObject.forward(request, response);
         }
         else
