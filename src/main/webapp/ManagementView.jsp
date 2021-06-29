@@ -22,15 +22,12 @@
   Created by IntelliJ IDEA.
   User: rahgawirajakumaraswamy
   Date: 27.06.21
-  Time: 20:06
+  Time: 20:04
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-Unsuccessful login
-</body>
+    <body>
+        <script>alert("Welcome you are logged in!")</script>
+    </body>
 </html>
