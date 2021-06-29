@@ -87,7 +87,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     final public void handleBody(HttpServletRequest request,HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");
-        /* getting the String containing of: [EVENT, NR, BEGIN, END, PRICE] */
+        //getting the String containing of: [EVENT, NR, BEGIN, END, PRICE]
         String body                       = ParkingServletable.getBody(request);
         System.out.println(body);
         handleEvent(
