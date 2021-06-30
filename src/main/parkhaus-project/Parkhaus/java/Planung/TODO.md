@@ -51,6 +51,7 @@
             Additional Ideas:
             <ul> Checkout REGEX implementation (Bankverbindung etc.)</ul>
             <ul> Checkout Payment Option (Paypal etc.)</ul>
+            <ul> Login Homepage for the user</ul>
         </li>
     </ul>
 </body>
