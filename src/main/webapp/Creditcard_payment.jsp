@@ -30,7 +30,7 @@
 <head>
     <title>Payment_Step2</title>
 </head>
-<body>
+<body style="background-color: yellow">
 <div style="text-align:center">
     <h1>Geben Sie bitte ihren Bankdaten ein</h1>
 </div>
