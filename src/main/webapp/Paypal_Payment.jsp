@@ -25,12 +25,38 @@
   Time: 15:42
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <title>Payment_Step2</title>
 </head>
-<body>
+<body style="background-color:yellow">
+<div style="text-align:center">
+    <h1>Geben Sie bitte die Email Adresse und das Passwort ein </h1>
+</div>
+
+<div style="text-align:center">
+
+    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_200x51.png" alt="PayPal" />
+    <form>
+
+        <div style="margin-left:38%;">
+            <div style="float:left;">
+                <label style="display:block; line-height:24px;">Email Adresse</label>
+                <label style="display:block; line-height:24px;">Passwort</label>
+
+            </div>
+            <input style="display:block;" type="text" size="30" maxlength="30" name="mail" />
+            <input style="display:block;" type="password" size="30" maxlength="30" name="password" />
+            <input style="display:block;" type="submit" name="formaction" value="Pay" />
+        </div>
+
+    </form>
+
+</div>
+</div>
+
+
 
 </body>
 </html>
