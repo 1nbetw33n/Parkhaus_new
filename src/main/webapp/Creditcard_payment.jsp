@@ -25,12 +25,42 @@
   Time: 12:53
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <title>Payment_Step2</title>
 </head>
 <body>
+<div style="text-align:center">
+    <h1>Geben Sie bitte ihren Bankdaten ein</h1>
+</div>
+
+<div style="text-align:center">
+
+    <a href="http://www.credit-card-logos.com/"><img alt="Credit Card Logos" title="Credit Card Logos" src="http://www.credit-card-logos.com/images/multiple_credit-card-logos-1/credit_card_logos_8.gif" width="251" height="50" border="0" /></a>
+
+    <form>
+
+        <div style="margin-left:38%;">
+            <div style="float:left;">
+                <label style="display:block; line-height:24px;">Kreditkarteninhalter</label>
+                <label style="display:block; line-height:24px;">Kreditkartennummer</label>
+                <label style="display:block; line-height:24px;">CVC_Code</label>
+                <label style="display:block; line-height:24px;">E-Mail:</label>
+            </div>
+            <input style="display:block;" type="text" name="name" />
+            <input style="display:block;" type="password" name="accountnumber" />
+            <input style="display:block;" type="password" name="cvc" />
+            <input style="display:block;" type="text" name="mail" />
+            <input style="display:block;" type="submit" name="formaction" value="Pay" />
+        </div>
+
+    </form>
+
+</div>
+</div>
+
+
 
 </body>
 </html>
