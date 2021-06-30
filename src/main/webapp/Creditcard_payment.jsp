@@ -50,7 +50,7 @@
             </div>
             <input style="display:block;" type="text" size="30" maxlength="30" name="name" pattern="[A-Za-z\s]{3,}" title="Invalid input" />
             <input style="display:block;" type="password" size="30" maxlength="30" name="accountnumber" pattern="[0-9]{12}" title="Invalid account number"/>
-            <input style="display:block;" type="password" name="cvc"  />
+            <input style="display:block;" type="password" name="cvc" size="5" maxlength="5" pattern="[0-9]{3}" title="Invalid cvc_code" />
             <input style="display:block;" type="text" name="mail" size="30" maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Not a valid mail adress"/>
             <input style="display:block;" type="submit" name="formaction" value="Pay" />
         </div>
