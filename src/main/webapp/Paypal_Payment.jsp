@@ -22,7 +22,7 @@
   Created by IntelliJ IDEA.
   User: multa
   Date: 30/06/2021
-  Time: 12:53
+  Time: 15:42
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE html>
@@ -30,28 +30,24 @@
 <head>
     <title>Payment_Step2</title>
 </head>
-<body style="background-color: yellow">
+<body style="background-color:yellow">
 <div style="text-align:center">
-    <h1>Geben Sie bitte ihren Bankdaten ein</h1>
+    <h1>Geben Sie bitte die Email Adresse und das Passwort ein </h1>
 </div>
 
 <div style="text-align:center">
 
-    <a href="http://www.credit-card-logos.com/"><img alt="Credit Card Logos" title="Credit Card Logos" src="http://www.credit-card-logos.com/images/multiple_credit-card-logos-1/credit_card_logos_8.gif" width="251" height="50" border="0" /></a>
-
+    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_200x51.png" alt="PayPal" />
     <form>
 
         <div style="margin-left:38%;">
             <div style="float:left;">
-                <label style="display:block; line-height:24px;">Kreditkarteninhalter</label>
-                <label style="display:block; line-height:24px;">Kreditkartennummer</label>
-                <label style="display:block; line-height:24px;">CVC_Code</label>
-                <label style="display:block; line-height:24px;">E-Mail:</label>
+                <label style="display:block; line-height:24px;">Email Adresse</label>
+                <label style="display:block; line-height:24px;">Passwort</label>
+
             </div>
-            <input style="display:block;" type="text" name="name" />
-            <input style="display:block;" type="password" name="accountnumber" />
-            <input style="display:block;" type="password" name="cvc" />
-            <input style="display:block;" type="text" name="mail" />
+            <input style="display:block;" type="text" size="30" maxlength="30" name="mail" />
+            <input style="display:block;" type="password" size="30" maxlength="30" name="password" />
             <input style="display:block;" type="submit" name="formaction" value="Pay" />
         </div>
 
