@@ -25,12 +25,41 @@
   Time: 17:44
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <title>Parkhaus</title>
 </head>
-<body>
+<body style="background-color: bisque">
+<div style="text-align:center">
+    <h1>Parkhaus Simulation</h1>
+
+    <p>Bitte loggen Sie sich ein</p>
+</div>
+
+<div style="text-align:center">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Zeichen_314-50_-_Parkhaus%2C_Parkgarage%2C_StVO_2017.svg" alt="Parkhaus_Logo" width="200" height="200">
+
+    <form>
+
+        <div style="margin-left:38%;">
+            <div style="float:left;">
+                <label style="display:block; line-height:24px;">Benutzername</label>
+                <label style="display:block; line-height:24px;">Kennwort</label>
+
+            </div>
+            <input style="display:block;" type="text" size="20" maxlength="20" name="name"/>
+            <input style="display:block;" type="password" size="20" maxlength="20" name="kennwort"/>
+            <input style="display:block;" type="submit" name="formaction" value="SignIn" />
+        </div>
+
+    </form>
+
+</div>
+</div>
+
+
 
 </body>
 </html>
