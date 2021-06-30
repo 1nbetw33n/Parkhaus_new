@@ -105,9 +105,10 @@ public abstract class ParkhausServlet extends ParkingServlet {
         if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
         else if ("occupied".equals(EVENT)) {
-            int id = Integer.parseInt(PARAMS[1].substring(4,7));
+            String[] preid = PARAMS[1].split("[(]");
+            String id = preid[1].substring(0,preid[1].length()-1);
             System.out.println(id);
-            getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),id));
+            getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),Integer.parseInt(id)));
         }
     }
 
