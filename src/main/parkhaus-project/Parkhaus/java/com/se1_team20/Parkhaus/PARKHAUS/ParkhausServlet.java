@@ -191,7 +191,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
        request.setAttribute("data", std);
 
-          RequestDispatcher rd =  request.getRequestDispatcher("CheckoutViewJSP.jsp");
+          RequestDispatcher rd =  request.getRequestDispatcher("CheckoutView.jsp");
 
           rd.forward(request,response);
 
