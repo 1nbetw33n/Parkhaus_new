@@ -26,6 +26,6 @@ public class Defaultparkingspace extends ParkingSpace{
 
     public Defaultparkingspace(){
 
-        super(true);
+        super();
     }
 }
