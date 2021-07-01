@@ -61,7 +61,7 @@ class ParkhausModelTest {
         List<CarIF> newcars = null;
         newcars.add(carEnter);
         assertEquals(cars, newcars);
-        assertNotEquals(cars, cm.filterColorErase(newcars, carEnter.color()));
+        assertNotEquals(cars, cm.filterColorErase(newcars, carEnter.hash()));
     }
 
     @Test

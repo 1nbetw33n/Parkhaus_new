@@ -20,7 +20,6 @@
 
 package com.se1_team20.Parkhaus.PARKHAUS;
 
-import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
 import com.se1_team20.Parkhaus.PARKINGSPACE.ParkingSpace;
 
 import java.util.List;
@@ -51,7 +50,7 @@ public class ParkhausModel {
     }
 
     public List<CarIF> filterColorErase(List<CarIF> cars, String color) {
-        return  cars.stream().filter((x -> !x.color().equals(color))).collect(Collectors.toList());
+        return  cars.stream().filter((x -> !x.hash().equals(color))).collect(Collectors.toList());
     }
 
     public List<CarIF> filterNrErase(List<CarIF> cars, int nr) {

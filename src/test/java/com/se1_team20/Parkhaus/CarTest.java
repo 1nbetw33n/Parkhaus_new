@@ -88,9 +88,9 @@ class CarTest {
     @Test
     @DisplayName("Returns the id of the car")
     void colorTest() {
-        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carLeave.color());
-        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carEnter.color());
-        assertEquals(carLeave.color(), carEnter.color());
+        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carLeave.hash());
+        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carEnter.hash());
+        assertEquals(carLeave.hash(), carEnter.hash());
     }
 
     @Test
