@@ -20,8 +20,8 @@
 
 package com.se1_team20.Parkhaus.PARKHAUS;
 
+
 import com.se1_team20.Parkhaus.PARKINGSPACE.ParkingSpace;
-import com.se1_team20.Parkhaus.PARKINGSPACE.SpaceIF;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -160,11 +160,11 @@ public abstract class ParkhausServlet extends ParkingServlet {
         return cars;
     }
 
-    List<SpaceIF> spaces() {
+    List<ParkingSpace> spaces() {
         if(getContext().getAttribute("spaces" + getNAME()) == null) {
-            getContext().setAttribute("spaces" + getNAME(), new ArrayList<ParkingSpace>());
+            getContext().setAttribute("spaces" + getNAME(), new ArrayList<ParkingSpace>(getMAX()));
         }
-        List<SpaceIF> spaces = (List<SpaceIF>) getContext().getAttribute("spaces" + getNAME());
+        List<ParkingSpace> spaces = (List<ParkingSpace>) getContext().getAttribute("spaces" + getNAME());
         pModel.setSpacesModel(spaces);
         return spaces;
     }
