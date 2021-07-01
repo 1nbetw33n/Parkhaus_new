@@ -50,7 +50,7 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
         }
         else
         {
-            dispatcher = request.getRequestDispatcher("CheckoutViewJSP.jsp");
+            dispatcher = request.getRequestDispatcher("CheckoutView.jsp");
             dispatcher.forward(request, response);
         }
         OUT.write("</div></body></html>");
