@@ -20,11 +20,11 @@
 
 package com.se1_team20.Parkhaus.PARKINGSPACE;
 
-public class Handicapparkingspace extends ParkingSpace{
+public class Defaultparkingspace extends ParkingSpace{
 
     //TO DO: Sinnvolle Methode und Attributen implementieren.
 
-    public Handicapparkingspace(){
+    public Defaultparkingspace(){
 
         super(true);
     }
