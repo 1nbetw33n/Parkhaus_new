@@ -32,7 +32,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -107,7 +106,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else if ("occupied".equals(EVENT)) {
             String[] preid = PARAMS[1].split("[(]");
             String id = preid[1].substring(0,preid[1].length()-1);
-            System.out.println(id);
             getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),Integer.parseInt(id)));
         }
     }
@@ -163,6 +161,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     List<ParkingSpace> spaces() {
         if(getContext().getAttribute("spaces" + getNAME()) == null) {
             getContext().setAttribute("spaces" + getNAME(), new ArrayList<ParkingSpace>(getMAX()));
+            // Currently Fixed Length -> What happens when we change the MAX value to this?
         }
         List<ParkingSpace> spaces = (List<ParkingSpace>) getContext().getAttribute("spaces" + getNAME());
         pModel.setSpacesModel(spaces);

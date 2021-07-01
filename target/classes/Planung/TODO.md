@@ -53,8 +53,11 @@
             <ul style="color: cyan"> Checkout REGEX implementation (Bankverbindung etc.)</ul>
             <ul style="color: cyan"> Checkout Payment Option (Paypal etc.)</ul>
             <ul style="color: cyan"> Login Homepage for the user</ul>
+            <ul style="color: cyan"> Tabelle von allen freien Parkplätzen</ul>
         </em>
         </li>
+        <li>
+</li>
     </ul>
 </body>
 </html>

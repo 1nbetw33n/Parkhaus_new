@@ -27,6 +27,7 @@ package com.se1_team20.Parkhaus.CHECKOUT;
 import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,11 +40,11 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        final String         TICKETID             = request.getParameter("username");
+        final String         CARNR             = request.getParameter("carNrEnter");
         final PrintWriter OUT                     = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         RequestDispatcher dispatcher = null;
-        if (!TICKETID.equals("12345")) //LETS HACK THIS:D
+        if (!CARNR.equals("12345")) //LETS HACK THIS:D
         {
             OUT.write("<meta http-equiv='refresh' content='0;URL=CheckoutAuthenticationView.jsp'>");//redirects after 3 seconds
             OUT.write("<script>alert('Invalid Credentials')</script>");
@@ -52,6 +53,7 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
         {
             dispatcher = request.getRequestDispatcher("CheckoutViewJSP.jsp");
             dispatcher.forward(request, response);
+            getContext().setAttribute("carNr", CARNR);
         }
         OUT.write("</div></body></html>");
         OUT.close();
