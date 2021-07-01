@@ -62,9 +62,11 @@ public class Car implements CarIF {
         return (this.params[0].equals("leave")) ? Integer.parseInt(this.params[4]) : 0;
     }
 
-    public String id() {
+    public String hash() {
         return this.params[5];
     }
+
+    public int space() {return Integer.parseInt(this.params[7]);}
 
     public String kunde(){ return this.params[8];}
 

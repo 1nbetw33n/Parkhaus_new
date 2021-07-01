@@ -18,14 +18,11 @@
  *
  */
 
-package com.se1_team20.Parkhaus.PARKHAUS;
+package com.se1_team20.Parkhaus.PARKINGSPACE;
 
- public interface CarIF {
-    int nr();
-    long begin();
-    long end();
-    int duration();
-    int price();
-    String hash();
-    String kunde();
+public interface SpaceIF {
+
+    boolean ishandicap=false;
+    boolean hatBehinderung();
+
 }

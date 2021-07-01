@@ -48,7 +48,7 @@
 <div style="text-align: center;">
 	<h1>Checkout Authentication</h1>
 	<form id="loginFormId" name="loginForm" method="post" action="CheckoutServlet">
-		<div id="usernameDiv" class="paddingBtm">
+		<div id="ticketNrDiv" class="paddingBtm">
 			<span id="user">TicketNummer: </span><label for="userInput"></label><input id="userInput" type="text" name="username" />
 		</div>
 		<div id="loginBtn">

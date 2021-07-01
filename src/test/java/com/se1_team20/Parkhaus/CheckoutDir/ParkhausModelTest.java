@@ -56,19 +56,19 @@ class ParkhausModelTest {
     }
 
     @Test
-    @DisplayName("Der Preis für ein geparktes Auto wird korrekt angezeigt")
-    void filterIDEraseTest() {
+    @DisplayName("Das Auto einer bestimmten Farbe wird korrekt gelöscht")
+    void filterColorEraseTest() {
         List<CarIF> newcars = null;
         newcars.add(carEnter);
         assertEquals(cars, newcars);
-        assertNotEquals(cars, cm.filterIDErase(newcars, carEnter.id()));
+        assertNotEquals(cars, cm.filterColorErase(newcars, carEnter.hash()));
     }
 
     @Test
     @DisplayName("Die KundenID für ein geparktes Auto wird korrekt angezeigt")
     void kundenIDTest() {
-        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carEnter.id());
-        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carLeave.id());
-        assertEquals(carLeave.id(),carEnter.id());
+        assertEquals("173", carEnter.nr());
+        assertEquals("173", carLeave.nr());
+        assertEquals(carLeave.nr(),carEnter.nr());
     }
 }

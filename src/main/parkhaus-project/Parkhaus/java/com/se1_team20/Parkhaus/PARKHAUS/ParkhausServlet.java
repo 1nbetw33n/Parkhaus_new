@@ -20,6 +20,9 @@
 
 package com.se1_team20.Parkhaus.PARKHAUS;
 
+
+import com.se1_team20.Parkhaus.PARKINGSPACE.ParkingSpace;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -29,6 +32,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -38,8 +42,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
     /**
      * handleEnter() does not check if there is available space
      */
-
-    static int countcars=0;
 
 
     /* abstract methods, to be defined in subclasses */
@@ -66,6 +68,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else if ("cmd".equals(command) && "checkout".equals(param))  {handleRequest(request, response);}
         else if ("cmd".equals(command) && "management".equals(param)) {handleRequest(request, response);}
         else if ("cmd".equals(command) && "my_chart".equals(param)) {eventMyChart(response);}
+        else if ("cmd".equals(command) && "config&name".equals(param)) {handleConfig(param, response);}
+        else if ("cmd".equals(command) && "cars&name".equals(param)) {savedCars(param, response);}
         else {System.out.println("invalid Command: " + request.getQueryString());}
     }
 
@@ -100,15 +104,20 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
+        else if ("occupied".equals(EVENT)) {
+            String[] preid = PARAMS[1].split("[(]");
+            String id = preid[1].substring(0,preid[1].length()-1);
+            System.out.println(id);
+            getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),Integer.parseInt(id)));
+        }
     }
 
     final protected void handleEnter(final String[] PARAMS)
     {
-        countcars++;
 
-        System.out.println(countcars);
         //TODO: Parkplätze implementieren
         CarIF newCar = new Car( PARAMS );
+
         cars().add( newCar );
 
 
@@ -116,8 +125,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     final protected void handleLeave(final String[] PARAMS)
     {
-        countcars--;
-        System.out.println(countcars);
 
         StringBuilder priceString = new StringBuilder();
         double            price           = 0.;
@@ -132,7 +139,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("total_cars", cars().size());
         getContext().setAttribute("get_bill", price);
 
-        getContext().setAttribute("cars" + getNAME(), pModel.filterIDErase(cars(),PARAMS[5]));
+        getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),Integer.parseInt(PARAMS[1])));
     }
 
     /*
@@ -151,6 +158,15 @@ public abstract class ParkhausServlet extends ParkingServlet {
         List<CarIF> cars = (List<CarIF>) getContext().getAttribute( "cars"+ getNAME() );
         pModel.setCarsModel(cars);
         return cars;
+    }
+
+    List<ParkingSpace> spaces() {
+        if(getContext().getAttribute("spaces" + getNAME()) == null) {
+            getContext().setAttribute("spaces" + getNAME(), new ArrayList<ParkingSpace>(getMAX()));
+        }
+        List<ParkingSpace> spaces = (List<ParkingSpace>) getContext().getAttribute("spaces" + getNAME());
+        pModel.setSpacesModel(spaces);
+        return spaces;
     }
 
 
@@ -183,13 +199,19 @@ public abstract class ParkhausServlet extends ParkingServlet {
 }
         */
 
-
-
-
     final protected void eventMyChart(HttpServletResponse response)
     {
         /* TODO: COMING SOON */
     }
+
+    public void handleConfig(String name, HttpServletResponse response) {
+        System.out.println(name);
+    }
+
+    private void savedCars(String param, HttpServletResponse response) {
+        System.out.println(param);
+    }
+
 
 }
 

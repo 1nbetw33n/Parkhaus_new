@@ -20,7 +20,7 @@
 
 package com.se1_team20.Parkhaus.PARKHAUS;
 
-import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
+import com.se1_team20.Parkhaus.PARKINGSPACE.ParkingSpace;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,6 +39,7 @@ public class ParkhausModel {
      */
 
     List<CarIF> cars;
+    List<ParkingSpace> spaces;
 
     public Double getDoubleAttribute(Double attribute) {
         return (attribute == null) ? 0. : attribute;
@@ -48,9 +49,15 @@ public class ParkhausModel {
         this.cars = cars;
     }
 
-    public List<CarIF> filterIDErase(List<CarIF> cars, String id) {
-        return  cars.stream().filter((x -> !x.id().equals(id))).collect(Collectors.toList());
+    public List<CarIF> filterColorErase(List<CarIF> cars, String color) {
+        return  cars.stream().filter((x -> !x.hash().equals(color))).collect(Collectors.toList());
     }
+
+    public List<CarIF> filterNrErase(List<CarIF> cars, int nr) {
+        return  cars.stream().filter((x -> x.nr() != nr)).collect(Collectors.toList());
+    }
+
+    public void setSpacesModel(List<ParkingSpace> spaces) { this.spaces = spaces;}
 
     /* @return the number of the free parking lot to which the next incoming car will be directed */
     public int locator(int max)

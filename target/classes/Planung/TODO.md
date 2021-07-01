@@ -2,7 +2,7 @@
 <body>
     <h1>TODOs FÜRS PARKHAUS</h1>
     <ul style="list-style-type: square;">
-        <li>Redirection to Checkout View</li> Lukas 
+        <li><del>Redirection to Checkout View: Lukas</del></li>  
         <li>
             Implement Checkout View: Lukas + Bella 
             <ul>ParkTicketNr</ul>
@@ -13,7 +13,7 @@
                 <ul>Redirection to Main View after Entering</ul>
             </ul>
         </li>
-        <li>Redirection to Management View (OPTIONAL)</li>
+        <li><del>Redirection to Management View (OPTIONAL)</del></li>
         <li>
             Charts für Management View: Bella + Lukas 
             <ul>Average Revenue</ul>
@@ -47,10 +47,13 @@
             </ul>
             <ul><del>Delete Personal Spaces</del></ul>
         </li>
-        <li>
+        <li style="color: cyan">
+            <em>
             Additional Ideas:
-            <ul> Checkout REGEX implementation (Bankverbindung etc.)</ul>
-            <ul> Checkout Payment Option (Paypal etc.)</ul>
+            <ul style="color: cyan"> Checkout REGEX implementation (Bankverbindung etc.)</ul>
+            <ul style="color: cyan"> Checkout Payment Option (Paypal etc.)</ul>
+            <ul style="color: cyan"> Login Homepage for the user</ul>
+        </em>
         </li>
     </ul>
 </body>

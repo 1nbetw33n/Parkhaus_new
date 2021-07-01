@@ -22,9 +22,9 @@ package com.se1_team20.Parkhaus.PARKINGSPACE;
 
 import java.util.Random;
 
-public abstract class ParkingSpace {
+public abstract class ParkingSpace implements SpaceIF {
 
-     public boolean ishandicap=false;
+     private boolean ishandicap=false;
 
      public ParkingSpace(){
 
