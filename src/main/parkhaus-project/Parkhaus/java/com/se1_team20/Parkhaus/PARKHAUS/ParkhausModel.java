@@ -21,7 +21,7 @@
 package com.se1_team20.Parkhaus.PARKHAUS;
 
 import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
-import com.se1_team20.Parkhaus.PARKINGSPACE.SpaceIF;
+import com.se1_team20.Parkhaus.PARKINGSPACE.ParkingSpace;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,7 +40,7 @@ public class ParkhausModel {
      */
 
     List<CarIF> cars;
-    List<SpaceIF> spaces;
+    List<ParkingSpace> spaces;
 
     public Double getDoubleAttribute(Double attribute) {
         return (attribute == null) ? 0. : attribute;
@@ -58,7 +58,7 @@ public class ParkhausModel {
         return  cars.stream().filter((x -> x.nr() != nr)).collect(Collectors.toList());
     }
 
-    public void setSpacesModel(List<SpaceIF> spaces) { this.spaces = spaces;}
+    public void setSpacesModel(List<ParkingSpace> spaces) { this.spaces = spaces;}
 
     /* @return the number of the free parking lot to which the next incoming car will be directed */
     public int locator(int max)
