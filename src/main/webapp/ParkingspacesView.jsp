@@ -26,11 +26,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Title</title>
-</head>
-<body>
 
-</body>
+   <body>
+      <table>
+           <tr>
+              <% for(int i=0;i<10;i++){%>
+
+                  <td style="width: 50px" bgcolor="green"> <%= i+1 %> </td>
+
+               <% } %>
+           </tr>
+      </table>
+
+    </body>
 </html>
