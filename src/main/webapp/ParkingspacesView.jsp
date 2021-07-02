@@ -30,15 +30,16 @@
 <html>
 
    <body>
+     <div style="text-align: center;">
       <table>
            <tr>
-              <% for(int i=0;i<10;i++){%>
+               <% for(int i=0;i<10;i++){%>
 
                   <td style="width: 50px" bgcolor="green"> <%= i+1 %> </td>
 
                <% } %>
            </tr>
       </table>
-
+     </div>
     </body>
 </html>
