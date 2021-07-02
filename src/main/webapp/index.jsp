@@ -8,8 +8,8 @@
 <br>
 <h1>Tomcat Parkhaus 9.1.9</h1>
 <br>
-<script src='Parkhaus.js'></script>
-	<ccm-parkhaus-9-1-9
+<script src='https://ccmjs.github.io/mkaul-components/parkhaus/versions/ccm.parkhaus-10.0.2.js'></script>
+	<ccm-parkhaus-10-0-2
 		key='{
 					    "name":"CarHome",
 					    "server_url":"http://localhost:8080/Parkhaus_war_exploded/level1-servlet",
@@ -73,6 +73,6 @@
 					    ]
 	                }'
 		>
-	</ccm-parkhaus-9-1-9>
+	</ccm-parkhaus-10-0-2>
 </body>
 </html>
