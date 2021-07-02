@@ -42,7 +42,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      * handleEnter() does not check if there is available space
      */
 
-    List<Boolean>freeornot;    //Gibt an ob ein Parkplatz frei oder belegt ist.
+    List<Boolean>parkingspaces;    //Gibt an ob ein Parkplatz frei oder belegt ist.
 
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
@@ -113,11 +113,11 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     final protected void handleEnter(final String[] PARAMS)
     {
-
         //TODO: Parkplätze implementieren
         CarIF newCar = new Car( PARAMS );
-
         cars().add( newCar );
+
+
 
     }
 
