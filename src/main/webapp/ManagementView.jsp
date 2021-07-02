@@ -52,7 +52,7 @@
                 <td><%=car.nr() %></td>
                 <td><%=car.kunde() %></td>
                 <td><%=car.duration() %></td>
-                <td><%=car.kunde().equals("Firmenkunde")?0.0+"€":car.price() %></td>
+                <td><%=car.kunde().equals("Company")?0.0+"€":car.price() %></td>
             </tr>
             <% }%>
 
