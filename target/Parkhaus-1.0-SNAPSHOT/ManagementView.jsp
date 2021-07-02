@@ -46,7 +46,7 @@
             </tr>
 
             <% ServletContext sc = request.getServletContext(); %>
-            <% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("cars"+ "Level1"); %>
+            <% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars"+ "Level1"); %>
             <%for(CarIF car: cars){%>
             <tr>
                 <td><%=car.nr() %></td>
