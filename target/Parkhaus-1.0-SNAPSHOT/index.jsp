@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tomcat Parkhaus 9.1.9</title>
+	<title>Tomcat Parkhaus 10.5.0</title>
 </head>
 <body>
 <br>
-<h1>Tomcat Parkhaus 9.1.9</h1>
+<h1>Tomcat Parkhaus 10.5.0</h1>
 <br>
 <script src='https://ccmjs.github.io/mkaul-components/parkhaus/versions/ccm.parkhaus-10.5.0.js'></script>
 	<ccm-parkhaus-10-5-0
