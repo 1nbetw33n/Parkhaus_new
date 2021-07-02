@@ -139,8 +139,11 @@ public abstract class ParkhausServlet extends ParkingServlet {
         getContext().setAttribute("average_revenue", (totalRev / cars().size()));
         getContext().setAttribute("total_cars", cars().size());
         getContext().setAttribute("get_bill", price);
+        getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),Integer.parseInt(PARAMS[1]))); //Erasing Car from cars()
 
-        getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),Integer.parseInt(PARAMS[1])));
+        CarIF carSave = new Car(PARAMS);
+        formerCars().add(carSave); //Saving Old Car in formerCars()
+
     }
 
     /*
@@ -150,7 +153,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
     @SuppressWarnings("unchecked")
-    List<CarIF> cars()
+    List<CarIF> cars() //List of all cars which are inside the Parkhaus
     {
         if ( getContext().getAttribute( "cars"+ getNAME() ) == null )
         {
@@ -159,6 +162,15 @@ public abstract class ParkhausServlet extends ParkingServlet {
         List<CarIF> cars = (List<CarIF>) getContext().getAttribute( "cars"+ getNAME() );
         pModel.setCarsModel(cars);
         return cars;
+    }
+
+    List<CarIF> formerCars() { // List of all cars which have left the Parkhaus
+        if ( getContext().getAttribute( "former-cars"+ getNAME() ) == null )
+        {
+            getContext().setAttribute( "former-cars"+ getNAME(), new ArrayList<Car>() );
+        }
+        List<CarIF> formerCars = (List<CarIF>) getContext().getAttribute( "former-cars"+ getNAME() );
+        return formerCars;
     }
 
     List<ParkingSpace> spaces() {
