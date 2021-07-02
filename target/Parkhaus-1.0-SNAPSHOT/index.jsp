@@ -1,12 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Tomcat Parkhaus 9.1.9</title>
-</head>
 <body>
 <br>
-<h1>Tomcat Parkhaus 9.1.9</h1>
+<h1>Tomcat Parkhaus</h1>
 <br>
 <script src='https://ccmjs.github.io/mkaul-components/parkhaus/versions/ccm.parkhaus-10.0.2.js'></script>
 	<ccm-parkhaus-10-0-2
