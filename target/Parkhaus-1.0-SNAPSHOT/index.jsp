@@ -48,6 +48,12 @@
 					            "extra_inner":"MANAGEMENT",
 					            "extra_popup_title":"GO TO MANAGEMENT VIEW"
 					        },
+					        {
+					            "extra_class":"parkingspaces",
+					            "extra_inner":"Display free parkingspaces",
+					            "extra_popup_title":"Which parkingspaces are available"
+
+					        },
 						    {
 							    "extra_class":"total_revenue",
 							    "extra_inner":"Total Revenue",
