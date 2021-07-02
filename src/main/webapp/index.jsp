@@ -49,9 +49,9 @@
 					            "extra_popup_title":"GO TO MANAGEMENT VIEW"
 					        },
 					        {
-					            "extra_class":"parkingspaces",
-					            "extra_inner":"Display free parkingspaces",
-					            "extra_popup_title":"Which parkingspaces are available"
+					            "extra_class":"spaces",
+					            "extra_inner":"Display free parking spaces",
+					            "extra_popup_title":"Which parking spaces are available"
 
 					        },
 						    {
