@@ -1,5 +1,6 @@
 <%@ page import="com.se1_team20.Parkhaus.PARKHAUS.CarIF" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.io.PrintWriter" %><%--
   ~ /* copyright (c) 2021 se1_team20.
   ~  Planet Earth, Milky Way, Virgo Supercluster.
   ~  All rights reserved.
@@ -45,16 +46,20 @@
                 <td> Ticketpreis</td>
             </tr>
 
-            <% ServletContext sc = request.getServletContext(); %>
-            <% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars"+ "Level1"); %>
-            <%for(CarIF car: cars){%>
+            <%  ServletContext sc = request.getServletContext(); %>
+            <%  ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars"+ "Level1");
+                if (cars==null) {
+                    PrintWriter OUT = response.getWriter();
+                    OUT.println("Oops, no Cars left the Building yet!");
+                } else {
+                for(CarIF car: cars){%>
             <tr>
                 <td><%=car.nr() %></td>
                 <td><%=car.kunde() %></td>
                 <td><%=car.duration() %></td>
                 <td><%=car.kunde().equals("Company")?0.0+"€":car.price() %></td>
             </tr>
-            <% }%>
+            <% }}%>
 
         </table>
     </body>
