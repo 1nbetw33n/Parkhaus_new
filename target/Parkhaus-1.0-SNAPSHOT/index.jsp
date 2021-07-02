@@ -1,20 +1,28 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
+<head>
+	<title>Tomcat Parkhaus 9.1.9</title>
+</head>
 <body>
 <br>
-<h1>Tomcat Parkhaus</h1>
+<h1>Tomcat Parkhaus 9.1.9</h1>
 <br>
-<script src='https://ccmjs.github.io/mkaul-components/parkhaus/versions/ccm.parkhaus-10.0.2.js'></script>
-	<ccm-parkhaus-10-0-2
+<script src='https://ccmjs.github.io/mkaul-components/parkhaus/versions/ccm.parkhaus-10.5.0.js'></script>
+	<ccm-parkhaus-10-5-0
 		key='{
 					    "name":"CarHome",
 					    "server_url":"http://localhost:8080/Parkhaus_war_exploded/level1-servlet",
-					    "client_categories":["Handicapkunde",
-					                         "Frauenkunde",
-					                         "Tageskunde",
-					                         "Firmenkunde"
+					    "client_categories":["Handicapped",
+					                         "Female",
+					                         "Day",
+					                         "Company"
 					                         ],
+					    "vehicle_types":["SUV",
+					    				 "Limousine",
+					    				 "Motorcycle",
+					    				 "Van"
+					    				 ],
 
                         "price_factor":2, <%--Festlegung des Parkgebührs--%>
 
@@ -70,6 +78,6 @@
 					    ]
 	                }'
 		>
-	</ccm-parkhaus-10-0-2>
+	</ccm-parkhaus-10-5-0>
 </body>
 </html>
