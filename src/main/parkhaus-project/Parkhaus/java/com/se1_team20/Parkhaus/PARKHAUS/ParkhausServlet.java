@@ -23,16 +23,15 @@ package com.se1_team20.Parkhaus.PARKHAUS;
 
 import com.se1_team20.Parkhaus.PARKINGSPACE.ParkingSpace;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.security.Principal;
+import java.util.*;
 
 
 @WebServlet("/ParkhausServlet")
@@ -81,6 +80,11 @@ public abstract class ParkhausServlet extends ParkingServlet {
             requestDispatcherObject = request.getRequestDispatcher("CheckoutAuthenticationView.jsp");
             requestDispatcherObject.forward(request, response);
         }
+        else if(request.getQueryString().split("=")[7].equals("parkingspaces"))
+        {
+            requestDispatcherObject = request.getRequestDispatcher("ParkingspacesView.jsp");
+            requestDispatcherObject.forward(request, response);
+         }
         else
         {
             requestDispatcherObject = request.getRequestDispatcher("ManagementAuthenticationView.jsp");
@@ -117,7 +121,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
         CarIF newCar = new Car( PARAMS );
         cars().add( newCar );
 
-        parkingspaces.add((Integer.parseInt(PARAMS[7]))-1,true);
 
     }
 
