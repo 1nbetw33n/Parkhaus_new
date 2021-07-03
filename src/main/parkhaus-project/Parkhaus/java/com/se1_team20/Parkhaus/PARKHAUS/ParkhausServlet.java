@@ -83,8 +83,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         }
         else if(request.getQueryString().split("=")[1].equals("spaces"))
         {
-            requestDispatcherObject = request.getRequestDispatcher("Parking_spacesView.jsp");
-            requestDispatcherObject.forward(request, response);
+            request.setAttribute("parameter",this.value);
+            request.getRequestDispatcher("Parking_spacesView.jsp").forward(request,response);
          }
         else if (request.getQueryString().split("=")[1].equals("management"))
         {
