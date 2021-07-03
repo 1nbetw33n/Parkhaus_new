@@ -40,19 +40,27 @@
          %>
 
       <table>
-          <% for(int i=0;i<10;i++){%>
 
-               <%  if(value==null){ %>
-                <tr>
-                      <td style="width: 50px" bgcolor="green"> <%= i+1 %> </td>
-                </tr>
+             <tr>
+                 <% for(int i=0;i<10;i++){%>
 
-                <tr>
-                      <td> </td>
-                </tr>
+                 <td style="width: 50px" bgcolor="green"> <%= i+1 %> </td>
 
-                <%}%>
-          <%}%>
+                 <% } %>
+
+             </tr>
+
+             <tr>
+                <% for(int i=0;i<10;i++){%>
+
+                <td></td>
+
+                <% } %>
+
+             </tr>
+
+
+
       </table>
      </div>
     </body>
