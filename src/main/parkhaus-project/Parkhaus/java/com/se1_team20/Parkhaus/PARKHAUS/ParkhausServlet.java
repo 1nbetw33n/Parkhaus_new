@@ -42,6 +42,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
     List<Boolean>parkingspaces=new ArrayList<>(10);  //To Do: getMAX as size of the ArrayList
+    String value; // The value consists of cmd,parknummer,id
 
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
@@ -80,9 +81,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
             requestDispatcherObject = request.getRequestDispatcher("CheckoutAuthenticationView.jsp");
             requestDispatcherObject.forward(request, response);
         }
-        else if(request.getQueryString().split("=")[1].equals("parkingspaces"))
+        else if(request.getQueryString().split("=")[1].equals("spaces"))
         {
-            requestDispatcherObject = request.getRequestDispatcher("ParkingspacesView.jsp");
+            requestDispatcherObject = request.getRequestDispatcher("Parking_spacesView.jsp");
             requestDispatcherObject.forward(request, response);
          }
         else if (request.getQueryString().split("=")[1].equals("management"))
