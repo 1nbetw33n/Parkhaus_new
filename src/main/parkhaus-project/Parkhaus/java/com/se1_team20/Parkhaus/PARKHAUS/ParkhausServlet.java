@@ -70,6 +70,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else if ("cmd".equals(command) && "my_chart".equals(param)) {eventMyChart(response);}
         else if ("cmd".equals(command) && "config&name".equals(param)) {handleConfig(param, response);}
         else if ("cmd".equals(command) && "cars&name".equals(param)) {savedCars(param, response);}
+        else if ("cmd".equals(command) && "spaces".equals(param)){handleRequest(request,response);}
         else {System.out.println("invalid Command: " + request.getQueryString());}
     }
 
