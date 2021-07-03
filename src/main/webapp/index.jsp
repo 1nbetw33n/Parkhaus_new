@@ -51,7 +51,7 @@
 					        {
 					            "extra_class":"spaces",
 					            "extra_inner":"Display free parking spaces",
-					            "extra_popup_title":"Which parking spaces are available"
+					            "extra_popup_title":"GO TO PARKING SPACES VIEW"
 
 					        },
 						    {
