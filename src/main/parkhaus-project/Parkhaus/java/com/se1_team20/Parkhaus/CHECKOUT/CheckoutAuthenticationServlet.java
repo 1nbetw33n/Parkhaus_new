@@ -44,7 +44,7 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
         final PrintWriter OUT                     = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         RequestDispatcher dispatcher = null;
-        if (!CARNR.equals("12345")) //LETS HACK THIS:D
+        if (!CARNR.equals("carNrEnter")) //LETS HACK THIS:D
         {
             OUT.write("<meta http-equiv='refresh' content='0;URL=CheckoutAuthenticationView.jsp'>");//redirects after 3 seconds
             OUT.write("<script>alert('Invalid Credentials')</script>");
