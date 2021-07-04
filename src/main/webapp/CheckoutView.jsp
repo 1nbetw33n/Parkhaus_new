@@ -58,9 +58,6 @@
 </body>
 
 
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
 <br>
 <br>
 <head>
@@ -84,15 +81,15 @@
     <h1>Checkout </h1>
     <form id="loginFormId" name="loginForm" method="post" action="BillServlet">
         <div id="billDiv" class="paddingBtm">
-            <span id="user">View: </span><label for="userInput"></label><input id="userInput" type="text" name="bill" />
+            <span id="user">CarNr: </span><label for="userInput"></label><input id="userInput" type="text" name="bill" />
         </div>
-        <div id="loginBtn">
-            <input id="Btn" type="submit" value="Login" />
+        <div id="ViewBtn">
+            <input id="Btn" type="submit" value="View" />
         </div>
     </form>
 </div>
 </body>
-
+</html>
 
 
 

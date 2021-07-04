@@ -56,31 +56,42 @@
 <body>
 <script>alert("This Button Works!")</script>
 </body>
+
+
+<br>
+<br>
+<head>
+    <title>Checkout</title>
+    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('userInput, #passInput').click(function (){
+                $("#errMsg").hide();
+            });
+        });
+    </script>
+    <style>
+        .paddingBtm{
+            padding-bottom: 12px;
+        }
+    </style>
+</head>
 <body>
-
-<div align=com.se1_team20.Parkhaus.CHECKOUT.CheckoutServlet"center"></div>
-<table border = "1">
-    <tr bgcolor="gray">
-        <td> Parkticketnr.</td>
-        <td>Kunde</td>
-        <td> Parkdauer</td>
-        <td> Ticketpreis</td>
-    </tr>
-    <% ServletContext sc = request.getServletContext(); %>
-    <% ArrayList<CarIF> CARNR = (ArrayList<CarIF>) sc.getAttribute("carNrenter"+ "Level1"); %>
-    <%for(CarIF car: CARNR){%>
-    <tr>
-        <td><%=car.nr() %></td>
-        <td><%=car.kunde() %></td>
-        <td><%=car.duration() %></td>
-        <td><%=car.kunde().equals("Company")?0.0+"€":car.price() %></td>
-    </tr>
-    <% }%>
-
-</table>
-
+<div style="text-align: center;">
+    <h1>Checkout </h1>
+    <form id="loginFormId" name="loginForm" method="post" action="BillServlet">
+        <div id="billDiv" class="paddingBtm">
+            <span id="user">CarNr: </span><label for="userInput"></label><input id="userInput" type="text" name="bill" />
+        </div>
+        <div id="ViewBtn">
+            <input id="Btn" type="submit" value="View" />
+        </div>
+    </form>
+</div>
 </body>
 </html>
+
+
 
 <%--
 

@@ -62,7 +62,7 @@
             <% }}%>
 
             <%
-                response.setContentType("text/plain");
+                /*response.setContentType("text/plain");
                 PrintWriter OUT = response.getWriter();
                 OUT.println("{\n" +
                 "  \"data\": [\n" +
@@ -80,7 +80,7 @@
                 "         \"type\": \"bar\"\n" +
                 "        }\n" +
                 "       ]\n" +
-                "}");
+                "}"); -> Ich glaube die Charts müssen im Servlet aufgerufen werden -> Hier könnte man nen Button noch zusätzlich implementieren  - Lukas */
             %>
 
         </table>

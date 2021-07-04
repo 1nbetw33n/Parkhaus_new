@@ -108,6 +108,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     final public void handleEvent(final String EVENT, final String[] PARAMS)
     {
+
         if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
         else if ("occupied".equals(EVENT)) {
@@ -122,7 +123,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         //TODO: Parkplätze implementieren
         CarIF newCar = new Car( PARAMS );
         cars().add( newCar );
-
+ // TODO: IF-Abfrage ,falls Event occupied,dann kein Auto hinzufügen
 
     }
 

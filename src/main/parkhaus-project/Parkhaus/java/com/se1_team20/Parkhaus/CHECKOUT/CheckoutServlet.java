@@ -44,7 +44,7 @@ public class CheckoutServlet extends CheckoutAuthenticationServlet {
 
     final private static long serialVersionUID = 1L;
 
-    final public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
         final String[] PARAMS   = request.getQueryString().split("=");
