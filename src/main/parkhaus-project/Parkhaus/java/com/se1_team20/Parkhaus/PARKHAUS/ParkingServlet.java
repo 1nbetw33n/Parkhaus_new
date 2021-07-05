@@ -40,7 +40,20 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
 
     protected abstract void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
-    protected abstract void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+    /* template method */
+    protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        response.setContentType("text/html");
+        //getting the String containing of: [EVENT, NR, BEGIN, END, PRICE]
+        String body                       = ParkingServletable.getBody(request);
+        System.out.println(body);
+        handleEvent(
+                body.split(",")[0],
+                body.split(",")
+        );
+    }
+
+    protected abstract void handleEvent(final String EVENT, final String[] PARAMS);
 
     /* default implementation */
     final public ServletContext getContext() { return getServletConfig().getServletContext();}
@@ -49,6 +62,5 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
     final public void destroy(){
         System.out.println("Server annihilated. Nothing shall remain of this servant");
     }
-
 
 }

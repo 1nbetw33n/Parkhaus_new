@@ -51,7 +51,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     public ParkhausModel pModel =  new ParkhausModel();
 
-    final public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    public final void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
         String[] requestParamString = request.getQueryString().split("=");
@@ -61,7 +61,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
         ServletContext application = getContext();
 
         if ("cmd".equals(command) && "total_revenue".equals(param)) { eventDoubleAttribute(response, application, "total_revenue"); }
-
         else if ("cmd".equals(command) && "average_revenue".equals(param)) {eventDoubleAttribute(response, application, "average_revenue");}
         else if ("cmd".equals(command) && "total_cars".equals(param)) { eventTotalCars(response);}
         else if ("cmd".equals(command) && "get_bill".equals(param)) {eventDoubleAttribute(response, application, "get_bill");}
@@ -74,7 +73,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else {System.out.println("invalid Command: " + request.getQueryString());}
     }
 
-    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    protected final void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         RequestDispatcher requestDispatcherObject = null;
         if (request.getQueryString().split("=")[1].equals("checkout"))
@@ -94,40 +93,22 @@ public abstract class ParkhausServlet extends ParkingServlet {
         }
     }
 
-    final public void handleBody(HttpServletRequest request,HttpServletResponse response) throws IOException
+    protected final void handleEvent(final String EVENT, final String[] PARAMS)
     {
-        response.setContentType("text/html");
-        //getting the String containing of: [EVENT, NR, BEGIN, END, PRICE]
-        String body                       = ParkingServletable.getBody(request);
-        System.out.println(body);
-        handleEvent(
-                body.split(",")[0],
-                body.split(",")
-        );
-    }
-
-    final public void handleEvent(final String EVENT, final String[] PARAMS)
-    {
-
         if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
-        else if ("occupied".equals(EVENT)) {
-            String[] preid = PARAMS[1].split("[(]");
-            String id = preid[1].substring(0,preid[1].length()-1);
-            getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),Integer.parseInt(id)));
-        }
+        else if ("occupied".equals(EVENT)) {handleOccupied(PARAMS);}
     }
 
-    final protected void handleEnter(final String[] PARAMS)
+    private void handleEnter(final String[] PARAMS)
     {
         //TODO: Parkplätze implementieren
         CarIF newCar = new Car( PARAMS );
         cars().add( newCar );
  // TODO: IF-Abfrage ,falls Event occupied,dann kein Auto hinzufügen
-
     }
 
-    final protected void handleLeave(final String[] PARAMS)
+     private void handleLeave(final String[] PARAMS)
     {
 
         StringBuilder priceString = new StringBuilder();
@@ -146,7 +127,13 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
         CarIF carSave = new Car(PARAMS);
         formerCars().add(carSave); //Saving Old Car in formerCars()
+    }
 
+    private void handleOccupied(final String[] PARAMS)
+    {
+        String[] preid = PARAMS[1].split("[(]");
+        String id = preid[1].substring(0,preid[1].length()-1);
+        getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),Integer.parseInt(id)));
     }
 
     /*
@@ -187,21 +174,23 @@ public abstract class ParkhausServlet extends ParkingServlet {
     }
 
 
-    final protected void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {
+    protected final void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {
         final PrintWriter OUT = response.getWriter();
         Double doubleAttribute = pModel.getDoubleAttribute((Double) application.getAttribute(attribute));
         OUT.println(doubleAttribute + ",-");
         System.out.println(attribute + " = €" + doubleAttribute);
     }
 
-    final protected void eventTotalCars(HttpServletResponse response) throws IOException {
+    private void eventTotalCars(HttpServletResponse response) throws IOException {
         final PrintWriter OUT = response.getWriter();
         OUT.println(cars().size());
         System.out.println("total_cars = " + cars().size());
     }
 
+
+
 /*
-    final protected void eventCheckOut(HttpServletResponse response)
+    private void eventCheckOut(HttpServletResponse response)
     {
          TODO: COMING SOON
 
@@ -216,12 +205,12 @@ public abstract class ParkhausServlet extends ParkingServlet {
 }
         */
 
-    final protected void eventMyChart(HttpServletResponse response)
+    private void eventMyChart(HttpServletResponse response)
     {
         /* TODO: COMING SOON */
     }
 
-    public void handleConfig(String name, HttpServletResponse response) {
+    private void handleConfig(String name, HttpServletResponse response) {
         System.out.println(name);
     }
 

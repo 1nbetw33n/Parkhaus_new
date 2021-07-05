@@ -55,4 +55,9 @@ public class ManagementServlet extends ManagementAuthenticationServlet{
 
     protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
 
+    protected void handleEvent(String EVENT, String[] PARAMS)
+    {
+        //TODO: IMPLEMENT
+    }
+
 }
