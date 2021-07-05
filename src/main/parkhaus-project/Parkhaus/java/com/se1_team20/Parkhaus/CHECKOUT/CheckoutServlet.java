@@ -60,5 +60,10 @@ public class CheckoutServlet extends CheckoutAuthenticationServlet {
 
     protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
 
+    protected void handleEvent(String EVENT, String[] PARAMS)
+    {
+        //TODO: IMPLEMENT
+    }
+
 
 }

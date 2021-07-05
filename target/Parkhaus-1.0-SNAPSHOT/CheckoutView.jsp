@@ -80,11 +80,11 @@
 <div style="text-align: center;">
     <h1>Checkout </h1>
     <form id="loginFormId" name="loginForm" method="post" action="BillServlet">
-        <div id="billDiv" class="paddingBtm">
-            <span id="user">CarNr: </span><label for="userInput"></label><input id="userInput" type="text" name="bill" />
+        <div id="showBillDiv" class="paddingBtm">
+            <span id="licensePlateInput">Enter License Plate: </span><label for="userInput"></label><input id="userInput" type="text" name="show_bill" />
         </div>
-        <div id="ViewBtn">
-            <input id="Btn" type="submit" value="View" />
+        <div id="ShowBillBtn">
+            <input id="Btn" type="submit" value="Show Bill" />
         </div>
     </form>
 </div>
