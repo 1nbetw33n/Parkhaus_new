@@ -20,14 +20,21 @@
 
 package com.se1_team20.Parkhaus.MANAGEMENT;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.se1_team20.Parkhaus.PARKHAUS.Car;
+import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
 import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/ManagementServlet")
 public class ManagementServlet extends ManagementAuthenticationServlet {
@@ -44,24 +51,16 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         if ("cmd".equals(command) && "chart1".equals(param)) {
             response.setContentType("text/plain");
             PrintWriter OUT = response.getWriter();
-            OUT.println("{\n" +
-                    "  \"data\": [\n" +
-                    "     {\n" +
-                    "      \"x\": [\n" +
-                    "        \"Car_1\",\n" +
-                    "        \"Car_1\",\n" +
-                    "        \"Car_1\",\n" +
-                    "        ],\n" +
-                    "        \"y\": [\n" +
-                    "          20, \n" +
-                    "          14, \n" +
-                    "          23\n" +
-                    "         ],\n" +
-                    "         \"type\": \"bar\"\n" +
-                    "        }\n" +
-                    "       ]\n" +
-                    "}");
-
+            ObjectMapper objectMapper = new ObjectMapper();
+            ServletContext sc = request.getServletContext();
+            ArrayList<CarIF> formerCars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
+            StringBuilder toReturn = new StringBuilder();
+            for(CarIF car : formerCars){
+               objectMapper.writeValue(new File("com.se1_team20.Parkhaus.PARKHAUS.CarIF.json"),car);
+               String add = objectMapper.writeValueAsString(car);
+               toReturn.append(add);
+            }
+            OUT.println(toReturn);
         }
     }
 

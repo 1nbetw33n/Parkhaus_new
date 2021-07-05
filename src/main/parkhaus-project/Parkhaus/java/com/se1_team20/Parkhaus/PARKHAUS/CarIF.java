@@ -28,4 +28,6 @@ package com.se1_team20.Parkhaus.PARKHAUS;
     int price();
     String hash();
     String kunde();
+    int getNr();
+    String getKunde();
 }
