@@ -21,16 +21,13 @@
 package com.se1_team20.Parkhaus.MANAGEMENT;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.se1_team20.Parkhaus.PARKHAUS.Car;
 import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
-import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -55,11 +52,24 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
             ServletContext sc = request.getServletContext();
             ArrayList<CarIF> formerCars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
             StringBuilder toReturn = new StringBuilder();
-            for(CarIF car : formerCars){
-               objectMapper.writeValue(new File("com.se1_team20.Parkhaus.PARKHAUS.CarIF.json"),car);
-               String add = objectMapper.writeValueAsString(car);
-               toReturn.append(add);
+
+            List<CarIF> tempCars = new ArrayList<>();
+            for (CarIF x: formerCars) {
+                tempCars.add(x);
             }
+
+            Object carsObj = new Object(){
+
+                List<CarIF> Cars = tempCars;
+
+                public List<CarIF> getCars() {
+                    return Cars;
+                }
+            };
+
+            String add = objectMapper.writeValueAsString(carsObj);
+            toReturn.append(add);
+
             OUT.println(toReturn);
         }
     }
