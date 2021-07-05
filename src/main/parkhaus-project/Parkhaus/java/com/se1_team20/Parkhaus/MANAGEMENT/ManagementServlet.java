@@ -20,6 +20,8 @@
 
 package com.se1_team20.Parkhaus.MANAGEMENT;
 
+import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,17 +30,40 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/ManagementServlet")
-public class ManagementServlet extends ManagementAuthenticationServlet{
+public class ManagementServlet extends ManagementAuthenticationServlet {
 
     final private static long serialVersionUID = 1L;
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        response.setContentType("text/html");
+        String[] requestParamString = request.getQueryString().split("=");
+        String command              = requestParamString[0];
+        String param                = requestParamString[1];
+
+        if ("cmd".equals(command) && "chart1".equals(param)) {
+            response.setContentType("text/plain");
+            PrintWriter OUT = response.getWriter();
+            OUT.println("{\n" +
+                    "  \"data\": [\n" +
+                    "     {\n" +
+                    "      \"x\": [\n" +
+                    "        \"Car_1\",\n" +
+                    "        \"Car_1\",\n" +
+                    "        \"Car_1\",\n" +
+                    "        ],\n" +
+                    "        \"y\": [\n" +
+                    "          20, \n" +
+                    "          14, \n" +
+                    "          23\n" +
+                    "         ],\n" +
+                    "         \"type\": \"bar\"\n" +
+                    "        }\n" +
+                    "       ]\n" +
+                    "}");
+        }
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) {
-
-    }
 
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");

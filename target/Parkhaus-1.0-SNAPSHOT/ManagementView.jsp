@@ -29,61 +29,68 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-    <head>
-        <title>Management</title>
-    </head>
-    <body>
-        <script>alert("Welcome you are logged in!")</script>
-    </body>
-    <body>
-        <div align=com.se1_team20.Parkhaus.MANAGEMENT.ManagementServlet"center"></div>
+<head>
+    <title> Management</title>
+    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('userInput, #passInput').click(function () {
+                $("#errMsg").hide();
+            });
+        });
+    </script>
+    <div style="text-align: center;">
+        <h1>Management</h1>
+    </div>
+    <style>
+        .paddingBtm {
+            padding-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+<script>alert("Welcome you are logged in!")</script>
+</body>
+<body>
+<div align=com.se1_team20.Parkhaus.MANAGEMENT.ManagementServlet"center"></div>
+<table style="width:300px" align="center" border="1">
+    <tr bgcolor="gray">
+        <td> Parkticketnr.</td>
+        <td>Kunde</td>
+        <td> Parkdauer</td>
+        <td> Ticketpreis</td>
+    </tr>
 
-        <table border = "1">
-            <tr bgcolor="gray">
-                <td> Parkticketnr.</td>
-                <td>Kunde</td>
-                <td> Parkdauer</td>
-                <td> Ticketpreis</td>
-            </tr>
+    <% ServletContext sc = request.getServletContext(); %>
+    <% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
+        if (cars == null) {
+            PrintWriter OUT = response.getWriter();
+            OUT.println("Oops, no Cars left the Building yet!");
+        } else {
+            for (CarIF car : cars) {%>
+    <tr>
+        <td><%=car.nr() %>
+        </td>
+        <td><%=car.kunde() %>
+        </td>
+        <td><%=car.duration() %>
+        </td>
+        <td><%=car.kunde().equals("Company") ? 0.0 + "€" : car.price() %>
+        </td>
+    </tr>
+    <% }
+    }%>
 
-            <%  ServletContext sc = request.getServletContext(); %>
-            <%  ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars"+ "Level1");
-                if (cars==null) {
-                    PrintWriter OUT = response.getWriter();
-                    OUT.println("Oops, no Cars left the Building yet!");
-                } else {
-                for(CarIF car: cars){%>
-            <tr>
-                <td><%=car.nr() %></td>
-                <td><%=car.kunde() %></td>
-                <td><%=car.duration() %></td>
-                <td><%=car.kunde().equals("Company")?0.0+"€":car.price() %></td>
-            </tr>
-            <% }}%>
+</table>
+</body>
 
-            <%
-                /*response.setContentType("text/plain");
-                PrintWriter OUT = response.getWriter();
-                OUT.println("{\n" +
-                "  \"data\": [\n" +
-                "     {\n" +
-                "      \"x\": [\n" +
-                "        \"Car_1\",\n" +
-                "        \"Car_1\",\n" +
-                "        \"Car_1\",\n" +
-                "        ],\n" +
-                "        \"y\": [\n" +
-                "          20, \n" +
-                "          14, \n" +
-                "          23\n" +
-                "         ],\n" +
-                "         \"type\": \"bar\"\n" +
-                "        }\n" +
-                "       ]\n" +
-                "}"); -> Ich glaube die Charts müssen im Servlet aufgerufen werden -> Hier könnte man nen Button noch zusätzlich implementieren  - Lukas */
-            %>
-
-        </table>
-    </body>
+<body>
+<div style="text-align: center;">
+    <form id="chartFormId" name="chartForm" method="get" action="ManagementServlet">
+        <button name="chart" type="submit" value="chart1"/>Chart 1</button>
+        <button name="chart" type="submit" value="chart2"/>Chart 2</button>
+    </form>
+</div>
+</body>
 
 </html>
