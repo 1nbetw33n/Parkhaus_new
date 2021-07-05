@@ -31,12 +31,11 @@
 
    <body>
      <div style="text-align: center;">
+         <% String[]parameters; %>
          <% String value=(String)request.getAttribute("parameter");
 
-            if(value!=null){
+            parameters=value.split(",");
 
-                String[]parameters=value.split(",");
-            }
          %>
 
       <table>
@@ -44,8 +43,21 @@
              <tr>
                  <% for(int i=0;i<10;i++){%>
 
-                 <td style="width: 50px" bgcolor="green"> <%= i+1 %> </td>
+                      <% if(parameters[0].equals("enter")){ %>
 
+                           <% if((Integer.parseInt(parameters[1]))==i+1){ %>
+
+                                <td style="width: 50px" bgcolor="rot"> <%= i+1 %> </td>
+
+                           <% } %>
+                       <% } else{ %>
+
+                              <% if((Integer.parseInt(parameters[1]))==i+1){ %>
+
+                                 <td style="width: 50px" bgcolor="green"> <%= i+1 %> </td>
+
+                                <% } %>
+                          <% } %>
                  <% } %>
 
              </tr>
