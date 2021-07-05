@@ -41,8 +41,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
      * handleEnter() does not check if there is available space
      */
 
-    List<Boolean>parkingspaces=new ArrayList<>(10);  //To Do: getMAX as size of the ArrayList
-    String value; // The value consists of cmd,parknummer,id
+
+    //static boolean[]parkingspaces=new boolean[10];
 
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
@@ -83,7 +83,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         }
         else if(request.getQueryString().split("=")[1].equals("spaces"))
         {
-            request.setAttribute("parameter",this.value);
+            //request.setAttribute("parameter",this.value);
             request.getRequestDispatcher("Parking_spacesView.jsp").forward(request,response);
          }
         else if (request.getQueryString().split("=")[1].equals("management"))
@@ -104,9 +104,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         //TODO: Parkplätze implementieren
 
-        this.value="enter"+","+PARAMS[1]+","+PARAMS[7]; //For the Parking_spacesView.jsp purpose
+        //this.value="enter"+","+PARAMS[1]+","+PARAMS[7]; //For the Parking_spacesView.jsp purpose
 
-        System.out.println( value);
+       // System.out.println( value);
 
         CarIF newCar = new Car( PARAMS );
         cars().add( newCar );
@@ -115,7 +115,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
      private void handleLeave(final String[] PARAMS)
     {
-        this.value="enter"+","+PARAMS[1]+","+PARAMS[7]; //For the Parking_spacesView.jsp purpose
+        //this.value="enter"+","+PARAMS[1]+","+PARAMS[7]; //For the Parking_spacesView.jsp purpose
 
         StringBuilder priceString = new StringBuilder();
         double            price           = 0.;
