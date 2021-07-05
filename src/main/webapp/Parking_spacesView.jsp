@@ -34,42 +34,8 @@
          <% String[]parameters; %>
          <% String value=(String)request.getAttribute("parameter");
 
-            parameters=value.split(",");
+            if(value==null){ %>
 
-         %>
-
-      <table>
-
-             <tr>
-                 <% for(int i=0;i<10;i++){%>
-
-                      <% if(parameters[0].equals("enter")){ %>
-
-                           <% if((Integer.parseInt(parameters[1]))==i+1){ %>
-
-                                <td style="width: 50px" bgcolor="rot"> <%= i+1 %> </td>
-
-                           <% } %>
-                       <% } else{ %>
-
-                              <% if((Integer.parseInt(parameters[1]))==i+1){ %>
-
-                                 <td style="width: 50px" bgcolor="green"> <%= i+1 %> </td>
-
-                                <% } %>
-                          <% } %>
-                 <% } %>
-
-             </tr>
-
-             <tr>
-                <% for(int i=0;i<10;i++){%>
-
-                <td></td>
-
-                <% } %>
-
-             </tr>
 
 
 
