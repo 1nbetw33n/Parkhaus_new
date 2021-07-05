@@ -93,6 +93,9 @@
         Chart 2</button>
     </form>
 </div>
+
+<script src ="https://ccmjs.github.io/mkaul-components/plotly/versions/ccm.plotly-1.1.1.js"></script>
+
 </body>
 
 </html>

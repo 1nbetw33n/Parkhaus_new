@@ -69,7 +69,6 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
 
             String add = objectMapper.writeValueAsString(carsObj);
             toReturn.append(add);
-
             OUT.println(toReturn);
         }
     }
