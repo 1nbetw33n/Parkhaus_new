@@ -31,33 +31,11 @@
 
    <body>
      <div style="text-align: center;">
+         <% String[]parameters; %>
          <% String value=(String)request.getAttribute("parameter");
 
-            if(value!=null){
+            if(value==null){ %>
 
-                String[]parameters=value.split(",");
-            }
-         %>
-
-      <table>
-
-             <tr>
-                 <% for(int i=0;i<10;i++){%>
-
-                 <td style="width: 50px" bgcolor="green"> <%= i+1 %> </td>
-
-                 <% } %>
-
-             </tr>
-
-             <tr>
-                <% for(int i=0;i<10;i++){%>
-
-                <td></td>
-
-                <% } %>
-
-             </tr>
 
 
 
