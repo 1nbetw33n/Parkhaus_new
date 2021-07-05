@@ -42,7 +42,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
 
-    static boolean[]parkingspaces=new boolean[10];
+    static String[][]parkingspaces=new String[10][3];
 
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
@@ -83,7 +83,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         }
         else if(request.getQueryString().split("=")[1].equals("spaces"))
         {
-            request.setAttribute("parameter",parkingspaces);
+            request.setAttribute("parameter1",parkingspaces);
             request.getRequestDispatcher("Parking_spacesView.jsp").forward(request,response);
          }
         else if (request.getQueryString().split("=")[1].equals("management"))
@@ -104,7 +104,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         //TODO: Parkplätze implementieren
 
-        parkingspaces[Integer.parseInt(PARAMS[7])-1]=true;
+        parkingspaces[Integer.parseInt(PARAMS[7])-1][0]="enter";
+        parkingspaces[Integer.parseInt(PARAMS[7])-1][0]=PARAMS[1];
+        parkingspaces[Integer.parseInt(PARAMS[7])-1][0]=PARAMS[7];
 
         CarIF newCar = new Car( PARAMS );
         cars().add( newCar );
