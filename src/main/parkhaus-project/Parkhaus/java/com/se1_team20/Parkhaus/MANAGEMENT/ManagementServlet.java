@@ -32,6 +32,14 @@ public class ManagementServlet extends ManagementAuthenticationServlet{
 
     final private static long serialVersionUID = 1L;
 
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
+
+    }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) {
+
+    }
+
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         final String PARAM  = request.getParameter("username");
@@ -46,5 +54,10 @@ public class ManagementServlet extends ManagementAuthenticationServlet{
     }
 
     protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
+
+    protected void handleEvent(String EVENT, String[] PARAMS)
+    {
+        //TODO: IMPLEMENT
+    }
 
 }
