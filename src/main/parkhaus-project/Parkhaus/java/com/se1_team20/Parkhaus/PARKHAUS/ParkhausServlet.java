@@ -113,6 +113,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
      private void handleLeave(final String[] PARAMS)
     {
+        this.value="enter"+","+PARAMS[1]+","+PARAMS[7]; //For the Parking_spacesView.jsp purpose
 
         StringBuilder priceString = new StringBuilder();
         double            price           = 0.;
