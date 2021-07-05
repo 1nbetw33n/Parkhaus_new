@@ -87,8 +87,10 @@
 <body>
 <div style="text-align: center;">
     <form id="chartFormId" name="chartForm" method="get" action="ManagementServlet">
-        <button name="chart" type="submit" value="chart1"/>Chart 1</button>
-        <button name="chart" type="submit" value="chart2"/>Chart 2</button>
+        <button name="cmd" type="submit" value="chart1"/>
+        Chart 1</button>
+        <button name="cmd" type="submit" value="chart2"/>
+        Chart 2</button>
     </form>
 </div>
 </body>

@@ -61,6 +61,7 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
                     "        }\n" +
                     "       ]\n" +
                     "}");
+
         }
     }
 
