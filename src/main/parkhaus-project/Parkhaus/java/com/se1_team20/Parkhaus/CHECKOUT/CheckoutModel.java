@@ -18,17 +18,23 @@
  *
  */
 
-package com.se1_team20.Parkhaus.PARKHAUS;
+package com.se1_team20.Parkhaus.CHECKOUT;
+/*
+1nbetw33n
+06.Jul.2021
+*/
 
- public interface CarIF {
-    int nr();
-    String licensePlate();
-    long begin();
-    long end();
-    int duration();
-    int price();
-    String hash();
-    String kunde();
-    int getNr();
-    String getKunde();
+import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
+
+import java.util.List;
+
+public class CheckoutModel {
+
+    public static CarIF filterWithLicensePlate(final List<CarIF> CARS, final String STRING)
+    {
+        return CARS.stream()
+                .filter(x -> x.licensePlate().equals(STRING))
+                        .findFirst()
+                            .orElse(null);
+    }
 }

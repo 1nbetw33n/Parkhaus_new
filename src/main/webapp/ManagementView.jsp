@@ -54,7 +54,7 @@
 </body>
 <body>
 <div align=com.se1_team20.Parkhaus.MANAGEMENT.ManagementServlet"center"></div>
-<table style="width:300px" align="center" border="1">
+<table style="  width:300px" align="center" border="1">
     <tr bgcolor="gray">
         <td> Parkticketnr.</td>
         <td>Kunde</td>
@@ -67,6 +67,7 @@
         if (cars == null) {
             PrintWriter OUT = response.getWriter();
             OUT.println("Oops, no Cars left the Building yet!");
+            OUT.println();
         } else {
             for (CarIF car : cars) {%>
     <tr>

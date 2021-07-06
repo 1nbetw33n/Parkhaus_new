@@ -44,7 +44,7 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
         RequestDispatcher dispatcher    = null;
         if (!USERNAME.equals("Management") || !PASSWORD.equals("easy-pass-word")) //LETS HACK THIS:D
         {
-            OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects after 3 seconds
+            OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects after 0 seconds
             OUT.write("<script>alert('Invalid Credentials')</script>");
         }
         else
