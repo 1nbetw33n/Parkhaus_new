@@ -22,6 +22,7 @@ package com.se1_team20.Parkhaus.PARKHAUS;
 
  public interface CarIF {
     int nr();
+    String licensePlate();
     long begin();
     long end();
     int duration();

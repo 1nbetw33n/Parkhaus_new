@@ -24,5 +24,17 @@ package com.se1_team20.Parkhaus.CHECKOUT;
 06.Jul.2021
 */
 
+import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
+
+import java.util.List;
+
 public class CheckoutModel {
+
+    public static CarIF filterWithLicensePlate(final List<CarIF> CARS, final String STRING)
+    {
+        return CARS.stream()
+                .filter(x -> x.licensePlate().equals(STRING))
+                        .findFirst()
+                            .orElse(null);
+    }
 }

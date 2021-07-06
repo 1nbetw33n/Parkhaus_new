@@ -32,11 +32,11 @@ import java.io.IOException;
 @WebServlet("/BillServlet")
 public class BillServlet extends CheckoutServlet {
 
-    final public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private static final Long serialVersionUID = 1L;
+
+     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        String[] requestParamString = request.getQueryString().split("=");
-        String command = requestParamString[0];
-        String param = requestParamString[1];
+
 
         ServletContext application = getContext();
 

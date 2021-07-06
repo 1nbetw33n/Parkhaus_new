@@ -1,5 +1,8 @@
 <%@ page import="com.se1_team20.Parkhaus.PARKHAUS.CarIF" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.se1_team20.Parkhaus.PARKHAUS.Level1Servlet" %>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="com.se1_team20.Parkhaus.CHECKOUT.CheckoutModel" %><%--
   ~ /* copyright (c) 2021 se1_team20.
   ~  Planet Earth, Milky Way, Virgo Supercluster.
   ~  All rights reserved.
@@ -76,19 +79,42 @@
         }
     </style>
 </head>
-<body>
-<div style="text-align: center;">
-    <h1>Checkout </h1>
-    <form id="loginFormId" name="loginForm" method="post" action="BillServlet">
-        <div id="showBillDiv" class="paddingBtm">
-            <span id="licensePlateInput">Enter License Plate: </span><label for="userInput"></label><input id="userInput" type="text" name="show_bill" />
+    <body>
+        <div align="center">
+            <table style="width: auto" align="center", border="1">
+                <tr>
+                    <td>License Plate</td>
+                    <td>Duration</td>
+                    <td>Price</td>
+                </tr>
+                <%ServletContext context = request.getServletContext();%>
+                <% ArrayList<CarIF> cars = (ArrayList<CarIF>) context.getAttribute("former-cars" + "Level1");%>
+                <%
+                    if (cars == null)
+                    {
+                        PrintWriter OUT = response.getWriter();
+                        OUT.println("There is no car to checkout");
+                    }
+                    else
+                    {
+                        com.se1_team20.Parkhaus.CHECKOUT.CheckoutModel.filterWithLicensePlate(cars, "CarNrEnter");
+                    }
+                %>
+            </table>
         </div>
-        <div id="ShowBillBtn">
-            <input id="Btn" type="submit" value="Show Bill" />
+
+        <div style="text-align: center;">
+            <h1>Checkout</h1>
+            <form id="loginFormId" name="loginForm" method="post" action="BillServlet">
+                <div id="showBillDiv" class="paddingBtm">
+                    <span id="licensePlateInput">Enter License Plate: </span><label for="userInput"></label><input id="userInput" type="text" name="show_bill" />
+                </div>
+                <div id="ShowBillBtn">
+                    <input id="Btn" type="submit" value="Show Bill" />
+                </div>
+            </form>
         </div>
-    </form>
-</div>
-</body>
+    </body>
 </html>
 
 
