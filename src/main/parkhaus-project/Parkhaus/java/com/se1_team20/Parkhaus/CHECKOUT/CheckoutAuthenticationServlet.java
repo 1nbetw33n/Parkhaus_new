@@ -27,7 +27,6 @@ package com.se1_team20.Parkhaus.CHECKOUT;
 import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,24 +37,30 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
 
     final private static long serialVersionUID = 1L;
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         response.setContentType("text/html");
         final String         CARNR             = request.getParameter("carNrEnter");
         final PrintWriter OUT                     = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
-        RequestDispatcher dispatcher = null;
-        if (!CARNR.equals("12345")) //LETS HACK THIS:D
-        {
-            OUT.write("<meta http-equiv='refresh' content='0;URL=CheckoutAuthenticationView.jsp'>");//redirects after 3 seconds
-            OUT.write("<script>alert('Invalid Credentials')</script>");
-        }
-        else
-        {
-            dispatcher = request.getRequestDispatcher("CheckoutView.jsp");
-            dispatcher.forward(request, response);
-            getContext().setAttribute("carNr", CARNR);
-        }
+        if (!CARNR.equals("12345")) { handleInvalid(OUT);}
+        else                                           { handleSuccess(CARNR, response, request);}
         OUT.write("</div></body></html>");
         OUT.close();
     }
+
+    private void handleInvalid(final PrintWriter OUT)
+    {
+        OUT.write("<meta http-equiv='refresh' content='0;URL=CheckoutAuthenticationView.jsp'>");//redirects instantly after pressing ok
+        OUT.write("<script>alert('Invalid Credentials')</script>");
+    }
+
+    private void handleSuccess(final String EVENT, HttpServletResponse response, final HttpServletRequest request) throws ServletException, IOException
+    {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("CheckoutView.jsp");
+        dispatcher.forward(request, response);
+        getContext().setAttribute("carNr", EVENT);
+    }
+
+
 }
