@@ -21,11 +21,13 @@
             <ul>Total Revenue</ul>
         </li>
         <li>
+            <del>
             Markdown for: (Rahgawi)
             <ul>MVP</ul>
             <ul>USER STORIES</ul>
             <ul>Erklärung durch welche Implementierung, welche User Story umgesetzt wird</ul>
             <ul>update glossar</ul>
+            </del>
         </li>
         <li>Names of all ServletContexts + Explanations into glossar</li>
         <li>
