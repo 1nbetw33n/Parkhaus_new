@@ -104,14 +104,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else {System.out.println("invalid Command: " + request.getQueryString());}
     }
 
-    public final void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
 
-        response.setContentType("text/html");
-
-        String body= ParkingServletable.getBody(request);
-
-        configMax(Integer.parseInt(body.split(",")[2]));
-    }
 
     protected final void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -138,6 +131,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
         else if ("occupied".equals(EVENT)) {handleOccupied(PARAMS);}
+
+        System.out.println("change_max".equals(EVENT));
     }
 
     private void handleEnter(final String[] PARAMS)
