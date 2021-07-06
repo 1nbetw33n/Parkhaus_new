@@ -46,10 +46,7 @@ public class CheckoutServlet extends CheckoutAuthenticationServlet {
 
      public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        response.setContentType("text/html");
-        final String[] PARAMS   = request.getQueryString().split("=");
-        final String COMMAND = PARAMS[0];
-        final String PARAM        = PARAMS[1];
+
     }
 
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -57,12 +54,8 @@ public class CheckoutServlet extends CheckoutAuthenticationServlet {
         response.setContentType("text/html");
     }
 
-    protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
-
     protected void handleEvent(String EVENT, String[] PARAMS)
-    {
-        //TODO: IMPLEMENT
-    }
+    {}
 
 
 }

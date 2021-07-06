@@ -47,11 +47,15 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
         //getting the String containing of: [EVENT, NR, BEGIN, END, PRICE]
         String body                       = ParkingServletable.getBody(request);
         System.out.println(body);
+
+
         handleEvent(
                 body.split(",")[0],
                 body.split(",")
         );
     }
+
+    protected abstract void configMax(int max);
 
     protected abstract void handleEvent(final String EVENT, final String[] PARAMS);
 

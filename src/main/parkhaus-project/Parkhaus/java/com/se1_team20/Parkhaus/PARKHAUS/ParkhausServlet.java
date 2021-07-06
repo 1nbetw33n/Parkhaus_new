@@ -42,7 +42,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
 
-    static String[]parkingspaces=new String[10];
+    static List<String>parkingspaces=new ArrayList<>();
+    static boolean isempty;
+    static int max=10;
 
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
@@ -104,7 +106,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         //TODO: Parkplätze implementieren
 
-       parkingspaces[Integer.parseInt(PARAMS[7])-1]="enter"+","+PARAMS[1]+","+PARAMS[7];
+       //parkingspaces[Integer.parseInt(PARAMS[7])-1]="enter"+","+PARAMS[1]+","+PARAMS[7];
 
 
         CarIF newCar = new Car( PARAMS );
@@ -114,7 +116,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
      private void handleLeave(final String[] PARAMS)
     {
-        parkingspaces[Integer.parseInt(PARAMS[7])-1]="leave"+","+PARAMS[1]+","+PARAMS[7];
+        //parkingspaces[Integer.parseInt(PARAMS[7])-1]="leave"+","+PARAMS[1]+","+PARAMS[7];
 
         StringBuilder priceString = new StringBuilder();
         double            price           = 0.;
