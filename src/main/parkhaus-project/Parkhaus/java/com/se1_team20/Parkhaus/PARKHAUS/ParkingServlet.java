@@ -48,10 +48,10 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
         String body                       = ParkingServletable.getBody(request);
         System.out.println(body);
 
-        if(body.split(",")[2].equals("change_max")){
+        //if(body.split(",")[2].equals("change_max")){
 
-            configMax(Integer.parseInt(body.split(",")[2]));
-         }
+            //configMax(Integer.parseInt(body.split(",")[2]));
+         //}
 
         handleEvent(
                 body.split(",")[0],
@@ -59,7 +59,7 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
         );
     }
 
-    protected abstract void configMax(int max);
+    //protected abstract void configMax(int max);
 
     protected abstract void handleEvent(final String EVENT, final String[] PARAMS);
 

@@ -30,7 +30,7 @@ public class ManagementModel {
         return (cars.stream().filter(x -> x.kunde().equals(type)).count());
     }
     public long filterPercentagesOfType(List<CarIF> cars, String type){
-        return (cars.stream().filter(x -> x.kunde().equals(type)).count())/cars.size()*100;
+        return (((cars.stream().filter(x -> x.kunde().equals(type)).count())/cars.size())*100);
     }
 
 }
