@@ -74,7 +74,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
             while(count!=0){
 
-                //parkingspaces.remove()
+                parkingspaces.remove(parkingspaces.size()-1);
+
+                count--;
             }
         }
 
