@@ -42,8 +42,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
 
-    static List<String>parkingspaces=Arrays.asList("","","","","","","","","","");
-    static int max=10;
+    static List<String>parkingspaces=new ArrayList<>(Arrays.asList("","","","","","","","","",""));
+    static int max=10;   //Standard size
 
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
@@ -53,8 +53,32 @@ public abstract class ParkhausServlet extends ParkingServlet {
     public ParkhausModel pModel =  new ParkhausModel();
 
     //Reduces or increases the parking spaces
-    protected final void configMax(int max){
+    protected final void configMax(int newmax){
 
+        int count;
+
+        if(newmax > max){
+
+            count=max-newmax;
+
+            while(count!=0){
+
+                parkingspaces.add(""); //Adding more parking spaces
+
+                count--;
+            }
+        }
+        else{
+
+            count=max-newmax;
+
+            while(count!=0){
+
+                parkingspaces.remove(parkingspaces.size()-1);
+
+                count--;
+            }
+        }
 
     }
 
@@ -78,6 +102,15 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else if ("cmd".equals(command) && "cars&name".equals(param)) {savedCars(param, response);}
         else if ("cmd".equals(command) && "spaces".equals(param)){handleRequest(request,response);}
         else {System.out.println("invalid Command: " + request.getQueryString());}
+    }
+
+    public final void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
+
+        response.setContentType("text/html");
+
+        String body= ParkingServletable.getBody(request);
+
+        configMax(Integer.parseInt(body.split(",")[2]));
     }
 
     protected final void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -111,7 +144,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         //TODO: Parkplätze implementieren
 
-       //parkingspaces[Integer.parseInt(PARAMS[7])-1]="enter"+","+PARAMS[1]+","+PARAMS[7];
+        parkingspaces.add(Integer.parseInt(PARAMS[7])-1,"enter"+","+PARAMS[1]+","+PARAMS[7]);
 
 
         CarIF newCar = new Car( PARAMS );
@@ -121,7 +154,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
      private void handleLeave(final String[] PARAMS)
     {
-        //parkingspaces[Integer.parseInt(PARAMS[7])-1]="leave"+","+PARAMS[1]+","+PARAMS[7];
+        parkingspaces.add(Integer.parseInt(PARAMS[7])-1,"leave"+","+PARAMS[1]+","+PARAMS[7]);
 
         StringBuilder priceString = new StringBuilder();
         double            price           = 0.;
