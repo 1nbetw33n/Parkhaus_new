@@ -145,7 +145,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
      private void handleLeave(final String[] PARAMS)
     {
-        //parkingspaces[Integer.parseInt(PARAMS[7])-1]="leave"+","+PARAMS[1]+","+PARAMS[7];
+        parkingspaces.add(Integer.parseInt(PARAMS[7])-1,"leave"+","+PARAMS[1]+","+PARAMS[7]);
 
         StringBuilder priceString = new StringBuilder();
         double            price           = 0.;
