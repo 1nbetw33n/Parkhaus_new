@@ -96,13 +96,36 @@
 </body>
 
 <body>
+<% String data = "[{\"name\":\"Chrome\",\"y\":61.41,\"sliced\":true,\"selected\":true},{\"name\":\"Internet Explorer\",\"y\":11.84},{\"name\":\"Firefox\",\"y\":10.85},{\"name\":\"Edge\",\"y\":4.67},{\"name\":\"Safari\",\"y\":4.18},{\"name\":\"Sogou Explorer\",\"y\":1.64},{\"name\":\"Opera\",\"y\":1.6},{\"name\":\"QQ\",\"y\":1.2},{\"name\":\"Other\",\"y\":2.61}]}]},";
+
+
+String key1 = '{"settings":{"chart":{"plotBackgroundColor":null,"plotBorderWidth":null,"plotShadow":false,"type":"pie"},"title":{"text":"Browser market shares in January, 2018"},"tooltip":{"pointFormat":"{series.name}: <b>{point.percentage:.1f}%</b>"},"plotOptions":{"pie":{"allowPointSelect":true,"cursor":"pointer","dataLabels":{"enabled":true,"format":"<b>{point.name}</b>: {point.percentage:.1f} %","style":{"color":"black"}}}},"series": [{"name":"Brands","colorByPoint":true,"data":';
+
+
+
+
+%>
 <script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 <ccm-highchart-3-0-1
         key='{
             "settings":
                 {"chart":
                     {"plotBackgroundColor":null,"plotBorderWidth":null,"plotShadow":false,"type":"pie"},
-                    "title":{"text":"Browser market shares in January, 2018"},"tooltip":{"pointFormat":"{series.name}: <b>{point.percentage:.1f}%</b>"},"plotOptions":{"pie":{"allowPointSelect":true,"cursor":"pointer","dataLabels":{"enabled":true,"format":"<b>{point.name}</b>: {point.percentage:.1f} %","style":{"color":"black"}}}},"series":[{"name":"Brands","colorByPoint":true,"data":[{"name":"Chrome","y":61.41,"sliced":true,"selected":true},{"name":"Internet Explorer","y":11.84},{"name":"Firefox","y":10.85},{"name":"Edge","y":4.67},{"name":"Safari","y":4.18},{"name":"Sogou Explorer","y":1.64},{"name":"Opera","y":1.6},{"name":"QQ","y":1.2},{"name":"Other","y":2.61}]}]},"data":{},"html":{"id":"chart","style":"%%"},"style":"min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto","meta":[{"name":"dms-apps","url":"https://ccm2.inf.h-brs.de"},"1570984934126X2742884422875469"],"created_at":"2019-10-13T18:42:14+02:00","updated_at":"2019-10-13T18:42:14+02:00"}'></ccm-highchart-3-0-1>
+                "title":
+                    {"text":"Browser market shares in January, 2018"},
+                "tooltip":
+                    {"pointFormat":"{series.name}: <b>{point.percentage:.1f}%</b>"},
+                "plotOptions":
+                    {"pie":
+                        {"allowPointSelect":true,"cursor":"pointer","dataLabels":{"enabled":true,"format":"<b>{point.name}</b>: {point.percentage:.1f} %","style":{"color":"black"}}}},
+                    "series":
+                        [{"name":"Brands","colorByPoint":true,
+                        "data":
+                            + data +
+                        "data":{},
+                        "html":
+                            {"id":"chart","style":"%%"},"style":"min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto","meta":[{"name":"dms-apps","url":"https://ccm2.inf.h-brs.de"},"1570984934126X2742884422875469"],"created_at":"2019-10-13T18:42:14+02:00","updated_at":"2019-10-13T18:42:14+02:00"}'
+></ccm-highchart-3-0-1>
 </body>
 
 </html>
