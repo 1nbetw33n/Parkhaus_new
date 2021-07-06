@@ -42,7 +42,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
 
-    static List<String>parkingspaces=Arrays.asList("","","","","","","","","","");
+    static List<String>parkingspaces=new ArrayList<>(Arrays.asList("","","","","","","","","",""));
     static int max=10;   //Standard size
 
     /* abstract methods, to be defined in subclasses */
@@ -66,6 +66,15 @@ public abstract class ParkhausServlet extends ParkingServlet {
                 parkingspaces.add(""); //Adding more parking spaces
 
                 count--;
+            }
+        }
+        else{
+
+            count=max-newmax;
+
+            while(count!=0){
+
+                //parkingspaces.remove()
             }
         }
 
