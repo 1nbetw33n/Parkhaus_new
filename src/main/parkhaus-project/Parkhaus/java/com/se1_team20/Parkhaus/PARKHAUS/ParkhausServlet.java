@@ -70,7 +70,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         }
         else{
 
-            count=max-newmax;
+            count=newmax-max;
 
             while(count!=0){
 
@@ -104,6 +104,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else {System.out.println("invalid Command: " + request.getQueryString());}
     }
 
+
+
     protected final void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         RequestDispatcher requestDispatcherObject = null;
@@ -129,6 +131,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
         else if ("occupied".equals(EVENT)) {handleOccupied(PARAMS);}
+
+        System.out.println("change_max".equals(EVENT));
     }
 
     private void handleEnter(final String[] PARAMS)
