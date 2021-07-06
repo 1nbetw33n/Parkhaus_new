@@ -104,7 +104,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         //TODO: Parkplätze implementieren
 
-       // parkingspaces[Integer.parseInt(PARAMS[7])-1][0]="enter"+","+"PA";
+       parkingspaces[Integer.parseInt(PARAMS[7])-1]="enter"+","+PARAMS[1]+","+PARAMS[7];
 
 
         CarIF newCar = new Car( PARAMS );
@@ -114,7 +114,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
      private void handleLeave(final String[] PARAMS)
     {
-        //this.value="enter"+","+PARAMS[1]+","+PARAMS[7]; //For the Parking_spacesView.jsp purpose
+        parkingspaces[Integer.parseInt(PARAMS[7])-1]="leave"+","+PARAMS[1]+","+PARAMS[7];
 
         StringBuilder priceString = new StringBuilder();
         double            price           = 0.;
