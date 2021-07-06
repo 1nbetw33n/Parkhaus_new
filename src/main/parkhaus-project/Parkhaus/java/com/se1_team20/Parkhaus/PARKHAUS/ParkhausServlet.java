@@ -19,28 +19,16 @@
  */
 
 package com.se1_team20.Parkhaus.PARKHAUS;
-
-
-import com.se1_team20.Parkhaus.PARKINGSPACE.ParkingSpace;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import java.io.BufferedReader;
+import javax.servlet.http.*;;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.security.Principal;
 import java.util.*;
 
 
 @WebServlet("/ParkhausServlet")
 public abstract class ParkhausServlet extends ParkingServlet {
-
-    /**
-     * handleEnter() does not check if there is available space
-     */
-
 
     static List<String>parkingspaces=new ArrayList<>(Arrays.asList("","","","","","","","","",""));
     static int max=10;   //Standard size
@@ -203,7 +191,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         return formerCars;
     }
 
-    List<ParkingSpace> spaces() {
+    /*List<ParkingSpace> spaces() {
         if(getContext().getAttribute("spaces" + getNAME()) == null) {
             getContext().setAttribute("spaces" + getNAME(), new ArrayList<ParkingSpace>(getMAX()));
             // Currently Fixed Length -> What happens when we change the MAX value to this?
@@ -211,7 +199,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         List<ParkingSpace> spaces = (List<ParkingSpace>) getContext().getAttribute("spaces" + getNAME());
         pModel.setSpacesModel(spaces);
         return spaces;
-    }
+    }*/
 
 
     protected final void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {

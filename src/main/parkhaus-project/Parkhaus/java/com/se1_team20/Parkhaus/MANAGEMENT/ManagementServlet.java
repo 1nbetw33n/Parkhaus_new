@@ -22,7 +22,9 @@ package com.se1_team20.Parkhaus.MANAGEMENT;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
+import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,20 +36,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/ManagementServlet")
-public class ManagementServlet extends ManagementAuthenticationServlet {
+public class ManagementServlet extends ParkingServlet {
 
     final private static long serialVersionUID = 1L;
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         response.setContentType("text/html");
         String[] requestParamString = request.getQueryString().split("=");
         String command              = requestParamString[0];
         String param                = requestParamString[1];
 
-        if ("cmd".equals(command) && "chart1".equals(param)) {
-
-        }
+        //RequestDispatcher requestDispatcherObject = null;
+        /*if ("cmd".equals(command) && "chart1".equals(param)) {
+            requestDispatcherObject = request.getRequestDispatcher("KundenChart.jsp");
+            requestDispatcherObject.forward(request,response);
+        }*/
     }
 
 
