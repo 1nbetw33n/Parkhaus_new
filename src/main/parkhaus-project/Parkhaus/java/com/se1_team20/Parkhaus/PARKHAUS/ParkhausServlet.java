@@ -104,6 +104,15 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else {System.out.println("invalid Command: " + request.getQueryString());}
     }
 
+    public final void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
+
+        response.setContentType("text/html");
+
+        String body= ParkingServletable.getBody(request);
+
+        configMax(Integer.parseInt(body.split(",")[2]));
+    }
+
     protected final void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         RequestDispatcher requestDispatcherObject = null;
