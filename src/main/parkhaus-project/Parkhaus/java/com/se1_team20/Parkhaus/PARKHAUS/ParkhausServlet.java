@@ -131,8 +131,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
         else if ("occupied".equals(EVENT)) {handleOccupied(PARAMS);}
+        else if ("change_max".equals(EVENT)) {Integer.parseInt(PARAMS[2]);}
 
-        System.out.println("change_max".equals(EVENT));
     }
 
     private void handleEnter(final String[] PARAMS)
