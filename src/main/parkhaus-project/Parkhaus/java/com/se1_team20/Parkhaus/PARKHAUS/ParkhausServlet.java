@@ -103,13 +103,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
     private void handleEnter(final String[] PARAMS)
     {
         //TODO: Parkplätze implementieren
-
        // parkingspaces[Integer.parseInt(PARAMS[7])-1][0]="enter"+","+"PA";
-
-
         CarIF newCar = new Car( PARAMS );
         cars().add( newCar );
- // TODO: IF-Abfrage ,falls Event occupied,dann kein Auto hinzufügen
     }
 
      private void handleLeave(final String[] PARAMS)
