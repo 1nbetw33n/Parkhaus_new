@@ -46,48 +46,7 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         String param                = requestParamString[1];
 
         if ("cmd".equals(command) && "chart1".equals(param)) {
-            response.setContentType("text/plain");
-            PrintWriter OUT = response.getWriter();
-            ObjectMapper objectMapper = new ObjectMapper();
-            ServletContext sc = request.getServletContext();
-            ArrayList<CarIF> formerCars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
-            StringBuilder toReturn = new StringBuilder();
 
-            List<CarIF> tempCars = new ArrayList<>();
-            for (CarIF x: formerCars) {
-                tempCars.add(x);
-            }
-
-            Object carsObj = new Object(){
-
-                List<CarIF> Cars = tempCars;
-
-                public List<CarIF> getCars() {
-                    return Cars;
-                }
-            };
-
-            String add = objectMapper.writeValueAsString(carsObj);
-            toReturn.append(add);
-
-            //OUT.println(toReturn);
-            OUT.println("{\n" +
-                    "  \"data\": [\n" +
-                    "    {\n" +
-                    "      \"x\": [\n" +
-                    "        \"Car_1\",\n" +
-                    "        \"Car_2\",\n" +
-                    "        \"Car_3\"\n" +
-                    "      ],\n" +
-                    "      \"y\": [\n" +
-                    "        20,\n" +
-                    "        14,\n" +
-                    "        23\n" +
-                    "      ],\n" +
-                    "      \"type\": \"bar\"\n" +
-                    "    }\n" +
-                    "  ]\n" +
-                    "}");
         }
     }
 
