@@ -52,7 +52,6 @@ public class CheckoutServlet extends CheckoutAuthenticationServlet {
         final String PARAM        = PARAMS[1];
     }
 
-
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
