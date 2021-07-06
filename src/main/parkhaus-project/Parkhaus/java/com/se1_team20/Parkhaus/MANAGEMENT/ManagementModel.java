@@ -20,5 +20,17 @@
 
 package com.se1_team20.Parkhaus.MANAGEMENT;
 
+import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
+
+import java.util.List;
+
 public class ManagementModel {
+
+    public long filterAmountOfType(List<CarIF> cars, String type){
+        return (cars.stream().filter(x -> x.kunde().equals(type)).count());
+    }
+    public long filterPercentagesOfType(List<CarIF> cars, String type){
+        return (cars.stream().filter(x -> x.kunde().equals(type)).count())/cars.size()*100;
+    }
+
 }
