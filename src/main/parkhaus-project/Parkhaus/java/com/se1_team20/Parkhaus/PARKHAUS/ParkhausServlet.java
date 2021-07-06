@@ -135,7 +135,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         //TODO: Parkplätze implementieren
 
-       //parkingspaces[Integer.parseInt(PARAMS[7])-1]="enter"+","+PARAMS[1]+","+PARAMS[7];
+        parkingspaces.add(Integer.parseInt(PARAMS[7])-1,"enter"+","+PARAMS[1]+","+PARAMS[7]);
 
 
         CarIF newCar = new Car( PARAMS );
