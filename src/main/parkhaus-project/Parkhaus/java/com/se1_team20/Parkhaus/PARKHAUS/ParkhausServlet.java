@@ -70,7 +70,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         }
         else{
 
-            count=max-newmax;
+            count=newmax-max;
 
             while(count!=0){
 
