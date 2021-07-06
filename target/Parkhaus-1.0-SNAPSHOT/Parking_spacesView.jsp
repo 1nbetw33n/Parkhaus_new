@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.security.SecureRandom" %><%--
   ~ /* copyright (c) 2021 se1_team20.
   ~  Planet Earth, Milky Way, Virgo Supercluster.
   ~  All rights reserved.
@@ -29,17 +29,61 @@
 <!DOCTYPE html>
 <html>
 
-   <body>
-     <div style="text-align: center;">
-         <% String[]parameters; %>
-         <% String value=(String)request.getAttribute("parameter");
+      <body>
+                <% String[]values=(String[])request.getAttribute("parameter"); %>
 
-            if(value==null){ %>
+                <% boolean isempty=true; %>
+
+                <% for(int i=0;i<10;i++){ %>
+
+                     <% if(values[i]!=null){ %>
+
+                           <% isempty=false; %>
+                     <% } %>
+                <% } %>
+
+          <div style="text-align: center;">
+
+              <table>
+
+                <tr>
+                     <% for(int i=0;i<10;i++){ %>
+
+                         <% if(isempty){ %>
+
+                             <td style="width: 50px" bgcolor="green"><%=i+1%></td>
+                         <% }else{ %>
+
+                                   <% if(values[i]!=null){ %>
+
+                                           <% if(values[i].split(",")[0].equals("enter")){ %>
+
+                                                  <% if(Integer.parseInt(values[i].split(",")[2])==i+1){ %>
+
+                                                         <td style="width: 50px" bgcolor="red"><%=i+1%></td>
+
+                                                  <% } %>
+
+                                           <% }else{ %>
+
+                                                 <% if(Integer.parseInt(values[i].split(",")[2])==i+1){ %>
+
+                                                         <td style="width: 50px" bgcolor="green"><%=i+1%></td>
+
+                                                  <% } %>
+
+                                           <% } %>
+                                   <% }else{ %>
+
+                                              <td style="width: 50px" bgcolor="green"><%=i+1%></td>
+                                  <% } %>
+                         <% } %>
+                     <% } %>
+
+                </tr>
+              </table>
 
 
-
-
-      </table>
-     </div>
+        </div>
     </body>
 </html>
