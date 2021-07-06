@@ -43,7 +43,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
 
     static List<String>parkingspaces=Arrays.asList("","","","","","","","","","");
-    static int max=10;
+    static int max=10;   //Standard size
 
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
@@ -53,8 +53,21 @@ public abstract class ParkhausServlet extends ParkingServlet {
     public ParkhausModel pModel =  new ParkhausModel();
 
     //Reduces or increases the parking spaces
-    protected final void configMax(int max){
+    protected final void configMax(int newmax){
 
+        int count;
+
+        if(newmax > max){
+
+            count=max-newmax;
+
+            while(count!=0){
+
+                parkingspaces.add(""); //Adding more parking spaces
+
+                count--;
+            }
+        }
 
     }
 
