@@ -81,6 +81,45 @@
                      <% } %>
 
                 </tr>
+
+                <tr>
+
+                      <% for(int i=0;i<10;i++){ %>
+
+                          <% if(isempty){ %>
+
+                              <td style="width: 50px"><%="id"%></td>
+
+                          <% }else{ %>
+
+                                <% if(values[i]!=null){ %>
+
+                                    <% if(values[i].split(",")[0].equals("enter")){ %>
+
+                                           <% if(Integer.parseInt(values[i].split(",")[2])==i+1){ %>
+
+                                                        <td style="width: 50px"><%=Integer.parseInt(values[i].split(",")[1])%></td>
+
+                                           <% } %>
+
+                                     <% }else{ %>
+
+                                             <% if(Integer.parseInt(values[i].split(",")[2])==i+1){ %>
+
+                                                   <td style="width: 50px" ><%= "id" %></td>
+
+                                              <% } %>
+
+                                   <% } %>
+                          <% }else{ %>
+
+                                <td style="width: 50px"><%="id"%></td>
+                             <% } %>
+                        <% } %>
+                    <% } %>
+
+                </tr>
+
               </table>
 
 
