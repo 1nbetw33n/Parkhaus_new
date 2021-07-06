@@ -114,10 +114,14 @@
 
     String title = "Share of customers who visited the garage.";
 
-    data1 = mModel.filterPercentagesOfType(cars, "Company");
-    data2 = mModel.filterPercentagesOfType(cars, "Day");
-    data3 = mModel.filterPercentagesOfType(cars, "Female");
-    data4 = mModel.filterPercentagesOfType(cars, "Company");
+    data1 = mModel.filterAmountOfType(cars, "Company");
+    String dataDisplay1 = Long.toString(data1);
+    data2 = mModel.filterAmountOfType(cars, "Day");
+    String dataDisplay2 = Long.toString(data2);
+    data3 = mModel.filterAmountOfType(cars, "Female");
+    String dataDisplay3 = Long.toString(data3);
+    data4 = mModel.filterAmountOfType(cars, "Company");
+    String dataDisplay4 = Long.toString(data4);
 
 %>
 <script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
@@ -156,21 +160,21 @@
         "data": [
           {
             "name": "<%=name1%>",
-            "y": <%=data1%>,
+            "y": <%=dataDisplay1%>,
             "sliced": true,
             "selected": true
           },
           {
             "name": "<%=name2%>",
-            "y": <%=data2%>
+            "y": <%=dataDisplay2%>
           },
           {
             "name": "<%=name3%>",
-            "y": <%=data3%>
+            "y": <%=dataDisplay3%>
           },
           {
             "name": "<%=name4%>",
-            "y": <%=data4%>
+            "y": <%=dataDisplay4%>
           }
         ]
       }
