@@ -42,8 +42,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
 
-    static List<String>parkingspaces=new ArrayList<>();
-    static boolean isempty;
+    static List<String>parkingspaces=Arrays.asList("","","","","","","","","","");
     static int max=10;
 
     /* abstract methods, to be defined in subclasses */
@@ -52,6 +51,12 @@ public abstract class ParkhausServlet extends ParkingServlet {
     abstract String getCONFIG(); // configuration of a single parking level
 
     public ParkhausModel pModel =  new ParkhausModel();
+
+    //Reduces or increases the parking spaces
+    protected final void configMax(int max){
+
+
+    }
 
     public final void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
