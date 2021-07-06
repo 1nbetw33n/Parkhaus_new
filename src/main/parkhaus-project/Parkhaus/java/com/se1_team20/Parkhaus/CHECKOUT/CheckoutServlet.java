@@ -25,37 +25,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/CheckoutServlet")
 public class CheckoutServlet extends CheckoutAuthenticationServlet {
-    /*
-     *  Checkout Servlet soll:
-     *  Checkout Klasse verwenden um eine Oberfläche anzuzeigen (im Browser -> index.jsp ruft dieses dann auf)
-     *  Die Berechnungen finden in Checkout statt -> keine Berechnungen im Servlet - Lukas
-     *
-     *  Über ein Textfeld soll man die Nr. des Autos angeben, welches dann verlässt
-     *  Danach soll man wieder beim ParkhausServlet ankommen - Lukas
-     *
-     *  TODO: Checkout Klasse implementieren
-     *  TODO: doPost() und doGet()
-     *  TODO: Texteingabe?
-     *  TODO: Zurück zum ParkhausServlet?
-     */
 
     final private static long serialVersionUID = 1L;
 
      public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-
-    }
-
-    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
         response.setContentType("text/html");
+
     }
 
-    protected void handleEvent(String EVENT, String[] PARAMS)
-    {}
+    protected void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
+
+
+    protected void handleEvent(String EVENT, String[] PARAMS) {}
 
 
 }

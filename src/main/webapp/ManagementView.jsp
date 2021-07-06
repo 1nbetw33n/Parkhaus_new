@@ -54,7 +54,7 @@
 </body>
 <body>
 <div align=com.se1_team20.Parkhaus.MANAGEMENT.ManagementServlet"center"></div>
-<table style="width:300px" align="center" border="1">
+<table style="  width:300px" align="center" border="1">
     <tr bgcolor="gray">
         <td> Parkticketnr.</td>
         <td>Kunde</td>
@@ -67,6 +67,7 @@
         if (cars == null) {
             PrintWriter OUT = response.getWriter();
             OUT.println("Oops, no Cars left the Building yet!");
+            OUT.println();
         } else {
             for (CarIF car : cars) {%>
     <tr>
@@ -95,95 +96,4 @@
     </form>
 </div>
 </body>
-
-<body>
-<%
-
-    ManagementModel mModel = new ManagementModel();
-    String name1 = "Company";
-    long data1 = 0;
-
-    String name2 = "Day";
-    long data2 = 0;
-
-    String name3 = "Female";
-    long data3 = 0;
-
-    String name4 = "Handicapped";
-    long data4 = 0;
-
-    String title = "Share of customers who visited the garage.";
-
-    data1 = mModel.filterPercentagesOfType(cars, "Company");
-    data2 = mModel.filterPercentagesOfType(cars, "Day");
-    data3 = mModel.filterPercentagesOfType(cars, "Female");
-    data4 = mModel.filterPercentagesOfType(cars, "Company");
-
-%>
-<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
-<ccm-highchart-3-0-1
-        key='{
-  "settings": {
-    "chart": {
-      "plotBackgroundColor": null,
-      "plotBorderWidth": null,
-      "plotShadow": false,
-      "type": "pie"
-    },
-    "title": {
-      "text": "<%=title%>"
-    },
-    "tooltip": {
-      "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
-    },
-    "plotOptions": {
-      "pie": {
-        "allowPointSelect": true,
-        "cursor": "pointer",
-        "dataLabels": {
-          "enabled": true,
-          "format": "<b>{point.name}</b>: {point.percentage:.1f} %",
-          "style": {
-            "color": "black"
-          }
-        }
-      }
-    },
-    "series": [
-      {
-        "name": "Customer-Type",
-        "colorByPoint": true,
-        "data": [
-          {
-            "name": "<%=name1%>",
-            "y": <%=data1%>,
-            "sliced": true,
-            "selected": true
-          },
-          {
-            "name": "<%=name2%>",
-            "y": <%=data2%>
-          },
-          {
-            "name": "<%=name3%>",
-            "y": <%=data3%>
-          },
-          {
-            "name": "<%=name4%>",
-            "y": <%=data4%>
-          }
-        ]
-      }
-    ]
-  },
-  "data": {},
-  "html": {
-    "id": "chart",
-    "style": "%%"
-  },
-  "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
-}'
-></ccm-highchart-3-0-1>
-</body>
-
 </html>

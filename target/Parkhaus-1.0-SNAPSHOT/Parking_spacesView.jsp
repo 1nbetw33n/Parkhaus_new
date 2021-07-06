@@ -1,4 +1,5 @@
-<%@ page import="java.security.SecureRandom" %><%--
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.util.List" %><%--
   ~ /* copyright (c) 2021 se1_team20.
   ~  Planet Earth, Milky Way, Virgo Supercluster.
   ~  All rights reserved.
@@ -30,13 +31,13 @@
 <html>
 
       <body>
-                <% String[]values=(String[])request.getAttribute("parameter"); %>
+                <% List<String> values= (List<String>) request.getAttribute("parameter"); %>
 
                 <% boolean isempty=true; %>
 
                 <% for(int i=0;i<10;i++){ %>
 
-                     <% if(values[i]!=null){ %>
+                     <% if(values.get(i)!=""){ %>
 
                            <% isempty=false; %>
                      <% } %>
@@ -54,11 +55,11 @@
                              <td style="width: 50px" bgcolor="green"><%=i+1%></td>
                          <% }else{ %>
 
-                                   <% if(values[i]!=null){ %>
+                                   <% if(values.get(i)!=""){ %>
 
-                                           <% if(values[i].split(",")[0].equals("enter")){ %>
+                                           <% if(values.get(i).split(",")[0].equals("enter")){ %>
 
-                                                  <% if(Integer.parseInt(values[i].split(",")[2])==i+1){ %>
+                                                  <% if(Integer.parseInt(values.get(i).split(",")[2])==i+1){ %>
 
                                                          <td style="width: 50px" bgcolor="red"><%=i+1%></td>
 
@@ -66,7 +67,7 @@
 
                                            <% }else{ %>
 
-                                                 <% if(Integer.parseInt(values[i].split(",")[2])==i+1){ %>
+                                                 <% if(Integer.parseInt(values.get(i).split(",")[2])==i+1){ %>
 
                                                          <td style="width: 50px" bgcolor="green"><%=i+1%></td>
 
@@ -92,19 +93,19 @@
 
                             <% }else{ %>
 
-                                <% if(values[i]!=null){ %>
+                                <% if(values.get(i)!=null){ %>
 
-                                    <% if(values[i].split(",")[0].equals("enter")){ %>
+                                    <% if(values.get(i).split(",")[0].equals("enter")){ %>
 
-                                           <% if(Integer.parseInt(values[i].split(",")[2])==i+1){ %>
+                                           <% if(Integer.parseInt(values.get(i).split(",")[2])==i+1){ %>
 
-                                                 <td style="width: 50px"><%=Integer.parseInt(values[i].split(",")[1])%></td>
+                                                 <td style="width: 50px"><%=Integer.parseInt(values.get(i).split(",")[1])%></td>
 
                                            <% } %>
 
                                      <% }else{ %>
 
-                                             <% if(Integer.parseInt(values[i].split(",")[2])==i+1){ %>
+                                             <% if(Integer.parseInt(values.get(i).split(",")[2])==i+1){ %>
 
                                                    <td style="width: 50px" ><%= "id" %></td>
 

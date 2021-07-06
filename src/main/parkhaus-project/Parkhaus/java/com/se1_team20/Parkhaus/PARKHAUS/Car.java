@@ -43,6 +43,8 @@ public class Car implements CarIF {
         return Integer.parseInt(params[1]);
     }
 
+    public String licensePlate(){return this.params[10];}
+
     @Override
     public long begin()
     {
