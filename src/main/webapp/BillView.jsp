@@ -26,17 +26,14 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<br>
-<br>
-<head>
+	<br>
+	<br>
+	<head>
 	<title>Your Bill</title>
-</head>
-<body>
-	<script>alert("Test")</script>
-
-
-</div>
-	</form>
-</body>
+	</head>
+	<body>
+		<script>alert("Test")</script>
+	</body>
+</html>
 
 

@@ -43,16 +43,21 @@
 
     <form>
 
-        <div style="margin-left:38%;">
-            <div style="float:left;">
-                <label style="display:block; line-height:24px;">Benutzername</label>
-                <label style="display:block; line-height:24px;">Kennwort</label>
+        <div style="text-indent:-100px">
 
-            </div>
-            <input style="display:block;" type="text" size="20" maxlength="20" name="name"/>
-            <input style="display:block;" type="password" size="20" maxlength="20" name="kennwort"/>
-            <input style="display:block;" type="submit" name="formaction" value="SignIn" />
+            <label for="name">Benutzername:</label>
+            <input type="text" size="20" maxlength="20" id="name" name="name" onvalid="alert('Fachbereichskürzel');" pattern="[a-z]{3,}2s" required/><br><br>
+
         </div>
+
+        <div style="text-indent:-68px">
+
+            <label for="pword">Password:</label>
+            <input type="text" size="20" maxlength="20" id="pword" name="pword" onvalid="alert('Geben Sie bitte ein beantragtes Passwort');" pattern="[a-zA-Z0-9]{7}" required/><br><br>
+
+        </div>
+
+        <input type="submit" value="Login">
 
     </form>
 
