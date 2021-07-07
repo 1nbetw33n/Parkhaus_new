@@ -69,6 +69,7 @@ public class Car implements CarIF {
     // Now returns 0 if the car hasnt left yet
     public int price()
     {
+        if (this.kunde().equals("Company")) return 0;
         return (this.params[0].equals("leave")) ? Integer.parseInt(this.params[4]) : 0;
     }
 
@@ -79,6 +80,8 @@ public class Car implements CarIF {
     public int space() {return Integer.parseInt(this.params[7]);}
 
     public String kunde(){ return this.params[8];}
+
+    public String typeCar() { return this.params[9];}
 
     @Override
     public String toString(){
