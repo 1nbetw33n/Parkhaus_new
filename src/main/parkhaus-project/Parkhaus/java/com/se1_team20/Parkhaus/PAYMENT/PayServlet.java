@@ -43,11 +43,11 @@ public class PayServlet extends HttpServlet {
 
         if("paypal".equals(cmd)){
 
-            request.getRequestDispatcher("Paypal.jsp").forward(request,response);
+            request.getRequestDispatcher("Paypal_payment.jsp").forward(request,response);
         }
         else
         {
-            request.getRequestDispatcher("Creditcard.jsp").forward(request,response);
+            request.getRequestDispatcher("Creditcard_payment.jsp").forward(request,response);
 
         }
 

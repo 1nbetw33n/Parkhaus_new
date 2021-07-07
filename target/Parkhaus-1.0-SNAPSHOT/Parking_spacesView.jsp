@@ -1,5 +1,7 @@
 <%@ page import="java.security.SecureRandom" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.ArrayList" %><%--
   ~ /* copyright (c) 2021 se1_team20.
   ~  Planet Earth, Milky Way, Virgo Supercluster.
   ~  All rights reserved.
@@ -31,13 +33,13 @@
 <html>
 
       <body>
-                <% List<String> values= (List<String>) request.getAttribute("parameter"); %>
+                <% List<String> values= (ArrayList) request.getAttribute("parameter"); %>
 
                 <% boolean isempty=true; %>
 
-                <% for(int i=0;i<10;i++){ %>
+                <% for(int i=0;i<values.size();i++){ %>
 
-                     <% if(values.get(i)!=""){ %>
+                     <% if(values.get(i)!=null){ %>
 
                            <% isempty=false; %>
                      <% } %>
@@ -50,14 +52,14 @@
               <table>
 
                 <tr>
-                     <% for(int i=0;i<10;i++){ %>
+                     <% for(int i=0;i<values.size();i++){ %>
 
                          <% if(isempty){ %>
 
                              <td style="width: 50px" bgcolor="green"><%=i+1%></td>
                          <% }else{ %>
 
-                                   <% if(values.get(i)!=""){ %>
+                                   <% if(values.get(i)!=null){ %>
 
                                            <% if(values.get(i).split(",")[0].equals("enter")){ %>
 
@@ -87,7 +89,7 @@
 
                 <tr>
 
-                      <% for(int i=0;i<10;i++){ %>
+                      <% for(int i=0;i< values.size();i++){ %>
 
                              <% if(isempty){ %>
 

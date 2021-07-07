@@ -42,7 +42,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
 
-    static List<String>parkingspaces=new ArrayList<>(Arrays.asList("","","","","","","","","",""));
+    static List<String>parkingspaces=new ArrayList<>(Arrays.asList(null,null,null,null,null,null,null,null,null,null));
     static int max=10;   //Standard size
 
     /* abstract methods, to be defined in subclasses */
@@ -59,18 +59,18 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
         if(newmax > max){
 
-            count=max-newmax;
+            count=newmax-max;
 
             while(count!=0){
 
-                parkingspaces.add(""); //Adding more parking spaces
+                parkingspaces.add(null); //Adding more parking spaces
 
                 count--;
             }
         }
         else{
 
-            count=newmax-max;
+            count=max-newmax;
 
             while(count!=0){
 
@@ -79,6 +79,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
                 count--;
             }
         }
+
+        max=newmax;
 
     }
 
@@ -131,7 +133,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
         else if ("occupied".equals(EVENT)) {handleOccupied(PARAMS);}
-        else if ("change_max".equals(EVENT)) {Integer.parseInt(PARAMS[2]);}
+        else if ("change_max".equals(EVENT)) {configMax(Integer.parseInt(PARAMS[2]));}
 
     }
 
@@ -139,7 +141,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         //TODO: Parkplätze implementieren
 
-        parkingspaces.add(Integer.parseInt(PARAMS[7])-1,"enter"+","+PARAMS[1]+","+PARAMS[7]);
+        parkingspaces.set(Integer.parseInt(PARAMS[7])-1,"enter"+","+PARAMS[1]+","+PARAMS[7]);
 
 
         CarIF newCar = new Car( PARAMS );
@@ -149,7 +151,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
      private void handleLeave(final String[] PARAMS)
     {
-        parkingspaces.add(Integer.parseInt(PARAMS[7])-1,"leave"+","+PARAMS[1]+","+PARAMS[7]);
+        parkingspaces.set(Integer.parseInt(PARAMS[7])-1,"leave"+","+PARAMS[1]+","+PARAMS[7]);
 
         StringBuilder priceString = new StringBuilder();
         double            price           = 0.;
@@ -203,7 +205,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         return formerCars;
     }
 
-    List<ParkingSpace> spaces() {
+    /*List<ParkingSpace> spaces() {
         if(getContext().getAttribute("spaces" + getNAME()) == null) {
             getContext().setAttribute("spaces" + getNAME(), new ArrayList<ParkingSpace>(getMAX()));
             // Currently Fixed Length -> What happens when we change the MAX value to this?
@@ -211,7 +213,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         List<ParkingSpace> spaces = (List<ParkingSpace>) getContext().getAttribute("spaces" + getNAME());
         pModel.setSpacesModel(spaces);
         return spaces;
-    }
+    }*/
 
 
     protected final void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {

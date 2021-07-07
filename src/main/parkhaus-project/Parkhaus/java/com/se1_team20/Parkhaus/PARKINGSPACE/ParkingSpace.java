@@ -43,7 +43,4 @@ public abstract class ParkingSpace implements SpaceIF {
          return this.ishandicap;
      }
 
-
-
-
 }
