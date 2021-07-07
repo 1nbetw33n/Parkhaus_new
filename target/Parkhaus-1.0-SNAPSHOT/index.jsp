@@ -24,7 +24,7 @@
 					    				 "Van"
 					    				 ],
 
-                        "price_factor":2, <%--Festlegung des Parkgebührs--%>
+                        "price_factor":1, <%--Festlegung des Parkgebührs--%>
 
                         "max":10,  <%--Maximale Anzahl von Parkplätze.--%>
 

@@ -110,7 +110,6 @@
     <%}%>
     <body>
         <div style="text-align: center;">
-            <h1>Checkout</h1>
             <form id="loginFormId" name="loginForm" method="post" action="PayServlet">
                 <div id="PaymentRedirectionDiv">
                     <input id="PaymentRedirectionButton" type="submit" value="Payment Methods"/>
