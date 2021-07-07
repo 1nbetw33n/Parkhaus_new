@@ -25,16 +25,18 @@ package com.se1_team20.Parkhaus.CHECKOUT;
 */
 
 import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
-
+import com.sun.istack.internal.NotNull;
 import java.util.List;
 
 public class CheckoutModel {
-
-    public static CarIF filterWithLicensePlate(final List<CarIF> CARS, final String STRING)
+    
+    /* filters the car out that, whose licensePlate matches the entered license plate or returns null, if there is no mathcing car in "former_cars" */
+    public static CarIF filterByLicensePlate(@NotNull final List<CarIF> CARS, @NotNull final String LICENSEPLATE)
     {
         return CARS.stream()
-                .filter(x -> x.licensePlate().equals(STRING))
+                .filter(x -> x.licensePlate().equals(LICENSEPLATE))
                         .findFirst()
                             .orElse(null);
     }
+
 }

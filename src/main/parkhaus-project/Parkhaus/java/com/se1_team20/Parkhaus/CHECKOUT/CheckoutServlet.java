@@ -35,7 +35,6 @@ public class CheckoutServlet extends CheckoutAuthenticationServlet {
      public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
-
     }
 
     protected void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
