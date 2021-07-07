@@ -49,8 +49,7 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
         }
         else
         {
-            dispatcher = request.getRequestDispatcher("ManagementView.jsp");
-            dispatcher.forward(request, response);
+            request.getRequestDispatcher("ManagementView.jsp").forward(request, response);
         }
         OUT.write("</div></body></html>");
         OUT.close();

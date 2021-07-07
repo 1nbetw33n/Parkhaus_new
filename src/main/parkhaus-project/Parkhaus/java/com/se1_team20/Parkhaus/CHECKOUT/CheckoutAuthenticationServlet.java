@@ -57,8 +57,7 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
 
     private void handleSuccess(final String EVENT, HttpServletResponse response, final HttpServletRequest request) throws ServletException, IOException
     {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("CheckoutView.jsp");
-        dispatcher.forward(request, response);
+        request.getRequestDispatcher("CheckoutView.jsp").forward(request, response);
         getContext().setAttribute("carNr", EVENT);
     }
 
