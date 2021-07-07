@@ -45,6 +45,8 @@
 
           <div style="text-align: center;">
 
+          <p>Hinweis: Klicken Sie bitte auf den Button für die Aktualisieren der Parkplätze. </p>
+
               <table>
 
                 <tr>
