@@ -41,7 +41,6 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
         final String            PASSWORD  = request.getParameter("password");
         final PrintWriter   OUT              = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
-        RequestDispatcher dispatcher    = null;
         if (!USERNAME.equals("Management") || !PASSWORD.equals("easy-pass-word")) //LETS HACK THIS:D
         {
             OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects after 0 seconds
