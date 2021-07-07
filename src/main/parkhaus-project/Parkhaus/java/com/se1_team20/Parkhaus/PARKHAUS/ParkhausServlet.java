@@ -42,7 +42,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
 
-    static List<String>parkingspaces=new ArrayList<>(Arrays.asList("","","","","","","","","",""));
+    static List<String>parkingspaces=new ArrayList<>(Arrays.asList(null,null,null,null,null,null,null,null,null,null));
     static int max=10;   //Standard size
 
     /* abstract methods, to be defined in subclasses */
@@ -55,11 +55,13 @@ public abstract class ParkhausServlet extends ParkingServlet {
     //Reduces or increases the parking spaces
     protected final void configMax(int newmax){
 
+        System.out.println(newmax);
+
         int count;
 
         if(newmax > max){
 
-            count=max-newmax;
+            count=newmax-max;
 
             while(count!=0){
 
@@ -70,7 +72,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         }
         else{
 
-            count=newmax-max;
+            count=max-newmax;
 
             while(count!=0){
 
@@ -131,7 +133,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         if ("enter".equals(EVENT)) {handleEnter(PARAMS);}
         else if ("leave".equals(EVENT)) {handleLeave(PARAMS);}
         else if ("occupied".equals(EVENT)) {handleOccupied(PARAMS);}
-        else if ("change_max".equals(EVENT)) {Integer.parseInt(PARAMS[2]);}
+        else if ("change_max".equals(EVENT)) {configMax(Integer.parseInt(PARAMS[2]));}
 
     }
 
@@ -139,7 +141,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     {
         //TODO: Parkplätze implementieren
 
-        parkingspaces.add(Integer.parseInt(PARAMS[7])-1,"enter"+","+PARAMS[1]+","+PARAMS[7]);
+        parkingspaces.set(Integer.parseInt(PARAMS[7])-1,"enter"+","+PARAMS[1]+","+PARAMS[7]);
 
 
         CarIF newCar = new Car( PARAMS );
@@ -149,7 +151,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
      private void handleLeave(final String[] PARAMS)
     {
-        parkingspaces.add(Integer.parseInt(PARAMS[7])-1,"leave"+","+PARAMS[1]+","+PARAMS[7]);
+        parkingspaces.set(Integer.parseInt(PARAMS[7])-1,"leave"+","+PARAMS[1]+","+PARAMS[7]);
 
         StringBuilder priceString = new StringBuilder();
         double            price           = 0.;
