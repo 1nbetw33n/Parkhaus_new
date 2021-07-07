@@ -205,7 +205,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         return formerCars;
     }
 
-    List<ParkingSpace> spaces() {
+    /*List<ParkingSpace> spaces() {
         if(getContext().getAttribute("spaces" + getNAME()) == null) {
             getContext().setAttribute("spaces" + getNAME(), new ArrayList<ParkingSpace>(getMAX()));
             // Currently Fixed Length -> What happens when we change the MAX value to this?
@@ -213,7 +213,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         List<ParkingSpace> spaces = (List<ParkingSpace>) getContext().getAttribute("spaces" + getNAME());
         pModel.setSpacesModel(spaces);
         return spaces;
-    }
+    }*/
 
 
     protected final void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {

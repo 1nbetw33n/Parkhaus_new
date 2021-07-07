@@ -38,9 +38,12 @@ public class BillServlet extends CheckoutServlet {
         response.setContentType("text/html");
 
 
+
+
+         request.getRequestDispatcher("Paymethod.jsp").forward(request, response);
         ServletContext application = getContext();
 
-      //  if ("cmd".equals(command) && "view".equals(param)) {
+      // if ("cmd".equals(command) && "view".equals(param)) {
        //     getContext().setAttribute("bill" ,handleViewBill(licensePlate)); //statt License muss hier das Kennzeichen des Autos hin
         }
 
@@ -48,7 +51,7 @@ public class BillServlet extends CheckoutServlet {
 
 
 
-   // final public CarIF handleViewBill(String licensePlate) {
+  // final public CarIF handleViewBill(String licensePlate) {
 
     //return cars().stream().filter(x -> x.nr.equals(licensePlate));
 

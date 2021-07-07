@@ -53,47 +53,47 @@
 <script>alert("Welcome you are logged in!")</script>
 </body>
 <body>
-<div align=com.se1_team20.Parkhaus.MANAGEMENT.ManagementServlet"center"></div>
-<table style="  width:300px" align="center" border="1">
-    <tr bgcolor="gray">
-        <td> Parkticketnr.</td>
-        <td>Kunde</td>
-        <td> Parkdauer</td>
-        <td> Ticketpreis</td>
-    </tr>
-
-    <% ServletContext sc = request.getServletContext(); %>
-    <% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
-        if (cars == null) {
-            PrintWriter OUT = response.getWriter();
-            OUT.println("Oops, no Cars left the Building yet!");
-            OUT.println();
-        } else {
-            for (CarIF car : cars) {%>
-    <tr>
-        <td><%=car.nr() %>
-        </td>
-        <td><%=car.kunde() %>
-        </td>
-        <td><%=car.duration() %>
-        </td>
-        <td><%=car.kunde().equals("Company") ? 0.0 + "€" : car.price() %>
-        </td>
-    </tr>
-    <% }
-    }%>
-
-</table>
-</body>
 
 <body>
 <div style="text-align: center;">
     <form id="chartFormId" name="chartForm" method="get" action="ManagementServlet">
         <button name="cmd" type="submit" value="chart1"/>
-        Chart 1</button>
+        Customer Overview</button>
         <button name="cmd" type="submit" value="chart2"/>
-        Chart 2</button>
+        Income Overview</button>
     </form>
 </div>
+</body>
+
+<% ServletContext sc = request.getServletContext(); %>
+<% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
+    if (cars == null) {
+        PrintWriter OUT = response.getWriter();
+        OUT.println("Oops, no Cars left the Building yet!");
+        OUT.println();
+    } else { %>
+<div align=com.se1_team20.Parkhaus.MANAGEMENT.ManagementServlet"center"></div>
+<table style="  width:300px" align="center" border="1">
+    <tr bgcolor="gray">
+        <td> Ticket-Nr.</td>
+        <td>Customer-Type</td>
+        <td> Duration</td>
+        <td> Ticket price</td>
+        <td> Car-Type</td>
+        <td> Parkingspace-Nr.</td>
+    </tr>
+    <% for(CarIF car : cars) {%>
+    <tr>
+        <td><%= car.nr() %></td>
+        <td><%= car.kunde() %></td>
+        <td><%= car.duration()/100 %></td>
+        <td><%= car.price() %></td>
+        <td><%= car.typeCar() %></td>
+        <td><%= car.space() %></td>
+    </tr>
+        <%}
+    }%>
+
+</table>
 </body>
 </html>

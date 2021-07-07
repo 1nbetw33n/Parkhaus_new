@@ -24,32 +24,18 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-@WebServlet(name = "PayServlet", value = "/PayServlet")
-public class PayServlet extends HttpServlet {
+@WebServlet(name = "LastpageServlet", value = "/LastpageServlet")
+public class LastpageServlet extends HttpServlet {
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html");
 
-        String cmd=request.getParameter("paymethod");
-
-
-        if("paypal".equals(cmd)){
-
-            request.getRequestDispatcher("Paypal_payment.jsp").forward(request,response);
-        }
-        else
-        {
-            request.getRequestDispatcher("Creditcard_payment.jsp").forward(request,response);
-
-        }
-
+        request.getRequestDispatcher("Abschluss.jsp").forward(request,response);
     }
 }

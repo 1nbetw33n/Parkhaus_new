@@ -111,6 +111,7 @@
                 </div>
                 <div id="ShowBillBtn">
                     <input id="Btn" type="submit" value="Show Bill" />
+                    <input id="PBtn" type="submit" value="Payment Method" />
                 </div>
             </form>
         </div>

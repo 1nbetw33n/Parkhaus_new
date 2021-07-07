@@ -41,7 +41,7 @@
 <div style="text-align:center">
 
 
-    <form action="PaymentServlet" method="post">
+    <form action="PayServlet" method="post">
 
         <div style="margin-left:38%;">
             <div style="float:left;">
@@ -53,6 +53,7 @@
                 <i class="fa fa-credit-card" style="font-size:48px;color:black"></i><br>
 
                 <input type="submit" name="submit" value="Next">
+
 
 
             </div>

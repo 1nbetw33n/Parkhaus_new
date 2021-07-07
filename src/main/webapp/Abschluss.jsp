@@ -21,18 +21,34 @@
 <%--
   Created by IntelliJ IDEA.
   User: multa
-  Date: 02/06/2021
-  Time: 17:11
+  Date: 07/07/2021
+  Time: 13:51
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Parkhaus</title>
-
-
+    <title>Payment</title>
 </head>
-<body>
+
+<body style="background-color: bisque">
+
+<div style="text-align:center">
+
+    <span style='font-size:100px;color:green'>&#10004;</span>
+
+    <h1>Die Zahlung wurde erfolgreich abgeschlossen.</h1>
+
+    <button onclick="goBack()">goback</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</div>
+
 
 </body>
 </html>
