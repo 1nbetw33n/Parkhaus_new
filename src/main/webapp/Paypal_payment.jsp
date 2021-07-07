@@ -41,7 +41,7 @@
     <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_200x51.png" alt="PayPal" />
 
 
-    <form action="/action_page.php">
+    <form action="LastpageServlet" method="post">
 
         <div style="text-indent:50px">
             <label for="mail">E-Mail:</label>
