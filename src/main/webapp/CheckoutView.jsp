@@ -83,23 +83,28 @@
         <div align="center">
             <table style="width: auto" align="center", border="1">
                 <tr>
-                    <td>License Plate</td>
-                    <td>Duration</td>
-                    <td>Price</td>
+                    <th>License Plate</th>
+                    <th>Duration</th>
+                    <th>Price</th>
                 </tr>
-                <%ServletContext context = request.getServletContext();%>
-                <% ArrayList<CarIF> cars = (ArrayList<CarIF>) context.getAttribute("former-cars" + "Level1");%>
-                <%
+                <%ServletContext context = request.getServletContext();
+                      ArrayList<CarIF> cars = (ArrayList<CarIF>) context.getAttribute("former-cars" + "Level1");
+                      CarIF car = null;
+                     PrintWriter OUT = response.getWriter();
                     if (cars == null)
                     {
-                        PrintWriter OUT = response.getWriter();
-                        OUT.println("There is no car to checkout");
+                        OUT.println("<center>There is no car to checkout</center>");
                     }
                     else
                     {
-                        com.se1_team20.Parkhaus.CHECKOUT.CheckoutModel.filterWithLicensePlate(cars, "CarNrEnter");
+                        car = (com.se1_team20.Parkhaus.CHECKOUT.CheckoutModel.filterWithLicensePlate(cars, "CarNrEnter"));
                     }
                 %>
+                <tr>
+                    <td><%= car.licensePlate()%></td>
+                    <td><%= car.duration()%></td>
+                    <td><%= car.price()%></td>
+                </tr>
             </table>
         </div>
 
