@@ -83,6 +83,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
             }
         }
 
+        max=newmax;
+
     }
 
     public final void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
