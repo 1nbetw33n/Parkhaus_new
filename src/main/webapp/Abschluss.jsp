@@ -39,8 +39,13 @@
 
     <h1>Die Zahlung wurde erfolgreich abgeschlossen.</h1>
 
+    <button onclick="goBack()">goback</button>
 
-    <input type="submit" name="submit" value="Return to homepage">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 
 </div>
 
