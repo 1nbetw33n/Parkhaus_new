@@ -27,10 +27,11 @@
 --%>
 <!DOCTYPE html>
 <html>
+<body style="background-color: bisque">
 <head>
-    <title>Payment_Step2</title>
+    <title>Payment Step2</title>
 </head>
-<body style="background-color: yellow">
+
 <div style="text-align:center">
     <h1>Geben Sie bitte ihren Bankdaten ein</h1>
 </div>
@@ -39,28 +40,39 @@
 
     <a href="http://www.credit-card-logos.com/"><img alt="Credit Card Logos" title="Credit Card Logos" src="http://www.credit-card-logos.com/images/multiple_credit-card-logos-1/credit_card_logos_8.gif" width="251" height="50" border="0" /></a>
 
-    <form>
 
-        <div style="margin-left:38%;">
-            <div style="float:left;">
-                <label style="display:block; line-height:24px;">Kreditkarteninhalter</label>
-                <label style="display:block; line-height:24px;">Kreditkartennummer</label>
-                <label style="display:block; line-height:24px;">CVC_Code</label>
-                <label style="display:block; line-height:24px;">E-Mail:</label>
-            </div>
-            <input style="display:block;" type="text" size="30" maxlength="30" name="name" pattern="[A-Za-z\s]{3,}" title="Invalid input" />
-            <input style="display:block;" type="password" size="30" maxlength="30" name="accountnumber" pattern="[0-9]{12}" title="Invalid account number"/>
-            <input style="display:block;" type="password" name="cvc" size="5" maxlength="5" pattern="[0-9]{3}" title="Invalid cvc_code" />
-            <input style="display:block;" type="text" name="mail" size="30" maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Not a valid mail adress"/>
-            <input style="display:block;" type="submit" name="formaction" value="Pay" />
+    <form action="/action_page.php">
+        <label for="cname">Kreditkarteninhalter:</label>
+        <input type="text" id="cname" name="cname" size="30" maxlength="30" pattern="[A-Za-zäöü\s]{3,}" title="Invalid input" placeholder="Kreditkarteninhalter/-in" required><br><br>
+
+        <div style="text-indent:-4px">
+            <label for="cnumber">Kreditkartennummer:</label>
+            <input type="password" id="cnumber" name="cnumber" size="30" maxlength="30" oninvalid="alert('The credit card number must have 12 digits'); "pattern="[0-9]{12}" title="Invalid account number" placeholder="Kreditkartennummer" required><br><br>
+
         </div>
 
+        <div style="text-indent:-102px">
+            <label for="cvc">CVC_Code:</label>
+            <input type="password" id="cvc" name="cvc" size="5" max="5" oninvalid="alert('The CVC_Code must have 3 digits'); "pattern="[0-9]{3}" title="Invalid cvc_code" placeholder="CVC" required ><br><br>
+
+        </div>
+
+        <div style="text-indent:-102px">
+            <label for="date">Expiry date:</label>
+            <input type="text" id="date" name="date" size="5" maxlength="5" pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" title="Invalid date" placeholder="MM/YY" required ><br><br>
+
+        </div>
+
+        <div style="text-indent:150px">
+            <label for="email">E-Mail:</label>
+            <input type="text" id="email" name="email" size="40" maxlength="40" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Not a valid mail adress" placeholder="mail" required><br><br>
+
+        </div>
+
+        <input type="submit" value="Pay">
     </form>
 
 </div>
-</div>
-
-
 
 </body>
 </html>
