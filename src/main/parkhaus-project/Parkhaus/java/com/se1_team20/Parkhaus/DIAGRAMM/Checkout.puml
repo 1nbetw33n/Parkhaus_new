@@ -1,27 +1,9 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+Level1Servlet--> Level1Servlet: 1 getRequest
+Level1Servlet--> CheckoutAuthenticationServlet: 2 handleRequest(requestDispatcherObject.forward(request, response))
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
-}
-
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
-
+CheckoutAuthenticationServlet --> CheckoutAuthenticationServlet:3 doPost
+CheckoutAuthenticationServlet --> CheckoutServlet: 4 handleSuccess(dispatcher.forward(request, response))
 @enduml
