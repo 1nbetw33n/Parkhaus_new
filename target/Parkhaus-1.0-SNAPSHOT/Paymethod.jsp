@@ -41,7 +41,7 @@
 <div style="text-align:center">
 
 
-    <form action="PaymentServlet" method="post">
+    <form action="PayServlet" method="post">
 
         <div style="margin-left:38%;">
             <div style="float:left;">
@@ -54,7 +54,7 @@
 
                 <input type="submit" name="submit" value="Next">
 
-                
+
 
             </div>
         </div>
