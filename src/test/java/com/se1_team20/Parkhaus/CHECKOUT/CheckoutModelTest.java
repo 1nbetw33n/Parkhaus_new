@@ -75,6 +75,7 @@ class CheckoutModelTest {
         assertEquals(this.car1, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 30"));
         assertNotEquals(this.car2, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 30"));
         assertNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-I 3456tdf0"));
+        assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-Q 94"));
     }
 
 }
