@@ -55,6 +55,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     //Reduces or increases the parking spaces
     protected final void configMax(int newmax){
 
+        System.out.println(max);
         System.out.println(newmax);
 
         int count;
@@ -65,7 +66,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
             while(count!=0){
 
-                parkingspaces.add(""); //Adding more parking spaces
+                parkingspaces.add(null); //Adding more parking spaces
 
                 count--;
             }
