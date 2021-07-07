@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/ManagementServlet")
-public class ManagementServlet extends ParkingServlet {
+public class ManagementServlet extends ManagementAuthenticationServlet {
 
     final private static long serialVersionUID = 1L;
 
@@ -47,11 +47,11 @@ public class ManagementServlet extends ParkingServlet {
         String command              = requestParamString[0];
         String param                = requestParamString[1];
 
-        //RequestDispatcher requestDispatcherObject = null;
-        /*if ("cmd".equals(command) && "chart1".equals(param)) {
+        RequestDispatcher requestDispatcherObject = null;
+        if ("cmd".equals(command) && "chart1".equals(param)) {
             requestDispatcherObject = request.getRequestDispatcher("KundenChart.jsp");
             requestDispatcherObject.forward(request,response);
-        }*/
+        }
     }
 
 
