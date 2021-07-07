@@ -52,6 +52,10 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
             requestDispatcherObject = request.getRequestDispatcher("KundenChart.jsp");
             requestDispatcherObject.forward(request,response);
         }
+        else if ("cmd".equals(command) && "chart2".equals(param)) {
+            requestDispatcherObject = request.getRequestDispatcher("IncomeChart.jsp");
+            requestDispatcherObject.forward(request,response);
+        }
     }
 
 
