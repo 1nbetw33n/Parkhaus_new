@@ -45,7 +45,7 @@
 
         <div style="text-indent:50px">
             <label for="mail">E-Mail:</label>
-            <input type="text" id="mail" name="mail" size="40" maxlength="40" oninvalid="alert('Invalid email address'); pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Invalid mail" placeholder="Enter your email address" required><br><br>
+            <input type="text" id="mail" name="mail" size="40" maxlength="40" oninvalid="alert('Invalid email address'); "pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Invalid mail" placeholder="Enter your email address" required><br><br>
 
         </div>
 
