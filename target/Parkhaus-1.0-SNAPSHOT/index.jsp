@@ -26,7 +26,7 @@
 
                         "price_factor":2, <%--Festlegung des Parkgebührs--%>
 
-                        "max":11,  <%--Maximale Anzahl von Parkplätze.--%>
+                        "max":10,  <%--Maximale Anzahl von Parkplätze.--%>
 
                        "open_from": 6,
 

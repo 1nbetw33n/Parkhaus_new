@@ -41,7 +41,7 @@
     <a href="http://www.credit-card-logos.com/"><img alt="Credit Card Logos" title="Credit Card Logos" src="http://www.credit-card-logos.com/images/multiple_credit-card-logos-1/credit_card_logos_8.gif" width="251" height="50" border="0" /></a>
 
 
-    <form action="/action_page.php">
+    <form action="LastpageServlet" method="post">
         <label for="cname">Kreditkarteninhalter:</label>
         <input type="text" id="cname" name="cname" size="30" maxlength="30" pattern="[A-Za-zäöü\s]{3,}" title="Invalid input" placeholder="Kreditkarteninhalter/-in" required><br><br>
 
