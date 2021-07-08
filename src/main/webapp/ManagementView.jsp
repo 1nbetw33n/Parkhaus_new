@@ -27,6 +27,8 @@
   Date: 27.06.21
   Time: 20:04
   To change this template use File | Settings | File Templates.
+
+  Erstellt von Rahgawi und bearbeitet Lukas
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
