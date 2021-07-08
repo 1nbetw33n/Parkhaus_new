@@ -21,16 +21,11 @@
 package com.se1_team20.Parkhaus.PARKHAUS;
 
 
-import com.se1_team20.Parkhaus.PARKINGSPACE.ParkingSpace;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.security.Principal;
 import java.util.*;
 
 
@@ -47,7 +42,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
+    @SuppressWarnings("unused")
     abstract int getMAX(); // maximum number of parking slots of a single parking level
+    @SuppressWarnings("unused")
     abstract String getCONFIG(); // configuration of a single parking level
 
     public ParkhausModel pModel =  new ParkhausModel();
@@ -112,6 +109,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         RequestDispatcher requestDispatcherObject = null;
         if (request.getQueryString().split("=")[1].equals("checkout"))
         {
+            //TODO: RequestDispatcherObject ist unnötig: Siehe CheckoutAuthenticationServlet
             requestDispatcherObject = request.getRequestDispatcher("CheckoutAuthenticationView.jsp");
             requestDispatcherObject.forward(request, response);
         }
@@ -226,7 +224,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
     private void savedCars(String param, HttpServletResponse response) {
         System.out.println("Saved Cars not implemented.");
     }
-
 
 }
 
