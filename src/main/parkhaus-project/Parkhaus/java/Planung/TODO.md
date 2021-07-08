@@ -56,9 +56,10 @@
             <ul style="color: cyan"> Login Homepage for the user</ul>
             <ul style="color: cyan"> Tabelle von allen freien Parkplätzen</ul></del>
             <ul style ="color: red"> Das Projekt jeder für sich durchgehen und schauen was Eigenleistung ist: alle </ul>
-             <ul style="color: red"> redirection der jsp: Preet</ul>
-             <ul style="color: cyan"> PaymethodServlet: Preet</ul>
-            <ul style="color: cyan"> PaymethodServlet: Preet</ul>
+             <del><ul style="color: red"> redirection der jsp: Preet</ul></del>
+             <ul style="color: red"> PDFs tabelle erstellen : erklärung seiner arbeit,siehe se1 app 8.Stelle</ul>
+           <ul style="color: red"> Diagramms erstellen </ul>
+
 
 </em>
         </li>

@@ -55,13 +55,6 @@ public class ParkhausModel {
         return  cars.stream().filter((x -> x.nr() != nr)).collect(Collectors.toList());
     }
 
-    public void setSpacesModel(List<SpaceIF> spaces) { this.spaces = spaces;}
 
-    /* @return the number of the free parking lot to which the next incoming car will be directed */
-    public int locator(int max)
-    {
-        /*  numbers of parking lots start at 1, not zero */
-        return 1 + (( cars.size() - 1 ) % max);
-    }
 
 }
