@@ -17,7 +17,7 @@
  * se1_team20.
  *
  */
-
+/*Architektur von Bella*/
 package com.se1_team20.Parkhaus.PARKHAUS;
 
 import javax.servlet.ServletContext;
