@@ -40,16 +40,24 @@ class ManagementModelTest {
     void setUp() {
         mModel = new ManagementModel();
         cars = new ArrayList<CarIF>(5);
-        CarIF car1 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Limousine","SU-T 87"});
+        CarIF car1 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Day","Limousine","SU-T 87"});
         CarIF car2 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Limousine","SU-T 87"});
         CarIF car3 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Limousine","SU-T 87"});
-        CarIF car4 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Limousine","SU-T 87"});
-        CarIF car5 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Limousine","SU-T 87"});
+        CarIF car4 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Handicapped","Limousine","SU-T 87"});
+        CarIF car5 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Van","SU-T 87"});
+        CarIF car6 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","SUV","SU-T 87"});
+        CarIF car7 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Motorcycle","SU-T 87"});
+        CarIF car8 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Day","Limousine","SU-T 87"});
+        CarIF car9 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Day","Limousine","SU-T 87"});
         cars.add(car1);
         cars.add(car2);
         cars.add(car3);
         cars.add(car4);
         cars.add(car5);
+        cars.add(car6);
+        cars.add(car7);
+        cars.add(car8);
+        cars.add(car9);
     }
 
     @AfterEach
@@ -60,12 +68,29 @@ class ManagementModelTest {
 
     @Test
     void filterAmountOfType() {
-        fail();
+        assertEquals(2L,mModel.filterAmountOfCustomerType(cars,"Day"));
+        assertEquals(5L, mModel.filterAmountOfCustomerType(cars,"Company"));
+        assertEquals(1L, mModel.filterAmountOfCustomerType(cars,"Handicapped"));
+        assertEquals(0L, mModel.filterAmountOfCustomerType(cars,"Female"));
     }
 
     @Test
     void filterPercentagesOfType() {
-        assertEquals(0L,mModel.filterPercentagesOfType(cars,"Day"));
-        assertEquals(100L, mModel.filterPercentagesOfType(cars,"Company"));
+        assertEquals(0L,mModel.filterPercentagesOfCustomerType(cars,"Day"));
+        assertEquals(100L, mModel.filterPercentagesOfCustomerType(cars,"Company"));
+    }
+
+    @Test
+    void filterDurationCustomerCar() {
+        assertEquals(25840L, mModel.filterDurationCustomerCar(cars,"Handicapped","Limousine"));
+        assertEquals(51680L, mModel.filterDurationCustomerCar(cars,"Company","Limousine"));
+        assertEquals(77520L, mModel.filterDurationCustomerCar(cars, "Day", "Limousine"));
+        assertEquals(25840L, mModel.filterDurationCustomerCar(cars,"Company", "Motorcycle"));
+        assertEquals(0L, mModel.filterDurationCustomerCar(cars,"Female", "SUV"));
+    }
+
+    @Test
+    void filterDurationCustomer() {
+
     }
 }

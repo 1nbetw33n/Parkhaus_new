@@ -60,13 +60,13 @@
 
         String title = "Share of customers who visited the garage.";
 
-        data1 = mModel.filterAmountOfType(cars, "Company");
+        data1 = mModel.filterAmountOfCustomerType(cars, "Company");
         String dataDisplay1 = Long.toString(data1);
-        data2 = mModel.filterAmountOfType(cars, "Day");
+        data2 = mModel.filterAmountOfCustomerType(cars, "Day");
         String dataDisplay2 = Long.toString(data2);
-        data3 = mModel.filterAmountOfType(cars, "Female");
+        data3 = mModel.filterAmountOfCustomerType(cars, "Female");
         String dataDisplay3 = Long.toString(data3);
-        data4 = mModel.filterAmountOfType(cars, "Company");
+        data4 = mModel.filterAmountOfCustomerType(cars, "Company");
         String dataDisplay4 = Long.toString(data4);
 
 %>

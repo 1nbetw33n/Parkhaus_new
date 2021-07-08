@@ -26,11 +26,15 @@ import java.util.List;
 
 public class ManagementModel {
 
-    public long filterAmountOfType(List<CarIF> cars, String type){
+    public long filterAmountOfCustomerType(List<CarIF> cars, String type){
         return (cars.stream().filter(x -> x.kunde().equals(type)).count());
     }
-    public long filterPercentagesOfType(List<CarIF> cars, String type){
+    public long filterPercentagesOfCustomerType(List<CarIF> cars, String type){
         return (((cars.stream().filter(x -> x.kunde().equals(type)).count())/cars.size())*100);
+    }
+
+    public long filterDurationCustomerCar(List<CarIF> cars, String customer, String typeCar) {
+        return cars.stream().filter(x->x.kunde().equals(customer)).filter(x->x.typeCar().equals(typeCar)).map(x -> x.duration()).reduce(0,Integer::sum);
     }
 
 }

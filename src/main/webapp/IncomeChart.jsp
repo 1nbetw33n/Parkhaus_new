@@ -46,28 +46,26 @@
         writer.println("No Data could be found yet!");
     } else {
 
-        String name1 = "Company";
-        long data1 = 0;
+        double limoDay = mModel.filterDurationCustomerCar(cars,"Day","Limousine")/1000;
+        double limoHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","Limousine")/1000;
+        double limoFem = mModel.filterDurationCustomerCar(cars,"Female","Limousine")/1000;
+        double limoCom = mModel.filterDurationCustomerCar(cars,"Company","Limousine")/1000;
 
-        String name2 = "Day";
-        long data2 = 0;
+        double suvDay = mModel.filterDurationCustomerCar(cars,"Day","SUV")/1000;
+        double suvHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","SUV")/1000;
+        double suvFem = mModel.filterDurationCustomerCar(cars,"Female","SUV")/1000;
+        double suvCom = mModel.filterDurationCustomerCar(cars,"Company","SUV")/1000;
 
-        String name3 = "Female";
-        long data3 = 0;
+        double motoDay = mModel.filterDurationCustomerCar(cars,"Day","Motorcycle")/1000;
+        double motoHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","Motorcycle")/1000;
+        double motoFem = mModel.filterDurationCustomerCar(cars,"Female","Motorcycle")/1000;
+        double motoCom = mModel.filterDurationCustomerCar(cars,"Company","Motorcycle")/1000;
 
-        String name4 = "Handicapped";
-        long data4 = 0;
+        double vanDay = mModel.filterDurationCustomerCar(cars,"Day","Van")/1000;
+        double vanHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","Van")/1000;
+        double vanFem = mModel.filterDurationCustomerCar(cars,"Female","Van")/1000;
+        double vanCom = mModel.filterDurationCustomerCar(cars,"Company","Van")/1000;
 
-        String title = "Share of customers who visited the garage.";
-
-        data1 = mModel.filterAmountOfType(cars, "Company");
-        String dataDisplay1 = Long.toString(data1);
-        data2 = mModel.filterAmountOfType(cars, "Day");
-        String dataDisplay2 = Long.toString(data2);
-        data3 = mModel.filterAmountOfType(cars, "Female");
-        String dataDisplay3 = Long.toString(data3);
-        data4 = mModel.filterAmountOfType(cars, "Company");
-        String dataDisplay4 = Long.toString(data4);
 
 %>
 <script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
@@ -88,27 +86,19 @@
                 "Day",
                 "Company",
                 "Female",
-                "Handicapped",
-                "May",
-                "jun",
-                "jul",
-                "aug",
-                "sep",
-                "oct",
-                "nov",
-                "dec"
-              ],
+                "Handicapped"
+                ],
               "crosshair": true
             },
             "yAxis": {
               "min": 0,
               "title": {
-                "text": "Duration (min)"
+                "text": "Duration (sec)"
               }
             },
             "tooltip": {
                 "headerFormat": "<span style="font-size:10px">{point.key}</span><table>",
-                "pointFormat": "<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>",
+                "pointFormat": "<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} sec</b></td></tr>",
                 "footerFormat": "</table>",
                 "shared": true,
                 "useHTML": true
@@ -123,69 +113,37 @@
               {
                 "name": "Limousine",
                 "data": [
-                  49.9,
-                  71.5,
-                  106.4,
-                  129.2,
-                  144,
-                  176,
-                  135.6,
-                  148.5,
-                  216.4,
-                  194.1,
-                  95.6,
-                  54.4
+                  <%=limoDay%>,
+                  <%=limoCom%>,
+                  <%=limoFem%>,
+                  <%=limoHandi%>
                 ]
               },
               {
                 "name": "Van",
                 "data": [
-                  83.6,
-                  78.8,
-                  98.5,
-                  93.4,
-                  106,
-                  84.5,
-                  105,
-                  104.3,
-                  91.2,
-                  83.5,
-                  106.6,
-                  92.3
+                  <%=vanDay%>,
+                  <%=vanCom%>,
+                  <%=vanFem%>,
+                  <%=vanHandi%>
                 ]
               },
               {
                 "name": "SUV",
                 "data": [
-                  48.9,
-                  38.8,
-                  39.3,
-                  41.4,
-                  47,
-                  48.3,
-                  59,
-                  59.6,
-                  52.4,
-                  65.2,
-                  59.3,
-                  51.2
+                  <%=suvDay%>,
+                  <%=suvCom%>,
+                  <%=suvFem%>,
+                  <%=suvHandi%>
                 ]
               },
               {
                 "name": "Motorcycle",
                 "data": [
-                  42.4,
-                  33.2,
-                  34.5,
-                  39.7,
-                  52.6,
-                  75.5,
-                  57.4,
-                  60.4,
-                  47.6,
-                  39.1,
-                  46.8,
-                  51.1
+                  <%=motoDay%>,
+                  <%=motoCom%>,
+                  <%=motoFem%>,
+                  <%=motoHandi%>
                 ]
               },
               {
@@ -194,15 +152,7 @@
                   1.0,
                   2.0,
                   3.0,
-                  4.0,
-                  5.0,
-                  6.0,
-                  7.0,
-                  8.0,
-                  9.0,
-                  10.0,
-                  11.0,
-                  12.0
+                  4.0
                   ]
                 }
             ]
@@ -214,8 +164,6 @@
           },
           "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
         }'
-
-
 ></ccm-highchart-3-0-1>
 <%}%>
 </body>
