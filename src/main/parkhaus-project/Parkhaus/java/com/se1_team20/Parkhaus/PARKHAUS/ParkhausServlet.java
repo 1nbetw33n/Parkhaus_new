@@ -182,7 +182,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
             getContext().setAttribute( "cars"+ getNAME(), new ArrayList<Car>() );
         }
         List<CarIF> cars = (List<CarIF>) getContext().getAttribute( "cars"+ getNAME() );
-        pModel.setCarsModel(cars);
+
         return cars;
     }
 

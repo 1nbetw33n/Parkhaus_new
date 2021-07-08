@@ -17,7 +17,7 @@
  * se1_team20.
  *
  */
-
+/* Bearbeitet von Lukas*/
 package com.se1_team20.Parkhaus.PARKHAUS;
 
 import java.util.List;
@@ -36,16 +36,14 @@ public class ParkhausModel {
      *
      */
 
-    List<CarIF> cars;
+
 
 
     public Double getDoubleAttribute(Double attribute) {
         return (attribute == null) ? 0. : attribute;
     }
 
-    public void setCarsModel (List<CarIF> cars) {
-        this.cars = cars;
-    }
+
 
     public List<CarIF> filterColorErase(List<CarIF> cars, String color) {
         return  cars.stream().filter((x -> !x.hash().equals(color))).collect(Collectors.toList());
