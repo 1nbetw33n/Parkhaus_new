@@ -110,7 +110,7 @@
     <%}%>
     <body>
         <div style="text-align: center;">
-            <form id="loginFormId" name="loginForm" method="post" action="PayServlet">
+            <form id="loginFormId" name="loginForm" method="post" action="PaymethodServlet">
                 <div id="PaymentRedirectionDiv">
                     <input id="PaymentRedirectionButton" type="submit" value="Payment Methods"/>
                 </div>
