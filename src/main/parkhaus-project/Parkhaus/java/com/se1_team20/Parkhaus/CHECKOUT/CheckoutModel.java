@@ -22,6 +22,7 @@ package com.se1_team20.Parkhaus.CHECKOUT;
 /*
 1nbetw33n
 06.Jul.2021
+Klasse bearbeitet von Bella
 */
 
 import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
