@@ -17,6 +17,7 @@
  * se1_team20.
  *
  */
+/*Alle Methoden ,die nihct kommentiert sind ,sind vom ganzem Team*/
 
 package com.se1_team20.Parkhaus.PARKHAUS;
 
@@ -32,10 +33,6 @@ import java.util.*;
 @WebServlet("/ParkhausServlet")
 public abstract class ParkhausServlet extends ParkingServlet {
 
-    /**
-     * handleEnter() does not check if there is available space
-     */
-
 
     static List<String>parkingspaces=new ArrayList<>(Arrays.asList(null,null,null,null,null,null,null,null,null,null));
     static int max=10;   //Standard size
@@ -43,11 +40,10 @@ public abstract class ParkhausServlet extends ParkingServlet {
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
 
-
-
     public ParkhausModel pModel =  new ParkhausModel();
 
     //Reduces or increases the parking spaces
+    // erstellt von Preet
     protected final void configMax(int newmax){
 
         int count;
@@ -78,7 +74,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         max=newmax;
 
     }
-
+    //erstellt vom Team
     public final void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
@@ -160,7 +156,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         CarIF carSave = new Car(PARAMS);
         formerCars().add(carSave); //Saving Old Car in formerCars()
     }
-
+        //erstellt von Lukas
     private void handleOccupied(final String[] PARAMS)
     {
         String[] preid = PARAMS[1].split("[(]");
