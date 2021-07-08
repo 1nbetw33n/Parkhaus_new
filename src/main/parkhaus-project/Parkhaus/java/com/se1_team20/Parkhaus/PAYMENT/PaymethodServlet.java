@@ -20,24 +20,36 @@
 
 package com.se1_team20.Parkhaus.PAYMENT;
 
+import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "Servlet", value = "/Servlet")
-public class PaymethodServlet extends HttpServlet {
+@WebServlet("/PaymethodServlet")
+public class PaymethodServlet extends ParkingServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
          response.setContentType("text/html");
 
          request.getRequestDispatcher("Paymethod.jsp").forward(request,response);
+
+    }
+
+    @Override
+    protected void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    @Override
+    protected void handleEvent(String EVENT, String[] PARAMS) {
 
     }
 }
