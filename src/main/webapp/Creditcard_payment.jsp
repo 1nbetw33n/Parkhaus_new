@@ -47,7 +47,7 @@
 
         <div style="text-indent:-4px">
             <label for="cnumber">Kreditkartennummer:</label>
-            <input type="password" id="cnumber" name="cnumber" size="30" maxlength="30" oninvalid="alert('The credit card number must have 12 digits'); "pattern="[0-9]{12}" title="Invalid account number" placeholder="Kreditkartennummer" required><br><br>
+            <input type="password" id="cnumber" name="cnumber" size="30" maxlength="30" oninvalid="alert('The credit card number must have 16 digits'); "pattern="[0-9]{16}" title="Invalid account number" placeholder="Kreditkartennummer" required><br><br>
 
         </div>
 
