@@ -17,7 +17,7 @@
  * se1_team20.
  *
  */
-
+/*Erstellt von Bella */
 package com.se1_team20.Parkhaus.PARKHAUS;
 
 import javax.servlet.ServletContext;
@@ -32,6 +32,7 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
     /* default implementation */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {}
 
+    //Bearbeitet vom Team
     /* template implementation */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -44,7 +45,6 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
     protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
-        //getting the String containing of: [EVENT, NR, BEGIN, END, PRICE]
         String body                       = ParkingServletable.getBody(request);
         System.out.println(body);
 
