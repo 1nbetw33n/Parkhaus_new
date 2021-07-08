@@ -20,20 +20,13 @@
 
 package com.se1_team20.Parkhaus.MANAGEMENT;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
-import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
-
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 @WebServlet("/ManagementServlet")
 public class ManagementServlet extends ManagementAuthenticationServlet {
