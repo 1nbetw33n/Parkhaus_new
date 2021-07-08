@@ -1,9 +1,12 @@
+
 @startuml
 'https://plantuml.com/class-diagram
+'Erstellt von Rahgawi
 
-Level1Servlet--> Level1Servlet: 1 getRequest
-Level1Servlet--> CheckoutAuthenticationServlet: 2 handleRequest(requestDispatcherObject.forward(request, response))
+Level1Servlet-> Level1Servlet: 1 getRequest()
+Level1Servlet-> CheckoutAuthenticationServlet: 2 handleRequest(requestDispatcherObject.forward(request, response))
 
-CheckoutAuthenticationServlet --> CheckoutAuthenticationServlet:3 doPost
-CheckoutAuthenticationServlet --> CheckoutServlet: 4 handleSuccess(dispatcher.forward(request, response))
+CheckoutAuthenticationServlet -> CheckoutAuthenticationServlet:3 doPost()
+CheckoutAuthenticationServlet -> CheckoutAuthenticationView
+CheckoutServlet -> CheckoutView
 @enduml
