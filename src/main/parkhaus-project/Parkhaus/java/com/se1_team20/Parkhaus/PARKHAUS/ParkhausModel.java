@@ -20,9 +20,6 @@
 
 package com.se1_team20.Parkhaus.PARKHAUS;
 
-import com.se1_team20.Parkhaus.PARKINGSPACE.ParkingSpace;
-import com.se1_team20.Parkhaus.PARKINGSPACE.SpaceIF;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
