@@ -24,19 +24,16 @@ package com.se1_team20.Parkhaus.PARKHAUS;
 public class Car implements CarIF {
 
     private String[] params;
-    private int nr;
-    private String kunde;
+
 
     public Car( String[] params )
     {
         this.params = params;
-        nr = this.nr();
-        kunde = this.kunde();
+
 
     }
 
-    public int getNr() { return this.nr;}
-    public String getKunde() {return this.kunde;}
+
 
     @Override
     public int nr()
