@@ -74,15 +74,8 @@
 							    "extra_inner":"Your Bill",
 							    "extra_popup_title":"Show hwo much you have to pay"
 							}
-					    ],
-					    "extra_charts":[
-					        {
-					            "extra_class":"my_chart",
-					            "extra_inner":"My Chart",
-					            "extra_popup_title":"Show my Chart"
-					        }
 					    ]
-	                }'
+					   }'
 		>
 	</ccm-parkhaus-10-5-0>
 </body>

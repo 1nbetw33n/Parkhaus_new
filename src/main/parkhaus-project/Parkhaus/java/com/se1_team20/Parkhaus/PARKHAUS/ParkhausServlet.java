@@ -99,7 +99,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
         else if ("cmd".equals(command) && "get_bill".equals(param)) {eventDoubleAttribute(response, application, "get_bill");}
         else if ("cmd".equals(command) && "checkout".equals(param))  {handleRequest(request, response);}
         else if ("cmd".equals(command) && "management".equals(param)) {handleRequest(request, response);}
-        else if ("cmd".equals(command) && "my_chart".equals(param)) {eventMyChart(response);}
         else if ("cmd".equals(command) && "config&name".equals(param)) {handleConfig(param, response);}
         else if ("cmd".equals(command) && "cars&name".equals(param)) {savedCars(param, response);}
         else if ("cmd".equals(command) && "spaces".equals(param)){handleRequest(request,response);}
@@ -205,16 +204,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
         return formerCars;
     }
 
-    /*List<ParkingSpace> spaces() {
-        if(getContext().getAttribute("spaces" + getNAME()) == null) {
-            getContext().setAttribute("spaces" + getNAME(), new ArrayList<ParkingSpace>(getMAX()));
-            // Currently Fixed Length -> What happens when we change the MAX value to this?
-        }
-        List<ParkingSpace> spaces = (List<ParkingSpace>) getContext().getAttribute("spaces" + getNAME());
-        pModel.setSpacesModel(spaces);
-        return spaces;
-    }*/
-
 
     protected final void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {
         final PrintWriter OUT = response.getWriter();
@@ -230,34 +219,12 @@ public abstract class ParkhausServlet extends ParkingServlet {
     }
 
 
-
-/*
-    private void eventCheckOut(HttpServletResponse response)
-    {
-         TODO: COMING SOON
-
-        //ArrayList<String>std=new ArrayList<>();
-
-       request.setAttribute("data", std);
-
-          RequestDispatcher rd =  request.getRequestDispatcher("CheckoutView.jsp");
-
-          rd.forward(request,response);
-
-}
-        */
-
-    private void eventMyChart(HttpServletResponse response)
-    {
-        /* TODO: COMING SOON */
-    }
-
     private void handleConfig(String name, HttpServletResponse response) {
-        System.out.println(name);
+        System.out.println("Config not implemented.");
     }
 
     private void savedCars(String param, HttpServletResponse response) {
-        System.out.println(param);
+        System.out.println("Saved Cars not implemented.");
     }
 
 

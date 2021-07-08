@@ -164,8 +164,6 @@
           },
           "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
         }'
-
-
 ></ccm-highchart-3-0-1>
 <%}%>
 </body>
