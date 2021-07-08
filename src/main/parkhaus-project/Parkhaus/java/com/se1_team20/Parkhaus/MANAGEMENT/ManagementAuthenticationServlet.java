@@ -37,22 +37,38 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        final String            USERNAME   = request.getParameter("username");
-        final String            PASSWORD  = request.getParameter("password");
-        final PrintWriter   OUT              = response.getWriter();
+        final String USERNAME = request.getParameter("username");
+        final String PASSWORD = request.getParameter("password");
+        final PrintWriter OUT = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         //TODO:in zwei Methoden spliten
-        if (!USERNAME.equals("Management") || !PASSWORD.equals("easy-pass-word")) //LETS HACK THIS:D
+       if (!USERNAME.equals("Management") || !PASSWORD.equals("easy-pass-word")) //LETS HACK THIS:D
         {
-            OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects after 0 seconds
-            OUT.write("<script>alert('Invalid Credentials')</script>");
+           handleInvalid(OUT);
         }
         else
         {
-            request.getRequestDispatcher("ManagementView.jsp").forward(request, response);
+            handleSuccess(USERNAME,PASSWORD,response,request);
         }
         OUT.write("</div></body></html>");
         OUT.close();
+
+    }
+        private void handleInvalid(final PrintWriter OUT) {
+             {
+                OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects instantly after pressing ok
+                OUT.write("<script>alert('Invalid Credentials')</script>");
+            }
+            }
+
+
+        //Bearbeitet von Rahgawi
+        private void handleSuccess(String USERNAME, final String EVENT, HttpServletResponse response, final HttpServletRequest request) throws ServletException, IOException {
+            request.getRequestDispatcher("ManagementView.jsp").forward(request, response);
+
+
+
+
     }
 
 }
