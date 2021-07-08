@@ -17,7 +17,7 @@
  * se1_team20.
  *
  */
-
+/*Bearbeitet von Lukas */
 package com.se1_team20.Parkhaus.MANAGEMENT;
 
 import javax.servlet.RequestDispatcher;
@@ -52,12 +52,12 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
     }
 
 
-    public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         final String PARAM  = request.getParameter("username");
         final PrintWriter OUT = response.getWriter();
 
-        /* html  stuff to display the top part of the management view */
+        //* html  stuff to display the top part of the management view *//*
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         OUT.write("<h2>Management Interface</h2>");
         OUT.write("<p style='color: purple; font-size: large;'>" + "Logged in as: " + PARAM + "</p>");
