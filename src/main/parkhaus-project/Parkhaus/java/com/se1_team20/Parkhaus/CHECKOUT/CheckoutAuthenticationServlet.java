@@ -41,7 +41,7 @@ import java.util.List;
 public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
 
     final private static long serialVersionUID = 1L;
-
+    //Bearbeitet von Bella
     @SuppressWarnings("unchecked")
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -56,11 +56,13 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
         OUT.close();
     }
 
+    //Bearbeitet von Rahgawi
     private void handleInvalid(final PrintWriter OUT) {
         OUT.write("<meta http-equiv='refresh' content='0;URL=CheckoutAuthenticationView.jsp'>");//redirects instantly after pressing ok
         OUT.write("<script>alert('Invalid Credentials')</script>");
     }
 
+    //Bearbeitet von Rahgawi
     private void handleSuccess(final String EVENT, HttpServletResponse response, final HttpServletRequest request) throws ServletException, IOException {
         request.getRequestDispatcher("CheckoutView.jsp").forward(request, response);
         getContext().setAttribute("carNr", EVENT);
