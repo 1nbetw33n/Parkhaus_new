@@ -15,10 +15,10 @@
         </li>
         <li><del>Redirection to Management View (OPTIONAL)</del></li>
         <li>
-            Charts für Management View: Bella + Lukas 
+            <ul>Charts für Management View: Bella + Lukas
             <ul>Average Revenue</ul>
             <ul>Total Cars</ul>
-            <ul>Total Revenue</ul>
+            <del>Total Revenue</del></ul>
         </li>
         <li>
             <del>
@@ -31,11 +31,10 @@
         </li>
         <li>Names of all ServletContexts + Explanations into glossar</li>
         <li>
-            Parking Lot Implementation: Preet
             <ul>Different Types</ul>
         </li>
         <li>
-            Organize Repo: Bella
+            Organize Repo: Bella,Rahgawi
             <ul><del>Delete unused Classes</del></ul>
             <ul>Delete unused Code</ul>
             <ul>
@@ -51,14 +50,21 @@
         </li>
         <li style="color: cyan">
             <em>
-            Additional Ideas:
+           <del> Additional Ideas:
             <ul style="color: cyan"> Checkout REGEX implementation (Bankverbindung etc.)</ul>
             <ul style="color: cyan"> Checkout Payment Option (Paypal etc.)</ul>
             <ul style="color: cyan"> Login Homepage for the user</ul>
-            <ul style="color: cyan"> Tabelle von allen freien Parkplätzen</ul>
-        </em>
+            <ul style="color: cyan"> Tabelle von allen freien Parkplätzen</ul></del>
+            <ul style ="color: red"> Das Projekt jeder für sich durchgehen und schauen was Eigenleistung ist: alle </ul>
+             <ul style="color: red"> redirection der jsp: Preet</ul>
+             <ul style="color: cyan"> PaymethodServlet: Preet</ul>
+            <ul style="color: cyan"> PaymethodServlet: Preet</ul>
+
+</em>
         </li>
         <li>
+
+        
 </li>
     </ul>
 </body>

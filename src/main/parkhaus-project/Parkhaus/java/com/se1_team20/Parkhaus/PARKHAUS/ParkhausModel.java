@@ -33,11 +33,11 @@ public class ParkhausModel {
      *
      * Bearbeitung Lukas + Test
      *
-     * TODO: Interfaces für die jeweiligen Kategorien: CARS, Parkplätze, Berechnungen
+     *
      */
 
     List<CarIF> cars;
-    List<SpaceIF> spaces;
+
 
     public Double getDoubleAttribute(Double attribute) {
         return (attribute == null) ? 0. : attribute;
