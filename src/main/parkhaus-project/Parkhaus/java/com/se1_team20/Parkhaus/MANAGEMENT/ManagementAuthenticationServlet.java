@@ -17,7 +17,7 @@
  * se1_team20.
  *
  */
-
+/*Bearbeitet von Bella*/
 package com.se1_team20.Parkhaus.MANAGEMENT;
 
 import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
@@ -31,7 +31,7 @@ import java.io.PrintWriter;
 
 public abstract class ManagementAuthenticationServlet extends ParkingServlet {
 
-    /* TODO: Create a jsp-File for creating the username and the password */
+    /* TODO: Create a java-class for storing the username and the password */
 
     final private static long serialVersionUID = 1L;
 
@@ -41,6 +41,7 @@ public abstract class ManagementAuthenticationServlet extends ParkingServlet {
         final String            PASSWORD  = request.getParameter("password");
         final PrintWriter   OUT              = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
+        //TODO:in zwei Methoden spliten
         if (!USERNAME.equals("Management") || !PASSWORD.equals("easy-pass-word")) //LETS HACK THIS:D
         {
             OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects after 0 seconds
