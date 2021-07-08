@@ -42,10 +42,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
-    @SuppressWarnings("unused")
-    abstract int getMAX(); // maximum number of parking slots of a single parking level
-    @SuppressWarnings("unused")
-    abstract String getCONFIG(); // configuration of a single parking level
+
+
 
     public ParkhausModel pModel =  new ParkhausModel();
 

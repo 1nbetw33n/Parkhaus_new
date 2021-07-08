@@ -17,7 +17,7 @@
  * se1_team20.
  *
  */
-
+/*Bearbeitet von Team*/
 package com.se1_team20.Parkhaus.PARKHAUS;
 
  public interface CarIF {
