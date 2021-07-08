@@ -18,7 +18,7 @@
  *
  */
 
-package com.se1_team20.Parkhaus.CheckoutDir;
+package com.se1_team20.Parkhaus.PARKHAUS;
 
 import com.se1_team20.Parkhaus.PARKHAUS.Car;
 import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
