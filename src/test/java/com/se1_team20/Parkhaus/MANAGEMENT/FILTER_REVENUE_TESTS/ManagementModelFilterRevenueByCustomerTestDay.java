@@ -26,44 +26,41 @@ package com.se1_team20.Parkhaus.MANAGEMENT.FILTER_REVENUE_TESTS;
 
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel;
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModelTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ManagementModelFilterRevenueTestHandicapped extends ManagementModelTest {
+public class ManagementModelFilterRevenueByCustomerTestDay extends ManagementModelTest {
 
-    /* TESTS FOR HANDICAPPED */
+    /* TESTS FOR DAY */
 
     @Test
-    @DisplayName("filterRevenue for handicapped - equals test")
+    @DisplayName("filterRevenue for day - equals test")
     void handicappedEqualsTestFilterRevenue()
     {
-        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Handicapped"));;
-        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
+        Assertions.assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
 
     @Test
-    @DisplayName("filterRevenue for handicapped - not equals test")
+    @DisplayName("filterRevenue for day - not equals test")
     void handicappedNotEqualsTestFilterRevenue()
     {
-        assertEquals(0.2, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
+        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
 
     @Test
-    @DisplayName("filterRevenue for handicapped - null test")
+    @DisplayName("filterRevenue for day - null test")
     void handicappedNullTestFilterRevenue()
     {
-        assertEquals(0.3, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
+        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
 
     @Test
-    @DisplayName("filterRevenue for handicapped - not null test")
+    @DisplayName("filterRevenue for day - not null test")
     void handicappedNotNullTestFilterRevenue()
     {
-        assertEquals(0.4, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
+        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
-
 }

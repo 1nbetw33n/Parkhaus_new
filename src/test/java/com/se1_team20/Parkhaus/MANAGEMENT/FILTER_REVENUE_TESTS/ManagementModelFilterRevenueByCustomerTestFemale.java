@@ -32,35 +32,36 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ManagementModelFilterRevenueTestDay extends ManagementModelTest {
+public class ManagementModelFilterRevenueByCustomerTestFemale extends ManagementModelTest {
 
-    /* TESTS FOR DAY */
+    /* TESTS FOR FEMALE */
 
     @Test
-    @DisplayName("filterRevenue for day - equals test")
+    @DisplayName("filterRevenue for female - equals test")
     void handicappedEqualsTestFilterRevenue()
     {
         Assertions.assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
 
     @Test
-    @DisplayName("filterRevenue for day - not equals test")
+    @DisplayName("filterRevenue for female - not equals test")
     void handicappedNotEqualsTestFilterRevenue()
     {
         assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
 
     @Test
-    @DisplayName("filterRevenue for day - null test")
+    @DisplayName("filterRevenue for female - null test")
     void handicappedNullTestFilterRevenue()
     {
         assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
 
     @Test
-    @DisplayName("filterRevenue for day - not null test")
+    @DisplayName("filterRevenue for female - not null test")
     void handicappedNotNullTestFilterRevenue()
     {
         assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
+    
 }

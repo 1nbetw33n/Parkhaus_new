@@ -32,7 +32,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ManagementModelFilterRevenueTestCompany extends ManagementModelTest {
+public class ManagementModelFilterRevenueByCustomerTestCompany extends ManagementModelTest {
     
     /* TESTS FOR COMPANY */
 
