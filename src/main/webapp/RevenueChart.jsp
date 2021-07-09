@@ -23,3 +23,10 @@
 09.Jul.2021
 --%>
 
+<%@ page contentType="text/html; charset=UTF-8" %>
+<html>
+	<head>
+		<title>Total Daily Revenue</title>
+	</head>
+</html>
+
