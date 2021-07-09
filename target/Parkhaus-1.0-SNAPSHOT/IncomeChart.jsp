@@ -18,6 +18,7 @@
   ~ such Confidential Information and shall use it only in accordance
   ~ with the terms of the license agreement you entered into with
   ~ se1_team20.
+  ~
   ~  Erstellt von Lukas
 
   --%>
@@ -47,25 +48,30 @@
         writer.println("No Data could be found yet!");
     } else {
 
-        double limoDay = mModel.filterDurationCustomerCar(cars,"Day","Limousine")/1000;
-        double limoHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","Limousine")/1000;
-        double limoFem = mModel.filterDurationCustomerCar(cars,"Female","Limousine")/1000;
-        double limoCom = mModel.filterDurationCustomerCar(cars,"Company","Limousine")/1000;
+        double limoDay = mModel.filterDurationCustomerCar(cars,"Day","Limousine")/10000.;
+        double limoHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","Limousine")/10000.;
+        double limoFem = mModel.filterDurationCustomerCar(cars,"Female","Limousine")/10000.;
+        double limoCom = mModel.filterDurationCustomerCar(cars,"Company","Limousine")/10000.;
 
-        double suvDay = mModel.filterDurationCustomerCar(cars,"Day","SUV")/1000;
-        double suvHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","SUV")/1000;
-        double suvFem = mModel.filterDurationCustomerCar(cars,"Female","SUV")/1000;
-        double suvCom = mModel.filterDurationCustomerCar(cars,"Company","SUV")/1000;
+        double suvDay = mModel.filterDurationCustomerCar(cars,"Day","SUV")/10000.;
+        double suvHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","SUV")/10000.;
+        double suvFem = mModel.filterDurationCustomerCar(cars,"Female","SUV")/10000.;
+        double suvCom = mModel.filterDurationCustomerCar(cars,"Company","SUV")/10000.;
 
-        double motoDay = mModel.filterDurationCustomerCar(cars,"Day","Motorcycle")/1000;
-        double motoHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","Motorcycle")/1000;
-        double motoFem = mModel.filterDurationCustomerCar(cars,"Female","Motorcycle")/1000;
-        double motoCom = mModel.filterDurationCustomerCar(cars,"Company","Motorcycle")/1000;
+        double motoDay = mModel.filterDurationCustomerCar(cars,"Day","Motorcycle")/10000.;
+        double motoHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","Motorcycle")/10000.;
+        double motoFem = mModel.filterDurationCustomerCar(cars,"Female","Motorcycle")/10000.;
+        double motoCom = mModel.filterDurationCustomerCar(cars,"Company","Motorcycle")/10000.;
 
-        double vanDay = mModel.filterDurationCustomerCar(cars,"Day","Van")/1000;
-        double vanHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","Van")/1000;
-        double vanFem = mModel.filterDurationCustomerCar(cars,"Female","Van")/1000;
-        double vanCom = mModel.filterDurationCustomerCar(cars,"Company","Van")/1000;
+        double vanDay = mModel.filterDurationCustomerCar(cars,"Day","Van")/10000.;
+        double vanHandi = mModel.filterDurationCustomerCar(cars,"Handicapped","Van")/10000.;
+        double vanFem = mModel.filterDurationCustomerCar(cars,"Female","Van")/10000.;
+        double vanCom = mModel.filterDurationCustomerCar(cars,"Company","Van")/10000.;
+
+        double completeDay = limoDay + suvDay + motoDay + vanDay;
+        double completeHandi = limoHandi + suvHandi + motoHandi + vanHandi;
+        double completeFem = limoFem + suvFem + motoFem + vanFem;
+        double completeCom = limoCom + suvCom + motoCom + vanCom;
 
 
 %>
@@ -150,10 +156,10 @@
               {
                 "name": "Complete",
                 "data": [
-                  1.0,
-                  2.0,
-                  3.0,
-                  4.0
+                  <%=completeDay%>,
+                  <%=completeCom%>,
+                  <%=completeFem%>,
+                  <%=completeHandi%>
                   ]
                 }
             ]

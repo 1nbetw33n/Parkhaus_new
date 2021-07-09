@@ -77,19 +77,19 @@
 <div align=com.se1_team20.Parkhaus.MANAGEMENT.ManagementServlet"center"></div>
 <table style="  width:300px" align="center" border="1">
     <tr bgcolor="gray">
-        <td> Ticket-Nr.</td>
-        <td>Customer-Type</td>
+        <td> Ticket Nr.</td>
+        <td>Customer Type</td>
         <td> Duration</td>
         <td> Ticket price</td>
-        <td> Car-Type</td>
-        <td> Parkingspace-Nr.</td>
+        <td> Car Type</td>
+        <td> Parkingspace Nr.</td>
     </tr>
     <% for(CarIF car : cars) {%>
     <tr>
         <td><%= car.nr() %></td>
         <td><%= car.kunde() %></td>
-        <td><%= car.duration()/100 %></td>
-        <td><%= car.price() %></td>
+        <td><%= car.duration()/10000. + "s" %></td>
+        <td><%= (car.price()/100.) + ",-"%></td>
         <td><%= car.typeCar() %></td>
         <td><%= car.space() %></td>
     </tr>
