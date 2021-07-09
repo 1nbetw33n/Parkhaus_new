@@ -24,5 +24,39 @@ package com.se1_team20.Parkhaus.MANAGEMENT;
 09.Jul.2021
 */
 
-public class ManagementModel_filterRevenueTest {
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class ManagementModel_filterRevenueTest extends ManagementModelTest{
+
+    @Test
+    @DisplayName("filterRevenueByCustomerAndCar - equals test")
+    public void equalsTestFilterRevenueByCustomerAndCar()
+    {
+        assertEquals(0.0, ManagementModel.filterRevenueByCustomerAndCar(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+    }
+
+    @Test
+    @DisplayName("filterRevenueByCustomerAndCar - not equals test")
+    public void notEqualsTestFilterRevenueByCustomerAndCar()
+    {
+
+    }
+
+    @Test
+    @DisplayName("filterRevenueByCustomerAndCar - null test")
+    public void nullTestFilterRevenueByCustomerAndCar()
+    {
+
+    }
+
+    @Test
+    @DisplayName("filterRevenueByCustomerAndCar - not null test")
+    public void notNullTestFilterRevenueByCustomerAndCar()
+    {
+
+    }
+
 }

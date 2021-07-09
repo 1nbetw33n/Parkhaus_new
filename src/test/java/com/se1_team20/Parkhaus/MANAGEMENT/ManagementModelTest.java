@@ -91,37 +91,7 @@ class ManagementModelTest {
         assertEquals(0L, mModel.filterDurationCustomerCar(cars, "Female", "SUV"));
     }
 
-    @Test
-    @DisplayName("filterRevenueByCustomerAndCar - equals test")
-    public void equalsTestFilterRevenueByCustomerAndCar()
-    {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomerAndCar(this.cars, "CUSTOMERTYPE", "CARTYPE")
-                                         .doubleValue());
-    }
-
-    @Test
-    @DisplayName("filterRevenueByCustomerAndCar - not equals test")
-    public void notEqualsTestFilterRevenueByCustomerAndCar()
-    {
-
-    }
-
-    @Test
-    @DisplayName("filterRevenueByCustomerAndCar - null test")
-    public void nullTestFilterRevenueByCustomerAndCar()
-    {
-
-    }
-
-    @Test
-    @DisplayName("filterRevenueByCustomerAndCar - not null test")
-    public void notNullTestFilterRevenueByCustomerAndCar()
-    {
-
-    }
-
-
-    @Test
+   @Test
     void filterDurationCustomer() {
 
     }
