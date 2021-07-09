@@ -55,7 +55,7 @@
         <div style="text-indent:-68px">
 
             <label for="pword">Password:</label>
-            <input type="text" size="20" maxlength="20" id="pword" name="pword" onvalid="alert('Geben Sie bitte ein beantragtes Passwort');" pattern="[a-zA-Z0-9]{7}" required/><br><br>
+            <input type="password" size="20" maxlength="20" id="pword" name="pword" onvalid="alert('Geben Sie bitte ein beantragtes Passwort');" pattern="[a-zA-Z0-9]{7}" required/><br><br>
 
         </div>
 
