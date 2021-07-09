@@ -40,7 +40,7 @@ public class ManagementModelFilterRevenueByCustomerTestFemale extends Management
     /* TESTS FOR FEMALE */
 
     @Test
-    @DisplayName("filterRevenue for handicapped - equals test")
+    @DisplayName("filterRevenue for female - equals test")
     void handicappedEqualsTestFilterRevenue()
     {
         assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
@@ -48,7 +48,7 @@ public class ManagementModelFilterRevenueByCustomerTestFemale extends Management
     }
 
     @Test
-    @DisplayName("filterRevenue for handicapped - not equals test")
+    @DisplayName("filterRevenue for female - not equals test")
     void handicappedNotEqualsTestFilterRevenue()
     {
         assertNotEquals(5168., ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
@@ -56,7 +56,7 @@ public class ManagementModelFilterRevenueByCustomerTestFemale extends Management
     }
 
     @Test
-    @DisplayName("filterRevenue for handicapped - not null test")
+    @DisplayName("filterRevenue for female - not null test")
     void handicappedNotNullTestFilterRevenue()
     {
         assertNotNull(ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));

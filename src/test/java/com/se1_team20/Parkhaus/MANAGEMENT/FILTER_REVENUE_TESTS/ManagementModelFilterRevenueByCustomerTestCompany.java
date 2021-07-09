@@ -30,7 +30,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ManagementModelFilterRevenueByCustomerTestCompany extends ManagementModelTest {
     
@@ -40,27 +43,24 @@ public class ManagementModelFilterRevenueByCustomerTestCompany extends Managemen
     @DisplayName("filterRevenue for company - equals test")
     void handicappedEqualsTestFilterRevenue()
     {
-        Assertions.assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
+        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
+        assertEquals(5168. * 2.,  ManagementModel.filterRevenueByCustomer(this.cars, "Company"));
     }
 
     @Test
     @DisplayName("filterRevenue for company - not equals test")
     void handicappedNotEqualsTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
-    }
-
-    @Test
-    @DisplayName("filterRevenue for company - null test")
-    void handicappedNullTestFilterRevenue()
-    {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
+        assertNotEquals(5168., ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
+        assertNotEquals(5168., ManagementModel.filterRevenueByCustomer(this.cars, "Company"));
     }
 
     @Test
     @DisplayName("filterRevenue for company - not null test")
     void handicappedNotNullTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
+        assertNotNull(ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
+        assertNotNull(ManagementModel.filterRevenueByCustomer(this.cars, "Company"));
     }
+
 }
