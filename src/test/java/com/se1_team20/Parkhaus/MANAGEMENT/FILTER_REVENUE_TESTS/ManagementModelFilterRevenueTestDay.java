@@ -24,5 +24,43 @@ package com.se1_team20.Parkhaus.MANAGEMENT.FILTER_REVENUE_TESTS;
 09.Jul.2021
 */
 
-public class ManagementModelFilterRevenueTestDay {
+import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel;
+import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModelTest;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class ManagementModelFilterRevenueTestDay extends ManagementModelTest {
+
+    /* TESTS FOR DAY */
+
+    @Test
+    @DisplayName("filterRevenue for day - equals test")
+    void handicappedEqualsTestFilterRevenue()
+    {
+        Assertions.assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+    }
+
+    @Test
+    @DisplayName("filterRevenue for day - not equals test")
+    void handicappedNotEqualsTestFilterRevenue()
+    {
+        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+    }
+
+    @Test
+    @DisplayName("filterRevenue for day - null test")
+    void handicappedNullTestFilterRevenue()
+    {
+        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+    }
+
+    @Test
+    @DisplayName("filterRevenue for day - not null test")
+    void handicappedNotNullTestFilterRevenue()
+    {
+        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+    }
 }
