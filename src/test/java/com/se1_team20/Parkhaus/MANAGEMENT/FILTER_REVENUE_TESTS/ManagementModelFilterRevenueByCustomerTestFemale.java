@@ -30,38 +30,37 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ManagementModelFilterRevenueByCustomerTestFemale extends ManagementModelTest {
 
     /* TESTS FOR FEMALE */
 
     @Test
-    @DisplayName("filterRevenue for female - equals test")
+    @DisplayName("filterRevenue for handicapped - equals test")
     void handicappedEqualsTestFilterRevenue()
     {
-        Assertions.assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
+        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
+        assertEquals(5168. * 2.,  ManagementModel.filterRevenueByCustomer(this.cars, "Female"));
     }
 
     @Test
-    @DisplayName("filterRevenue for female - not equals test")
+    @DisplayName("filterRevenue for handicapped - not equals test")
     void handicappedNotEqualsTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
+        assertNotEquals(5168., ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
+        assertNotEquals(0, ManagementModel.filterRevenueByCustomer(this.cars, "Female"));
     }
 
     @Test
-    @DisplayName("filterRevenue for female - null test")
-    void handicappedNullTestFilterRevenue()
-    {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
-    }
-
-    @Test
-    @DisplayName("filterRevenue for female - not null test")
+    @DisplayName("filterRevenue for handicapped - not null test")
     void handicappedNotNullTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
+        assertNotNull(ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
+        assertNotNull(ManagementModel.filterRevenueByCustomer(this.cars, "Female"));
     }
     
 }
