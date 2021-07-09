@@ -42,13 +42,9 @@
 
     <h1>Die Zahlung wurde erfolgreich abgeschlossen.</h1>
 
-    <form action="LastpageServlet" method="post">
-
-        <input type="button" name="return" value="return to simulation">
-
+    <form>
+    <input type="button" value="return to simulation" onclick="window.history.go(-4);">
     </form>
-
-
 
 </div>
 
