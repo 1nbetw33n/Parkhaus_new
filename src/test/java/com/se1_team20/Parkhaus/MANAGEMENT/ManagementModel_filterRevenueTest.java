@@ -31,32 +31,40 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ManagementModel_filterRevenueTest extends ManagementModelTest{
 
+    /* TESTS FOR HANDICAPPED */
+
     @Test
-    @DisplayName("filterRevenueByCustomerAndCar - equals test")
-    public void equalsTestFilterRevenueByCustomerAndCar()
+    @DisplayName("filterRevenue for handicapped - equals test")
+    void handicappedEqualsTestFilterRevenue()
     {
         assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
     }
 
     @Test
-    @DisplayName("filterRevenueByCustomerAndCar - not equals test")
-    public void notEqualsTestFilterRevenueByCustomerAndCar()
+    @DisplayName("filterRevenue for handicapped - not equals test")
+    void handicappedNotEqualsTestFilterRevenue()
     {
-
+        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
     }
 
     @Test
-    @DisplayName("filterRevenueByCustomerAndCar - null test")
-    public void nullTestFilterRevenueByCustomerAndCar()
+    @DisplayName("filterRevenue for handicapped - null test")
+    void handicappedNullTestFilterRevenue()
     {
-
+        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
     }
 
     @Test
-    @DisplayName("filterRevenueByCustomerAndCar - not null test")
-    public void notNullTestFilterRevenueByCustomerAndCar()
+    @DisplayName("filterRevenue for handicapped - not null test")
+    void handicappedNotNullTestFilterRevenue()
     {
-
+        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
     }
+
+    /* TESTS FOR FEMALE */
+
+    /* TESTS FOR DAY */
+
+    /* COMPANY */
 
 }
