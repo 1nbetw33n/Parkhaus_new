@@ -45,6 +45,7 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         String command              = requestParamString[0];
         String param                = requestParamString[1];
 
+        ServletContext application = request.getServletContext();
 
         RequestDispatcher requestDispatcherObject = null;
         if ("cmd".equals(command) && "customer_chart".equals(param)) {
@@ -60,10 +61,10 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
             eventDoubleAttribute(response,"average_revenue");
         }
         else if ("cmd".equals(command) && "total_cars_current".equals(param)) {
-            eventTotalCars(response);
+            eventTotalCars(response, application);
         }
         else if ("cmd".equals(command) && "total_cars_former".equals(param)) {
-            eventFormerCars(response);
+            eventFormerCars(response, application);
         }
     }
 
@@ -92,16 +93,15 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         System.out.println(attribute + " = €" + doubleAttribute);
     }
 
-    private void eventTotalCars(HttpServletResponse response) throws IOException {
-        List<CarIF> cars = (List<CarIF>) getContext().getAttribute("total_cars" + "level1");
+    private void eventTotalCars(HttpServletResponse response, ServletContext application) throws IOException {
+        int cars = (int) application.getAttribute( "total_cars" );
         final PrintWriter OUT = response.getWriter();
-        OUT.println(cars.size());
-        System.out.println("total_cars = " + cars.size());
+        OUT.println(cars);
+        System.out.println("total_cars = " + cars);
     }
 
-    private void eventFormerCars(HttpServletResponse response) throws IOException {
-
-        List<CarIF> cars = (List<CarIF>) getContext().getAttribute("former-cars" + "level1");
+    private void eventFormerCars(HttpServletResponse response, ServletContext application) throws IOException {
+        List<CarIF> cars = (List<CarIF>) application.getAttribute("former-cars" + "level1");
         final PrintWriter OUT = response.getWriter();
         OUT.println(cars.size());
         System.out.println("former_cars = " + cars.size());

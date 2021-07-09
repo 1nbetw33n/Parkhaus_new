@@ -35,8 +35,11 @@
 <head>
     <title> Management</title>
     <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
+    <script type="text/javascript">function eventDoubleAttribute(param) {
+
+    }
+
+    $(document).ready(function () {
             $('userInput, #passInput').click(function () {
                 $("#errMsg").hide();
             });
@@ -57,9 +60,10 @@
 <body>
 
 <body>
+
 <div style="text-align: center;">
     <form id="buttonFormId" name="buttonForm" method="get" action="ManagementServlet">
-        <button name="cmd" type="submit" value="total_revenue"/>
+        <button name="cmd" type="button" value="total_revenue"/>
         Total Revenue</button>
         <button name="cmd" type="submit" value="average_revenue"/>
         Average Revenue</button>
