@@ -36,14 +36,14 @@
 <div style="text-align:center">
     <h1>Parkhaus Simulation</h1>
 
-    <p>Bitte loggen Sie sich ein</p>
+    <p>Bitte loggen Sie sich mit ihrem Hochschulaccount</p>
 </div>
 
 <div style="text-align:center">
 
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Zeichen_314-50_-_Parkhaus%2C_Parkgarage%2C_StVO_2017.svg" alt="Parkhaus_Logo" width="200" height="200">
 
-    <form>
+    <form action="FirstpageServlet" method="post">
 
         <div style="text-indent:-100px">
 
