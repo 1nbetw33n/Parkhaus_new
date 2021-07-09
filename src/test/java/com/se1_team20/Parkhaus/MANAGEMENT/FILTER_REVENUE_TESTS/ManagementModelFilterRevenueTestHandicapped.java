@@ -18,18 +18,21 @@
  *
  */
 
-package com.se1_team20.Parkhaus.MANAGEMENT;
+package com.se1_team20.Parkhaus.MANAGEMENT.FILTER_REVENUE_TESTS;
 /*
 1nbetw33n
 09.Jul.2021
 */
 
+import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel;
+import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModelTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ManagementModelFilterRevenueTestHandicapped extends ManagementModelTest{
+public class ManagementModelFilterRevenueTestHandicapped extends ManagementModelTest {
 
     /* TESTS FOR HANDICAPPED */
 
@@ -37,7 +40,7 @@ public class ManagementModelFilterRevenueTestHandicapped extends ManagementModel
     @DisplayName("filterRevenue for handicapped - equals test")
     void handicappedEqualsTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        Assertions.assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
     }
 
     @Test
