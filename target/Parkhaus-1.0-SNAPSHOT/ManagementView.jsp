@@ -58,10 +58,25 @@
 
 <body>
 <div style="text-align: center;">
+    <form id="buttonFormId" name="buttonForm" method="get" action="ManagementServlet">
+        <button name="cmd" type="submit" value="total_revenue"/>
+        Total Revenue</button>
+        <button name="cmd" type="submit" value="average_revenue"/>
+        Average Revenue</button>
+        <button name="cmd" type="submit" value="total_cars_current"/>
+        Current Cars</button>
+        <button name="cmd" type="submit" value="total_cars_former"/>
+        Former Cars</button>
+    </form>
+</div>
+</body>
+
+<body>
+<div style="text-align: center;">
     <form id="chartFormId" name="chartForm" method="get" action="ManagementServlet">
-        <button name="cmd" type="submit" value="chart1"/>
+        <button name="cmd" type="submit" value="customer_chart"/>
         Customer Overview</button>
-        <button name="cmd" type="submit" value="chart2"/>
+        <button name="cmd" type="submit" value="income_chart"/>
         Income Overview</button>
     </form>
 </div>
