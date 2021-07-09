@@ -26,14 +26,12 @@ package com.se1_team20.Parkhaus.MANAGEMENT.FILTER_REVENUE_TESTS;
 
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel;
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModelTest;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ManagementModelFilterRevenueByCustomerTestCompany extends ManagementModelTest {
     
@@ -44,7 +42,7 @@ public class ManagementModelFilterRevenueByCustomerTestCompany extends Managemen
     void handicappedEqualsTestFilterRevenue()
     {
         assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
-        assertEquals(5168. * 2.,  ManagementModel.filterRevenueByCustomer(this.cars, "Company"));
+        assertEquals(5168. * 5.,  ManagementModel.filterRevenueByCustomer(this.cars, "Company"));
     }
 
     @Test
