@@ -25,6 +25,9 @@
   Time: 13:51
   To change this template use File | Settings | File Templates.
 --%>
+
+<%-- Erstellt von Preet--%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -39,13 +42,9 @@
 
     <h1>Die Zahlung wurde erfolgreich abgeschlossen.</h1>
 
-    <button onclick="goBack()">goback</button>
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+    <form>
+    <input type="button" value="return to simulation" onclick="window.history.go(-3);">
+    </form>
 
 </div>
 

@@ -17,35 +17,26 @@
  * se1_team20.
  *
  */
-/*Erstellt und bearbeitet von Preet*/
+
 package com.se1_team20.Parkhaus.PAYMENT;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-@WebServlet(name = "LastpageServlet", value = "/LastpageServlet")
-public class LastpageServlet extends HttpServlet {
-
+@WebServlet("/FirstpageServlet")
+public class FirstpageServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html");
 
-       // PrintWriter out= response.getWriter();
-
-       /* String cmd=request.getParameter("return");
-
-        if(cmd.equals("return to simulation")){
-
-            out.write("<meta http-equiv='refresh' content='0;URL='index.jsp'>");
-        }*/
-
-        request.getRequestDispatcher("Abschluss.jsp").forward(request,response);
+        request.getRequestDispatcher("index.jsp").forward(request,response);
     }
 }
