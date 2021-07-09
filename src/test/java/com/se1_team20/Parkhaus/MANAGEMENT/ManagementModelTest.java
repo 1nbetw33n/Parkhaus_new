@@ -51,7 +51,7 @@ public class ManagementModelTest {
     void setUp() {
         mModel = new ManagementModel();
         cars = new ArrayList<>(5);
-        car1 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
+        car1 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "516°8", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
         car2 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Limousine", "SU-T 87"});
         car3 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Limousine", "SU-T 87"});
         car4 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Handicapped", "Limousine", "SU-T 87"});
