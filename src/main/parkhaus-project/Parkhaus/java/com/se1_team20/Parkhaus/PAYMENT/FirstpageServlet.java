@@ -35,5 +35,8 @@ public class FirstpageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        response.setContentType("text/html");
+
+        request.getRequestDispatcher("index.jsp").forward(request,response);
     }
 }
