@@ -75,8 +75,6 @@
     <div align=com.se1_team20.Parkhaus.CHECKOUT.CheckoutServlet"center"></div>
     <table style="  width:300px" align="center" border="1">
         <tr bgcolor="purple" >
-            <td><span style="color: white; "><b>From</b></span></td>
-            <td><span style="color: white; "><b>Till</b></span></td>
             <td><span style="color: white; "><b>Duration</b></span></td>
             <td><span style="color: white; "><b>CustomerType</b></span></td>
             <td><span style="color: white; "><b>VehicleType</b></span></td>
@@ -86,8 +84,6 @@
             <td><span style="color: white; "><b>Price</b></span></td>
         </tr>
         <tr>
-            <td><%= checkedOutCar.begin()%></td>
-            <td><%= checkedOutCar.end()%></td>
             <td><%= checkedOutCar.duration() / 10000. + "s"%></td>
             <td><%= checkedOutCar.kunde()%></td>
             <td><%= checkedOutCar.typeCar()%></td>
