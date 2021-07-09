@@ -48,7 +48,7 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
     {
         response.setContentType("text/html");
         final String enteredLicensePlate  = request.getParameter("entered_license_plate");
-        final List<CarIF> CARS               = (ArrayList<CarIF>) request.getServletContext().getAttribute("former-cars" + "Level1");
+        final List<CarIF> CARS               = (List<CarIF>) request.getServletContext().getAttribute("former-cars" + "Level1");
         final PrintWriter OUT                   = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         if (CheckoutModel.filterByLicensePlate(CARS, enteredLicensePlate) == null) {this.handleInvalid(OUT);}
