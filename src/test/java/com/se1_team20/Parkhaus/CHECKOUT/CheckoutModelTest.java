@@ -83,6 +83,8 @@ class CheckoutModelTest {
     @DisplayName("filterByLicensePlate - not equals test")
     void notEqualsTestFilterByLicensePlate() {
         assertNotEquals(this.car2, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 30"));
+        assertNotEquals(this.car3, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 29"));
+        assertNotEquals(this.car4, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 330"));
     }
 
     @Test
