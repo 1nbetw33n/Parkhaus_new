@@ -42,30 +42,30 @@ public class ManagementModelFilterRevenueByCustomerTestHandicapped extends Manag
     @DisplayName("filterRevenue for handicapped - equals test")
     void handicappedEqualsTestFilterRevenue()
     {
-        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Handicapped"));;
-        assertEquals(5168.,  ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
+        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Handicapped"));
+        assertEquals(5168.,  ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));
     }
 
     @Test
     @DisplayName("filterRevenue for handicapped - not equals test")
     void handicappedNotEqualsTestFilterRevenue()
     {
-        assertNotEquals(5168., ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Handicapped"));;
-        assertNotEquals(0, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
+        assertNotEquals(5168., ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Handicapped"));
+        assertNotEquals(0, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));
     }
 
     @Test
     @DisplayName("filterRevenue for handicapped - null test")
     void handicappedNullTestFilterRevenue()
     {
-        assertEquals(0.3, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
+        assertEquals(0.3, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));
     }
 
     @Test
     @DisplayName("filterRevenue for handicapped - not null test")
     void handicappedNotNullTestFilterRevenue()
     {
-        assertEquals(0.4, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
+        assertEquals(0.4, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));
     }
 
 }
