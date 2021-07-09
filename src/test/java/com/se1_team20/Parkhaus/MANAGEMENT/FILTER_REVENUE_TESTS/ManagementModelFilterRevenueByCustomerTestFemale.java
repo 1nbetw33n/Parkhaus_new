@@ -52,7 +52,7 @@ public class ManagementModelFilterRevenueByCustomerTestFemale extends Management
     void handicappedNotEqualsTestFilterRevenue()
     {
         assertNotEquals(5168., ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
-        assertNotEquals(0, ManagementModel.filterRevenueByCustomer(this.cars, "Female"));
+        assertNotEquals(5168., ManagementModel.filterRevenueByCustomer(this.cars, "Female"));
     }
 
     @Test
