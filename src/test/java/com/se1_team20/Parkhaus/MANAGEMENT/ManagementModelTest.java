@@ -33,19 +33,19 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ManagementModelTest {
+public class ManagementModelTest {
 
     ManagementModel mModel;
-    CarIF car1;
-    CarIF car2;
-    CarIF car3;
-    CarIF car4;
-    CarIF car5;
-    CarIF car6;
-    CarIF car7;
-    CarIF car8;
-    CarIF car9;
-    List<CarIF>     cars;
+    protected CarIF car1;
+    protected CarIF car2;
+    protected CarIF car3;
+    protected CarIF car4;
+    protected CarIF car5;
+    protected CarIF car6;
+    protected CarIF car7;
+    protected CarIF car8;
+    protected CarIF car9;
+    protected List<CarIF>     cars;
 
     @BeforeEach
     void setUp() {
