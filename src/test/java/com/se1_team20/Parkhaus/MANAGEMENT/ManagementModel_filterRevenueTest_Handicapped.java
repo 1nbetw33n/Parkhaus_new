@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ManagementModel_filterRevenueTest extends ManagementModelTest{
+public class ManagementModel_filterRevenueTest_Handicapped extends ManagementModelTest{
 
     /* TESTS FOR HANDICAPPED */
 
