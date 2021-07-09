@@ -51,7 +51,7 @@ public class ManagementModelFilterRevenueByCustomerTestDay extends ManagementMod
     @DisplayName("filterRevenue for day - not equals test")
     void dayNotEqualsTestFilterRevenue()
     {
-        assertNotEquals(5168. * 5, ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
+        assertNotEquals(5168. * 3, ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
         assertNotEquals(0., ManagementModel.filterRevenueByCustomer(this.cars, "Day"));
     }
 
