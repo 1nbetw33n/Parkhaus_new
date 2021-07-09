@@ -36,14 +36,14 @@
 <div style="text-align:center">
     <h1>Parkhaus Simulation</h1>
 
-    <p>Bitte loggen Sie sich ein</p>
+    <p>Bitte loggen Sie sich mit ihrem Hochschulaccount</p>
 </div>
 
 <div style="text-align:center">
 
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Zeichen_314-50_-_Parkhaus%2C_Parkgarage%2C_StVO_2017.svg" alt="Parkhaus_Logo" width="200" height="200">
 
-    <form>
+    <form action="FirstpageServlet" method="post">
 
         <div style="text-indent:-100px">
 
@@ -55,7 +55,7 @@
         <div style="text-indent:-68px">
 
             <label for="pword">Password:</label>
-            <input type="text" size="20" maxlength="20" id="pword" name="pword" onvalid="alert('Geben Sie bitte ein beantragtes Passwort');" pattern="[a-zA-Z0-9]{7}" required/><br><br>
+            <input type="password" size="20" maxlength="20" id="pword" name="pword" onvalid="alert('Geben Sie bitte ein beantragtes Passwort');" pattern="[a-zA-Z0-9]{7}" required/><br><br>
 
         </div>
 
