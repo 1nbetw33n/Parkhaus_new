@@ -73,18 +73,12 @@
                 });
             });
         </script>
-        <style>
-            .paddingBtm{
-                padding-bottom: 12px;
-            }
-        </style>
     </head>
     <%ServletContext context = request.getServletContext();%>
-    <%ArrayList<CarIF> carsThatLeft = (ArrayList<CarIF>) context.getAttribute("former-cars" + "Level1");%>
-    <%String enteredLicensePlate = request.getParameter("entered_license_plate");%>
+    <%CarIF checkedOutCar = (CarIF) context.getAttribute("checked_out_car");%>
     <%PrintWriter OUT = response.getWriter();%>
     <%OUT.println("<h1><center>Checkout</center></h1>");%>
-    <%if (carsThatLeft == null) {OUT.println("<center>There is no car to checkout</center>");
+    <%if (checkedOutCar == null) {OUT.println("<center>There is no car to checkout</center>");
           } else { %>
     <div align=com.se1_team20.Parkhaus.CHECKOUT.CheckoutServlet"center"></div>
     <table style="  width:300px" align="center" border="1">
@@ -96,12 +90,11 @@
             <td>Car-Type</td>
             <td>ParkingSpaceNumber</td>
         </tr>
-            <%CarIF checkedOutCar = CheckoutModel.filterByLicensePlate(carsThatLeft, enteredLicensePlate);%>
         <tr>
             <td><%= checkedOutCar.licensePlate()%></td>
             <td><%= checkedOutCar.kunde()%></td>
             <td><%= checkedOutCar.duration()/1000 + "min"%></td>
-            <td><%= "€" + checkedOutCar.price() / 100.%></td>
+            <td><%= checkedOutCar.price() / 100. + ",-"%></td>
             <td><%= checkedOutCar.typeCar()%></td>
             <td><%= checkedOutCar.space()%></td>
         </tr>
