@@ -35,7 +35,7 @@ public class ManagementModel_filterRevenueTest extends ManagementModelTest{
     @DisplayName("filterRevenueByCustomerAndCar - equals test")
     public void equalsTestFilterRevenueByCustomerAndCar()
     {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomerAndCar(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
     }
 
     @Test
