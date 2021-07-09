@@ -26,9 +26,10 @@ package com.se1_team20.Parkhaus.MANAGEMENT.FILTER_REVENUE_TESTS;
 
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel;
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModelTest;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -40,28 +41,29 @@ public class ManagementModelFilterRevenueTestHandicapped extends ManagementModel
     @DisplayName("filterRevenue for handicapped - equals test")
     void handicappedEqualsTestFilterRevenue()
     {
-        Assertions.assertEquals(0.1, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Handicapped"));;
+        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
     }
 
     @Test
     @DisplayName("filterRevenue for handicapped - not equals test")
     void handicappedNotEqualsTestFilterRevenue()
     {
-        assertEquals(0.2, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertEquals(0.2, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
     }
 
     @Test
     @DisplayName("filterRevenue for handicapped - null test")
     void handicappedNullTestFilterRevenue()
     {
-        assertEquals(0.3, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertEquals(0.3, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
     }
 
     @Test
     @DisplayName("filterRevenue for handicapped - not null test")
     void handicappedNotNullTestFilterRevenue()
     {
-        assertEquals(0.4, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertEquals(0.4, ManagementModel.filterRevenueByCustomer(this.cars, "Handicapped"));;
     }
 
 }
