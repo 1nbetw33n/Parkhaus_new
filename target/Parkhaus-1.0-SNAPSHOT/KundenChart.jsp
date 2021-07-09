@@ -68,7 +68,7 @@
         String dataDisplay2 = Long.toString(data2);
         data3 = mModel.filterAmountOfCustomerType(cars, "Female");
         String dataDisplay3 = Long.toString(data3);
-        data4 = mModel.filterAmountOfCustomerType(cars, "Company");
+        data4 = mModel.filterAmountOfCustomerType(cars, "Handicapped");
         String dataDisplay4 = Long.toString(data4);
 
 %>

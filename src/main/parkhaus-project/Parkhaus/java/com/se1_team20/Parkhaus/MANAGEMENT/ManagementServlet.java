@@ -47,7 +47,6 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
 
         ServletContext application = request.getServletContext();
 
-        RequestDispatcher requestDispatcherObject = null;
         if ("cmd".equals(command) && "customer_chart".equals(param)) {
             request.getRequestDispatcher("KundenChart.jsp").forward(request,response);
         }
@@ -94,14 +93,14 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
     }
 
     private void eventTotalCars(HttpServletResponse response, ServletContext application) throws IOException {
-        int cars = (int) application.getAttribute( "total_cars" );
+        int cars = (int) getContext().getAttribute("total_cars");
         final PrintWriter OUT = response.getWriter();
         OUT.println(cars);
         System.out.println("total_cars = " + cars);
     }
 
     private void eventFormerCars(HttpServletResponse response, ServletContext application) throws IOException {
-        List<CarIF> cars = (List<CarIF>) application.getAttribute("former-cars" + "level1");
+        List<CarIF> cars = (List<CarIF>) getContext().getAttribute("former-cars" + "Level1");
         final PrintWriter OUT = response.getWriter();
         OUT.println(cars.size());
         System.out.println("former_cars = " + cars.size());
