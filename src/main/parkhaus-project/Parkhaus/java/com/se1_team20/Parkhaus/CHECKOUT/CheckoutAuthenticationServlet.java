@@ -48,11 +48,11 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
     {
         response.setContentType("text/html");
         final String enteredLicensePlate  = request.getParameter("entered_license_plate");
-        final ArrayList<CarIF> CARS     = (ArrayList<CarIF>) request.getServletContext().getAttribute("former-cars" + "Level1");
-        final PrintWriter OUT                  = response.getWriter();
+        final List<CarIF> CARS               = (ArrayList<CarIF>) request.getServletContext().getAttribute("former-cars" + "Level1");
+        final PrintWriter OUT                   = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         if (CheckoutModel.filterByLicensePlate(CARS, enteredLicensePlate) == null) {this.handleInvalid(OUT);}
-        else{this.handleSuccess(enteredLicensePlate, response, request); }
+        else{this.handleSuccess(response, request, CheckoutModel.filterByLicensePlate(CARS, enteredLicensePlate)); }
         OUT.write("</div></body></html>");
         OUT.close();
     }
@@ -64,9 +64,9 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
     }
 
     //Bearbeitet von Rahgawi
-    private void handleSuccess(final String EVENT, HttpServletResponse response, final HttpServletRequest request) throws ServletException, IOException {
+    private void handleSuccess(HttpServletResponse response, final HttpServletRequest request, final CarIF CAR) throws ServletException, IOException {
+        getContext().setAttribute("checked_out_car", CAR);
         request.getRequestDispatcher("CheckoutView.jsp").forward(request, response);
-        getContext().setAttribute("carNr", EVENT);
     }
 
 
