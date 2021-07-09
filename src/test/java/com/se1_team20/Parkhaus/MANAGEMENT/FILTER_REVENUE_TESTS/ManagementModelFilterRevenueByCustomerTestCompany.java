@@ -39,7 +39,7 @@ public class ManagementModelFilterRevenueByCustomerTestCompany extends Managemen
 
     @Test
     @DisplayName("filterRevenue for company - equals test")
-    void handicappedEqualsTestFilterRevenue()
+    void companyEqualsTestFilterRevenue()
     {
         assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
         assertEquals(5168. * 5.,  ManagementModel.filterRevenueByCustomer(this.cars, "Company"));
@@ -47,7 +47,7 @@ public class ManagementModelFilterRevenueByCustomerTestCompany extends Managemen
 
     @Test
     @DisplayName("filterRevenue for company - not equals test")
-    void handicappedNotEqualsTestFilterRevenue()
+    void companyNotEqualsTestFilterRevenue()
     {
         assertNotEquals(5168. * 5, ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
         assertNotEquals(0., ManagementModel.filterRevenueByCustomer(this.cars, "Company"));
@@ -55,7 +55,7 @@ public class ManagementModelFilterRevenueByCustomerTestCompany extends Managemen
 
     @Test
     @DisplayName("filterRevenue for company - not null test")
-    void handicappedNotNullTestFilterRevenue()
+    void companyNotNullTestFilterRevenue()
     {
         assertNotNull(ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
         assertNotNull(ManagementModel.filterRevenueByCustomer(this.cars, "Company"));

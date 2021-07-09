@@ -30,7 +30,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ManagementModelFilterRevenueByCustomerTestDay extends ManagementModelTest {
 
@@ -38,29 +41,26 @@ public class ManagementModelFilterRevenueByCustomerTestDay extends ManagementMod
 
     @Test
     @DisplayName("filterRevenue for day - equals test")
-    void handicappedEqualsTestFilterRevenue()
+    void dayEqualsTestFilterRevenue()
     {
-        Assertions.assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
+        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
+        assertEquals(5168. * 3.,  ManagementModel.filterRevenueByCustomer(this.cars, "Day"));
     }
 
     @Test
     @DisplayName("filterRevenue for day - not equals test")
-    void handicappedNotEqualsTestFilterRevenue()
+    void dayNotEqualsTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
-    }
-
-    @Test
-    @DisplayName("filterRevenue for day - null test")
-    void handicappedNullTestFilterRevenue()
-    {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
+        assertNotEquals(5168. * 5, ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
+        assertNotEquals(0., ManagementModel.filterRevenueByCustomer(this.cars, "Day"));
     }
 
     @Test
     @DisplayName("filterRevenue for day - not null test")
-    void handicappedNotNullTestFilterRevenue()
+    void dayNotNullTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
+        assertNotNull(ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
+        assertNotNull(ManagementModel.filterRevenueByCustomer(this.cars, "Day"));
     }
+
 }
