@@ -91,6 +91,11 @@ class CheckoutModelTest {
     @DisplayName("filterByLicensePlate - null test")
     void nullTestFilterByLicensePlate() {
         assertNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-I 3456tdf0"));
+        assertNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-I 34dfshgtrsz56tdf0"));
+        assertNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-I h34hgfsdzutr56tdf0"));
+        assertNull(CheckoutModel.filterByLicensePlate(this.cars, ""));
+        assertNull(CheckoutModel.filterByLicensePlate(this.cars, " "));
+        assertNull(CheckoutModel.filterByLicensePlate(this.cars, "        "));
     }
 
     @Test
