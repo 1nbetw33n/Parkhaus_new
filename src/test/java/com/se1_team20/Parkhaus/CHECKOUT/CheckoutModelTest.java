@@ -46,10 +46,10 @@ class CheckoutModelTest {
 
     @BeforeEach
     void setUp() {
-        this.car1 = new Car("leave,13,1625674332094,19500,3900,5de55913446d18eded0c2ebec25c762f,#3f0dac,2,Day,Limousine,SU-I 30".split(","));       
-        this.car2 = new Car("leave,10,1625674332304,21970,4394,5137014724d32c81a6d4b9c8f66ab270,#63160c,3,Day,SUV,SU-K 77".split(","));             
-        this.car3 = new Car("leave,77,1625674332605,24050,4810,61eb87b183a251d99e4baf4691c69014,#da31f4,4,Day,Limousine,SU-Q 94".split(","));       
-        this.car4 = new Car("leave,27,1625674351559,10590,2118,fcb6f3f4c8792327ae70777eb88bf8a4,#fcbe19,7,Female,Limousine,SU-F 7".split(","));     
+        this.car1 = new Car("leave,13,1625674332094,19500,3900,5de55913446d18eded0c2ebec25c762f,#3f0dac,2,Day,Limousine,SU-I 30".split(","));
+        this.car2 = new Car("leave,10,1625674332304,21970,4394,5137014724d32c81a6d4b9c8f66ab270,#63160c,3,Day,SUV,SU-K 77".split(","));
+        this.car3 = new Car("leave,77,1625674332605,24050,4810,61eb87b183a251d99e4baf4691c69014,#da31f4,4,Day,Limousine,SU-Q 94".split(","));
+        this.car4 = new Car("leave,27,1625674351559,10590,2118,fcb6f3f4c8792327ae70777eb88bf8a4,#fcbe19,7,Female,Limousine,SU-F 7".split(","));
         this.car5 = new Car("leave,83,1625674351397,16340,3268,2ccd96976fe59639a2b5c5eddf8eb19e,#bb092c,9,Handicapped,Limousine,SU-T 8".split(","));
         this.cars = new ArrayList<>();
         this.cars.add(this.car1);
@@ -70,11 +70,26 @@ class CheckoutModelTest {
     }
 
     @Test
-    @DisplayName("filter by license")
-    void testFilterByLicensePlate() {
+    @DisplayName("filterByLicensePlate - equals test")
+    void equalsTestFilterByLicensePlate() {
         assertEquals(this.car1, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 30"));
+    }
+
+    @Test
+    @DisplayName("filterByLicensePlate - not equals test")
+    void notEqualsTestFilterByLicensePlate() {
         assertNotEquals(this.car2, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 30"));
+    }
+
+    @Test
+    @DisplayName("filterByLicensePlate - null test")
+    void nullTestFilterByLicensePlate() {
         assertNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-I 3456tdf0"));
+    }
+
+    @Test
+    @DisplayName("filterByLicensePlate - not null test")
+    void notNullTestFilterByLicensePlateLowerLimit() {
         assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-Q 94"));
     }
 
