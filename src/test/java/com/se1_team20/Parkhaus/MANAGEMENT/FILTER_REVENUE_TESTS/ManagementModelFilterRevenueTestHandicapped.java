@@ -64,10 +64,4 @@ public class ManagementModelFilterRevenueTestHandicapped extends ManagementModel
         assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
     }
 
-    /* TESTS FOR FEMALE */
-
-    /* TESTS FOR DAY */
-
-    /* COMPANY */
-
 }
