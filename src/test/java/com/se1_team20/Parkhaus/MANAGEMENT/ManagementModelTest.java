@@ -36,21 +36,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ManagementModelTest {
 
     ManagementModel mModel;
+    CarIF car1;
+    CarIF car2;
+    CarIF car3;
+    CarIF car4;
+    CarIF car5;
+    CarIF car6;
+    CarIF car7;
+    CarIF car8;
+    CarIF car9;
     List<CarIF>     cars;
 
     @BeforeEach
     void setUp() {
         mModel = new ManagementModel();
-        cars = new ArrayList<CarIF>(5);
-        CarIF car1 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
-        CarIF car2 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Limousine", "SU-T 87"});
-        CarIF car3 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Limousine", "SU-T 87"});
-        CarIF car4 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Handicapped", "Limousine", "SU-T 87"});
-        CarIF car5 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Van", "SU-T 87"});
-        CarIF car6 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "SUV", "SU-T 87"});
-        CarIF car7 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Motorcycle", "SU-T 87"});
-        CarIF car8 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
-        CarIF car9 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
+        cars = new ArrayList<>(5);
+        car1 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
+        car2 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Limousine", "SU-T 87"});
+        car3 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Limousine", "SU-T 87"});
+        car4 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Handicapped", "Limousine", "SU-T 87"});
+        car5 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Van", "SU-T 87"});
+        car6 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "SUV", "SU-T 87"});
+        car7 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Motorcycle", "SU-T 87"});
+        car8 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
+        car9 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
         cars.add(car1);
         cars.add(car2);
         cars.add(car3);
@@ -66,7 +75,16 @@ class ManagementModelTest {
     void tearDown() {
         mModel = null;
         cars = null;
-    }
+        car1 = null;
+        car2 = null;
+        car3 = null;
+        car4 = null;
+        car5 = null;
+        car6 = null;
+        car7 = null;
+        car8 = null;
+        car9 = null;
+    }          
 
     @Test
     void filterAmountOfType() {
