@@ -73,6 +73,10 @@ class CheckoutModelTest {
     @DisplayName("filterByLicensePlate - equals test")
     void equalsTestFilterByLicensePlate() {
         assertEquals(this.car1, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 30"));
+        assertEquals(this.car2, CheckoutModel.filterByLicensePlate(this.cars, "SU-K 77"));
+        assertEquals(this.car3, CheckoutModel.filterByLicensePlate(this.cars, "SU-Q 94"));
+        assertEquals(this.car4, CheckoutModel.filterByLicensePlate(this.cars, "SU-F 7"));
+        assertEquals(this.car5, CheckoutModel.filterByLicensePlate(this.cars, "SU-T 8"));
     }
 
     @Test
