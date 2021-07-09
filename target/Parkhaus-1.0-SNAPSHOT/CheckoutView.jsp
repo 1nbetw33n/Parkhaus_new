@@ -93,7 +93,7 @@
         <tr>
             <td><%= checkedOutCar.licensePlate()%></td>
             <td><%= checkedOutCar.kunde()%></td>
-            <td><%= checkedOutCar.duration()/1000 + "min"%></td>
+            <td><%= checkedOutCar.duration()/10000. + "s"%></td>
             <td><%= checkedOutCar.price() / 100. + ",-"%></td>
             <td><%= checkedOutCar.typeCar()%></td>
             <td><%= checkedOutCar.space()%></td>
