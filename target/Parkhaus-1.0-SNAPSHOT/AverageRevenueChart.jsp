@@ -28,5 +28,8 @@
 	<head>
 		<title>Total Daily Revenue</title>
 	</head>
+	<body>
+
+	</body>
 </html>
 
