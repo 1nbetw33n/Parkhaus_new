@@ -27,41 +27,36 @@
 --%>
 <!DOCTYPE html>
 <html>
-<body style="background-color: bisque">
 <head>
-    <title>Payment Step2</title>
+    <title>Payment_Step2</title>
 </head>
-
+<body style="background-color:yellow">
 <div style="text-align:center">
-    <h1>Geben Sie bitte ihren Bankdaten ein</h1>
+    <h1>Geben Sie bitte die Email Adresse und das Passwort ein </h1>
 </div>
 
 <div style="text-align:center">
 
     <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_200x51.png" alt="PayPal" />
+    <form>
 
+        <div style="margin-left:38%;">
+            <div style="float:left;">
+                <label style="display:block; line-height:24px;">Email Adresse</label>
+                <label style="display:block; line-height:24px;">Passwort</label>
 
-    <form action="LastpageServlet" method="post">
-
-        <div style="text-indent:50px">
-            <label for="mail">E-Mail:</label>
-            <input type="text" id="mail" name="mail" size="40" maxlength="40" oninvalid="alert('Invalid email address'); "pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Invalid mail" placeholder="Enter your email address" required><br><br>
-
+            </div>
+            <input style="display:block;" type="text" size="30" maxlength="30" name="mail" oninvalid="alert('Not a valid mail adress');" name="fname" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+            <input style="display:block;" type="password" size="30" maxlength="30" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
+            <input style="display:block;" type="submit" name="formaction" value="Pay" />
         </div>
 
-        <div style="text-indent:-30px">
-            <label for="pword">Password:</label>
-            <input type="password" id="pword" name="pword" size="30" maxlength="30" oninvalid="alert('The password must be of 8 characters with atleast one big letter, small letter and special character'); "pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Invalid password" placeholder="Enter password" required><br><br>
-
-        </div>
-
-
-
-        <input type="submit" value="Pay">
     </form>
 
 </div>
+</div>
+
+
 
 </body>
 </html>
-

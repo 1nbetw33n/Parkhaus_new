@@ -39,11 +39,10 @@ public class ManagementModel {
     }
 
     /* created by 1nbetw33n */
-    public static Double filterRevenue(final List<CarIF>CARS, final String CUSTOMERTYPE, final String CARTYPE)
+    public static Double filterRevenueByCustomer(final List<CarIF>CARS, final String CUSTOMERTYPE)
     {
         return CARS.stream()
                 .filter(x -> x.kunde().equals(CUSTOMERTYPE))
-                    .filter(x -> x.typeCar().equals(CARTYPE))
                         .mapToDouble(CarIF::price)
                             .reduce(0, Double::sum);
     }
