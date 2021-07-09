@@ -59,10 +59,7 @@
         }
     }
 </script>
-</body>
-<body>
 
-<body>
 <% ServletContext sc = request.getServletContext();
 
 
@@ -119,9 +116,7 @@
         Former Cars</button>
     </form>
 </div>
-</body>
 
-<body>
 <div style="text-align: center;">
     <form id="chartFormId" name="chartForm" method="get" action="ManagementServlet">
         <button name="cmd" type="submit" value="customer_chart"/>
@@ -130,7 +125,7 @@
         Income Overview</button>
     </form>
 </div>
-</body>
+
 
 <% if (former_cars == null) {
     PrintWriter OUT = response.getWriter();
