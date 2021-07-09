@@ -24,31 +24,33 @@ import com.se1_team20.Parkhaus.PARKHAUS.Car;
 import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ManagementModelTest {
 
     ManagementModel mModel;
-    List<CarIF> cars;
+    List<CarIF>     cars;
 
     @BeforeEach
     void setUp() {
         mModel = new ManagementModel();
         cars = new ArrayList<CarIF>(5);
-        CarIF car1 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Day","Limousine","SU-T 87"});
-        CarIF car2 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Limousine","SU-T 87"});
-        CarIF car3 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Limousine","SU-T 87"});
-        CarIF car4 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Handicapped","Limousine","SU-T 87"});
-        CarIF car5 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Van","SU-T 87"});
-        CarIF car6 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","SUV","SU-T 87"});
-        CarIF car7 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Company","Motorcycle","SU-T 87"});
-        CarIF car8 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Day","Limousine","SU-T 87"});
-        CarIF car9 = new Car(new String[]{"leave","55","1625583886541","25840","5168","664482a016d1d5c563de606659b11d61","#bd6764","1","Day","Limousine","SU-T 87"});
+        CarIF car1 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
+        CarIF car2 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Limousine", "SU-T 87"});
+        CarIF car3 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Limousine", "SU-T 87"});
+        CarIF car4 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Handicapped", "Limousine", "SU-T 87"});
+        CarIF car5 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Van", "SU-T 87"});
+        CarIF car6 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "SUV", "SU-T 87"});
+        CarIF car7 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Motorcycle", "SU-T 87"});
+        CarIF car8 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
+        CarIF car9 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
         cars.add(car1);
         cars.add(car2);
         cars.add(car3);
@@ -68,26 +70,56 @@ class ManagementModelTest {
 
     @Test
     void filterAmountOfType() {
-        assertEquals(2L,mModel.filterAmountOfCustomerType(cars,"Day"));
-        assertEquals(5L, mModel.filterAmountOfCustomerType(cars,"Company"));
-        assertEquals(1L, mModel.filterAmountOfCustomerType(cars,"Handicapped"));
-        assertEquals(0L, mModel.filterAmountOfCustomerType(cars,"Female"));
+        assertEquals(2L, mModel.filterAmountOfCustomerType(cars, "Day"));
+        assertEquals(5L, mModel.filterAmountOfCustomerType(cars, "Company"));
+        assertEquals(1L, mModel.filterAmountOfCustomerType(cars, "Handicapped"));
+        assertEquals(0L, mModel.filterAmountOfCustomerType(cars, "Female"));
     }
 
     @Test
     void filterPercentagesOfType() {
-        assertEquals(0L,mModel.filterPercentagesOfCustomerType(cars,"Day"));
-        assertEquals(100L, mModel.filterPercentagesOfCustomerType(cars,"Company"));
+        assertEquals(0L, mModel.filterPercentagesOfCustomerType(cars, "Day"));
+        assertEquals(100L, mModel.filterPercentagesOfCustomerType(cars, "Company"));
     }
 
     @Test
     void filterDurationCustomerCar() {
-        assertEquals(25840L, mModel.filterDurationCustomerCar(cars,"Handicapped","Limousine"));
-        assertEquals(51680L, mModel.filterDurationCustomerCar(cars,"Company","Limousine"));
+        assertEquals(25840L, mModel.filterDurationCustomerCar(cars, "Handicapped", "Limousine"));
+        assertEquals(51680L, mModel.filterDurationCustomerCar(cars, "Company", "Limousine"));
         assertEquals(77520L, mModel.filterDurationCustomerCar(cars, "Day", "Limousine"));
-        assertEquals(25840L, mModel.filterDurationCustomerCar(cars,"Company", "Motorcycle"));
-        assertEquals(0L, mModel.filterDurationCustomerCar(cars,"Female", "SUV"));
+        assertEquals(25840L, mModel.filterDurationCustomerCar(cars, "Company", "Motorcycle"));
+        assertEquals(0L, mModel.filterDurationCustomerCar(cars, "Female", "SUV"));
     }
+
+    @Test
+    @DisplayName("filterRevenueByCustomerAndCar - equals test")
+    public void equalsTestFilterRevenueByCustomerAndCar()
+    {
+        assertEquals(0.0, ManagementModel.filterRevenueByCustomerAndCar(this.cars, "CUSTOMERTYPE", "CARTYPE")
+                                         .doubleValue());
+    }
+
+    @Test
+    @DisplayName("filterRevenueByCustomerAndCar - not equals test")
+    public void notEqualsTestFilterRevenueByCustomerAndCar()
+    {
+
+    }
+
+    @Test
+    @DisplayName("filterRevenueByCustomerAndCar - null test")
+    public void nullTestFilterRevenueByCustomerAndCar()
+    {
+
+    }
+
+    @Test
+    @DisplayName("filterRevenueByCustomerAndCar - not null test")
+    public void notNullTestFilterRevenueByCustomerAndCar()
+    {
+
+    }
+
 
     @Test
     void filterDurationCustomer() {
