@@ -24,13 +24,11 @@ import com.se1_team20.Parkhaus.PARKHAUS.Car;
 import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ManagementModelTest {
