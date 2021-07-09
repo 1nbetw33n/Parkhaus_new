@@ -1,7 +1,8 @@
 <%@ page import="com.se1_team20.Parkhaus.PARKHAUS.CarIF" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel" %><%--
+<%@ page import="com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel" %>
+<%--
   ~ /* copyright (c) 2021 se1_team20.
   ~  Planet Earth, Milky Way, Virgo Supercluster.
   ~  All rights reserved.
@@ -31,20 +32,12 @@
   Erstellt von Rahgawi und bearbeitet Lukas
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title> Management</title>
     <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript">function eventDoubleAttribute(param) {
 
-    }
-
-    $(document).ready(function () {
-            $('userInput, #passInput').click(function () {
-                $("#errMsg").hide();
-            });
-        });
-    </script>
     <div style="text-align: center;">
         <h1>Management</h1>
     </div>
@@ -55,21 +48,74 @@
     </style>
 </head>
 <body>
-<script>alert("Welcome you are logged in!")</script>
+<script>
+    alert("Welcome you are logged in!")
+
+    function showTotalCars(elem) {
+        if (document.getElementById(elem).style.display == "block") {
+            document.getElementById(elem).style.display = "none";
+        } else {
+            document.getElementById(elem).style.display = "block";
+        }
+    }
+</script>
 </body>
 <body>
 
 <body>
+<% ServletContext sc = request.getServletContext();
+
+
+    int total_cars = (sc.getAttribute("total_cars") == null) ? 0 : (int) sc.getAttribute("total_cars");
+    ArrayList<CarIF> former_cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
+    int former_cars_size = 0;
+    if (former_cars != null) former_cars_size = former_cars.size();
+    double total_revenue = sc.getAttribute("total_revenue") == null ?  0.0 : (double) sc.getAttribute("total_revenue");
+    double average_revenue = sc.getAttribute("average_revenue") == null ?  0.0 : (double) sc.getAttribute("average_revenue");
+
+
+%>
+
+<%--<div id="tot_revenue_div" style="margin-left: 20%">--%>
+<%--    <div id="div1" style="float:left">--%>
+<%--        <button margin: auto auto 0 float: left  type="button" value="total_revenue"--%>
+<%--        onclick="showTotalCars()"/>--%>
+<%--        Total Revenue</button>--%>
+<%--    </div>--%>
+<%--    <div id="total_cars_div" style="float:left">--%>
+<%--        <p> <%=total_cars%> </p>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
 
 <div style="text-align: center;">
     <form id="buttonFormId" name="buttonForm" method="get" action="ManagementServlet">
-        <button name="cmd" type="button" value="total_revenue"/>
+        <button type="button" value="total_revenue" onclick="showTotalCars('total_revenue_div')"/>
+        <div id="total_revenue_div" style="display: none;">
+            <p><%=total_revenue + ",-"%>
+            </p>
+        </div>
         Total Revenue</button>
-        <button name="cmd" type="submit" value="average_revenue"/>
+
+        <button type="button" value="total_revenue" onclick="showTotalCars('average_revenue_div')"/>
+        <div id="average_revenue_div" style="display: none;">
+            <p><%=average_revenue + ",-"%>
+            </p>
+        </div>
         Average Revenue</button>
-        <button name="cmd" type="submit" value="total_cars_current"/>
+
+        <button type="button" value="total_revenue" onclick="showTotalCars('total_cars_div')"/>
+        <div id="total_cars_div" style="display: none;">
+            <p><%=total_cars%>
+            </p>
+        </div>
         Current Cars</button>
-        <button name="cmd" type="submit" value="total_cars_former"/>
+
+        <button type="button" value="total_revenue" onclick="showTotalCars('former_cars_div')"/>
+        <div id="former_cars_div" style="display: none;">
+            <p><%=former_cars_size%>
+            </p>
+        </div>
         Former Cars</button>
     </form>
 </div>
@@ -86,34 +132,40 @@
 </div>
 </body>
 
-<% ServletContext sc = request.getServletContext(); %>
-<% ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
-    if (cars == null) {
-        PrintWriter OUT = response.getWriter();
-        OUT.println("Oops, no Cars left the Building yet!");
-        OUT.println();
-    } else { %>
+<% if (former_cars == null) {
+    PrintWriter OUT = response.getWriter();
+    OUT.println("Oops, no Cars left the Building yet!");
+    OUT.println();
+} else { %>
 <div align=com.se1_team20.Parkhaus.MANAGEMENT.ManagementServlet"center"></div>
 <table style="  width:300px" align="center" border="1">
     <tr bgcolor="gray">
-        <td> Ticket Nr.</td>
-        <td>Customer Type</td>
-        <td> Duration</td>
-        <td> Ticket price</td>
-        <td> Car Type</td>
-        <td> Parkingspace Nr.</td>
+        <th> Ticket Nr.</th>
+        <th>Customer Type</th>
+        <th> Duration</th>
+        <th> Ticket price</th>
+        <th> Car Type</th>
+        <th> Parkingspace Nr.</th>
     </tr>
-    <% for(CarIF car : cars) {%>
+    <% for (CarIF car : former_cars) {%>
     <tr>
-        <td><%= car.nr() %></td>
-        <td><%= car.kunde() %></td>
-        <td><%= car.duration()/10000. + "s" %></td>
-        <td><%= (car.price()/100.) + ",-"%></td>
-        <td><%= car.typeCar() %></td>
-        <td><%= car.space() %></td>
+        <td><%= car.nr() %>
+        </td>
+        <td><%= car.kunde() %>
+        </td>
+        <td><%= car.duration() / 10000. + "s" %>
+        </td>
+        <td><%= (car.price() / 100.) + ",-"%>
+        </td>
+        <td><%= car.typeCar() %>
+        </td>
+        <td><%= car.space() %>
+        </td>
     </tr>
-        <%}
-    }%>
+    <%
+            }
+        }
+    %>
 
 </table>
 </body>
