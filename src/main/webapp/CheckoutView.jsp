@@ -75,21 +75,21 @@
     <div align=com.se1_team20.Parkhaus.CHECKOUT.CheckoutServlet"center"></div>
     <table style="  width:300px" align="center" border="1">
         <tr bgcolor="purple" >
-            <td><span style="color: white; "><b>Duration</b></span></td>
+            <td><span style="color: white; "><b>LicensePlate</b></span></td>
+            <td><span style="color: white; "><b>TicketNr</b></span></td>
+            <td><span style="color: white; "><b>ParkingSpaceNumber</b></span></td>
             <td><span style="color: white; "><b>CustomerType</b></span></td>
             <td><span style="color: white; "><b>VehicleType</b></span></td>
-            <td><span style="color: white; "><b>ParkingSpaceNumber</b></span></td>
-            <td><span style="color: white; "><b>CarNr</b></span></td>
-            <td><span style="color: white; "><b>LicensePlate</b></span></td>
+            <td><span style="color: white; "><b>Duration</b></span></td>
             <td><span style="color: white; "><b>Price</b></span></td>
         </tr>
         <tr>
-            <td><%= checkedOutCar.duration() / 10000. + "s"%></td>
-            <td><%= checkedOutCar.kunde()%></td>
-            <td><%= checkedOutCar.typeCar()%></td>
-            <td><%= checkedOutCar.space()%></td>
-            <td><%= checkedOutCar.nr()%></td>
             <td><%= checkedOutCar.licensePlate()%></td>
+            <td><%= checkedOutCar.nr()%></td>
+            <td><%= checkedOutCar.space()%></td>
+            <td><%= checkedOutCar.typeCar()%></td>
+            <td><%= checkedOutCar.kunde()%></td>
+            <td><%= checkedOutCar.duration() / 10000. + "s"%></td>
             <td><%= checkedOutCar.price() / 100. + ",-"%></td>
         </tr>
     <%}%>
