@@ -101,7 +101,11 @@ class CheckoutModelTest {
     @Test
     @DisplayName("filterByLicensePlate - not null test")
     void notNullTestFilterByLicensePlateLowerLimit() {
+        assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-I 30"));
+        assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-K 77"));
         assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-Q 94"));
+        assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-F 7"));
+        assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-T 8"));
     }
 
 }
