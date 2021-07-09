@@ -147,8 +147,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
         ServletContext application = getContext();
         Double totalRev = pModel.getDoubleAttribute((Double) application.getAttribute("total_revenue"));
 
-        getContext().setAttribute("total_revenue", (totalRev + (price / 100)));
-        getContext().setAttribute("average_revenue", (totalRev / cars().size()));
+        getContext().setAttribute("total_revenue", (totalRev + (price / 100.)));
+        getContext().setAttribute("average_revenue", (totalRev / (double) formerCars().size()));
         getContext().setAttribute("total_cars", cars().size());
         getContext().setAttribute("get_bill", price);
         getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),Integer.parseInt(PARAMS[1]))); //Erasing Car from cars()

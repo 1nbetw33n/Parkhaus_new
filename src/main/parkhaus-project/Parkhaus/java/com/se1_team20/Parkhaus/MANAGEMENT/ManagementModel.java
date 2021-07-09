@@ -38,4 +38,8 @@ public class ManagementModel {
         return cars.stream().filter(x->x.kunde().equals(customer)).filter(x->x.typeCar().equals(typeCar)).map(x -> x.duration()).reduce(0,Integer::sum);
     }
 
+    public Double getDoubleAttribute(Double attribute) {
+        return (attribute == null) ? 0. : attribute;
+    }
+
 }
