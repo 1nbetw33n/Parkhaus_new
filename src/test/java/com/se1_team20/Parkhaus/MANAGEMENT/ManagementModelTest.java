@@ -45,6 +45,8 @@ public class ManagementModelTest {
     protected CarIF car7;
     protected CarIF car8;
     protected CarIF car9;
+    protected CarIF car10;
+    protected CarIF car11;
     protected List<CarIF>     cars;
 
     @BeforeEach
@@ -60,6 +62,8 @@ public class ManagementModelTest {
         car7 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Company", "Motorcycle", "SU-T 87"});
         car8 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
         car9 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Day", "Limousine", "SU-T 87"});
+        car10 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Female", "Limousine", "SU-T 87"});
+        car11 = new Car(new String[]{"leave", "55", "1625583886541", "25840", "5168", "664482a016d1d5c563de606659b11d61", "#bd6764", "1", "Female", "Limousine", "SU-T 87"});
         cars.add(car1);
         cars.add(car2);
         cars.add(car3);
@@ -69,6 +73,8 @@ public class ManagementModelTest {
         cars.add(car7);
         cars.add(car8);
         cars.add(car9);
+        cars.add(car10);
+        cars.add(car11);
     }
 
     @AfterEach
@@ -84,14 +90,16 @@ public class ManagementModelTest {
         car7 = null;
         car8 = null;
         car9 = null;
-    }          
+        car10 = null;
+        car11 = null;
+    }
 
     @Test
     void filterAmountOfType() {
         assertEquals(3L, mModel.filterAmountOfCustomerType(cars, "Day"));
         assertEquals(5L, mModel.filterAmountOfCustomerType(cars, "Company"));
         assertEquals(1L, mModel.filterAmountOfCustomerType(cars, "Handicapped"));
-        assertEquals(0L, mModel.filterAmountOfCustomerType(cars, "Female"));
+        assertEquals(2L, mModel.filterAmountOfCustomerType(cars, "Female"));
     }
 
     @Test
