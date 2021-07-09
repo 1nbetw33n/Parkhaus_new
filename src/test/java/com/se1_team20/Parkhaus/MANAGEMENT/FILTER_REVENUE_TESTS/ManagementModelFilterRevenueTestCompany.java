@@ -40,27 +40,27 @@ public class ManagementModelFilterRevenueTestCompany extends ManagementModelTest
     @DisplayName("filterRevenue for company - equals test")
     void handicappedEqualsTestFilterRevenue()
     {
-        Assertions.assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        Assertions.assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
 
     @Test
     @DisplayName("filterRevenue for company - not equals test")
     void handicappedNotEqualsTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
 
     @Test
     @DisplayName("filterRevenue for company - null test")
     void handicappedNullTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
 
     @Test
     @DisplayName("filterRevenue for company - not null test")
     void handicappedNotNullTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertEquals(0.0, ManagementModel.filterRevenueByCustomer(this.cars, "CUSTOMERTYPE"));;
     }
 }
