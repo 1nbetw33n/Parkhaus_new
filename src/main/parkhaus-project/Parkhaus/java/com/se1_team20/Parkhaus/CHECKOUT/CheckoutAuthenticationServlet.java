@@ -41,6 +41,7 @@ import java.util.List;
 public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
 
     final private static long serialVersionUID = 1L;
+
     //Bearbeitet von Bella
     @SuppressWarnings("unchecked")
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -50,8 +51,8 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
         final ArrayList<CarIF> CARS     = (ArrayList<CarIF>) request.getServletContext().getAttribute("former-cars" + "Level1");
         final PrintWriter OUT                  = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
-        if (CheckoutModel.filterByLicensePlate(CARS, enteredLicensePlate) == null) { handleInvalid(OUT);}
-        else{ handleSuccess(enteredLicensePlate, response, request); }
+        if (CheckoutModel.filterByLicensePlate(CARS, enteredLicensePlate) == null) {this.handleInvalid(OUT);}
+        else{this.handleSuccess(enteredLicensePlate, response, request); }
         OUT.write("</div></body></html>");
         OUT.close();
     }
