@@ -65,14 +65,6 @@
     <br>
     <head>
         <title>Checkout</title>
-        <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('userInput, #passInput').click(function (){
-                    $("#errMsg").hide();
-                });
-            });
-        </script>
     </head>
     <%ServletContext context = request.getServletContext();%>
     <%CarIF checkedOutCar = (CarIF) context.getAttribute("checked_out_car");%>
@@ -83,17 +75,17 @@
     <div align=com.se1_team20.Parkhaus.CHECKOUT.CheckoutServlet"center"></div>
     <table style="  width:300px" align="center" border="1">
         <tr bgcolor="purple">
-            <td>LicensePlate</td>
-            <td>CustomerType</td>
-            <td>Duration</td>
-            <td>TicketPrice</td>
-            <td>Car-Type</td>
-            <td>ParkingSpaceNumber</td>
+            <td><b>LicensePlate</b></td>
+            <td><b>CustomerType</b></td>
+            <td><b>Duration</b></td>
+            <td><b>TicketPrice</b></td>
+            <td><b>CarType</b></td>
+            <td><b>ParkingSpaceNumber</b></td>
         </tr>
         <tr>
             <td><%= checkedOutCar.licensePlate()%></td>
             <td><%= checkedOutCar.kunde()%></td>
-            <td><%= checkedOutCar.duration()/10000. + "s"%></td>
+            <td><%= checkedOutCar.duration() / 10000. + "s"%></td>
             <td><%= checkedOutCar.price() / 100. + ",-"%></td>
             <td><%= checkedOutCar.typeCar()%></td>
             <td><%= checkedOutCar.space()%></td>
@@ -101,7 +93,7 @@
     <%}%>
     <body>
         <div style="text-align: center;">
-            <form id="loginFormId" name="loginForm" method="post" action="PaymethodServlet">
+            <form id="PaymentRedirectionFormID" name="PaymentRedirectionForm" method="post" action="PaymethodServlet">
                 <div id="PaymentRedirectionDiv">
                     <input id="PaymentRedirectionButton" type="submit" value="Payment Methods"/>
                 </div>
