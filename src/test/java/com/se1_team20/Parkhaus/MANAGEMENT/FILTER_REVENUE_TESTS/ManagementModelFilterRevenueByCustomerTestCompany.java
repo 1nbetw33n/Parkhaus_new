@@ -26,41 +26,39 @@ package com.se1_team20.Parkhaus.MANAGEMENT.FILTER_REVENUE_TESTS;
 
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel;
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModelTest;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
 
-public class ManagementModelFilterRevenueTestCompany extends ManagementModelTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ManagementModelFilterRevenueByCustomerTestCompany extends ManagementModelTest {
     
     /* TESTS FOR COMPANY */
 
     @Test
     @DisplayName("filterRevenue for company - equals test")
-    void handicappedEqualsTestFilterRevenue()
+    void companyEqualsTestFilterRevenue()
     {
-        Assertions.assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
+        assertEquals(5168. * 5.,  ManagementModel.filterRevenueByCustomer(this.cars, "Company")); /*TODO: figure out, why this test fails */
     }
 
     @Test
     @DisplayName("filterRevenue for company - not equals test")
-    void handicappedNotEqualsTestFilterRevenue()
+    void companyNotEqualsTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
-    }
-
-    @Test
-    @DisplayName("filterRevenue for company - null test")
-    void handicappedNullTestFilterRevenue()
-    {
-        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertNotEquals(5168. * 5, ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
+        assertNotEquals(0., ManagementModel.filterRevenueByCustomer(this.cars, "Company")); /*TODO: figure out, why this test fails */
     }
 
     @Test
     @DisplayName("filterRevenue for company - not null test")
-    void handicappedNotNullTestFilterRevenue()
+    void companyNotNullTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertNotNull(ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
+        assertNotNull(ManagementModel.filterRevenueByCustomer(this.cars, "Company"));
     }
+
 }

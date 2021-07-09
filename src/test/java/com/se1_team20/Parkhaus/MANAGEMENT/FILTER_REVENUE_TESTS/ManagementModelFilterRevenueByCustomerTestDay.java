@@ -26,41 +26,39 @@ package com.se1_team20.Parkhaus.MANAGEMENT.FILTER_REVENUE_TESTS;
 
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel;
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModelTest;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
 
-public class ManagementModelFilterRevenueTestDay extends ManagementModelTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ManagementModelFilterRevenueByCustomerTestDay extends ManagementModelTest {
 
     /* TESTS FOR DAY */
 
     @Test
     @DisplayName("filterRevenue for day - equals test")
-    void handicappedEqualsTestFilterRevenue()
+    void dayEqualsTestFilterRevenue()
     {
-        Assertions.assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
+        assertEquals(5168. * 3.,  ManagementModel.filterRevenueByCustomer(this.cars, "Day"));
     }
 
     @Test
     @DisplayName("filterRevenue for day - not equals test")
-    void handicappedNotEqualsTestFilterRevenue()
+    void dayNotEqualsTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
-    }
-
-    @Test
-    @DisplayName("filterRevenue for day - null test")
-    void handicappedNullTestFilterRevenue()
-    {
-        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertNotEquals(5168. * 3, ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
+        assertNotEquals(0., ManagementModel.filterRevenueByCustomer(this.cars, "Day"));
     }
 
     @Test
     @DisplayName("filterRevenue for day - not null test")
-    void handicappedNotNullTestFilterRevenue()
+    void dayNotNullTestFilterRevenue()
     {
-        assertEquals(0.0, ManagementModel.filterRevenue(this.cars, "CUSTOMERTYPE", "CARTYPE"));;
+        assertNotNull(ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
+        assertNotNull(ManagementModel.filterRevenueByCustomer(this.cars, "Day"));
     }
+
 }
