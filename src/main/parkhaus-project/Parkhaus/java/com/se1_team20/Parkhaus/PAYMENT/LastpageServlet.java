@@ -24,6 +24,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "LastpageServlet", value = "/LastpageServlet")
 public class LastpageServlet extends HttpServlet {
@@ -35,6 +36,15 @@ public class LastpageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html");
+
+        PrintWriter out= response.getWriter();
+
+        String cmd=request.getParameter("return");
+
+        if(cmd.equals("return to simulation")){
+
+            out.write("<meta http-equiv='refresh' content='0;URL='index.jsp'>");
+        }
 
         request.getRequestDispatcher("Abschluss.jsp").forward(request,response);
     }
