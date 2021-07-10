@@ -37,7 +37,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 class CheckoutModelTest {
 
-    CheckoutModel MODEL = new CheckoutModel();
+    CheckoutModel MODEL;
     List<CarIF> cars;
     CarIF car1;
     CarIF car2;
@@ -48,6 +48,7 @@ class CheckoutModelTest {
     @BeforeEach
     void setUp()
     {
+        this.MODEL = new CheckoutModel();
         this.car1 = new Car("leave,13,1625674332094,19500,3900,5de55913446d18eded0c2ebec25c762f,#3f0dac,2,Day,Limousine,SU-I 30".split(","));
         this.car2 = new Car("leave,10,1625674332304,21970,4394,5137014724d32c81a6d4b9c8f66ab270,#63160c,3,Day,SUV,SU-K 77".split(","));
         this.car3 = new Car("leave,77,1625674332605,24050,4810,61eb87b183a251d99e4baf4691c69014,#da31f4,4,Day,Limousine,SU-Q 94".split(","));
@@ -64,6 +65,7 @@ class CheckoutModelTest {
     @AfterEach
     void tearDown()
     {
+        this.MODEL = null;
         this.car1 = null;
         this.car2 = null;
         this.car3 = null;
