@@ -63,7 +63,9 @@
 <% ServletContext sc = request.getServletContext();
 
 
-    int total_cars = (sc.getAttribute("total_cars") == null) ? 0 : (int) sc.getAttribute("total_cars");
+    ArrayList<CarIF> total_cars  = (ArrayList<CarIF>) sc.getAttribute("cars"+"Level1");
+    int total_cars_size = 0;
+    if (total_cars!= null) total_cars_size = total_cars.size();
     ArrayList<CarIF> former_cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
     int former_cars_size = 0;
     if (former_cars != null) former_cars_size = former_cars.size();
@@ -103,7 +105,7 @@
 
         <button type="button" value="total_revenue" onclick="showTotalCars('total_cars_div')"/>
         <div id="total_cars_div" style="display: none;">
-            <p><%=total_cars%>
+            <p><%=total_cars_size%>
             </p>
         </div>
         Current Cars</button>

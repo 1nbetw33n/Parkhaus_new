@@ -63,27 +63,16 @@
 <% ServletContext sc = request.getServletContext();
 
 
-    int total_cars = (sc.getAttribute("total_cars") == null) ? 0 : (int) sc.getAttribute("total_cars");
+    ArrayList<CarIF> total_cars  = (ArrayList<CarIF>) sc.getAttribute("cars"+"Level1");
+    int total_cars_size = 0;
+    if (total_cars!= null) total_cars_size = total_cars.size();
     ArrayList<CarIF> former_cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
     int former_cars_size = 0;
     if (former_cars != null) former_cars_size = former_cars.size();
     double total_revenue = sc.getAttribute("total_revenue") == null ?  0.0 : (double) sc.getAttribute("total_revenue");
     double average_revenue = sc.getAttribute("average_revenue") == null ?  0.0 : (double) sc.getAttribute("average_revenue");
 
-
 %>
-
-<%--<div id="tot_revenue_div" style="margin-left: 20%">--%>
-<%--    <div id="div1" style="float:left">--%>
-<%--        <button margin: auto auto 0 float: left  type="button" value="total_revenue"--%>
-<%--        onclick="showTotalCars()"/>--%>
-<%--        Total Revenue</button>--%>
-<%--    </div>--%>
-<%--    <div id="total_cars_div" style="float:left">--%>
-<%--        <p> <%=total_cars%> </p>--%>
-<%--    </div>--%>
-<%--</div>--%>
-
 
 <div style="text-align: center;">
     <form id="buttonFormId" name="buttonForm" method="get" action="ManagementServlet">
@@ -103,7 +92,7 @@
 
         <button type="button" value="total_revenue" onclick="showTotalCars('total_cars_div')"/>
         <div id="total_cars_div" style="display: none;">
-            <p><%=total_cars%>
+            <p><%=total_cars_size%>
             </p>
         </div>
         Current Cars</button>
