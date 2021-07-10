@@ -45,7 +45,7 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         String command              = requestParamString[0];
         String param                = requestParamString[1];
 
-        ServletContext application = request.getServletContext();
+        /*ServletContext application = request.getServletContext();*/
 
         if ("cmd".equals(command) && "customer_chart".equals(param)) {
             request.getRequestDispatcher("KundenChart.jsp").forward(request,response);
@@ -59,7 +59,7 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         else if ("cmd".equals(command) && "revenue_chart_vehicle".equals(param)){
             request.getRequestDispatcher("AverageRevenueByVehicleTypeChart.jsp").forward(request, response);
         }
-        else if ("cmd".equals(command) && "total_revenue".equals(param)) {
+        /*else if ("cmd".equals(command) && "total_revenue".equals(param)) {
             eventDoubleAttribute(response,"total_revenue");
         }
         else if ("cmd".equals(command) && "average_revenue".equals(param)) {
@@ -70,7 +70,7 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         }
         else if ("cmd".equals(command) && "total_cars_former".equals(param)) {
             eventFormerCars(response, application);
-        }
+        }*/
     }
 
 
@@ -91,7 +91,7 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
 
     protected void handleEvent(String EVENT, String[] PARAMS) {}
 
-    protected final void eventDoubleAttribute(HttpServletResponse response, String attribute) throws IOException {
+    /*protected final void eventDoubleAttribute(HttpServletResponse response, String attribute) throws IOException {
         final PrintWriter OUT = response.getWriter();
         Double doubleAttribute = mModel.getDoubleAttribute((Double) getContext().getAttribute(attribute));
         OUT.println(doubleAttribute + ",-");
@@ -110,6 +110,6 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         final PrintWriter OUT = response.getWriter();
         OUT.println(cars.size());
         System.out.println("former_cars = " + cars.size());
-    }
+    }*/
 
 }
