@@ -33,7 +33,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Customer Overview</title>
+    <title>Customer Distribution</title>
 </head>
 <body>
 <%
@@ -45,7 +45,7 @@
 
     if (cars == null) {
         PrintWriter writer = response.getWriter();
-        writer.println("No Data could be found yet!");
+        writer.println("former_cars is null somehow!");
     } else {
 
         String name1 = "Company";
