@@ -232,7 +232,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         PrintWriter out = response.getWriter();
         out.println(builder);
 
-        System.out.println("Saved Cars :" + builder);
+        System.out.println("Saved Cars:" + builder);
     }
 
 }

@@ -33,7 +33,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Customer Overview</title>
+    <title>Customer Distribution</title>
 </head>
 <body>
 <%
