@@ -31,7 +31,7 @@ import java.util.List;
 
 public class CheckoutModel {
     
-    /* filters the car out that, whose licensePlate matches the entered license plate or returns null, if there is no matching car in "former_cars" */
+    /* filters the car out, whose licensePlate matches the entered license plate or returns null, if there is no matching car in "former_cars" */
     public static CarIF filterByLicensePlate(@NotNull final List<CarIF> CARS, @NotNull final String LICENSEPLATE)
     {
         return CARS.stream()
