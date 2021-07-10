@@ -32,9 +32,6 @@ public class ManagementModel {
         return (cars.stream().filter(x -> x.kunde().equals(type)).count());
     }
 
-    public long filterPercentagesOfCustomerType(List<CarIF> cars, String type){
-        return (((cars.stream().filter(x -> x.kunde().equals(type)).count())/cars.size())*100);
-    }
 
     /* Erstellt von Lukas */
     public long filterDurationCustomerCar(List<CarIF> cars, String customer, String typeCar) {
