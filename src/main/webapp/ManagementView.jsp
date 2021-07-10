@@ -122,7 +122,11 @@
         <button name="cmd" type="submit" value="customer_chart"/>
         Customer Overview</button>
         <button name="cmd" type="submit" value="income_chart"/>
-        Income Overview</button>
+        Income Overview (Duration Overview?)</button>
+        <button name="cmd" type="submit" value="revenue_chart_customer"/>
+        Revenue per Customer</button>
+        <button name="cmd" type="submit" value="revenue_chart_vehicle"/>
+        Revenue per Vehicle</button>
     </form>
 </div>
 
