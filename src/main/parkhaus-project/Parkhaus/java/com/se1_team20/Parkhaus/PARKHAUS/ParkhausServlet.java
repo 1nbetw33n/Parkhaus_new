@@ -208,8 +208,31 @@ public abstract class ParkhausServlet extends ParkingServlet {
         System.out.println("Config not implemented.");
     }
 
-    private void savedCars(String param, HttpServletResponse response) {
-        System.out.println("Saved Cars not implemented.");
+    private void savedCars(String param, HttpServletResponse response) throws IOException {
+
+        StringBuilder builder = new StringBuilder();
+        int index = 0;
+
+        for (CarIF car : formerCars()) {
+            ++index;
+            if (formerCars().size()-1 == index) {
+                builder.append(car.toString());
+            }
+            builder.append(car.toString() + ",");
+        }
+        index = 0;
+        for (CarIF car : cars()) {
+            ++index;
+            if(cars().size()-1 == index) {
+                builder.append(car.toString());
+            }
+            builder.append(car.toString() + ",");
+        }
+
+        PrintWriter out = response.getWriter();
+        out.println(builder);
+
+        System.out.println("Saved Cars :" + builder);
     }
 
 }

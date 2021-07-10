@@ -20,7 +20,6 @@
 
 package com.se1_team20.Parkhaus.PARKHAUS;
 
-import com.se1_team20.Parkhaus.PARKHAUS.Car;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -30,25 +29,30 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
 
-    private Car carEnter = new Car(null);
-    private Car carLeave = new Car(null);
+    private CarIF car1Enter;
+    private CarIF car1Leave;
+    private CarIF car2Enter;
+    private CarIF car2Leave;
+    private CarIF car3Enter;
+    private CarIF car3Leave;
 
     @BeforeEach
     void setUp() {
-        carEnter = new Car(new String[]{"enter", "173", "1624278150403", "", "", "8319c7d02f8b786e4f1a231af06da0c7", "#714934", "7", "", "", "173"});
-        carLeave = new Car(new String[]{"leave","173","1624278155427","5018","502","8319c7d02f8b786e4f1a231af06da0c7","#714934","6","","","173"});
+        car1Enter = new Car(new String[]{"enter", "173", "1624278150403", "_", "_", "8319c7d02f8b786e4f1a231af06da0c7", "#714934","7","Handicapped", "Motorcycle", "SU-A 84"});
+        car1Leave = new Car(new String[]{"leave","173","1624278155427","5018","502","8319c7d02f8b786e4f1a231af06da0c7","#714934","7","Handicapped", "Motorcycle", "SU-A 84"});
+
     }
 
     @AfterEach
     void tearDown() {
-        carEnter = null;
-        carLeave = null;
+        car1Enter = null;
+        car1Leave = null;
     }
     @Test
     @DisplayName("Returns the number of the current car")
     void nrTest() {
-        assertEquals(173, carEnter.nr());
-        assertEquals(173, carLeave.nr());
+        assertEquals(173, car1Enter.nr());
+        assertEquals(173, car1Leave.nr());
     }
 
     @Test
@@ -60,42 +64,42 @@ class CarTest {
      */
 
     void beginTest() {
-        assertEquals(1624278150403L,carEnter.begin(),"Oops, carEnter is not showing begin");
-        assertEquals(1624278150409L,carLeave.begin(),"Oops, carLeave is not showing begin");
+        assertEquals(1624278150403L, car1Enter.begin(),"Oops, carEnter is not showing begin");
+        assertEquals(1624278150409L, car1Leave.begin(),"Oops, carLeave is not showing begin");
     }
 
     @Test
     @DisplayName("Returns the end-time of the current car, shows null of there is none")
     void endTest() {
-        assertEquals(1624278155427L, carLeave.end(), "Oops, carLeave is not showing correct end");
-        assertEquals(0L, carEnter.end(), "Oops, carEnter is not showing correct end");
+        assertEquals(1624278155427L, car1Leave.end(), "Oops, carLeave is not showing correct end");
+        assertEquals(0L, car1Enter.end(), "Oops, carEnter is not showing correct end");
     }
 
     @Test
     @DisplayName("Returns the current duration")
     void durationTest() {
-        assertEquals(5018, carLeave.duration(),"Oops. carLeave does not show correct duration");
-        assertEquals(0, carEnter.duration(),"Oops. carEnter does not show correct duration (0)");
+        assertEquals(5018, car1Leave.duration(),"Oops. carLeave does not show correct duration");
+        assertEquals(0, car1Enter.duration(),"Oops. carEnter does not show correct duration (0)");
     }
 
     @Test
     @DisplayName("Returns the price once the car left")
     void priceTest() {
-        assertEquals(0, carEnter.price(),"Oops, carEnter does not show 0 for price");
-        assertEquals(502, carLeave.price(), "Oops, carLeave does not show correct price");
+        assertEquals(0, car1Enter.price(),"Oops, carEnter does not show 0 for price");
+        assertEquals(502, car1Leave.price(), "Oops, carLeave does not show correct price");
     }
 
     @Test
     @DisplayName("Returns the id of the car")
     void colorTest() {
-        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carLeave.hash());
-        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", carEnter.hash());
-        assertEquals(carLeave.hash(), carEnter.hash());
+        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", car1Leave.hash());
+        assertEquals("8319c7d02f8b786e4f1a231af06da0c7", car1Enter.hash());
+        assertEquals(car1Leave.hash(), car1Enter.hash());
     }
 
     @Test
     @DisplayName("Returns the whole String ")
     void testToString() {
-        assertEquals("leave,173,1624278155427,5018,502,8319c7d02f8b786e4f1a231af06da0c7,#714934,6,,,173", carLeave.toString());
+        assertEquals("leave,173,1624278155427,5018,502,8319c7d02f8b786e4f1a231af06da0c7,#714934,6,,,173", car1Leave.toString());
     }
 }
