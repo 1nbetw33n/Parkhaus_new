@@ -39,13 +39,21 @@ public class ManagementModel {
     }
 
     /* created by 1nbetw33n */
-    public static Double filterRevenue(final List<CarIF>CARS, final String CUSTOMERTYPE, final String CARTYPE)
+    public static Double filterRevenueByCustomer(final List<CarIF>CARS, final String CUSTOMERTYPE)
     {
         return CARS.stream()
                 .filter(x -> x.kunde().equals(CUSTOMERTYPE))
-                    .filter(x -> x.typeCar().equals(CARTYPE))
                         .mapToDouble(CarIF::price)
                             .reduce(0, Double::sum);
+    }
+    
+    /* created by 1nbetw33n */
+    public static Double filterRevenueByVehicle(final List<CarIF> CARS, final String VEHICLETYPE)
+    {//TODO: WRITE TESTS FOR THIS UNIT
+        return CARS.stream()
+                .filter(x -> x.typeCar().equals(VEHICLETYPE))
+                    .mapToDouble(CarIF::price)
+                        .reduce(0, Double::sum);
     }
 
     public Double getDoubleAttribute(Double attribute) {

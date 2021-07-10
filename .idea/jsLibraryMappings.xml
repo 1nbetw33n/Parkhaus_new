@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{ccm.parkhaus-9.1.9}" />
+    <file url="file://$PROJECT_DIR$" libraries="{ccm.highchart-3.0.1, ccm.parkhaus-9.1.9}" />
   </component>
 </project>

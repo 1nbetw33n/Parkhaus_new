@@ -68,10 +68,10 @@
     </head>
     <body>
         <%ServletContext context = request.getServletContext();%>
-        <%CarIF checkedOutCar = (CarIF) context.getAttribute("checked_out_car");%>
+        <%CarIF checkedOutVehicle = (CarIF) context.getAttribute("checked_out_car");%>
         <%PrintWriter OUT = response.getWriter();%>
         <%OUT.println("<h1><center>Checkout</center></h1>");%>
-        <%if (checkedOutCar == null) {OUT.println("<center>There is no car to checkout</center>");
+        <%if (checkedOutVehicle == null) {OUT.println("<center>There is no car to checkout</center>");
               } else { %>
         <div align=com.se1_team20.Parkhaus.CHECKOUT.CheckoutServlet"center"></div>
         <table style="  width:300px" align="center" border="1">
@@ -85,13 +85,13 @@
                 <td><span style="color: white; "><b>Price</b></span></td>
             </tr>
             <tr>
-                <td><%= checkedOutCar.licensePlate()%></td>
-                <td><%= checkedOutCar.nr()%></td>
-                <td><%= checkedOutCar.space()%></td>
-                <td><%= checkedOutCar.typeCar()%></td>
-                <td><%= checkedOutCar.kunde()%></td>
-                <td><%= checkedOutCar.duration() / 10000. + "s"%></td>
-                <td><%= checkedOutCar.price() / 100. + ",-"%></td>
+                <td><%= checkedOutVehicle.licensePlate()%></td>
+                <td><%= checkedOutVehicle.nr()%></td>
+                <td><%= checkedOutVehicle.space()%></td>
+                <td><%= checkedOutVehicle.typeCar()%></td>
+                <td><%= checkedOutVehicle.kunde()%></td>
+                <td><%= checkedOutVehicle.duration() / 10000. + "s"%></td>
+                <td><%= checkedOutVehicle.price() / 100. + ",-"%></td>
             </tr>
     <%}%>
     </body>

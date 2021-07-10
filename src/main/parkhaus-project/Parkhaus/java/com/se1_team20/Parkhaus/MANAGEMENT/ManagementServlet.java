@@ -93,7 +93,7 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
     }
 
     private void eventTotalCars(HttpServletResponse response, ServletContext application) throws IOException {
-        int cars = (int) getContext().getAttribute("total_cars");
+        Integer cars = (Integer) getContext().getAttribute("total_cars");
         final PrintWriter OUT = response.getWriter();
         OUT.println(cars);
         System.out.println("total_cars = " + cars);
