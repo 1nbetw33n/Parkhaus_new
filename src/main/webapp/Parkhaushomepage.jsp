@@ -48,14 +48,14 @@
         <div style="text-indent:-100px">
 
             <label for="name">Benutzername:</label>
-            <input type="text" size="20" maxlength="20" id="name" name="name" onvalid="alert('Fachbereichskürzel');" pattern="[a-z]{3,}2s" required/><br><br>
+            <input type="text" size="20" maxlength="20" id="name" name="name" onvalid="alert('Fachbereichskürzel');" pattern="[a-z]{3,}2s" titel="Beispiel: aabusa2s" required/><br><br>
 
         </div>
 
         <div style="text-indent:-68px">
 
             <label for="pword">Password:</label>
-            <input type="password" size="20" maxlength="20" id="pword" name="pword" onvalid="alert('Geben Sie bitte ein beantragtes Passwort');" pattern="[a-zA-Z0-9]{7}" required/><br><br>
+            <input type="password" size="20" maxlength="20" id="pword" name="pword" onvalid="alert('Geben Sie bitte ein beantragtes Passwort');" pattern="[a-zA-Z0-9]{7}" titel="SE1 App password" required/><br><br>
 
         </div>
 
