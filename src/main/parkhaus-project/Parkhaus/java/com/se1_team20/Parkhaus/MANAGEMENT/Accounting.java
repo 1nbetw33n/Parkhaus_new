@@ -39,6 +39,8 @@ public class Accounting {
 
     private final List<HashMap<String, String>> BILLS = new ArrayList<>();
 
+
+    /* every time a new instance is created, this block will be executed (only 1 instance possible) */
     {
         try
         {
@@ -55,6 +57,7 @@ public class Accounting {
 
     private Accounting(){}
 
+    /* makes this thing double-thread-safe */
     public static synchronized Accounting getInstance()
     {
         if (instance == null)
