@@ -17,7 +17,7 @@
  * se1_team20.
  *
  */
-/* Bearbeitet von Lukas */
+/* Bearbeitet von Lukas und Bella */
 
 package com.se1_team20.Parkhaus.MANAGEMENT;
 
@@ -27,13 +27,16 @@ import java.util.List;
 
 public class ManagementModel {
 
+    /* Erstellt von Lukas */
     public long filterAmountOfCustomerType(List<CarIF> cars, String type){
         return (cars.stream().filter(x -> x.kunde().equals(type)).count());
     }
+
     public long filterPercentagesOfCustomerType(List<CarIF> cars, String type){
         return (((cars.stream().filter(x -> x.kunde().equals(type)).count())/cars.size())*100);
     }
 
+    /* Erstellt von Lukas */
     public long filterDurationCustomerCar(List<CarIF> cars, String customer, String typeCar) {
         return cars.stream().filter(x->x.kunde().equals(customer)).filter(x->x.typeCar().equals(typeCar)).map(x -> x.duration()).reduce(0,Integer::sum);
     }
@@ -56,6 +59,7 @@ public class ManagementModel {
                         .reduce(0, Double::sum);
     }
 
+    /* Erstellt von Lukas */
     public Double getDoubleAttribute(Double attribute) {
         return (attribute == null) ? 0. : attribute;
     }

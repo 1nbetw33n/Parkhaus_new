@@ -45,7 +45,7 @@ public class ManagementModelTest {
     protected CarIF car9;
     protected CarIF car10;
     protected CarIF car11;
-    protected List<CarIF>     cars;
+    protected List<CarIF> cars;
 
     @BeforeEach
     void setUp() {
