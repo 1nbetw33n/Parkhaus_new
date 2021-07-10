@@ -47,6 +47,15 @@ public class ManagementModel {
                             .reduce(0, Double::sum);
     }
 
+    /* created by 1nbetw33n */
+    public static Double filterRevenueByVehicle(final List<CarIF> CARS, final String VEHICLETYPE)
+    {
+        return CARS.stream()
+                .filter(x -> x.typeCar().equals(VEHICLETYPE))
+                    .mapToDouble(CarIF::price)
+                        .reduce(0, Double::sum);
+    }
+
     public Double getDoubleAttribute(Double attribute) {
         return (attribute == null) ? 0. : attribute;
     }
