@@ -45,7 +45,7 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
     //Bearbeitet von Bella
     @SuppressWarnings("unchecked")
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
+    {//TODO: IMPLEMENT SINGLETON AUTHENTICATION
         response.setContentType("text/html");
         final CheckoutModel MODEL = new CheckoutModel();
         final String enteredLicensePlate  = request.getParameter("entered_license_plate");
