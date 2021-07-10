@@ -53,6 +53,12 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         else if ("cmd".equals(command) && "income_chart".equals(param)) {
             request.getRequestDispatcher("IncomeChart.jsp").forward(request,response);
         }
+        else if ("cmd".equals(command) && "revenue_chart_customer".equals(param)){
+            request.getRequestDispatcher("AverageRevenueByCustomerTypeChart.jsp").forward(request, response);
+        }
+        else if ("cmd".equals(command) && "revenue_chart_vehicle".equals(param)){
+            request.getRequestDispatcher("AverageRevenueByVehicleTypeChart.jsp").forward(request, response);
+        }
         else if ("cmd".equals(command) && "total_revenue".equals(param)) {
             eventDoubleAttribute(response,"total_revenue");
         }

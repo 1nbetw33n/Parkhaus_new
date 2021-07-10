@@ -36,6 +36,7 @@
 			ServletContext context = request.getServletContext();
 			@SuppressWarnings("unchecked")
 			List<CarIF> vehiclesThatLeft = (List<CarIF>)  context.getAttribute("former-cars" + "Level1");
+			final ManagementModel MODEL = new ManagementModel();
 			if (vehiclesThatLeft == null)
 			{
 				final PrintWriter OUT = response.getWriter();
@@ -48,10 +49,10 @@
 				final String LIMOUSINE = "Limousine";
 				final String MOTORCYCLE = "Motorcycle";
 				final String VAN = "Van";
-				String displaySUVData = "" + ManagementModel.filterRevenueByVehicle(vehiclesThatLeft, SUV);
-				String displayLimousineData = "" + ManagementModel.filterRevenueByVehicle(vehiclesThatLeft, LIMOUSINE);
-				String displayMotorcycleData = "" + ManagementModel.filterRevenueByVehicle(vehiclesThatLeft, MOTORCYCLE);
-				String displayVanData = "" + ManagementModel.filterRevenueByVehicle(vehiclesThatLeft, VAN);
+				String displaySUVData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, SUV);
+				String displayLimousineData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, LIMOUSINE);
+				String displayMotorcycleData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, MOTORCYCLE);
+				String displayVanData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, VAN);
 		%>
 		<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 		<ccm-highchart-3-0-1

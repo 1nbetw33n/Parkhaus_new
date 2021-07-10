@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ManagementModelTest {
 
-    ManagementModel mModel;
+    protected ManagementModel mModel;
     protected CarIF car1;
     protected CarIF car2;
     protected CarIF car3;

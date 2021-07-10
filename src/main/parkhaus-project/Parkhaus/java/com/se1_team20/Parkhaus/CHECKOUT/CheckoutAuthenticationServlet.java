@@ -47,12 +47,13 @@ public abstract class CheckoutAuthenticationServlet extends ParkingServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
+        final CheckoutModel MODEL = new CheckoutModel();
         final String enteredLicensePlate  = request.getParameter("entered_license_plate");
         final List<CarIF> CARS               = (List<CarIF>) request.getServletContext().getAttribute("former-cars" + "Level1");
         final PrintWriter OUT                   = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
-        if (CheckoutModel.filterByLicensePlate(CARS, enteredLicensePlate) == null) {this.handleInvalid(OUT);}
-        else{this.handleSuccess(response, request, CheckoutModel.filterByLicensePlate(CARS, enteredLicensePlate)); }
+        if (MODEL.filterByLicensePlate(CARS, enteredLicensePlate) == null) {this.handleInvalid(OUT);}
+        else{this.handleSuccess(response, request, MODEL.filterByLicensePlate(CARS, enteredLicensePlate)); }
         OUT.write("</div></body></html>");
         OUT.close();
     }
