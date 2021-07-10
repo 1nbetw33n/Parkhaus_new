@@ -37,15 +37,6 @@ public class LastpageServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-       // PrintWriter out= response.getWriter();
-
-       /* String cmd=request.getParameter("return");
-
-        if(cmd.equals("return to simulation")){
-
-            out.write("<meta http-equiv='refresh' content='0;URL='index.jsp'>");
-        }*/
-
         request.getRequestDispatcher("Abschluss.jsp").forward(request,response);
     }
 }
