@@ -41,24 +41,24 @@ public class ManagementModelFilterRevenueByCustomerTestDay extends ManagementMod
     @DisplayName("filterRevenue for day - equals test")
     void dayEqualsTestFilterRevenue()
     {
-        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
-        assertEquals(5168. * 3.,  ManagementModel.filterRevenueByCustomer(this.cars, "Day"));
+        assertEquals(0.0,  mModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
+        assertEquals(5168. * 3.,  mModel.filterRevenueByCustomer(this.cars, "Day"));
     }
 
     @Test
     @DisplayName("filterRevenue for day - not equals test")
     void dayNotEqualsTestFilterRevenue()
     {
-        assertNotEquals(5168. * 3, ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
-        assertNotEquals(0., ManagementModel.filterRevenueByCustomer(this.cars, "Day"));
+        assertNotEquals(5168. * 3, mModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
+        assertNotEquals(0., mModel.filterRevenueByCustomer(this.cars, "Day"));
     }
 
     @Test
     @DisplayName("filterRevenue for day - not null test")
     void dayNotNullTestFilterRevenue()
     {
-        assertNotNull(ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
-        assertNotNull(ManagementModel.filterRevenueByCustomer(this.cars, "Day"));
+        assertNotNull(mModel.filterRevenueByCustomer(new ArrayList<>(), "Day"));
+        assertNotNull(mModel.filterRevenueByCustomer(this.cars, "Day"));
     }
 
 }

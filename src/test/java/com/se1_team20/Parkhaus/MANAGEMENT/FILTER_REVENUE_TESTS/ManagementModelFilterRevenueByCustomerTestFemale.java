@@ -41,24 +41,24 @@ public class ManagementModelFilterRevenueByCustomerTestFemale extends Management
     @DisplayName("filterRevenue for female - equals test")
     void femaleEqualsTestFilterRevenue()
     {
-        assertEquals(0.0,  ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
-        assertEquals(5168. * 2.,  ManagementModel.filterRevenueByCustomer(this.cars, "Female"));
+        assertEquals(0.0,  mModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
+        assertEquals(5168. * 2.,  mModel.filterRevenueByCustomer(this.cars, "Female"));
     }
 
     @Test
     @DisplayName("filterRevenue for female - not equals test")
     void femaleNotEqualsTestFilterRevenue()
     {
-        assertNotEquals(5168. * 3, ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
-        assertNotEquals(5168. * 1, ManagementModel.filterRevenueByCustomer(this.cars, "Female"));
+        assertNotEquals(5168. * 3, mModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
+        assertNotEquals(5168. * 1, mModel.filterRevenueByCustomer(this.cars, "Female"));
     }
 
     @Test
     @DisplayName("filterRevenue for female - not null test")
     void femaleNotNullTestFilterRevenue()
     {
-        assertNotNull(ManagementModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
-        assertNotNull(ManagementModel.filterRevenueByCustomer(this.cars, "Female"));
+        assertNotNull(mModel.filterRevenueByCustomer(new ArrayList<>(), "Female"));
+        assertNotNull(mModel.filterRevenueByCustomer(this.cars, "Female"));
     }
     
 }
