@@ -138,12 +138,15 @@ public abstract class ParkhausServlet extends ParkingServlet {
         parkingspaces.set(Integer.parseInt(PARAMS[7]) - 1, "leave" + "," + PARAMS[1] + "," + PARAMS[7]);
 
         StringBuilder priceString = new StringBuilder();
-        if (PARAMS[8].equals("Company")) {
+        double price = 0.;
+        /*if (PARAMS[8].equals("Company")) {
             priceString.append("0"); //Company Customers dont count towards revenue
         } else {
             priceString.append(PARAMS[4]);
-        }
-        double price = (!(priceString.toString().equals("_"))) ? Double.parseDouble(priceString.toString()) : 0.;
+        }*/
+
+        priceString.append(PARAMS[4]);
+        price = (!(priceString.toString().equals("_"))) ? Double.parseDouble(priceString.toString()) : 0.;
 
         ServletContext application = getContext();
         Double totalRev = pModel.getDoubleAttribute((Double) application.getAttribute("total_revenue"));
