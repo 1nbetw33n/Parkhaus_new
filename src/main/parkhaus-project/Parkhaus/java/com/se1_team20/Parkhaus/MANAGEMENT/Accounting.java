@@ -24,5 +24,46 @@ package com.se1_team20.Parkhaus.MANAGEMENT;
 10.Jul.2021
 */
 
+
+import com.sun.istack.internal.FinalArrayList;
+import com.sun.istack.internal.NotNull;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.function.Predicate;
+
 public class Accounting {
+
+    private static Accounting instance;
+
+    private static final List<HashMap<String, String>> BILLS = new FinalArrayList<>();
+
+    private Accounting(){}
+
+    public static synchronized Accounting getInstance()
+    {
+        if (instance == null)
+        {
+            synchronized (Accounting.class)
+            {
+                if (instance == null)
+                {
+                    instance = new Accounting();
+                }
+            }
+        }
+        return instance;
+    }
+
+    //TODO: WRITE TESTS FOR THIS UNIT
+    private void addBill(@NotNull final HashMap<String, String> MAP) { BILLS.add(MAP); }
+
+    //TODO: WRITE TESTS FOR THIS UNIT
+    @SuppressWarnings("unchecked")
+    private boolean checkBills(@NotNull final HashMap<String, String> MAP)
+    {
+        return BILLS.stream()
+                .anyMatch((Predicate<? super HashMap<String, String>>) MAP);
+    }
+
 }
