@@ -60,72 +60,72 @@
 									"chart":
 										{
 											"plotBackgroundColor": null,
-                                               "plotBorderWidth": null,
-                                               "plotShadow": false,
-                                               "type": "pie"
-                                           },
-                                       "title":
-                                           {
-                                               "text":"<%= TITLE%>"
-                                           },
-                                       "tooltip":
-                                           {
-                                               "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
-                                           },
-                                       "plotOptions":
-                                           {
-                                               "pie":
-                                                   {
-                                                       "allowPointSelect": true,
-                                                       "cursor": "pointer",
-                                                       "dataLabels":
-                                                           {
-                                                               "enabled": true,
-                                                               "format": "<b>{point.name}</b>: {point.percentage:.1f} %",
-                                                               "style":
-                                                                   {
-                                                                       "color": "black"
-                                                                   }
-                                                           }
-                                                   }
-                                           },
-                                       "series":
-                                           [
-                                               {
-                                                   "name": "Customer-Type",
-                                                   "colorByPoint": true,
-                                                   "data":
-                                                       [
-                                                           {
-                                                               "name": "<%= HANDICAPPED%>",
-                                                               "y": <%= displayHandicappedData%>,
-                                                               "sliced": true,
-                                                               "selected": true
-                                                           },
-                                                           {
-                                                               "name": "<%= FEMALE%>",
-                                                               "y": <%= displayFemaleData%>,
-                                                           },
-                                                           {
-                                                               "name": "<%= COMPANY%>",
-                                                               "y": <%= displayCompanyData%>,
-                                                           }
-                                                           {
-                                                               "name": "<%= DAY%>",
-                                                               "y": <%= displayDayData%>,
-                                                           }
-                                                       ]
-                                               }
-                                           ]
-                                       }.
-                                   "data": {},
-                                   "html":
+                                             "plotBorderWidth": null,
+                                             "plotShadow": false,
+                                             "type":"pie"
+                                       }
+                                   "title":
                                        {
-                                           "id": "chart",
-                                            "style": "%%"
+                                           "text":"<%= TITLE%>"
                                        },
-                                   "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
-                           } '
+                                   "tooltip":
+                                       {
+                                           "pointFormat":"{series.name}: <b>{point.percentage:.1f}%</b>"
+                                       },
+                                   "plotOptions":
+                                       {
+                                           "pie":
+                                               {
+                                                   "allowPointSelect": true,
+                                                   "cursor":"pointer",
+                                                   "dataLabels":
+                                                       {
+                                                           "enabled": true,
+                                                           "format":"<b>{point.name}</b>: {point.percentage:.1f} %",
+                                                           "style":
+                                                               {
+                                                                   "color":"black"
+                                                               }
+                                                       }
+                                               }
+                                       },
+                                   "series":
+                                       [
+                                           {
+                                               "name":"Customer-Type",
+                                               "colorByPoint": true,
+                                               "data":
+                                                   [
+                                                       {
+                                                           "name":"<%= HANDICAPPED%>",
+                                                           "y":<%= displayHandicappedData%>,
+                                                           "sliced": true,
+                                                           "selected": true
+                                                       },
+                                                       {
+                                                           "name":"<%= FEMALE%>",
+                                                           "y":<%= displayFemaleData%>,
+                                                       },
+                                                       {
+                                                           "name":"<%= COMPANY%>",
+                                                           "y":<%= displayCompanyData%>,
+                                                       }
+                                                       {
+                                                           "name":"<%= DAY%>",
+                                                           "y":<%= displayDayData%>,
+                                                       }
+                                                   ]
+                                           }
+                                       ]
+                                   }.
+                               "data":{},
+                               "html":
+                                   {
+                                       "id":"chart",
+                                       "style":"%%"
+                                   },
+                               "style":"min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
+                       } '
 		></ccm-highchart-3-0-1>
 		<%}%>
 	</body>
