@@ -46,7 +46,8 @@ class CheckoutModelTest {
     CarIF car5;
 
     @BeforeEach
-    void setUp() {
+    void setUp()
+    {
         this.car1 = new Car("leave,13,1625674332094,19500,3900,5de55913446d18eded0c2ebec25c762f,#3f0dac,2,Day,Limousine,SU-I 30".split(","));
         this.car2 = new Car("leave,10,1625674332304,21970,4394,5137014724d32c81a6d4b9c8f66ab270,#63160c,3,Day,SUV,SU-K 77".split(","));
         this.car3 = new Car("leave,77,1625674332605,24050,4810,61eb87b183a251d99e4baf4691c69014,#da31f4,4,Day,Limousine,SU-Q 94".split(","));
@@ -61,7 +62,8 @@ class CheckoutModelTest {
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDown()
+    {
         this.car1 = null;
         this.car2 = null;
         this.car3 = null;
@@ -72,7 +74,8 @@ class CheckoutModelTest {
 
     @Test
     @DisplayName("filterByLicensePlate - equals test")
-    void equalsTestFilterByLicensePlate() {
+    void equalsTestFilterByLicensePlate()
+    {
         assertEquals(this.car1, this.MODEL.filterByLicensePlate(this.cars, "SU-I 30"));
         assertEquals(this.car2, this.MODEL.filterByLicensePlate(this.cars, "SU-K 77"));
         assertEquals(this.car3, this.MODEL.filterByLicensePlate(this.cars, "SU-Q 94"));
@@ -82,7 +85,8 @@ class CheckoutModelTest {
 
     @Test
     @DisplayName("filterByLicensePlate - not equals test")
-    void notEqualsTestFilterByLicensePlate() {
+    void notEqualsTestFilterByLicensePlate()
+    {
         assertNotEquals(this.car2, this.MODEL.filterByLicensePlate(this.cars, "SU-I 30"));
         assertNotEquals(this.car3, this.MODEL.filterByLicensePlate(this.cars, "SU-I 29"));
         assertNotEquals(this.car4, this.MODEL.filterByLicensePlate(this.cars, "SU-I 330"));
@@ -90,7 +94,8 @@ class CheckoutModelTest {
 
     @Test
     @DisplayName("filterByLicensePlate - null test")
-    void nullTestFilterByLicensePlate() {
+    void nullTestFilterByLicensePlate()
+    {
         assertNull(this.MODEL.filterByLicensePlate(this.cars, "SU-I 3456tdf0"));
         assertNull(this.MODEL.filterByLicensePlate(this.cars, "SU-I 34dfshgtrsz56tdf0"));
         assertNull(this.MODEL.filterByLicensePlate(this.cars, "SU-I h34hgfsdzutr56tdf0"));
@@ -101,7 +106,8 @@ class CheckoutModelTest {
 
     @Test
     @DisplayName("filterByLicensePlate - not null test")
-    void notNullTestFilterByLicensePlateLowerLimit() {
+    void notNullTestFilterByLicensePlateLowerLimit()
+    {
         assertNotNull(this.MODEL.filterByLicensePlate(this.cars, "SU-I 30"));
         assertNotNull(this.MODEL.filterByLicensePlate(this.cars, "SU-K 77"));
         assertNotNull(this.MODEL.filterByLicensePlate(this.cars, "SU-Q 94"));
