@@ -50,13 +50,13 @@
 
         <div style="text-indent:-4px">
             <label for="cnumber">Kreditkartennummer:</label>
-            <input type="password" id="cnumber" name="cnumber" size="30" maxlength="30" oninvalid="alert('The credit card number must have 16 digits'); "pattern="[0-9]{16}" title="Invalid account number" placeholder="Kreditkartennummer" required><br><br>
+            <input type="text" id="cnumber" name="cnumber" size="30" maxlength="30" oninvalid="alert('The credit card number must have 16 digits'); "pattern="[0-9]{16}" title="Invalid account number" placeholder="Kreditkartennummer" required><br><br>
 
         </div>
 
         <div style="text-indent:-102px">
             <label for="cvc">CVC_Code:</label>
-            <input type="password" id="cvc" name="cvc" size="5" max="5" oninvalid="alert('The CVC_Code must have 3 digits'); "pattern="[0-9]{3}" title="Invalid cvc_code" placeholder="CVC" required ><br><br>
+            <input type="text" id="cvc" name="cvc" size="5" max="5" oninvalid="alert('The CVC_Code must have 3 digits'); "pattern="[0-9]{3}" title="Invalid cvc_code" placeholder="CVC" required ><br><br>
 
         </div>
 
