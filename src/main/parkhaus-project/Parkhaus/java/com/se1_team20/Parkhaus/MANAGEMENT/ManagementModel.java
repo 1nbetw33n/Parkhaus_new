@@ -39,7 +39,7 @@ public class ManagementModel {
     }
 
     /* created by 1nbetw33n */
-    public static Double filterRevenueByCustomer(final List<CarIF>CARS, final String CUSTOMERTYPE)
+    public Double filterRevenueByCustomer(final List<CarIF>CARS, final String CUSTOMERTYPE)
     {
         return CARS.stream()
                 .filter(x -> x.kunde().equals(CUSTOMERTYPE))
@@ -48,7 +48,7 @@ public class ManagementModel {
     }
     
     /* created by 1nbetw33n */
-    public static Double filterRevenueByVehicle(final List<CarIF> CARS, final String VEHICLETYPE)
+    public Double filterRevenueByVehicle(final List<CarIF> CARS, final String VEHICLETYPE)
     {//TODO: WRITE TESTS FOR THIS UNIT
         return CARS.stream()
                 .filter(x -> x.typeCar().equals(VEHICLETYPE))
