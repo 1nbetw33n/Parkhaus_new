@@ -25,9 +25,10 @@ package com.se1_team20.Parkhaus.MANAGEMENT;
 */
 
 
-import com.sun.istack.internal.FinalArrayList;
+
 import com.sun.istack.internal.NotNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Predicate;
@@ -36,7 +37,21 @@ public class Accounting {
 
     private static Accounting instance;
 
-    private static final List<HashMap<String, String>> BILLS = new FinalArrayList<>();
+    private final List<HashMap<String, String>> BILLS = new ArrayList<>();
+
+    {
+        try
+        {
+            instance = getInstance();
+            final HashMap<String, String> bill = new HashMap<>();
+            bill.put("Management", "easy-pass-word");
+            this.BILLS.add(bill);
+        }
+        catch (final Exception E)
+        {
+            throw new RuntimeException("Only one instance possible.");
+        }
+    }
 
     private Accounting(){}
 
@@ -55,8 +70,6 @@ public class Accounting {
         return instance;
     }
 
-    //TODO: WRITE TESTS FOR THIS UNIT
-    private void addBill(@NotNull final HashMap<String, String> MAP) { BILLS.add(MAP); }
 
     //TODO: WRITE TESTS FOR THIS UNIT
     @SuppressWarnings("unchecked")
