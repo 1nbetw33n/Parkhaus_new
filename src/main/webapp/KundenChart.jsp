@@ -45,7 +45,7 @@
 
     if (cars == null) {
         PrintWriter writer = response.getWriter();
-        writer.println("No Data could be found yet!");
+        writer.println("former_cars is null somehow!");
     } else {
 
         String name1 = "Company";
