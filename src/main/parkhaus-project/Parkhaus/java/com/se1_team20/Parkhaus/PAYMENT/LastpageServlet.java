@@ -26,6 +26,8 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+//Erstellt von Preet
+
 @WebServlet(name = "LastpageServlet", value = "/LastpageServlet")
 public class LastpageServlet extends HttpServlet {
 
