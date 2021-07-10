@@ -28,7 +28,6 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-//Erstellt von Preet
 
 @WebServlet("/PaymethodServlet")
 public class PaymethodServlet extends ParkingServlet {
