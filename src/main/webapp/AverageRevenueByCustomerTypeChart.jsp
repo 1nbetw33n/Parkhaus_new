@@ -34,8 +34,8 @@
 	<body>
 		<%
 			@SuppressWarnings("unchecked")
-			List<CarIF> carsThatLeft = (List<CarIF>)  request.getServletContext().getAttribute("former-cars" + "Level1");
-			if (carsThatLeft == null)
+			List<CarIF> vehiclesThatLeft = (List<CarIF>)  request.getServletContext().getAttribute("former-cars" + "Level1");
+			if (vehiclesThatLeft == null)
 			{
 			    final PrintWriter OUT = response.getWriter();
 			    OUT.println("<center>There's no data to display. </center>");
@@ -47,10 +47,10 @@
 			    final String FEMALE = "Female";
 			    final String COMPANY = "Company";
 			    final String DAY = "Day";
-			   String displayHandicappedData = "" + ManagementModel.filterRevenueByCustomer(carsThatLeft, HANDICAPPED);
-			   String displayFemaleData = "" + ManagementModel.filterRevenueByCustomer(carsThatLeft, FEMALE);
-			   String displayCompanyData = "" + ManagementModel.filterRevenueByCustomer(carsThatLeft, COMPANY);
-			   String displayDayData = "" + ManagementModel.filterRevenueByCustomer(carsThatLeft, DAY);
+			   String displayHandicappedData = "" + ManagementModel.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED);
+			   String displayFemaleData = "" + ManagementModel.filterRevenueByCustomer(vehiclesThatLeft, FEMALE);
+			   String displayCompanyData = "" + ManagementModel.filterRevenueByCustomer(vehiclesThatLeft, COMPANY);
+			   String displayDayData = "" + ManagementModel.filterRevenueByCustomer(vehiclesThatLeft, DAY);
 		%>
 		<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 		<ccm-highchart-3-0-1
