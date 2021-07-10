@@ -33,9 +33,11 @@
 	</head>
 	<body>
 		<%
+			ServletContext context = request.getServletContext();
 			@SuppressWarnings("unchecked")
-			List<CarIF> carsThatLeft = (List<CarIF>)  request.getServletContext().getAttribute("former-cars" + "Level1");
-			if (carsThatLeft == null)
+			List<CarIF> vehiclesThatLeft = (List<CarIF>)  context.getAttribute("former-cars" + "Level1");
+			ManagementModel model = new ManagementModel();
+			if (vehiclesThatLeft == null)
 			{
 				final PrintWriter OUT = response.getWriter();
 				OUT.println("<center>There's no data to display. </center>");
@@ -47,10 +49,10 @@
 				final String LIMOUSINE = "Limousine";
 				final String MOTORCYCLE = "Motorcycle";
 				final String VAN = "Van";
-				String displaySUVData = "" + ManagementModel.filterRevenueByVehicle(carsThatLeft, SUV);
-				String displayLimousineData = "" + ManagementModel.filterRevenueByVehicle(carsThatLeft, LIMOUSINE);
-				String displayMotorcycleData = "" + ManagementModel.filterRevenueByVehicle(carsThatLeft, MOTORCYCLE);
-				String displayVanData = "" + ManagementModel.filterRevenueByVehicle(carsThatLeft, VAN);
+				String displaySUVData = "" + model.filterRevenueByVehicle(vehiclesThatLeft, SUV);
+				String displayLimousineData = "" + model.filterRevenueByVehicle(vehiclesThatLeft, LIMOUSINE);
+				String displayMotorcycleData = "" + model.filterRevenueByVehicle(vehiclesThatLeft, MOTORCYCLE);
+				String displayVanData = "" + model.filterRevenueByVehicle(vehiclesThatLeft, VAN);
 		%>
 		<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 		<ccm-highchart-3-0-1
