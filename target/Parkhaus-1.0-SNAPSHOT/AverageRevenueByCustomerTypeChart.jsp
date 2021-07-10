@@ -33,9 +33,10 @@
 	</head>
 	<body>
 		<%
+			ServletContext context = request.getServletContext();
 			@SuppressWarnings("unchecked")
-			List<CarIF> carsThatLeft = (List<CarIF>)  request.getServletContext().getAttribute("former-cars" + "Level1");
-			if (carsThatLeft == null)
+			List<CarIF> vehiclesThatLeft = (List<CarIF>)  context.getAttribute("former-cars" + "Level1");
+			if (vehiclesThatLeft == null)
 			{
 			    final PrintWriter OUT = response.getWriter();
 			    OUT.println("<center>There's no data to display. </center>");
@@ -47,10 +48,10 @@
 			    final String FEMALE = "Female";
 			    final String COMPANY = "Company";
 			    final String DAY = "Day";
-			   String displayHandicappedData = "" + ManagementModel.filterRevenueByCustomer(carsThatLeft, HANDICAPPED);
-			   String displayFemaleData = "" + ManagementModel.filterRevenueByCustomer(carsThatLeft, FEMALE);
-			   String displayCompanyData = "" + ManagementModel.filterRevenueByCustomer(carsThatLeft, COMPANY);
-			   String displayDayData = "" + ManagementModel.filterRevenueByCustomer(carsThatLeft, DAY);
+			   String displayHandicappedData = "" + ManagementModel.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED);
+			   String displayFemaleData = "" + ManagementModel.filterRevenueByCustomer(vehiclesThatLeft, FEMALE);
+			   String displayCompanyData = "" + ManagementModel.filterRevenueByCustomer(vehiclesThatLeft, COMPANY);
+			   String displayDayData = "" + ManagementModel.filterRevenueByCustomer(vehiclesThatLeft, DAY);
 		%>
 		<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 		<ccm-highchart-3-0-1
@@ -60,72 +61,72 @@
 									"chart":
 										{
 											"plotBackgroundColor": null,
-                                               "plotBorderWidth": null,
-                                               "plotShadow": false,
-                                               "type": "pie"
-                                           },
-                                       "title":
-                                           {
-                                               "text":"<%= TITLE%>"
-                                           },
-                                       "tooltip":
-                                           {
-                                               "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
-                                           },
-                                       "plotOptions":
-                                           {
-                                               "pie":
-                                                   {
-                                                       "allowPointSelect": true,
-                                                       "cursor": "pointer",
-                                                       "dataLabels":
-                                                           {
-                                                               "enabled": true,
-                                                               "format": "<b>{point.name}</b>: {point.percentage:.1f} %",
-                                                               "style":
-                                                                   {
-                                                                       "color": "black"
-                                                                   }
-                                                           }
-                                                   }
-                                           },
-                                       "series":
-                                           [
-                                               {
-                                                   "name": "Customer-Type",
-                                                   "colorByPoint": true,
-                                                   "data":
-                                                       [
-                                                           {
-                                                               "name": "<%= HANDICAPPED%>",
-                                                               "y": <%= displayHandicappedData%>,
-                                                               "sliced": true,
-                                                               "selected": true
-                                                           },
-                                                           {
-                                                               "name": "<%= FEMALE%>",
-                                                               "y": <%= displayFemaleData%>,
-                                                           },
-                                                           {
-                                                               "name": "<%= COMPANY%>",
-                                                               "y": <%= displayCompanyData%>,
-                                                           }
-                                                           {
-                                                               "name": "<%= DAY%>",
-                                                               "y": <%= displayDayData%>,
-                                                           }
-                                                       ]
-                                               }
-                                           ]
-                                       }.
-                                   "data": {},
-                                   "html":
+                                             "plotBorderWidth": null,
+                                             "plotShadow": false,
+                                             "type":"pie"
+                                       }
+                                   "title":
                                        {
-                                           "id": "chart",
-                                            "style": "%%"
+                                           "text":"<%= TITLE%>"
                                        },
-                                   "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
-                           } '
+                                   "tooltip":
+                                       {
+                                           "pointFormat":"{series.name}: <b>{point.percentage:.1f}%</b>"
+                                       },
+                                   "plotOptions":
+                                       {
+                                           "pie":
+                                               {
+                                                   "allowPointSelect": true,
+                                                   "cursor":"pointer",
+                                                   "dataLabels":
+                                                       {
+                                                           "enabled": true,
+                                                           "format":"<b>{point.name}</b>: {point.percentage:.1f} %",
+                                                           "style":
+                                                               {
+                                                                   "color":"black"
+                                                               }
+                                                       }
+                                               }
+                                       },
+                                   "series":
+                                       [
+                                           {
+                                               "name":"Customer-Type",
+                                               "colorByPoint": true,
+                                               "data":
+                                                   [
+                                                       {
+                                                           "name":"<%= HANDICAPPED%>",
+                                                           "y":<%= displayHandicappedData%>,
+                                                           "sliced": true,
+                                                           "selected": true
+                                                       },
+                                                       {
+                                                           "name":"<%= FEMALE%>",
+                                                           "y":<%= displayFemaleData%>,
+                                                       },
+                                                       {
+                                                           "name":"<%= COMPANY%>",
+                                                           "y":<%= displayCompanyData%>,
+                                                       }
+                                                       {
+                                                           "name":"<%= DAY%>",
+                                                           "y":<%= displayDayData%>,
+                                                       }
+                                                   ]
+                                           }
+                                       ]
+                                   }.
+                               "data":{},
+                               "html":
+                                   {
+                                       "id":"chart",
+                                       "style":"%%"
+                                   },
+                               "style":"min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
+                       } '
 		></ccm-highchart-3-0-1>
 		<%}%>
 	</body>

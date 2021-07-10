@@ -33,8 +33,9 @@
 	</head>
 	<body>
 		<%
+			ServletContext context = request.getServletContext();
 			@SuppressWarnings("unchecked")
-			List<CarIF> vehiclesThatLeft = (List<CarIF>)  request.getServletContext().getAttribute("former-cars" + "Level1");
+			List<CarIF> vehiclesThatLeft = (List<CarIF>)  context.getAttribute("former-cars" + "Level1");
 			if (vehiclesThatLeft == null)
 			{
 			    final PrintWriter OUT = response.getWriter();
