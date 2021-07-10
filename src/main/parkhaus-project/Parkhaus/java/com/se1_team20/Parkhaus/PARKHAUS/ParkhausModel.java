@@ -43,7 +43,9 @@ public class ParkhausModel {
         return (attribute == null) ? 0. : attribute;
     }
 
-
+    public long filterCustomerAmountWithoutSpecific(List<CarIF> cars , String withoutCustomerType) {
+        return cars.stream().filter(x -> !x.kunde().equals("Company")).count();
+    }
 
     public List<CarIF> filterColorErase(List<CarIF> cars, String color) {
         return  cars.stream().filter((x -> !x.hash().equals(color))).collect(Collectors.toList());

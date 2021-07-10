@@ -137,29 +137,33 @@ public abstract class ParkhausServlet extends ParkingServlet {
     private void handleLeave(final String[] PARAMS) {
         parkingspaces.set(Integer.parseInt(PARAMS[7]) - 1, "leave" + "," + PARAMS[1] + "," + PARAMS[7]);
 
+        CarIF carSave = new Car(PARAMS);
+        formerCars().add(carSave); //Saving Old Car in formerCars()
+
         StringBuilder priceString = new StringBuilder();
-        double price = 0.;
-        /*if (PARAMS[8].equals("Company")) {
+
+        if (PARAMS[8].equals("Company")) {
             priceString.append("0"); //Company Customers dont count towards revenue
         } else {
             priceString.append(PARAMS[4]);
-        }*/
+        }
 
-        priceString.append(PARAMS[4]);
-        price = (!(priceString.toString().equals("_"))) ? Double.parseDouble(priceString.toString()) : 0.;
+        double price = (!(priceString.toString().equals("_"))) ? Double.parseDouble(priceString.toString()) : 0.;
 
         ServletContext application = getContext();
+        long carsWithoutCompany =  pModel.filterCustomerAmountWithoutSpecific(formerCars(),"Company");
+
         Double totalRev = pModel.getDoubleAttribute((Double) application.getAttribute("total_revenue"));
-
         getContext().setAttribute("total_revenue", (totalRev + (price / 100.)));
-        getContext().setAttribute("average_revenue", (totalRev / (double) formerCars().size()));
-        // getContext().setAttribute("get_bill", price);
+        totalRev = pModel.getDoubleAttribute((Double) application.getAttribute("total_revenue"));
+
+        getContext().setAttribute("average_revenue", (totalRev / carsWithoutCompany));
+
         getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(), Integer.parseInt(PARAMS[1]))); //Erasing Car from cars()
-        // getContext().setAttribute("total_cars", cars().size());
 
 
-        CarIF carSave = new Car(PARAMS);
-        formerCars().add(carSave); //Saving Old Car in formerCars()
+
+
     }
 
     //erstellt von Lukas
