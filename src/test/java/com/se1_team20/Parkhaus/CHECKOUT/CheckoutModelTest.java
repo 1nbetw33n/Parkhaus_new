@@ -37,6 +37,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 class CheckoutModelTest {
 
+    CheckoutModel MODEL = new CheckoutModel();
     List<CarIF> cars;
     CarIF car1;
     CarIF car2;
@@ -72,40 +73,40 @@ class CheckoutModelTest {
     @Test
     @DisplayName("filterByLicensePlate - equals test")
     void equalsTestFilterByLicensePlate() {
-        assertEquals(this.car1, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 30"));
-        assertEquals(this.car2, CheckoutModel.filterByLicensePlate(this.cars, "SU-K 77"));
-        assertEquals(this.car3, CheckoutModel.filterByLicensePlate(this.cars, "SU-Q 94"));
-        assertEquals(this.car4, CheckoutModel.filterByLicensePlate(this.cars, "SU-F 7"));
-        assertEquals(this.car5, CheckoutModel.filterByLicensePlate(this.cars, "SU-T 8"));
+        assertEquals(this.car1, this.MODEL.filterByLicensePlate(this.cars, "SU-I 30"));
+        assertEquals(this.car2, this.MODEL.filterByLicensePlate(this.cars, "SU-K 77"));
+        assertEquals(this.car3, this.MODEL.filterByLicensePlate(this.cars, "SU-Q 94"));
+        assertEquals(this.car4, this.MODEL.filterByLicensePlate(this.cars, "SU-F 7"));
+        assertEquals(this.car5, this.MODEL.filterByLicensePlate(this.cars, "SU-T 8"));
     }
 
     @Test
     @DisplayName("filterByLicensePlate - not equals test")
     void notEqualsTestFilterByLicensePlate() {
-        assertNotEquals(this.car2, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 30"));
-        assertNotEquals(this.car3, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 29"));
-        assertNotEquals(this.car4, CheckoutModel.filterByLicensePlate(this.cars, "SU-I 330"));
+        assertNotEquals(this.car2, this.MODEL.filterByLicensePlate(this.cars, "SU-I 30"));
+        assertNotEquals(this.car3, this.MODEL.filterByLicensePlate(this.cars, "SU-I 29"));
+        assertNotEquals(this.car4, this.MODEL.filterByLicensePlate(this.cars, "SU-I 330"));
     }
 
     @Test
     @DisplayName("filterByLicensePlate - null test")
     void nullTestFilterByLicensePlate() {
-        assertNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-I 3456tdf0"));
-        assertNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-I 34dfshgtrsz56tdf0"));
-        assertNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-I h34hgfsdzutr56tdf0"));
-        assertNull(CheckoutModel.filterByLicensePlate(this.cars, ""));
-        assertNull(CheckoutModel.filterByLicensePlate(this.cars, " "));
-        assertNull(CheckoutModel.filterByLicensePlate(this.cars, "        "));
+        assertNull(this.MODEL.filterByLicensePlate(this.cars, "SU-I 3456tdf0"));
+        assertNull(this.MODEL.filterByLicensePlate(this.cars, "SU-I 34dfshgtrsz56tdf0"));
+        assertNull(this.MODEL.filterByLicensePlate(this.cars, "SU-I h34hgfsdzutr56tdf0"));
+        assertNull(this.MODEL.filterByLicensePlate(this.cars, ""));
+        assertNull(this.MODEL.filterByLicensePlate(this.cars, " "));
+        assertNull(this.MODEL.filterByLicensePlate(this.cars, "        "));
     }
 
     @Test
     @DisplayName("filterByLicensePlate - not null test")
     void notNullTestFilterByLicensePlateLowerLimit() {
-        assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-I 30"));
-        assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-K 77"));
-        assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-Q 94"));
-        assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-F 7"));
-        assertNotNull(CheckoutModel.filterByLicensePlate(this.cars, "SU-T 8"));
+        assertNotNull(this.MODEL.filterByLicensePlate(this.cars, "SU-I 30"));
+        assertNotNull(this.MODEL.filterByLicensePlate(this.cars, "SU-K 77"));
+        assertNotNull(this.MODEL.filterByLicensePlate(this.cars, "SU-Q 94"));
+        assertNotNull(this.MODEL.filterByLicensePlate(this.cars, "SU-F 7"));
+        assertNotNull(this.MODEL.filterByLicensePlate(this.cars, "SU-T 8"));
     }
 
 }
