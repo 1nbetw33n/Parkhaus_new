@@ -72,20 +72,7 @@
     double total_revenue = sc.getAttribute("total_revenue") == null ?  0.0 : (double) sc.getAttribute("total_revenue");
     double average_revenue = sc.getAttribute("average_revenue") == null ?  0.0 : (double) sc.getAttribute("average_revenue");
 
-
 %>
-
-<%--<div id="tot_revenue_div" style="margin-left: 20%">--%>
-<%--    <div id="div1" style="float:left">--%>
-<%--        <button margin: auto auto 0 float: left  type="button" value="total_revenue"--%>
-<%--        onclick="showTotalCars()"/>--%>
-<%--        Total Revenue</button>--%>
-<%--    </div>--%>
-<%--    <div id="total_cars_div" style="float:left">--%>
-<%--        <p> <%=total_cars%> </p>--%>
-<%--    </div>--%>
-<%--</div>--%>
-
 
 <div style="text-align: center;">
     <form id="buttonFormId" name="buttonForm" method="get" action="ManagementServlet">

@@ -55,27 +55,7 @@
 					            "extra_inner":"Display free parking spaces",
 					            "extra_popup_title":"GO TO PARKING SPACES VIEW"
 
-					        },
-						    {
-							    "extra_class":"total_revenue",
-							    "extra_inner":"Total Revenue",
-							    "extra_popup_title":"Total revenue"
-						    },
-						    {
-							    "extra_class":"average_revenue",
-							    "extra_inner":"Average Revenue",
-							    "extra_popup_title":"Average revenue per car"
-						    },
-						    {
-						        "extra_class":"total_cars",
-							    "extra_inner":"Total Cars",
-							    "extra_popup_title":"How many cars visited the Parkhaus"
-							},
-							{
-							    "extra_class":"get_bill",
-							    "extra_inner":"Your Bill",
-							    "extra_popup_title":"Show hwo much you have to pay"
-							}
+					        }
 					    ]
 					   }'
 		>

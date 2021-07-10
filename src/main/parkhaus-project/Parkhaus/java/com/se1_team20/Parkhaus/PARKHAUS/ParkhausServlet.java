@@ -84,11 +84,11 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
         ServletContext application = getContext();
 
-        if ("cmd".equals(command) && "total_revenue".equals(param)) { eventDoubleAttribute(response, application, "total_revenue"); }
-        else if ("cmd".equals(command) && "average_revenue".equals(param)) {eventDoubleAttribute(response, application, "average_revenue");}
-        else if ("cmd".equals(command) && "total_cars".equals(param)) { eventTotalCars(response);}
-        else if ("cmd".equals(command) && "get_bill".equals(param)) {eventDoubleAttribute(response, application, "get_bill");}
-        else if ("cmd".equals(command) && "checkout".equals(param))  {handleRequest(request, response);}
+        //if ("cmd".equals(command) && "total_revenue".equals(param)) { eventDoubleAttribute(response, application, "total_revenue"); }
+        //else if ("cmd".equals(command) && "average_revenue".equals(param)) {eventDoubleAttribute(response, application, "average_revenue");}
+        //else if ("cmd".equals(command) && "total_cars".equals(param)) { eventTotalCars(response);}
+        //else if ("cmd".equals(command) && "get_bill".equals(param)) {eventDoubleAttribute(response, application, "get_bill");}
+        if ("cmd".equals(command) && "checkout".equals(param))  {handleRequest(request, response);}
         else if ("cmd".equals(command) && "management".equals(param)) {handleRequest(request, response);}
         else if ("cmd".equals(command) && "config&name".equals(param)) {handleConfig(param, response);}
         else if ("cmd".equals(command) && "cars&name".equals(param)) {savedCars(param, response);}
@@ -100,12 +100,10 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     protected final void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        RequestDispatcher requestDispatcherObject = null;
+
         if (request.getQueryString().split("=")[1].equals("checkout"))
         {
-            //TODO: RequestDispatcherObject ist unnötig: Siehe CheckoutAuthenticationServlet
-            requestDispatcherObject = request.getRequestDispatcher("CheckoutAuthenticationView.jsp");
-            requestDispatcherObject.forward(request, response);
+            request.getRequestDispatcher("CheckoutAuthenticationView.jsp").forward(request, response);
         }
         else if(request.getQueryString().split("=")[1].equals("spaces"))
         {
@@ -114,8 +112,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
          }
         else if (request.getQueryString().split("=")[1].equals("management"))
         {
-            requestDispatcherObject = request.getRequestDispatcher("ManagementAuthenticationView.jsp");
-            requestDispatcherObject.forward(request, response);
+            request.getRequestDispatcher("ManagementAuthenticationView.jsp").forward(request, response);
         }
     }
 
@@ -149,9 +146,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
         getContext().setAttribute("total_revenue", (totalRev + (price / 100.)));
         getContext().setAttribute("average_revenue", (totalRev / (double) formerCars().size()));
-        getContext().setAttribute("get_bill", price);
+        // getContext().setAttribute("get_bill", price);
         getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(),Integer.parseInt(PARAMS[1]))); //Erasing Car from cars()
-        getContext().setAttribute("total_cars", cars().size());
+        // getContext().setAttribute("total_cars", cars().size());
 
 
         CarIF carSave = new Car(PARAMS);
@@ -193,18 +190,18 @@ public abstract class ParkhausServlet extends ParkingServlet {
     }
 
 
-    protected final void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {
+    /*protected final void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {
         final PrintWriter OUT = response.getWriter();
         Double doubleAttribute = pModel.getDoubleAttribute((Double) application.getAttribute(attribute));
         OUT.println(doubleAttribute + ",-");
         System.out.println(attribute + " = €" + doubleAttribute);
-    }
+    }*/
 
-    private void eventTotalCars(HttpServletResponse response) throws IOException {
+    /*private void eventTotalCars(HttpServletResponse response) throws IOException {
         final PrintWriter OUT = response.getWriter();
         OUT.println(cars().size());
         System.out.println("total_cars = " + cars().size());
-    }
+    }*/
 
 
     private void handleConfig(String name, HttpServletResponse response) {
