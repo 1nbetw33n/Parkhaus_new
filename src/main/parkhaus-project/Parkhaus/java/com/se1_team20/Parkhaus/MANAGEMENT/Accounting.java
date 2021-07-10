@@ -40,6 +40,7 @@ public class Accounting {
     private final List<HashMap<String, String>> BILLS = new ArrayList<>();
 
 
+    //TODO: TEST THIS STUFF (ONLY ONE INSTANCE POSSIBLE AND DEFAULT BILL)
     /* every time a new instance is created, this block will be executed (only 1 instance possible) */
     {
         try
