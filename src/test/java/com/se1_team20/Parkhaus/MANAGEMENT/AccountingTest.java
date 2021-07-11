@@ -27,6 +27,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,13 +35,17 @@ class AccountingTest {
 
     Accounting accounting;
     List<HashMap<String, String>> bills;
+    HashMap<String, String> bill;
 
 
+    @SuppressWarnings("unchecked")
     @BeforeEach
     void setUp()
     {
         this.accounting = Accounting.getInstance();
         this.bills = this.accounting.getBILLS();
+        this.bill = new HashMap<>();
+        this.bill.put("Management", "easy-pass-word");
     }
 
     @AfterEach
@@ -48,6 +53,7 @@ class AccountingTest {
     {
         this.accounting = null;
         this.bills = null;
+        this.bill = null;
     }
 
     @Test
@@ -62,6 +68,13 @@ class AccountingTest {
     void storageTestBILLS()
     {
         assertEquals("[{Management=easy-pass-word}]", this.bills.toString());
+    }
+
+    @Test
+    @DisplayName("checkBILLS assert true test")
+    void assertTrueTestCheckBILLS()
+    {
+        assertTrue(this.accounting.checkBILLS("Management", "easy-pass-word"));
     }
 
 }
