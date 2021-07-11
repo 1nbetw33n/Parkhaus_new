@@ -24,6 +24,7 @@ import com.se1_team20.Parkhaus.PARKHAUS.Car;
 import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class ManagementModelTest {
     protected CarIF car9;
     protected CarIF car10;
     protected CarIF car11;
-    protected List<CarIF>     cars;
+    protected List<CarIF> cars;
 
     @BeforeEach
     void setUp() {
@@ -93,7 +94,8 @@ public class ManagementModelTest {
     }
 
     @Test
-    void filterAmountOfType() {
+    @DisplayName("filterAmountOfCustomerType() returns correct values for cars, when using standard values")
+    void filterAmountOfTypeTypicalValues() {
         assertEquals(3L, mModel.filterAmountOfCustomerType(cars, "Day"));
         assertEquals(5L, mModel.filterAmountOfCustomerType(cars, "Company"));
         assertEquals(1L, mModel.filterAmountOfCustomerType(cars, "Handicapped"));
@@ -101,13 +103,15 @@ public class ManagementModelTest {
     }
 
     @Test
-    void filterPercentagesOfType() {
-        assertEquals(0L, mModel.filterPercentagesOfCustomerType(cars, "Day"));
-        /* Is this supposed to fail? */ //assertEquals(100L, mModel.filterPercentagesOfCustomerType(cars, "Company"));
+    @DisplayName("filterAmountOfCustomerType() returns 0 if there are no Customers of given type")
+    void filterAmountOfTypeEmptyValues() {
+        assertEquals(0, mModel.filterAmountOfCustomerType(cars, "Tomaten"));
+        assertEquals(0, mModel.filterAmountOfCustomerType(cars, ""));
     }
 
     @Test
-    void filterDurationCustomerCar() {
+    @DisplayName("filterDurationCustomerCar() returns correct values for standard value")
+    void filterDurationCustomerCarTypicalValues() {
         assertEquals(25840L, mModel.filterDurationCustomerCar(cars, "Handicapped", "Limousine"));
         assertEquals(51680L, mModel.filterDurationCustomerCar(cars, "Company", "Limousine"));
         assertEquals(77520L, mModel.filterDurationCustomerCar(cars, "Day", "Limousine"));
@@ -116,7 +120,9 @@ public class ManagementModelTest {
     }
 
    @Test
-    void filterDurationCustomer() {
-
+   @DisplayName("filterDurationCustomerCar() returns 0 when given Strings which are neither Car nor Customer types")
+    void filterDurationCustomerCarEmptyValues() {
+       assertEquals(0L, mModel.filterDurationCustomerCar(cars, "Gurke", "SUV"));
+       assertEquals(0L, mModel.filterDurationCustomerCar(cars, "Female", "Tomaten"));
     }
 }
