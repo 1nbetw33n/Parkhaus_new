@@ -70,13 +70,11 @@ public class Accounting {
 
 
     //TODO: WRITE TESTS FOR THIS UNIT
-    @SuppressWarnings("unchecked")
     public boolean checkBILLS(final String KEY, final String VALUE)
     {
-        final HashMap<String, String> MAP = new HashMap<>();
-        MAP.put(KEY, VALUE);
         return BILLS.stream()
-                .anyMatch((Predicate<? super HashMap<String, String>>) MAP);
+                    .filter(x -> x.containsKey(KEY))
+                        .anyMatch(x -> x.containsValue(VALUE));
     }
 
     List<HashMap<String, String>> getBILLS() {
