@@ -24,5 +24,5 @@ package com.se1_team20.Parkhaus.MANAGEMENT.FILTER_REVENUE_TESTS;
 11.Jul.2021
 */
 
-public class ManagementModelFilterRevenueByVehicleTest {
+public class ManagementModelFilterRevenueByVehicleTestHandicapped {
 }
