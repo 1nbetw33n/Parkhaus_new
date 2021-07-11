@@ -37,18 +37,19 @@ public class Accounting {
 
     private static Accounting instance;
 
-    private final List<HashMap<String, String>> BILLS = new ArrayList<>();
+    private static final List<HashMap<String, String>> BILLS = new ArrayList<>();
 
 
     //TODO: TEST THIS STUFF (ONLY ONE INSTANCE POSSIBLE AND DEFAULT BILL)
     /* every time a new instance is created, this block will be executed (only 1 instance possible) */
+    static
     {
         try
         {
             instance = getInstance();
             final HashMap<String, String> bill = new HashMap<>();
             bill.put("Management", "easy-pass-word");
-            this.BILLS.add(bill);
+            BILLS.add(bill);
         }
         catch (final Exception E)
         {
