@@ -78,10 +78,11 @@ public class Accounting {
 
     //TODO: WRITE TESTS FOR THIS UNIT
     @SuppressWarnings("unchecked")
-    private boolean checkBills(@NotNull final HashMap<String, String> MAP)
+    public boolean checkBILLS(@NotNull final HashMap<String, String> MAP)
     {
         return BILLS.stream()
                 .anyMatch((Predicate<? super HashMap<String, String>>) MAP);
     }
+
 
 }
