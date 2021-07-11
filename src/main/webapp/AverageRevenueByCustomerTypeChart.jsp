@@ -44,7 +44,7 @@
 			}
 			else
 			{
-			    final String TITLE = " Share of customers who visited the garage.";
+			    final String TITLE = " Shares of Customers that visited the garage.";
 			    final String HANDICAPPED = "Handicapped";
 			    final String FEMALE = "Female";
 			    final String COMPANY = "Company";
@@ -60,15 +60,15 @@
 							"settings":
 								{
 									"chart":
-										{
-											"plotBackgroundColor": null,
-                                             "plotBorderWidth": null,
-                                             "plotShadow": false,
-                                             "type":"pie"
-                                       }
+									   {
+										   "plotBackgroundColor": null,
+                                           "plotBorderWidth": null,
+                                           "plotShadow": false,
+                                           "type":"pie"
+                                       },
                                    "title":
                                        {
-                                           "text":"<%= TITLE%>"
+                                           "text":"<%=TITLE%>"
                                        },
                                    "tooltip":
                                        {
@@ -99,25 +99,25 @@
                                                "data":
                                                    [
                                                        {
-                                                           "name":"<%= HANDICAPPED%>",
-                                                           "y":<%= displayHandicappedData%>,
+                                                           "name":"<%=HANDICAPPED%>",
+                                                           "y":<%=displayHandicappedData%>,
                                                            "sliced": true,
                                                            "selected": true
                                                        },
                                                        {
-                                                           "name":"<%= FEMALE%>",
-                                                           "y":<%= displayFemaleData%>,
+                                                           "name":"<%=FEMALE%>",
+                                                           "y":<%=displayFemaleData%>,
                                                        },
                                                        {
-                                                           "name":"<%= COMPANY%>",
-                                                           "y":<%= displayCompanyData%>,
+                                                           "name":"<%=COMPANY%>",
+                                                           "y":<%=displayCompanyData%>,
                                                        }
                                                        {
-                                                           "name":"<%= DAY%>",
-                                                           "y":<%= displayDayData%>,
+                                                           "name":"<%=DAY%>",
+                                                           "y":<%=displayDayData%>,
                                                        }
-                                                   ]
-                                           }
+                                                  ]
+                                          }
                                        ]
                                    }.
                                "data":{},
