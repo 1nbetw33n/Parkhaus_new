@@ -30,8 +30,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ManagementModelFilterRevenueByVehicleTestVan  extends ManagementModelTest {
 
@@ -52,5 +52,13 @@ public class ManagementModelFilterRevenueByVehicleTestVan  extends ManagementMod
         assertNotEquals(5168., mModel.filterRevenueByVehicle(new ArrayList<>(), "Van"));
         assertNotEquals(5168., mModel.filterRevenueByVehicle(this.cars, "Van"));
         assertNotEquals(5168. * 11., mModel.filterRevenueByVehicle(this.cars, "Van"));
+    }
+
+    @Test
+    @DisplayName("filterRevenue for Van - not null test")
+    void vanNotNullTestFilterRevenue()
+    {
+        assertNotNull(mModel.filterRevenueByVehicle(new ArrayList<>(), "Van"));
+        assertNotNull(mModel.filterRevenueByVehicle(this.cars, "Van"));
     }
 }
