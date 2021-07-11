@@ -31,6 +31,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class ManagementModelFilterRevenueByVehicleTestVan  extends ManagementModelTest {
 
@@ -42,5 +43,14 @@ public class ManagementModelFilterRevenueByVehicleTestVan  extends ManagementMod
     {
         assertEquals(0.,  mModel.filterRevenueByVehicle(new ArrayList<>(), "Van"));
         assertEquals(0.,  mModel.filterRevenueByVehicle(this.cars, "Van")); // expects 0., because the only van is a company customer
+    }
+
+    @Test
+    @DisplayName("filterRevenue for Van - not equals test")
+    void vanNotEqualsTestFilterRevenue()
+    {
+        assertNotEquals(5168., mModel.filterRevenueByVehicle(new ArrayList<>(), "Van"));
+        assertNotEquals(5168., mModel.filterRevenueByVehicle(this.cars, "Van"));
+        assertNotEquals(5168. * 11., mModel.filterRevenueByVehicle(this.cars, "Van"));
     }
 }
