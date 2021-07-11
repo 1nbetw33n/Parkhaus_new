@@ -25,29 +25,43 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountingTest {
 
     Accounting accounting;
+    List<HashMap<String, String>> bills;
 
 
     @BeforeEach
     void setUp()
     {
         this.accounting = Accounting.getInstance();
+        this.bills = this.accounting.getBILLS();
     }
 
     @AfterEach
     void tearDown()
     {
         this.accounting = null;
+        this.bills = null;
     }
 
     @Test
-    @DisplayName("singleton test")
-    void singletonTest()
+    @DisplayName("singleton test assert same")
+    void assertSameSingletonTest()
     {
         assertSame(this.accounting,  Accounting.getInstance());
     }
+
+    @Test
+    @DisplayName("BILLS successfully stores init bill")
+    void storageTestBILLS()
+    {
+        assertEquals("[{Management=easy-pass-word}]", this.bills.toString());
+    }
+
 }
