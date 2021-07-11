@@ -109,9 +109,9 @@
 <div style="text-align: center;">
     <form id="chartFormId" name="chartForm" method="get" action="ManagementServlet">
         <button name="cmd" type="submit" value="customer_chart"/>
-        Customer Overview</button>
+        Customer Distribution</button>
         <button name="cmd" type="submit" value="income_chart"/>
-        Income Overview (Duration Overview?)</button>
+        Duration Overview</button>
         <button name="cmd" type="submit" value="revenue_chart_customer"/>
         Revenue per Customer</button>
         <button name="cmd" type="submit" value="revenue_chart_vehicle"/>
@@ -122,7 +122,7 @@
 
 <% if (former_cars == null) {
     PrintWriter OUT = response.getWriter();
-    OUT.println("Oops, no Cars left the Building yet!");
+    OUT.println("Oops, former_cars is null somehow!");
     OUT.println();
 } else { %>
 <div align=com.se1_team20.Parkhaus.MANAGEMENT.ManagementServlet"center"></div>
