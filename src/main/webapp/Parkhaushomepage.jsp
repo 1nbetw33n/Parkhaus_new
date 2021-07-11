@@ -55,7 +55,7 @@
         <div style="text-indent:-68px">
 
             <label for="pword">Password:</label>
-            <input type="password" size="20" maxlength="20" id="pword" name="pword" pattern="[a-zA-Z0-9]{7}" title="The password must be of 8 characters which contains atleast one big letter,one small letter, one digit and a special character." placeholder="Enter password" required/><br><br>
+            <input type="password" size="20" maxlength="20" id="pword" name="pword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="The password must be of 8 characters which contains atleast one big letter,one small letter, one digit and a special character." placeholder="Enter password" required/><br><br>
 
         </div>
 
