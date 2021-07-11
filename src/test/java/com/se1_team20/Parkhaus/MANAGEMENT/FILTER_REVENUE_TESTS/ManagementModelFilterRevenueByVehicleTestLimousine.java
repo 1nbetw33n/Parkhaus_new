@@ -39,7 +39,7 @@ public class ManagementModelFilterRevenueByVehicleTestLimousine extends Manageme
 
     @Test
     @DisplayName("filterRevenue for Limousine - equals test")
-    void LimousineEqualsTestFilterRevenue()
+    void limousineEqualsTestFilterRevenue()
     {
         assertEquals(0.,  mModel.filterRevenueByVehicle(new ArrayList<>(), "Limousine"));
         assertEquals(6. * 5168.,  mModel.filterRevenueByVehicle(this.cars, "Limousine")); // expects 6. * 5168., because 2 of 8 limousines are company customers
@@ -47,7 +47,7 @@ public class ManagementModelFilterRevenueByVehicleTestLimousine extends Manageme
 
     @Test
     @DisplayName("filterRevenue for Limousine - not equals test")
-    void LimousineNotEqualsTestFilterRevenue()
+    void limousineNotEqualsTestFilterRevenue()
     {
         assertNotEquals(5168., mModel.filterRevenueByVehicle(new ArrayList<>(), "Limousine"));
         assertNotEquals(0., mModel.filterRevenueByVehicle(this.cars, "Limousine"));
@@ -56,7 +56,7 @@ public class ManagementModelFilterRevenueByVehicleTestLimousine extends Manageme
 
     @Test
     @DisplayName("filterRevenue for Limousine - not null test")
-    void LimousineNotNullTestFilterRevenue()
+    void limousineNotNullTestFilterRevenue()
     {
         assertNotNull(mModel.filterRevenueByVehicle(new ArrayList<>(), "Limousine"));
         assertNotNull(mModel.filterRevenueByVehicle(this.cars, "Limousine"));
