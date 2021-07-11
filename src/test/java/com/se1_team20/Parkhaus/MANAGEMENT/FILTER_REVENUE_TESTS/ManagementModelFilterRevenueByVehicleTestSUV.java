@@ -51,7 +51,7 @@ public class ManagementModelFilterRevenueByVehicleTestSUV extends ManagementMode
     {
         assertNotEquals(5168., mModel.filterRevenueByVehicle(new ArrayList<>(), "SUV"));
         assertNotEquals(0, mModel.filterRevenueByVehicle(this.cars, "SUV"));
-        assertNotEquals(5168. * 2., mModel.filterRevenueByVehicle(this.cars, "SUV"));
+        assertNotEquals(5168. * 2., mModel.filterRevenueByVehicle(this.cars, "SUV")):
     }
 
     @Test
