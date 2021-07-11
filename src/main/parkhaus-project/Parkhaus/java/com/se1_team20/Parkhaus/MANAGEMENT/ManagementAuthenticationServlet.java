@@ -30,8 +30,6 @@ import java.io.PrintWriter;
 
 public abstract class ManagementAuthenticationServlet extends ParkingServlet {
 
-    /* TODO: Create a java-class for storing the username and the password */
-
     final private static long serialVersionUID = 1L;
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
