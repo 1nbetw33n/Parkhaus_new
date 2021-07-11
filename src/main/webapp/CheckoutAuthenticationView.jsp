@@ -51,7 +51,9 @@
 	<h1>Checkout Authentication</h1>
 	<form id="CheckoutForm" name="loginForm" method="post" action="CheckoutServlet">
 		<div id="enterLicensePlateDiv" class="paddingBtm">
-			<span id="enteredLicensePlateSpan">Enter License Plate: </span><label for="userInput"></label><input id="userInput" type="text" name="entered_license_plate" />
+			<span id="enteredLicensePlateSpan">Enter License Plate: </span>
+			<label for="userInput"></label>
+			<input id="userInput" type="text" name="entered_license_plate" />
 		</div>
 		<div id="CheckoutBtnDiv">
 			<input id="CheckoutBtnInput" type="submit" value="Checkout" />
