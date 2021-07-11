@@ -35,6 +35,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ManagementModelFilterRevenueByVehicleTestLimousine extends ManagementModelTest {
 
+    //TESTS FOR LIMOUSINE
+
     @Test
     @DisplayName("filterRevenue for Limousine - equals test")
     void LimousineEqualsTestFilterRevenue()
