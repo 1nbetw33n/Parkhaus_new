@@ -42,7 +42,7 @@ public class ManagementModelFilterRevenueByVehicleTestMotorcycle extends Managem
     void motorcycleEqualsTestFilterRevenue()
     {
         assertEquals(0.,  mModel.filterRevenueByVehicle(new ArrayList<>(), "Motorcycle"));
-        assertEquals(0.,  mModel.filterRevenueByVehicle(this.cars, "Motorcycle")); // expects 0., because the only motorcycle is a company customers
+        assertEquals(0.,  mModel.filterRevenueByVehicle(this.cars, "Motorcycle")); // expects 0., because the only motorcycle is a company customer
     }
 
     @Test
