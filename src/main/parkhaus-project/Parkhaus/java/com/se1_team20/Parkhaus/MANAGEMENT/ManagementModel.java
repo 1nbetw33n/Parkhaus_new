@@ -49,7 +49,7 @@ public class ManagementModel {
     
     /* created by 1nbetw33n */
     public Double filterRevenueByVehicle(final List<CarIF> CARS, final String VEHICLETYPE)
-    {//TODO: WRITE TESTS FOR THIS UNIT
+    {
         return CARS.stream()
                 .filter(x -> x.typeCar().equals(VEHICLETYPE))
                     .mapToDouble(CarIF::price)
