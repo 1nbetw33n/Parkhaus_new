@@ -46,13 +46,13 @@
 
         <div style="text-indent:50px">
             <label for="mail">E-Mail:</label>
-            <input type="text" id="mail" name="mail" size="40" maxlength="40" oninvalid="alert('Invalid email address'); "pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Invalid mail" placeholder="Enter your email address" required><br><br>
+            <input type="text" id="mail" name="mail" size="40" maxlength="40" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Invalid mail" placeholder="Enter your email address" required><br><br>
 
         </div>
 
         <div style="text-indent:-30px">
             <label for="pword">Password:</label>
-            <input type="password" id="pword" name="pword" size="30" maxlength="30" oninvalid="alert('The password must be of 8 characters with atleast one big letter, small letter and special character'); "pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Invalid password" placeholder="Enter password" required><br><br>
+            <input type="password" id="pword" name="pword" size="30" maxlength="30" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Invalid password" placeholder="Enter password" required><br><br>
 
         </div>
 
