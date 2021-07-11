@@ -37,7 +37,6 @@ class AccountingTest {
     HashMap<String, String> bill;
 
 
-    @SuppressWarnings("unchecked")
     @BeforeEach
     void setUp()
     {
