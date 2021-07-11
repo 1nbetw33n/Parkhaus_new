@@ -44,7 +44,7 @@
 			}
 			else
 			{
-			    final String TITLE = " Share of customers who visited the garage.";
+			    final String TITLE = " Shares of Customers that visited the garage.";
 			    final String HANDICAPPED = "Handicapped";
 			    final String FEMALE = "Female";
 			    final String COMPANY = "Company";
