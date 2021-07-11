@@ -37,23 +37,15 @@ public class Accounting {
 
     private static Accounting instance;
 
-    private final List<HashMap<String, String>> BILLS = new ArrayList<>();
+    private static final List<HashMap<String, String>> BILLS = new ArrayList<>();
 
-
-    //TODO: TEST THIS STUFF (ONLY ONE INSTANCE POSSIBLE AND DEFAULT BILL)
     /* every time a new instance is created, this block will be executed (only 1 instance possible) */
+    static
     {
-        try
-        {
             instance = getInstance();
             final HashMap<String, String> bill = new HashMap<>();
-            bill.put("Management", "easy-pass-word");
-            this.BILLS.add(bill);
-        }
-        catch (final Exception E)
-        {
-            throw new RuntimeException("Only one instance possible.");
-        }
+            bill.put("Management", "Easy-pass-w0rd");
+            BILLS.add(bill);
     }
 
     private Accounting(){}
@@ -76,11 +68,15 @@ public class Accounting {
 
 
     //TODO: WRITE TESTS FOR THIS UNIT
-    @SuppressWarnings("unchecked")
-    private boolean checkBills(@NotNull final HashMap<String, String> MAP)
+    public boolean checkBILLS(@NotNull final String KEY, @NotNull final String VALUE)
     {
         return BILLS.stream()
-                .anyMatch((Predicate<? super HashMap<String, String>>) MAP);
+                    .filter(x -> x.containsKey(KEY))
+                        .anyMatch(x -> x.containsValue(VALUE));
+    }
+
+    List<HashMap<String, String>> getBILLS() {
+        return BILLS;
     }
 
 }
