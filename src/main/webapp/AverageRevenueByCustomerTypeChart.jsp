@@ -60,12 +60,12 @@
 							"settings":
 								{
 									"chart":
-										{
-											"plotBackgroundColor": null,
-                                             "plotBorderWidth": null,
-                                             "plotShadow": false,
-                                             "type":"pie"
-                                       }
+									   {
+										   "plotBackgroundColor": null,
+                                           "plotBorderWidth": null,
+                                           "plotShadow": false,
+                                           "type":"pie"
+                                       },
                                    "title":
                                        {
                                            "text":"<%=TITLE%>"
@@ -116,8 +116,8 @@
                                                            "name":"<%=DAY%>",
                                                            "y":<%=displayDayData%>,
                                                        }
-                                                   ]
-                                           }
+                                                  ]
+                                          }
                                        ]
                                    }.
                                "data":{},
