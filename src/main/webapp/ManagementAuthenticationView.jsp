@@ -48,18 +48,22 @@
 	</style>
 </head>
 <body>
-<div style="text-align: center;">
-	<h1>Management Authentication</h1>
-	<form id="loginFormId" name="loginForm" method="post" action="ManagementServlet">
-		<div id="usernameDiv" class="paddingBtm">
-			<span id="user">Username: </span><label for="userInput"></label><input id="userInput" type="text" name="username" />
-		</div>
-		<div id="passwordDiv" class="paddingBtm">
-			<span id="pass">Password: </span><label for="passInput"></label><input id="passInput" type="password" name="password" />
-		</div>
-		<div id="loginBtn">
-			<input id="Btn" type="submit" value="Login" />
-		</div>
-	</form>
-</div>
+	<div style="text-align: center;">
+		<h1>Management Authentication</h1>
+		<form id="loginFormId" name="loginForm" method="post" action="ManagementServlet">
+			<div id="usernameDiv" class="paddingBtm">
+				<span id="user">Username: </span>
+				<label for="userInput"></label>
+				<input id="userInput" type="text" name="username" />
+			</div>
+			<div id="passwordDiv" class="paddingBtm">
+				<span id="pass">Password: </span>
+				<label for="passInput"></label>
+				<input id="passInput" type="password" name="password" />
+			</div>
+			<div id="loginBtn">
+				<input id="Btn" type="submit" value="Login" />
+			</div>
+		</form>
+	</div>
 </body>
