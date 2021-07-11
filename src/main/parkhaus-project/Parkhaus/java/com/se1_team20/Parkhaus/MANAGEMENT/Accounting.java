@@ -46,7 +46,7 @@ public class Accounting {
     {
             instance = getInstance();
             final HashMap<String, String> bill = new HashMap<>();
-            bill.put("Management", "easy-pass-word");
+            bill.put("Management", "Easy-pass-w0rd");
             BILLS.add(bill);
     }
 
@@ -70,7 +70,7 @@ public class Accounting {
 
 
     //TODO: WRITE TESTS FOR THIS UNIT
-    public boolean checkBILLS(final String KEY, final String VALUE)
+    public boolean checkBILLS(@NotNull final String KEY, @NotNull final String VALUE)
     {
         return BILLS.stream()
                     .filter(x -> x.containsKey(KEY))
