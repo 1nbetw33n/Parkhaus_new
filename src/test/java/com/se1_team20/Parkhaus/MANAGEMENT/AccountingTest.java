@@ -22,21 +22,32 @@ package com.se1_team20.Parkhaus.MANAGEMENT;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountingTest {
 
+    Accounting accounting;
+
+
     @BeforeEach
-    void setUp() {
+    void setUp()
+    {
+        this.accounting = Accounting.getInstance();
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDown()
+    {
+        this.accounting = null;
     }
 
     @Test
-    void getInstance() {
+    @DisplayName("singleton test")
+    void singletonTest()
+    {
+        assertSame(this.accounting,  Accounting.getInstance());
     }
 }
