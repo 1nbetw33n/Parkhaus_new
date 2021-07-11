@@ -68,7 +68,7 @@
                                        }
                                    "title":
                                        {
-                                           "text":"<%= TITLE%>"
+                                           "text":"<%=TITLE%>"
                                        },
                                    "tooltip":
                                        {
@@ -99,22 +99,22 @@
                                                "data":
                                                    [
                                                        {
-                                                           "name":"<%= HANDICAPPED%>",
-                                                           "y":<%= displayHandicappedData%>,
+                                                           "name":"<%=HANDICAPPED%>",
+                                                           "y":<%=displayHandicappedData%>,
                                                            "sliced": true,
                                                            "selected": true
                                                        },
                                                        {
-                                                           "name":"<%= FEMALE%>",
-                                                           "y":<%= displayFemaleData%>,
+                                                           "name":"<%=FEMALE%>",
+                                                           "y":<%=displayFemaleData%>,
                                                        },
                                                        {
-                                                           "name":"<%= COMPANY%>",
-                                                           "y":<%= displayCompanyData%>,
+                                                           "name":"<%=COMPANY%>",
+                                                           "y":<%=displayCompanyData%>,
                                                        }
                                                        {
-                                                           "name":"<%= DAY%>",
-                                                           "y":<%= displayDayData%>,
+                                                           "name":"<%=DAY%>",
+                                                           "y":<%=displayDayData%>,
                                                        }
                                                    ]
                                            }
