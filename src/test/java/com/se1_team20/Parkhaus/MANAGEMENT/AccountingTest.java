@@ -43,7 +43,7 @@ class AccountingTest {
         this.accounting = Accounting.getInstance();
         this.bills = this.accounting.getBILLS();
         this.bill = new HashMap<>();
-        this.bill.put("Management", "easy-pass-word");
+        this.bill.put("Management", "Easy-pass-w0rd");
     }
 
     @AfterEach
@@ -65,14 +65,14 @@ class AccountingTest {
     @DisplayName("BILLS successfully stores init bill")
     void storageTestBILLS()
     {
-        assertEquals("[{Management=easy-pass-word}]", this.bills.toString());
+        assertEquals("[{Management=Easy-pass-w0rd}]", this.bills.toString());
     }
 
     @Test
     @DisplayName("checkBILLS assert true test")
     void assertTrueTestCheckBILLS()
     {
-        assertTrue(this.accounting.checkBILLS("Management", "easy-pass-word"));
+        assertTrue(this.accounting.checkBILLS("Management", "Easy-pass-w0rd"));
     }
 
     @Test
