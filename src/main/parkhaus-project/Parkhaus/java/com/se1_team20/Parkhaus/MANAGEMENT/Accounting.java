@@ -45,8 +45,8 @@ public class Accounting {
     static
     {
             instance = getInstance();
-            final HashMap<String, String> bill = new HashMap<>();
-            bill.put("Management", "easy-pass-word");
+            @SuppressWarnings("unchecked")
+            final HashMap<String, String> bill = (HashMap<String, String>) new HashMap<>().put("Management", "easy-pass-word");
             BILLS.add(bill);
     }
 
@@ -71,8 +71,10 @@ public class Accounting {
 
     //TODO: WRITE TESTS FOR THIS UNIT
     @SuppressWarnings("unchecked")
-    public boolean checkBILLS(@NotNull final HashMap<String, String> MAP)
+    public boolean checkBILLS(final String KEY, final String VALUE)
     {
+        final HashMap<String, String> MAP = new HashMap<>();
+        MAP.put(KEY, VALUE);
         return BILLS.stream()
                 .anyMatch((Predicate<? super HashMap<String, String>>) MAP);
     }
