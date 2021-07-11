@@ -66,7 +66,14 @@
 			<div id="passwordDiv" class="paddingBtm">
 				<span id="pass">Password: </span>
 				<label for="passInput"></label>
-				<input id="passInput" type="password" name="password" />
+				<input id="passInput"
+				       type="password"
+				       name="password"
+				       oninvalid="alert('Invalid Input')"
+				       pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+				       title="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+				       required
+				/>
 			</div>
 			<div id="loginBtn">
 				<input id="Btn" type="submit" value="Login" />
