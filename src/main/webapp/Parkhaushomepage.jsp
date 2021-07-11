@@ -48,14 +48,14 @@
         <div style="text-indent:-100px">
 
             <label for="name">Benutzername:</label>
-            <input type="text" size="20" maxlength="20" id="name" name="name" pattern="[a-z]{3,}2s" title="Beispiel: aabusa2s" placeholder="Enter username" required/><br><br>
+            <input type="text" size="20" maxlength="20" id="name" name="name" pattern="[a-z]{3,}2s" title="Example: aabusa2s" placeholder="Enter username" required/><br><br>
 
         </div>
 
         <div style="text-indent:-68px">
 
             <label for="pword">Password:</label>
-            <input type="password" size="20" maxlength="20" id="pword" name="pword" pattern="[a-zA-Z0-9]{7}" title="SE1 App password" placeholder="Enter password" required/><br><br>
+            <input type="password" size="20" maxlength="20" id="pword" name="pword" pattern="[a-zA-Z0-9]{7}" title="The password must be of 8 characters which contains atleast one big letter,one small letter, one digit and a special character." placeholder="Enter password" required/><br><br>
 
         </div>
 
