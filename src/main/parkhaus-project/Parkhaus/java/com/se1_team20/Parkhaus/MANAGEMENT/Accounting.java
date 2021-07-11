@@ -84,5 +84,8 @@ public class Accounting {
                 .anyMatch((Predicate<? super HashMap<String, String>>) MAP);
     }
 
+    public static List<HashMap<String, String>> getBILLS() {
+        return BILLS;
+    }
 
 }
