@@ -44,17 +44,10 @@ public class Accounting {
     /* every time a new instance is created, this block will be executed (only 1 instance possible) */
     static
     {
-        try
-        {
             instance = getInstance();
             final HashMap<String, String> bill = new HashMap<>();
             bill.put("Management", "easy-pass-word");
             BILLS.add(bill);
-        }
-        catch (final Exception E)
-        {
-            throw new RuntimeException("Only one instance possible.");
-        }
     }
 
     private Accounting(){}
