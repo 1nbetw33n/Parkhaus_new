@@ -38,10 +38,10 @@ public class ManagementModelFilterRevenueByVehicleTestSUV extends ManagementMode
     /* TESTS FOR SUV */
 
     @Test
-    @DisplayName("filterRevenue for Limousine - equals test")
+    @DisplayName("filterRevenue for SUV - equals test")
     void suvEqualsTestFilterRevenue()
     {
-        assertEquals(0.,  mModel.filterRevenueByVehicle(new ArrayList<>(), "Limousine"));
+        assertEquals(0.,  mModel.filterRevenueByVehicle(new ArrayList<>(), "SUV"));
         assertEquals(0.,  mModel.filterRevenueByVehicle(this.cars, "SUV"));
     }
 
@@ -51,7 +51,7 @@ public class ManagementModelFilterRevenueByVehicleTestSUV extends ManagementMode
     {
         assertNotEquals(5168., mModel.filterRevenueByVehicle(new ArrayList<>(), "SUV"));
         assertNotEquals(0, mModel.filterRevenueByVehicle(this.cars, "SUV"));
-        assertNotEquals(5168. * 2., mModel.filterRevenueByVehicle(this.cars, "SUV")):
+        assertNotEquals(5168. * 2., mModel.filterRevenueByVehicle(this.cars, "SUV"));
     }
 
     @Test
