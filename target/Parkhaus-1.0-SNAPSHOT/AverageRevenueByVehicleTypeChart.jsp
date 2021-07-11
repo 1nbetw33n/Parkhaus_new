@@ -44,7 +44,7 @@
 			}
 			else
 			{
-				final String TITLE = " Share of customers who visited the garage.";
+				final String TITLE = " Shares of Vehicles that visited the garage.";
 				final String SUV = "SUV";
 				final String LIMOUSINE = "Limousine";
 				final String MOTORCYCLE = "Motorcycle";
@@ -53,6 +53,7 @@
 				String displayLimousineData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, LIMOUSINE);
 				String displayMotorcycleData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, MOTORCYCLE);
 				String displayVanData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, VAN);
+				response.getWriter().println(displayVanData);
 		%>
 		<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 		<ccm-highchart-3-0-1
@@ -68,7 +69,7 @@
 		                                },
 		                            "title":
 		                                {
-		                                    "text":"<%= TITLE%>"
+		                                    "text":"<%=TITLE%>"
 		                                },
 		                            "tooltip":
 		                                {
@@ -94,27 +95,27 @@
 		                            "series":
 		                                [
 		                                    {
-		                                        "name":"Customer-Type",
+		                                        "name":"Vehicle-Type",
 		                                        "colorByPoint": true,
 		                                        "data":
 		                                            [
 		                                                {
-		                                                    "name":"<%= SUV%>",
-		                                                    "y":<%= displaySUVData%>,
+		                                                    "name":"<%=SUV%>",
+		                                                    "y":<%=displaySUVData%>,
 		                                                    "sliced": true,
 		                                                    "selected": true
 		                                                },
 		                                                {
-		                                                    "name":"<%= LIMOUSINE%>",
-		                                                    "y":<%= displayLimousineData%>,
+		                                                    "name":"<%=LIMOUSINE%>",
+		                                                    "y":<%=displayLimousineData%>,
 		                                                },
 		                                                {
-		                                                    "name":"<%= MOTORCYCLE%>",
-		                                                    "y":<%= displayMotorcycleData%>,
-		                                                }
+		                                                    "name":"<%=MOTORCYCLE%>",
+		                                                    "y":<%=displayMotorcycleData%>,
+		                                                },
 		                                                {
-		                                                    "name": "<%= VAN%>",
-		                                                    "y":<%= displayVanData%>,
+		                                                    "name": "<%=VAN%>",
+		                                                    "y":<%=displayVanData%>,
 		                                                }
 		                                            ]
 		                                    }
