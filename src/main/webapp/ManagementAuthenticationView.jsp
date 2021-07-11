@@ -54,7 +54,14 @@
 			<div id="usernameDiv" class="paddingBtm">
 				<span id="user">Username: </span>
 				<label for="userInput"></label>
-				<input id="userInput" type="text" name="username" />
+				<input id="userInput"
+				       type="text"
+				       name="username"
+				       oninvalid="alert('Invalid Input')"
+				       pattern="^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$"
+				       title="^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$"
+				       required
+				/>
 			</div>
 			<div id="passwordDiv" class="paddingBtm">
 				<span id="pass">Password: </span>
