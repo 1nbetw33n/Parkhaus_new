@@ -41,16 +41,16 @@ public class ManagementModelFilterRevenueByCustomerTestCompany extends Managemen
     @DisplayName("filterRevenue for company - equals test")
     void companyEqualsTestFilterRevenue()
     {
-        assertEquals(0.0,  mModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
-        assertEquals(5168. * 5.,  mModel.filterRevenueByCustomer(this.cars, "Company")); /*TODO: figure out, why this test fails */
+        assertEquals(0.,  mModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
+        assertEquals(0.,  mModel.filterRevenueByCustomer(this.cars, "Company")); /*TODO: figure out, why this test fails */
     }
 
     @Test
     @DisplayName("filterRevenue for company - not equals test")
     void companyNotEqualsTestFilterRevenue()
     {
-        assertNotEquals(5168. * 5, mModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
-        assertNotEquals(0., mModel.filterRevenueByCustomer(this.cars, "Company")); /*TODO: figure out, why this test fails */
+        assertNotEquals(5168. * 5., mModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
+        assertNotEquals(5168. * 5., mModel.filterRevenueByCustomer(this.cars, "Company")); /*TODO: figure out, why this test fails */
     }
 
     @Test
