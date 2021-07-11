@@ -56,11 +56,11 @@
 			<input id="userInput"
 			       type="text"
 			       name="entered_license_plate"
-			       oninvalid="alert('Invalid Input Format ')"
+			       oninvalid="alert('Invalid Input')"
 			       pattern="^[A-Z]{2}-[A-Z]\s([1-9]|[1-9][0-9]|100)$"
 			       title="^[A-Z]{2}-[A-Z]\s([1-9]|[1-9][0-9]|100)$. For example: SU-B 99"
 			       required
-			>
+			/>
 		</div>
 		<div id="CheckoutBtnDiv">
 			<input id="CheckoutBtnInput" type="submit" value="Checkout" />
