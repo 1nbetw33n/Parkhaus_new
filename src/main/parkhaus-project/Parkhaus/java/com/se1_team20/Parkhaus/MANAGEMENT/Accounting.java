@@ -31,7 +31,6 @@ import com.sun.istack.internal.NotNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class Accounting {
 
@@ -66,8 +65,6 @@ public class Accounting {
         return instance;
     }
 
-
-    //TODO: WRITE TESTS FOR THIS UNIT
     public boolean checkBILLS(@NotNull final String KEY, @NotNull final String VALUE)
     {
         return BILLS.stream()
