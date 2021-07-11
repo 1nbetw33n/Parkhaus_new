@@ -35,30 +35,31 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ManagementModelFilterRevenueByVehicleTestSUV extends ManagementModelTest {
 
-    /* TESTS FOR HANDICAPPED */
+    /* TESTS FOR SUV */
 
     @Test
-    @DisplayName("filterRevenue for handicapped - equals test")
-    void handicappedEqualsTestFilterRevenue()
+    @DisplayName("filterRevenue for SUV - equals test")
+    void suvEqualsTestFilterRevenue()
     {
-        assertEquals(0.0,  mModel.filterRevenueByVehicle(new ArrayList<>(), "Handicapped"));
-        assertEquals(5168.,  mModel.filterRevenueByVehicle(this.cars, "Handicapped"));
+        assertEquals(0.,  mModel.filterRevenueByVehicle(new ArrayList<>(), "SUV"));
+        assertEquals(0.,  mModel.filterRevenueByVehicle(this.cars, "SUV"));
     }
 
     @Test
-    @DisplayName("filterRevenue for handicapped - not equals test")
-    void handicappedNotEqualsTestFilterRevenue()
+    @DisplayName("filterRevenue for SUV - not equals test")
+    void suvNotEqualsTestFilterRevenue()
     {
-        assertNotEquals(5168., mModel.filterRevenueByVehicle(new ArrayList<>(), "Handicapped"));
-        assertNotEquals(0, mModel.filterRevenueByVehicle(this.cars, "Handicapped"));
+        assertNotEquals(5168., mModel.filterRevenueByVehicle(new ArrayList<>(), "SUV"));
+        assertNotEquals(0, mModel.filterRevenueByVehicle(this.cars, "SUV"));
+        assertNotEquals(5168. * 2., mModel.filterRevenueByVehicle(this.cars, "SUV"));
     }
 
     @Test
-    @DisplayName("filterRevenue for handicapped - not null test")
-    void handicappedNotNullTestFilterRevenue()
+    @DisplayName("filterRevenue for SUV - not null test")
+    void suvNotNullTestFilterRevenue()
     {
-        assertNotNull(mModel.filterRevenueByVehicle(new ArrayList<>(), "Handicapped"));
-        assertNotNull(mModel.filterRevenueByVehicle(this.cars, "Handicapped"));
+        assertNotNull(mModel.filterRevenueByVehicle(new ArrayList<>(), "SUV"));
+        assertNotNull(mModel.filterRevenueByVehicle(this.cars, "SUV"));
     }
 
 }
