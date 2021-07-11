@@ -49,7 +49,7 @@ public class ManagementModelFilterRevenueByVehicleTestLimousine extends Manageme
     {
         assertNotEquals(5168., mModel.filterRevenueByVehicle(new ArrayList<>(), "Limousine"));
         assertNotEquals(0., mModel.filterRevenueByVehicle(this.cars, "Limousine"));
-        assertNotEquals(5168. * 8., mModel.filterRevenueByVehicle(this.cars, "Limousine"));
+        assertNotEquals(5168. * 8., mModel.filterRevenueByVehicle(this.cars, "Limousine"));;
     }
 
     @Test
