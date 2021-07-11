@@ -45,8 +45,8 @@ public class Accounting {
     static
     {
             instance = getInstance();
-            @SuppressWarnings("unchecked")
-            final HashMap<String, String> bill = (HashMap<String, String>) new HashMap<>().put("Management", "easy-pass-word");
+            final HashMap<String, String> bill = new HashMap<>();
+            bill.put("Management", "easy-pass-word");
             BILLS.add(bill);
     }
 
