@@ -46,29 +46,29 @@
 
     <form action="LastpageServlet" method="post">
         <label for="cname">Kreditkarteninhalter:</label>
-        <input type="text" id="cname" name="cname" size="30" maxlength="30" pattern="[A-Za-zäöü\s]{3,}" title="Invalid input" placeholder="Kreditkarteninhalter/-in" required><br><br>
+        <input type="text" id="cname" name="cname" size="30" maxlength="30" pattern="[A-Za-zäöü\s]{3,}" title="Surname whitespace familiename" placeholder="Kreditkarteninhalter/-in" required><br><br>
 
         <div style="text-indent:-4px">
             <label for="cnumber">Kreditkartennummer:</label>
-            <input type="text" id="cnumber" name="cnumber" size="30" maxlength="30" oninvalid="alert('The credit card number must have 16 digits'); "pattern="[0-9]{16}" title="Invalid account number" placeholder="Kreditkartennummer" required><br><br>
+            <input type="text" id="cnumber" name="cnumber" size="30" maxlength="30" oninvalid="alert('The credit card number must have 16 digits'); "pattern="[0-9]{16}" title="Must have 16 digits." placeholder="Kreditkartennummer" required><br><br>
 
         </div>
 
         <div style="text-indent:-102px">
             <label for="cvc">CVC_Code:</label>
-            <input type="text" id="cvc" name="cvc" size="5" max="5" oninvalid="alert('The CVC_Code must have 3 digits'); "pattern="[0-9]{3}" title="Invalid cvc_code" placeholder="CVC" required ><br><br>
+            <input type="text" id="cvc" name="cvc" size="5" max="5" oninvalid="alert('The CVC_Code must have 3 digits'); "pattern="[0-9]{3}" title="Must have 3 digits" placeholder="CVC" required ><br><br>
 
         </div>
 
         <div style="text-indent:-102px">
             <label for="date">Expiry date:</label>
-            <input type="text" id="date" name="date" size="5" maxlength="5" pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" title="Invalid date" placeholder="MM/YY" required ><br><br>
+            <input type="text" id="date" name="date" size="5" maxlength="5" pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" title="Last 2 digits of the month and of the year." placeholder="MM/YY" required ><br><br>
 
         </div>
 
         <div style="text-indent:150px">
             <label for="email">E-Mail:</label>
-            <input type="text" id="email" name="email" size="40" maxlength="40" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Not a valid mail adress" placeholder="mail" required><br><br>
+            <input type="text" id="email" name="email" size="40" maxlength="40" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="email@example.com" placeholder="mail" required><br><br>
 
         </div>
 
