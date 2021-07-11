@@ -77,4 +77,13 @@ class AccountingTest {
         assertTrue(this.accounting.checkBILLS("Management", "easy-pass-word"));
     }
 
+    @Test
+    @DisplayName("checkBILLS assert false test")
+    void assertFalseTestCheckBILLS()
+    {
+        assertFalse(this.accounting.checkBILLS("ilrajeez", "132980mDSjDdjuiG452"));
+        assertFalse(this.accounting.checkBILLS("superUSER123", "sUpEr-DuP-eRs-AfEPaSsW-0Rd"));
+        assertFalse(this.accounting.checkBILLS("studi00", "12345ABCDE"));
+    }
+
 }
