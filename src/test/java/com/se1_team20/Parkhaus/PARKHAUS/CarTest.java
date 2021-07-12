@@ -44,8 +44,8 @@ class CarTest {
         car2Enter = new Car(new String[]{"enter","80","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
         car2Leave = new Car(new String[]{"leave","80","1626096329072","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
 
-        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","","-","SU-K 76"});
-        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","61fc0e486f096c277de87b57868e2f51","#4b1923","9","","-","SU-K 76"});
+        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","null","9","","-","SU-K 76"});
+        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","61fc0e486f096c277de87b57868e2f51","null","9","","-","SU-K 76"});
     }
 
     @AfterEach
@@ -112,10 +112,10 @@ class CarTest {
         assertEquals(502, car1Leave.price(), "Oops, carLeave does not show correct price");
 
         assertEquals(0, car2Enter.price(),"Oops, carEnter does not show 0 for price");
-        assertEquals(0, car2Leave.price(), "Oops, carLeave does not show correct price");
+        assertEquals(235363, car2Leave.price(), "Oops, carLeave does not show correct price");
 
         assertEquals(0, car3Enter.price(),"Oops, carEnter does not show 0 for price");
-        assertEquals(0, car3Leave.price(), "Oops, carLeave does not show correct price");
+        assertEquals(-23, car3Leave.price(), "Oops, carLeave does not show correct price");
     }
     @Test
     @DisplayName("Returns the space of the car")
