@@ -55,9 +55,4 @@ public class ManagementModel {
                         .reduce(0, Double::sum);
     }
 
-    /* Erstellt von Lukas */
-    public Double getDoubleAttribute(Double attribute) {
-        return (attribute == null) ? 0. : attribute;
-    }
-
 }
