@@ -91,7 +91,7 @@ class CheckoutModelTest {
     {
         assertNotEquals(this.car2, this.MODEL.filterByTicketNr(this.cars, 13));
         assertNotEquals(this.car3, this.MODEL.filterByTicketNr(this.cars, 83));
-        assertNotEquals(this.car4, this.MODEL.filterByTicketNr(this.cars, 1));
+        assertNotEquals(this.car4, this.MODEL.filterByTicketNr(this.cars, 10));
     }
 
     /*@Test
