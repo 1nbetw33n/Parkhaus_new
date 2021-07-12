@@ -212,11 +212,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
             }
             builder.append(car.toString() + ",");
         }
-
         PrintWriter out = response.getWriter();
         out.println(builder);
-
-        System.out.println("Saved Cars:" + builder);
     }
 
 }

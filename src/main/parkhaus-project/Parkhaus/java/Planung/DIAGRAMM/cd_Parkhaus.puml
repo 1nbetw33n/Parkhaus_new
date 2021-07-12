@@ -1,17 +1,39 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
+interface ParkingServletable
+abstract class ParkingServlet
+abstract class ParkhausServlet
+class Level1Servlet
+
+class Car {
+    String[] params
+}
+interface CarIF{
+    nr() : int
+    licensePlate() : String
+    begin() : long
+    end() : long
+    duration() : int
+    price() : int
+    hash() : String
+    space() : int
+    kunde() : String
+    typeCar() : String
+    toString() : String
+}
+
 interface List
 interface Collection
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
+ParkingServletable <|-- ParkingServlet
+ParkingServlet <|-- ParkhausServlet
+ParkhausServlet <|-- Level1Servlet
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
+CarIF "0..*" -left-o "1" ParkhausServlet
+CarIF <|-- Car
+
+
 
 class ArrayList {
 Object[] elementData

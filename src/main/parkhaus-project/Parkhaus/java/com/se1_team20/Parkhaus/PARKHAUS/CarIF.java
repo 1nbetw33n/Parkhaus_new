@@ -31,5 +31,6 @@ package com.se1_team20.Parkhaus.PARKHAUS;
     int space();
     String kunde();
     String typeCar();
+    String toString();
 
 }
