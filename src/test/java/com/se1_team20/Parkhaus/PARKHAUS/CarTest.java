@@ -44,8 +44,8 @@ class CarTest {
         car2Enter = new Car(new String[]{"enter","80","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
         car2Leave = new Car(new String[]{"leave","80","1626096329072","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
 
-        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","null","-10","*","-",""});
-        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","61fc0e486f096c277de87b57868e2f51","null","-10","*","-",""});
+        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","null","null","-10","*","-",""});
+        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","null","null","-10","*","-",""});
     }
 
     @AfterEach
@@ -198,6 +198,10 @@ class CarTest {
         assertEquals("61fc0e486f096c277de87b57868e2f51", car2Leave.hash());
         assertEquals("61fc0e486f096c277de87b57868e2f51", car2Enter.hash());
         assertEquals(car2Leave.hash(), car2Enter.hash());
+
+        assertEquals("null", car3Leave.hash());
+        assertEquals("null", car3Enter.hash());
+        assertEquals(car3Leave.hash(), car3Enter.hash());
     }
 
     @Test
