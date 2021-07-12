@@ -44,8 +44,8 @@ class CarTest {
         car2Enter = new Car(new String[]{"enter","80","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
         car2Leave = new Car(new String[]{"enter","80","1626096329072","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
 
-        car3Enter = new Car(new String[]{"null","80","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","","-","SU-K 76"});
-        car3Leave = new Car(new String[]{"null","80","1626096329072","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","","-","SU-K 76"});
+        car3Enter = new Car(new String[]{"null","*","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","","-","SU-K 76"});
+        car3Leave = new Car(new String[]{"null","*","1626096329072","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","","-","SU-K 76"});
     }
 
     @AfterEach
@@ -69,6 +69,11 @@ class CarTest {
 
         assertEquals(80,car2Enter.nr());
         assertEquals(80,car2Leave.nr());
+
+        assertEquals(80,car2Enter.nr());
+        assertEquals(80,car2Leave.nr());
+
+
     }
 
     @Test
