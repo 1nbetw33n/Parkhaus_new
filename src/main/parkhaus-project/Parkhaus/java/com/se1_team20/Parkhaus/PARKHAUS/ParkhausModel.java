@@ -28,14 +28,7 @@ import java.util.stream.Collectors;
 public class ParkhausModel {
 
     /*
-     *  Model for Parkhaus
-     *  Allgemeine Datenbeschaffung die bei allen Benötigt werden:
-     *  Wie viel Autos insgesamt
-     *  Zeit von Kunde im Parkhaus
-     *
-     * Bearbeitung Lukas + Test
-     *
-     *
+     * Bearbeitung Lukas, Preet
      */
 
 
@@ -43,6 +36,7 @@ public class ParkhausModel {
     static int max=10;
     static List<String> parkingspaces = new ArrayList<>(Arrays.asList(null, null, null, null, null, null, null, null, null, null));
 
+    /* Preet */
     protected final int configMax(int newmax) {
 
         int count;
@@ -75,22 +69,19 @@ public class ParkhausModel {
 
     }
 
-
-
-
-
+    /* Lukas */
     public Double getDoubleAttribute(Double attribute) {
         return (attribute == null) ? 0. : attribute;
     }
-
+    /* Lukas */
     public long filterCustomerAmountWithoutSpecific(List<CarIF> cars , String withoutCustomerType) {
-        return cars.stream().filter(x -> !x.kunde().equals("Company")).count();
+        return cars.stream().filter(x -> !x.kunde().equals(withoutCustomerType)).count();
     }
-
+    /* Lukas */
     public List<CarIF> filterColorErase(List<CarIF> cars, String color) {
         return  cars.stream().filter((x -> !x.hash().equals(color))).collect(Collectors.toList());
     }
-
+    /* Lukas */
     public List<CarIF> filterNrErase(List<CarIF> cars, int nr) {
         return  cars.stream().filter((x -> x.nr() != nr)).collect(Collectors.toList());
     }
