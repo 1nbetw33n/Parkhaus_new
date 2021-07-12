@@ -52,10 +52,14 @@
 				final String LIMOUSINE = "Limousine";
 				final String MOTORCYCLE = "Motorcycle";
 				final String VAN = "Van";
-				String displaySUVData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, SUV);
-				String displayLimousineData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, LIMOUSINE);
-				String displayMotorcycleData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, MOTORCYCLE);
-				String displayVanData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, VAN);
+				final Double SUVData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, SUV);
+				final Double limousineData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, LIMOUSINE);
+				final Double motorcycleData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, MOTORCYCLE);
+				final Double vanData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, VAN);
+				String displaySUVData = "" + SUVData;
+				String displayLimousineData = "" + limousineData;
+				String displayMotorcycleData = "" + motorcycleData;
+				String displayVanData = "" + vanData;
 		%>
 		<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 		<ccm-highchart-3-0-1
@@ -120,6 +124,79 @@
   },
   "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
 }'
+		></ccm-highchart-3-0-1>
+		<%-- LOWER BAR CHART --%>
+		<ccm-highchart-3-0-1
+				key='{
+          "settings": {
+            "chart": {
+              "type": "column"
+            },
+            "title": {
+              "text": ""
+            },
+            "subtitle": {
+              "text": ""
+            },
+            "xAxis": {
+              "categories": [
+                ""
+                ],
+              "crosshair": true
+            },
+            "yAxis": {
+              "min": 0,
+              "title": {
+                "text": ""
+              }
+            },
+            "tooltip": {
+                "headerFormat": "<span style="font-size:10px">{point.key}</span><table>",
+                "pointFormat": "<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} sec</b></td></tr>",
+                "footerFormat": "</table>",
+                "shared": true,
+                "useHTML": true
+            },
+            "plotOptions": {
+              "column": {
+                "pointPadding": 0.2,
+                "borderWidth": 0
+              }
+            },
+            "series": [
+              {
+                "name":"<%=SUV%>",
+                "data":[
+					<%=displaySUVData%>
+				]
+              },
+              {
+                "name": "<%=LIMOUSINE%>",
+                "data":  [
+					<%=displayLimousineData%>
+				]
+              },
+              {
+                "name": "<%=MOTORCYCLE%>",
+                "data": [
+					<%=displayMotorcycleData%>
+				]
+              },
+              {
+                "name": "<%=VAN%>",
+                "data": [
+					<%=displayVanData%>
+				]
+              }
+            ]
+          },
+          "data": {},
+          "html": {
+            "id": "chart",
+            "style": "%%"
+          },
+          "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
+        }'
 		></ccm-highchart-3-0-1>
 		<%}%>
 	</body>
