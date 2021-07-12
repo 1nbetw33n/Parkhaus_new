@@ -33,7 +33,7 @@
 	</head>
 	<body>
 		<div style="text-align: center;">
-			<button onclick="goBack()">Go Back</button>
+			<button onclick="window.history.back()">Go Back</button>
 		</div>
 		<%
 			ServletContext context = request.getServletContext();
