@@ -44,8 +44,8 @@ class CarTest {
         car2Enter = new Car(new String[]{"enter","80","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
         car2Leave = new Car(new String[]{"leave","80","1626096329072","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
 
-        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","null","-10","*","-","SU-K 76"});
-        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","61fc0e486f096c277de87b57868e2f51","null","-10","*","-","SU-K 76"});
+        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","null","-10","*","-",""});
+        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","61fc0e486f096c277de87b57868e2f51","null","-10","*","-",""});
     }
 
     @AfterEach
@@ -181,6 +181,10 @@ class CarTest {
         assertEquals("SU-K 76",car2Enter.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
         assertEquals("SU-K 76",car2Leave.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
         assertEquals(car2Enter.licensePlate(),car2Leave.licensePlate(),"Oops, the license plate are not equal");
+
+        assertEquals("",car3Enter.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
+        assertEquals("",car3Leave.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
+        assertEquals(car3Enter.licensePlate(),car3Leave.licensePlate(),"Oops, the license plate are not equal");
 
     }
 
