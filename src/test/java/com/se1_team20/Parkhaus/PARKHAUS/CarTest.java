@@ -55,6 +55,11 @@ class CarTest {
 
         car2Enter = null;
         car2Leave = null;
+
+        car3Enter = null;
+        car3Leave = null;
+
+
     }
     @Test
     @DisplayName("Returns the number of the current car")
