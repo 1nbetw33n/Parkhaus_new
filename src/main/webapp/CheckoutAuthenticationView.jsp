@@ -32,19 +32,6 @@
 <br>
 <head>
 	<title>Checkout Authentication</title>
-	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
-	<script type="text/javascript">
-        $(document).ready(function () {
-            $('userInput, #passInput').click(function (){
-                $("#errMsg").hide();
-            });
-        });
-	</script>
-	<style>
-        .paddingBtm{
-            padding-bottom: 12px;
-        }
-	</style>
 </head>
 <body>
 <div style="text-align: center;">
