@@ -106,16 +106,16 @@ class CheckoutModelTest {
         assertNull(this.MODEL.filterByTicketNr(this.cars, 12));
     }
 
-    /*
+
     @Test
     @DisplayName("filterByLicensePlate - not null test")
     void notNullTestFilterByLicensePlateLowerLimit()
     {
-        assertNotNull(this.MODEL.filterByTicketNr(this.cars, "SU-I 30"));
-        assertNotNull(this.MODEL.filterByTicketNr(this.cars, "SU-K 77"));
-        assertNotNull(this.MODEL.filterByTicketNr(this.cars, "SU-Q 94"));
-        assertNotNull(this.MODEL.filterByTicketNr(this.cars, "SU-F 7"));
-        assertNotNull(this.MODEL.filterByTicketNr(this.cars, "SU-T 8"));
-    }*/
+        assertNotNull(this.MODEL.filterByTicketNr(this.cars, 13));
+        assertNotNull(this.MODEL.filterByTicketNr(this.cars, 10));
+        assertNotNull(this.MODEL.filterByTicketNr(this.cars, 77));
+        assertNotNull(this.MODEL.filterByTicketNr(this.cars, 27));
+        assertNotNull(this.MODEL.filterByTicketNr(this.cars, 83));
+    }
 
 }
