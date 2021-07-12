@@ -39,6 +39,7 @@ class ParkhausModelTest {
     private Car carEnter;
     private Car carLeave;
     private List<CarIF> cars;
+    private ParkhausModel obj;
 
     @BeforeEach
     void setUp() {
@@ -47,6 +48,7 @@ class ParkhausModelTest {
         carEnter = new Car(new String[]{"enter","173","1624278150403","","","8319c7d02f8b786e4f1a231af06da0c7","#714934","7","_","_","173"});
         carLeave = new Car(new String[]{"leave","173","1624278155427","5018","502","8319c7d02f8b786e4f1a231af06da0c7","#714934","6","_","_","173"});
         cars.add(carEnter);
+        obj=new ParkhausModel();
     }
 
     @AfterEach
