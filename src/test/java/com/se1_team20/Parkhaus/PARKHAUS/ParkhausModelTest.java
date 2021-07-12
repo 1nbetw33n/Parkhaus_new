@@ -57,6 +57,15 @@ class ParkhausModelTest {
         carEnter = null;
         carLeave = null;
         cars = null;
+        obj=null;
+    }
+
+    @Test
+    @DisplayName("Return the new initialisied max value")
+    void configMaxTest(){
+
+        assertEquals(10,obj.configMax(10),"Oops, not getting the right value!!");
+        assertEquals(12,obj.configMax(12),"Oops, not getting the right value!!");
     }
 
     @Test
