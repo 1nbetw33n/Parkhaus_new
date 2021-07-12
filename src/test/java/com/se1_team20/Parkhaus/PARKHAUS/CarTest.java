@@ -150,6 +150,10 @@ class CarTest {
         assertEquals("SU-A 84",car1Leave.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
         assertEquals(car1Enter.licensePlate(),car1Leave.licensePlate(),"Oops, the license plate are not equal");
 
+        assertEquals("SU-K 76",car2Enter.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
+        assertEquals("SU-K 76",car2Leave.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
+        assertEquals(car2Enter.licensePlate(),car2Leave.licensePlate(),"Oops, the license plate are not equal");
+
     }
 
     @Test
