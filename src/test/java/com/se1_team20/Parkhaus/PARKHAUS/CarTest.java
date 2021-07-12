@@ -104,6 +104,14 @@ class CarTest {
         assertEquals(0, car2Enter.price(),"Oops, carEnter does not show 0 for price");
         assertEquals(0, car2Leave.price(), "Oops, carLeave does not show correct price");
     }
+    @Test
+    @DisplayName("Returns the space of the car")
+    void spaceTest() {
+
+        assertEquals(7,car1Enter.space(),"Oops, carEnter does not show the correct show");
+        assertEquals(7,car1Leave.space(),"Oops, carEnter does not show the correct show");
+        assertEquals(car1Enter.space(),car1Leave.space(),"Oops, the space are not equal");
+    }
 
     @Test
     @DisplayName("Returns the hash of the car")
