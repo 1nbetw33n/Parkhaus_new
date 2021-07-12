@@ -64,6 +64,7 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         final String PARAM  = request.getParameter("username");
         final PrintWriter OUT = response.getWriter();
 
+        //TODO: UNSAVE STUFF; SHOULD BE DELETED
         //* html  stuff to display the top part of the management view *//*
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
         OUT.write("<h2>Management Interface</h2>");
