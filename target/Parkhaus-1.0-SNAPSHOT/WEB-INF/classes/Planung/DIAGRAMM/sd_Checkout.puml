@@ -1,0 +1,23 @@
+
+@startuml
+'https://plantuml.com/class-diagram
+'Erstellt von Rahgawi
+actor Customer
+boundary index
+boundary CheckoutAuthenticationView
+boundary CheckoutView
+boundary Paymethod
+control ParkhausServlet
+control ManagementAuthenticationServlet
+control ManagementServlet
+control PaymethodServlet
+entity CheckoutModel
+
+
+Level1Servlet-> Level1Servlet: 1 getRequest()
+Level1Servlet-> CheckoutAuthenticationServlet: 2 handleRequest(requestDispatcherObject.forward(request, response))
+
+CheckoutAuthenticationServlet -> CheckoutAuthenticationServlet:3 doPost()
+CheckoutAuthenticationServlet -> CheckoutAuthenticationView
+CheckoutServlet -> CheckoutView
+@enduml
