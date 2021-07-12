@@ -29,9 +29,12 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 	<head>
-		<title>Total Daily Revenue</title>
+		<title>Daily Revenue per Customer</title>
 	</head>
 	<body>
+		<div style="text-align: center;">
+			<button onclick="window.history.back()">Go Back</button>
+		</div>
 		<%
 			ServletContext context = request.getServletContext();
 			@SuppressWarnings("unchecked")
@@ -44,7 +47,7 @@
 			}
 			else
 			{
-			    final String TITLE = " Share of customers who visited the garage.";
+			    final String TITLE = "Daily Total Revenue per Customer";
 			    final String HANDICAPPED = "Handicapped";
 			    final String FEMALE = "Female";
 			    final String COMPANY = "Company";
@@ -57,79 +60,68 @@
 		<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 		<ccm-highchart-3-0-1
 				key='{
-							"settings":
-								{
-									"chart":
-										{
-											"plotBackgroundColor": null,
-                                             "plotBorderWidth": null,
-                                             "plotShadow": false,
-                                             "type":"pie"
-                                       }
-                                   "title":
-                                       {
-                                           "text":"<%= TITLE%>"
-                                       },
-                                   "tooltip":
-                                       {
-                                           "pointFormat":"{series.name}: <b>{point.percentage:.1f}%</b>"
-                                       },
-                                   "plotOptions":
-                                       {
-                                           "pie":
-                                               {
-                                                   "allowPointSelect": true,
-                                                   "cursor":"pointer",
-                                                   "dataLabels":
-                                                       {
-                                                           "enabled": true,
-                                                           "format":"<b>{point.name}</b>: {point.percentage:.1f} %",
-                                                           "style":
-                                                               {
-                                                                   "color":"black"
-                                                               }
-                                                       }
-                                               }
-                                       },
-                                   "series":
-                                       [
-                                           {
-                                               "name":"Customer-Type",
-                                               "colorByPoint": true,
-                                               "data":
-                                                   [
-                                                       {
-                                                           "name":"<%= HANDICAPPED%>",
-                                                           "y":<%= displayHandicappedData%>,
-                                                           "sliced": true,
-                                                           "selected": true
-                                                       },
-                                                       {
-                                                           "name":"<%= FEMALE%>",
-                                                           "y":<%= displayFemaleData%>,
-                                                       },
-                                                       {
-                                                           "name":"<%= COMPANY%>",
-                                                           "y":<%= displayCompanyData%>,
-                                                       }
-                                                       {
-                                                           "name":"<%= DAY%>",
-                                                           "y":<%= displayDayData%>,
-                                                       }
-                                                   ]
-                                           }
-                                       ]
-                                   }.
-                               "data":{},
-                               "html":
-                                   {
-                                       "id":"chart",
-                                       "style":"%%"
-                                   },
-                               "style":"min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
-                       } '
+  "settings": {
+    "chart": {
+      "plotBackgroundColor": null,
+      "plotBorderWidth": null,
+      "plotShadow": false,
+      "type": "pie"
+    },
+    "title": {
+      "text": "<%=TITLE%>"
+    },
+    "tooltip": {
+      "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
+    },
+    "plotOptions": {
+      "pie": {
+        "allowPointSelect": true,
+        "cursor": "pointer",
+        "dataLabels": {
+          "enabled": true,
+          "format": "<b>{point.name}</b>: {point.percentage:.1f} %",
+          "style": {
+            "color": "black"
+          }
+        }
+      }
+    },
+    "series": [
+      {
+        "name": "Customer-Type",
+        "colorByPoint": true,
+        "data": [
+          {
+            "name": "<%=HANDICAPPED%>",
+            "y": <%=displayHandicappedData%>,
+            "sliced": true,
+            "selected": true
+          },
+          {
+            "name": "<%=FEMALE%>",
+            "y": <%=displayFemaleData%>
+          },
+          {
+            "name": "<%=COMPANY%>",
+            "y": <%=displayCompanyData%>
+          },
+          {
+            "name": "<%=DAY%>",
+            "y": <%=displayDayData%>
+          }
+        ]
+      }
+    ]
+  },
+  "data": {},
+  "html": {
+    "id": "chart",
+    "style": "%%"
+  },
+  "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
+}'
 		></ccm-highchart-3-0-1>
 		<%}%>
-	</body>
+</body>
 </html>
 

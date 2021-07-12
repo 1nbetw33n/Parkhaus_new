@@ -58,6 +58,10 @@
             document.getElementById(elem).style.display = "block";
         }
     }
+
+    function goBack() {
+        window.history.back();
+    }
 </script>
 
 <% ServletContext sc = request.getServletContext();
@@ -73,7 +77,10 @@
     double average_revenue = sc.getAttribute("average_revenue") == null ?  0.0 : (double) sc.getAttribute("average_revenue");
 
 %>
-
+<div style="text-align: center;">
+    <button onclick="goBack()">Go Back</button>
+</div>
+<br>
 <div style="text-align: center;">
     <form id="buttonFormId" name="buttonForm" method="get" action="ManagementServlet">
         <button type="button" value="total_revenue" onclick="showTotalCars('total_revenue_div')"/>
@@ -105,7 +112,7 @@
         Former Cars</button>
     </form>
 </div>
-
+<br>
 <div style="text-align: center;">
     <form id="chartFormId" name="chartForm" method="get" action="ManagementServlet">
         <button name="cmd" type="submit" value="customer_chart"/>
@@ -113,12 +120,12 @@
         <button name="cmd" type="submit" value="income_chart"/>
         Duration Overview</button>
         <button name="cmd" type="submit" value="revenue_chart_customer"/>
-        Revenue per Customer</button>
+        Revenue per Customer
         <button name="cmd" type="submit" value="revenue_chart_vehicle"/>
-        Revenue per Vehicle</button>
+        Revenue per Vehicle
     </form>
 </div>
-
+<br>
 
 <% if (former_cars == null) {
     PrintWriter OUT = response.getWriter();

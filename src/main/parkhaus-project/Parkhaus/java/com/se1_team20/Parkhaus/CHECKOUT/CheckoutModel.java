@@ -32,10 +32,10 @@ import java.util.List;
 public class CheckoutModel {
     
     /* filters the car out, whose licensePlate matches the entered license plate or returns null, if there is no matching car in "former_cars" */
-    public CarIF filterByLicensePlate(@NotNull final List<CarIF> CARS, @NotNull final String LICENSEPLATE)
+    public CarIF filterByTicketNr(@NotNull final List<CarIF> CARS, @NotNull final Integer TICKETNR)
     {
         return CARS.stream()
-                .filter(x -> x.licensePlate().equals(LICENSEPLATE))
+                .filter(x -> x.nr() ==(TICKETNR))
                         .findFirst()
                             .orElse(null);
     }

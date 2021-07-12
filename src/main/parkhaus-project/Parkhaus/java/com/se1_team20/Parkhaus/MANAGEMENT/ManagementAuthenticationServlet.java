@@ -30,17 +30,16 @@ import java.io.PrintWriter;
 
 public abstract class ManagementAuthenticationServlet extends ParkingServlet {
 
-    /* TODO: Create a java-class for storing the username and the password */
-
     final private static long serialVersionUID = 1L;
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
+        Accounting ACCOUNTING = Accounting.getInstance();
         final String USERNAME = request.getParameter("username");
         final String PASSWORD = request.getParameter("password");
         final PrintWriter OUT = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
-       if (!USERNAME.equals("Management") || !PASSWORD.equals("easy-pass-word")) //LETS HACK THIS:D
+       if (!ACCOUNTING.checkBILLS(USERNAME, PASSWORD))
         {
            handleInvalid(OUT);
         }

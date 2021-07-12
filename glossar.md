@@ -3,14 +3,15 @@
 <!DOCTYPE html>
 <html>
    <head>
-       <h2>Aliases</h2>
+        <title>Glossar</title>
    </head>
     <body>
+        <h2>Aliases</h2>
         <ul style="list-style-type: square;">
             <li><h4>Annabella Abshagen</h4>
                 <ul>
-                    <li>bella</li>
                     <li>1nbetw33n</li>
+                    <li>bella</li>
                 </ul>
             </li>
             <li><h4>Lukas Busse</h4>
@@ -30,22 +31,7 @@
             </li>
         </ul>
     </body>
-    <head>
-        <h2>Commits from former repo:</h2>
-    </head>
-    <body>
-         <ul style="list-style-type: square;">
-             <li><h4>Annabella Abshagen:         43</h4></li>
-             <li><h4>Lukas Busse:                19</h4></li>
-             <li><h4>Inderprit Multani:          2</h4></li>
-             <li><h4>Rahgawi Rajakumaraswamy:    2</h4></li>
-        </ul>
-    </body>
-           
 </html>
-
-
-
 
 ## Begriffe:
 
