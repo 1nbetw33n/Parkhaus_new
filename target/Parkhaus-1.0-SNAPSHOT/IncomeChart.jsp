@@ -36,6 +36,11 @@
     <title>Income Overview</title>
 </head>
 <body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 <%
 
 
@@ -45,7 +50,7 @@
 
     if (cars == null) {
         PrintWriter writer = response.getWriter();
-        writer.println("No Data could be found yet!");
+        writer.println("former_cars is null somehow!");
     } else {
 
         double limoDay = mModel.filterDurationCustomerCar(cars,"Day","Limousine")/10000.;
@@ -173,5 +178,10 @@
         }'
 ></ccm-highchart-3-0-1>
 <%}%>
+<br>
+<div style="text-align: center;">
+    <button onclick="goBack()">Go Back</button>
+</div>
+
 </body>
 </html>

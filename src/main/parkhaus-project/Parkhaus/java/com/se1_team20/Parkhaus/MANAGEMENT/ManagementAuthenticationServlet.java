@@ -22,7 +22,6 @@ package com.se1_team20.Parkhaus.MANAGEMENT;
 
 import com.se1_team20.Parkhaus.PARKHAUS.ParkingServlet;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,44 +30,36 @@ import java.io.PrintWriter;
 
 public abstract class ManagementAuthenticationServlet extends ParkingServlet {
 
-    /* TODO: Create a java-class for storing the username and the password */
-
     final private static long serialVersionUID = 1L;
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
+        Accounting ACCOUNTING = Accounting.getInstance();
         final String USERNAME = request.getParameter("username");
         final String PASSWORD = request.getParameter("password");
         final PrintWriter OUT = response.getWriter();
         OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
-        //TODO:in zwei Methoden spliten
-       if (!USERNAME.equals("Management") || !PASSWORD.equals("easy-pass-word")) //LETS HACK THIS:D
+       if (!ACCOUNTING.checkBILLS(USERNAME, PASSWORD))
         {
            handleInvalid(OUT);
         }
         else
         {
-            handleSuccess(USERNAME,PASSWORD,response,request);
+            handleSuccess(response,request);
         }
         OUT.write("</div></body></html>");
         OUT.close();
-
     }
-        private void handleInvalid(final PrintWriter OUT) {
-             {
-                OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects instantly after pressing ok
-                OUT.write("<script>alert('Invalid Credentials')</script>");
-            }
-            }
 
+    //Bearbeitet von Rahgawi
+    private void handleInvalid(final PrintWriter OUT) {
+        OUT.write("<meta http-equiv='refresh' content='0;URL=ManagementAuthenticationView.jsp'>");//redirects instantly after pressing ok
+        OUT.write("<script>alert('Invalid Credentials')</script>");
+    }
 
-        //Bearbeitet von Rahgawi
-        private void handleSuccess(String USERNAME, final String EVENT, HttpServletResponse response, final HttpServletRequest request) throws ServletException, IOException {
-            request.getRequestDispatcher("ManagementView.jsp").forward(request, response);
-
-
-
-
+    //Bearbeitet von Rahgawi
+    private void handleSuccess(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+        request.getRequestDispatcher("ManagementView.jsp").forward(request, response);
     }
 
 }

@@ -28,6 +28,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,12 +36,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class ParkhausModelTest {
 
     private ParkhausModel cm;
-    private Car           carEnter = new Car(null);
-    private Car carLeave = new Car(null);
-    private List<CarIF> cars = null;
+    private Car carEnter;
+    private Car carLeave;
+    private List<CarIF> cars;
 
     @BeforeEach
     void setUp() {
+        cars = new ArrayList<>();
         cm = new ParkhausModel();
         carEnter = new Car(new String[]{"enter","173","1624278150403","","","8319c7d02f8b786e4f1a231af06da0c7","#714934","7","_","_","173"});
         carLeave = new Car(new String[]{"leave","173","1624278155427","5018","502","8319c7d02f8b786e4f1a231af06da0c7","#714934","6","_","_","173"});
@@ -58,7 +60,7 @@ class ParkhausModelTest {
     @Test
     @DisplayName("Das Auto einer bestimmten Farbe wird korrekt gelöscht")
     void filterColorEraseTest() {
-        List<CarIF> newcars = null;
+        List<CarIF> newcars = new ArrayList<>();
         newcars.add(carEnter);
         assertEquals(cars, newcars);
         assertNotEquals(cars, cm.filterColorErase(newcars, carEnter.hash()));

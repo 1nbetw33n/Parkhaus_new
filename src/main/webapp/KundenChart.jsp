@@ -33,19 +33,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Customer Overview</title>
+    <title>Customer Distribution</title>
 </head>
 <body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 <%
-
-
     ServletContext sc = request.getServletContext();
     ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
     ManagementModel mModel = new ManagementModel();
 
     if (cars == null) {
         PrintWriter writer = response.getWriter();
-        writer.println("No Data could be found yet!");
+        writer.println("former_cars is null somehow!");
     } else {
 
         String name1 = "Company";
@@ -70,7 +73,6 @@
         String dataDisplay3 = Long.toString(data3);
         data4 = mModel.filterAmountOfCustomerType(cars, "Handicapped");
         String dataDisplay4 = Long.toString(data4);
-
 %>
 <script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 <ccm-highchart-3-0-1
@@ -137,8 +139,10 @@
 }'
 ></ccm-highchart-3-0-1>
 <%}%>
-</body>
-<body>
+<br>
+<div style="text-align: center;">
+    <button onclick="goBack()">Go Back</button>
+</div>
 
 </body>
 </html>

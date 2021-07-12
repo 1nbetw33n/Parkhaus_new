@@ -86,9 +86,11 @@ public class Car implements CarIF {
         StringBuilder builder = new StringBuilder();
         for (String value: params) {
             if (value == params[0]) {
+                // DO Nothing, eg. dont print enter of leave
+            } else if (value == params[1]) {
                 builder.append(value);
             } else {
-                builder.append("," + value);
+                builder.append("/" + value);
             }
         }
         return builder.toString();

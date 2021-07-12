@@ -48,18 +48,36 @@
 	</style>
 </head>
 <body>
-<div style="text-align: center;">
-	<h1>Management Authentication</h1>
-	<form id="loginFormId" name="loginForm" method="post" action="ManagementServlet">
-		<div id="usernameDiv" class="paddingBtm">
-			<span id="user">Username: </span><label for="userInput"></label><input id="userInput" type="text" name="username" />
-		</div>
-		<div id="passwordDiv" class="paddingBtm">
-			<span id="pass">Password: </span><label for="passInput"></label><input id="passInput" type="password" name="password" />
-		</div>
-		<div id="loginBtn">
-			<input id="Btn" type="submit" value="Login" />
-		</div>
-	</form>
-</div>
+	<div style="text-align: center;">
+		<h1>Management Authentication</h1>
+		<form id="loginFormId" name="loginForm" method="post" action="ManagementServlet">
+			<div id="usernameDiv" class="paddingBtm">
+				<span id="user">Username: </span>
+				<label for="userInput"></label>
+				<input id="userInput"
+				       type="text"
+				       name="username"
+				       oninvalid="alert('Invalid Input')"
+				       pattern="^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$"
+				       title="^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$"
+				       required
+				/>
+			</div>
+			<div id="passwordDiv" class="paddingBtm">
+				<span id="pass">Password: </span>
+				<label for="passInput"></label>
+				<input id="passInput"
+				       type="password"
+				       name="password"
+				       oninvalid="alert('Invalid Input')"
+				       pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+				       title="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+				       required
+				/>
+			</div>
+			<div id="loginBtn">
+				<input id="Btn" type="submit" value="Login" />
+			</div>
+		</form>
+	</div>
 </body>
