@@ -32,6 +32,9 @@
 		<title>Daily Revenue per Customer</title>
 	</head>
 	<body>
+		<div style="text-align: center;">
+			<button onclick="goBack()">Go Back</button>
+		</div>
 		<%
 			ServletContext context = request.getServletContext();
 			@SuppressWarnings("unchecked")
