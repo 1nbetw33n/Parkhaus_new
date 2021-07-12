@@ -66,6 +66,7 @@ class ParkhausModelTest {
 
         assertEquals(10,obj.configMax(10),"Oops, not getting the right value!!");
         assertEquals(12,obj.configMax(12),"Oops, not getting the right value!!");
+        assertThrows(ArrayIndexOutOfBoundsException.class,()->obj.configMax(-12));
     }
 
     @Test
