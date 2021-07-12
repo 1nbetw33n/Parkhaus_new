@@ -90,16 +90,17 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("Returns the id of the car")
-    void colorTest() {
+    @DisplayName("Returns the hash of the car")
+    void hashTest() {
         assertEquals("8319c7d02f8b786e4f1a231af06da0c7", car1Leave.hash());
         assertEquals("8319c7d02f8b786e4f1a231af06da0c7", car1Enter.hash());
         assertEquals(car1Leave.hash(), car1Enter.hash());
     }
 
     @Test
-    @DisplayName("Returns the whole String ")
+    @DisplayName("Returns the String of the Car, parted with '/'")
     void testToString() {
-        assertEquals("leave,173,1624278155427,5018,502,8319c7d02f8b786e4f1a231af06da0c7,#714934,6,,,173", car1Leave.toString());
+        assertEquals("173/1624278155427/5018/502/8319c7d02f8b786e4f1a231af06da0c7/#714934/7/Handicapped/Motorcycle/SU-A 84", car1Leave.toString());
+        assertEquals("173/1624278150403/_/_/8319c7d02f8b786e4f1a231af06da0c7/#714934/7/Handicapped/Motorcycle/SU-A 84", car1Enter.toString());
     }
 }
