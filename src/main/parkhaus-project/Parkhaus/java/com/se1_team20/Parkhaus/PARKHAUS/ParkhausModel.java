@@ -20,6 +20,8 @@
 /* Bearbeitet von Lukas*/
 package com.se1_team20.Parkhaus.PARKHAUS;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,6 +37,44 @@ public class ParkhausModel {
      *
      *
      */
+
+
+    //For JUnit Test purpose
+    static int max=10;
+    static List<String> parkingspaces = new ArrayList<>(Arrays.asList(null, null, null, null, null, null, null, null, null, null));
+
+    protected final int configMax(int newmax) {
+
+        int count;
+
+        if (newmax > max) {
+
+            count = newmax - max;
+
+            while (count != 0) {
+
+                parkingspaces.add(null); //Adding more parking spaces
+
+                count--;
+            }
+        } else {
+
+            count = max - newmax;
+
+            while (count != 0) {
+
+                parkingspaces.remove(parkingspaces.size() - 1);
+
+                count--;
+            }
+        }
+
+        max = newmax;
+
+        return max;
+
+    }
+
 
 
 
