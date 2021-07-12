@@ -122,6 +122,11 @@ class CarTest {
         assertEquals("Handicapped",car1Leave.kunde(),"Oops, carEnter does not show the correct client");
         assertEquals(car1Enter.kunde(),car1Leave.kunde(),"Oops, the client are not equal");
 
+        assertEquals("Handicapped",car2Enter.kunde(),"Oops, carEnter does not show the correct client");
+        assertEquals("Handicapped",car2Leave.kunde(),"Oops, carEnter does not show the correct client");
+        assertEquals(car2Enter.kunde(),car2Leave.kunde(),"Oops, the client are not equal");
+
+
     }
 
     @Test
