@@ -90,8 +90,6 @@ class CarTest {
         assertEquals(5018, car1Leave.duration(),"Oops. carLeave does not show correct duration");
         assertEquals(0, car1Enter.duration(),"Oops. carEnter does not show correct duration (0)");
 
-        assertEquals(2353630, car1Leave.duration(),"Oops. carLeave does not show correct duration");
-        assertEquals(0, car1Enter.duration(),"Oops. carEnter does not show correct duration (0)");
     }
 
     @Test
