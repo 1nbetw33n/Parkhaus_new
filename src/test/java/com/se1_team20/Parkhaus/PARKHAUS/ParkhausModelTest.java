@@ -60,6 +60,7 @@ class ParkhausModelTest {
         obj=null;
     }
 
+
     @Test
     @DisplayName("Das Auto einer bestimmten Farbe wird korrekt gelöscht")
     void filterColorEraseTest() {
