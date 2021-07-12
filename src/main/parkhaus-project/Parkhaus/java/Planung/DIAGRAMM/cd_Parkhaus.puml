@@ -102,8 +102,55 @@ class Accounting {
     ~ getBILLS() : List<HashMap<String,String>>
 }
 
+class ManagementModel {
+    + filterAmountOfCustomerType(List<CarIF>,String) : long
+    + filterDurationCustomerCar(List<CarIF>,String,String) : long
+    + filterRevenueByCustomer(List<CarIF>,String) : Double
+    + filterRevenueByVehicle(List<CarIF>,String) : Double
 
+}
 
+abstract class CheckoutAuthenticationServlet {
+    - {final} {static} serialVersionUID
+    + doPost(HttpServletRequest,HttpServletResponse) :
+    - handleInvalid(PrintWriter) :
+    - handleSuccess(HttpServletRequest,HttpServletResponse) :
+
+}
+
+class CheckoutServlet {
+    - {final} {static} serialVersionUID
+    + doGet(HttpServletRequest,HttpServletResponse) :
+    # handleRequest(HttpServletRequest,HttpServletResponse) :
+    # handleEvent(String,String[]) :
+}
+class CheckoutModel {
+    + filterByTicketNr(List<CarIF>,Integer) : CarIF
+}
+
+class FirstpageServlet {
+    # doGet(HttpServletRequest,HttpServletResponse) :
+    # doPost(HttpServletRequest, HttpServletResponse) :
+}
+
+class LastpageServlet {
+    # doGet(HttpServletRequest,HttpServletResponse) :
+    # doPost(HttpServletRequest, HttpServletResponse) :
+}
+
+class PaymethodServlet {
+    # doGet(HttpServletRequest,HttpServletResponse) :
+    # doPost(HttpServletRequest, HttpServletResponse) :
+    # handleRequest(HttpServletRequest,HttpServletResponse) :
+    # handleEvent(String,String[]) :
+}
+
+class PayServlet {
+    # doGet(HttpServletRequest,HttpServletResponse) :
+    # doPost(HttpServletRequest, HttpServletResponse) :
+}
+
+class HttpServlet
 
 ParkingServletable <|-- ParkingServlet
 ParkingServlet <|-- ParkhausServlet
@@ -116,5 +163,22 @@ CarIF <|-- Car
 ParkingServlet <|-left- ManagementAuthenticationServlet
 ManagementAuthenticationServlet <|-down- ManagementServlet
 ManagementAuthenticationServlet "1" o-left- "1" Accounting : "         "
+
+ParkingServlet <|-right- CheckoutAuthenticationServlet
+CheckoutAuthenticationServlet <|-- CheckoutServlet
+CheckoutAuthenticationServlet "1" o-right- "1" CheckoutModel : "  "
+
+CarIF "1" --o "0..*" ParkhausModel : "      "
+CarIF "1" --o "0..*" ManagementModel : "     "
+CarIF "1" --o "0..*" CheckoutModel : "      "
+
+HttpServlet <|-- ParkingServlet
+HttpServlet <|-- FirstpageServlet
+HttpServlet <|-- LastpageServlet
+HttpServlet <|-- PayServlet
+
+ParkingServlet <|-- PaymethodServlet
+
+
 
 @enduml
