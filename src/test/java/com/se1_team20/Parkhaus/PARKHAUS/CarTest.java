@@ -70,8 +70,12 @@ class CarTest {
         assertEquals(80,car2Enter.nr());
         assertEquals(80,car2Leave.nr());
 
-        assertEquals(80,car2Enter.nr());
-        assertEquals(80,car2Leave.nr());
+        assertThrows(IllegalArgumentException.class,()->car3Enter.nr());
+        assertThrows(IllegalArgumentException.class,()->car3Leave.nr());
+
+
+
+
 
 
     }
@@ -140,6 +144,8 @@ class CarTest {
         assertEquals(car2Enter.kunde(),car2Leave.kunde(),"Oops, the client are not equal");
 
 
+
+
     }
 
     @Test
@@ -153,6 +159,10 @@ class CarTest {
         assertEquals("Van",car2Enter.typeCar(),"Oops, carEnter does not show the correct type of the car");
         assertEquals("Van",car2Leave.typeCar(),"Oops, carEnter does not show the correct type of the car");
         assertEquals(car2Enter.typeCar(),car2Leave.typeCar(),"Oops, the type of the car are not equal");
+
+        assertEquals("SUV",car3Enter.typeCar(),"Oops, carEnter does not show the correct type of the car");
+        assertEquals("SUV",car3Leave.typeCar(),"Oops, carEnter does not show the correct type of the car");
+        assertEquals(car3Enter.typeCar(),car3Leave.typeCar(),"Oops, the type of the car are not equal");
     }
 
     @Test
@@ -189,5 +199,15 @@ class CarTest {
 
         assertEquals("80/1626096329072/2353630/235363/61fc0e486f096c277de87b57868e2f51/#4b1923/9/Handicapped/Van/SU-K 76", car2Leave.toString());
         assertEquals("80/1626096329072/_/_/61fc0e486f096c277de87b57868e2f51/#4b1923/9/Handicapped/Van/SU-K 76", car2Enter.toString());
+
+
+
+
     }
+
+
+
+
+
+
 }

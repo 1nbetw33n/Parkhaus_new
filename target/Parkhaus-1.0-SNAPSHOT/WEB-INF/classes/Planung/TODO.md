@@ -62,7 +62,7 @@
                 <ul style="color: red"> PDFs tabelle erstellen : erklärung seiner arbeit,siehe se1 app 8.Stelle</ul>
                 <ul style="color: red"> Diagramms erstellen !!! </ul>
                 <ul style="color: red"> Tests schreiben (3 Tests pro Methode</ul>
-                <ul style="color: red"> Parkhaushomepage extrahieren und fixen </ul>
+                <del><<ul style="color: red"> Parkhaushomepage extrahieren und fixen </ul></del>
                 <ul style="color: red"> Demo am Dienstag</ul>
                 <ul style="color: red"> Produktbeschreibung</ul>
             </em>
