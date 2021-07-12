@@ -49,6 +49,9 @@ class CarTest {
     void tearDown() {
         car1Enter = null;
         car1Leave = null;
+
+        car2Enter = null;
+        car2Leave = null;
     }
     @Test
     @DisplayName("Returns the number of the current car")
