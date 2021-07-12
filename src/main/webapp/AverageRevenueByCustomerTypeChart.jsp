@@ -47,17 +47,22 @@
 			}
 			else
 			{
+			    /* UPPER PIE CHART */
 			    final String TITLE = "Daily Total Revenue per Customer";
 			    final String HANDICAPPED = "Handicapped";
 			    final String FEMALE = "Female";
 			    final String COMPANY = "Company";
 			    final String DAY = "Day";
+
+
+
 			   String displayHandicappedData = "" + MODEL.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED);
 			   String displayFemaleData = "" + MODEL.filterRevenueByCustomer(vehiclesThatLeft, FEMALE);
 			   String displayCompanyData = "" + MODEL.filterRevenueByCustomer(vehiclesThatLeft, COMPANY);
 			   String displayDayData = "" + MODEL.filterRevenueByCustomer(vehiclesThatLeft, DAY);
 		%>
 		<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
+		<%-- UPPER PIE CHART --%>
 		<ccm-highchart-3-0-1
 				key='{
   "settings": {
@@ -120,6 +125,102 @@
   },
   "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
 }'
+		></ccm-highchart-3-0-1>
+		<ccm-highchart-3-0-1
+				key='{
+          "settings": {
+            "chart": {
+              "type": "column"
+            },
+            "title": {
+              "text": "Duration from Customers"
+            },
+            "subtitle": {
+              "text": "Sorted by Customer-/Car-Type"
+            },
+            "xAxis": {
+              "categories": [
+                "Day",
+                "Company",
+                "Female",
+                "Handicapped"
+                ],
+              "crosshair": true
+            },
+            "yAxis": {
+              "min": 0,
+              "title": {
+                "text": "Duration (sec)"
+              }
+            },
+            "tooltip": {
+                "headerFormat": "<span style="font-size:10px">{point.key}</span><table>",
+                "pointFormat": "<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} sec</b></td></tr>",
+                "footerFormat": "</table>",
+                "shared": true,
+                "useHTML": true
+            },
+            "plotOptions": {
+              "column": {
+                "pointPadding": 0.2,
+                "borderWidth": 0
+              }
+            },
+            "series": [
+              {
+                "name": "Limousine",
+                "data": [
+                  <%=limoDay%>,
+                  <%=limoCom%>,
+                  <%=limoFem%>,
+                  <%=limoHandi%>
+                ]
+              },
+              {
+                "name": "Van",
+                "data": [
+                  <%=vanDay%>,
+                  <%=vanCom%>,
+                  <%=vanFem%>,
+                  <%=vanHandi%>
+                ]
+              },
+              {
+                "name": "SUV",
+                "data": [
+                  <%=suvDay%>,
+                  <%=suvCom%>,
+                  <%=suvFem%>,
+                  <%=suvHandi%>
+                ]
+              },
+              {
+                "name": "Motorcycle",
+                "data": [
+                  <%=motoDay%>,
+                  <%=motoCom%>,
+                  <%=motoFem%>,
+                  <%=motoHandi%>
+                ]
+              },
+              {
+                "name": "Complete",
+                "data": [
+                  <%=completeDay%>,
+                  <%=completeCom%>,
+                  <%=completeFem%>,
+                  <%=completeHandi%>
+                  ]
+                }
+            ]
+          },
+          "data": {},
+          "html": {
+            "id": "chart",
+            "style": "%%"
+          },
+          "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
+        }'
 		></ccm-highchart-3-0-1>
 		<%}%>
 </body>
