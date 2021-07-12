@@ -146,7 +146,8 @@ class CarTest {
         assertEquals(-10,car3Leave.space(),"Oops, carEnter does not show the correct space");
         assertEquals(car3Enter.space(),car3Leave.space(),"Oops, the space are not equal");
 
-
+        assertThrows(IllegalArgumentException.class,()->car3Enter.space());
+        assertThrows(IllegalArgumentException.class,()->car3Leave.space());
     }
 
     @Test
@@ -164,6 +165,7 @@ class CarTest {
         assertEquals("*",car3Enter.kunde(),"Oops, carEnter does not show the correct client");
         assertEquals("*",car3Leave.kunde(),"Oops, carEnter does not show the correct client");
         assertEquals(car3Enter.kunde(),car3Leave.kunde(),"Oops, the client are not equal");
+
 
 
     }
@@ -200,6 +202,9 @@ class CarTest {
         assertEquals("",car3Enter.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
         assertEquals("",car3Leave.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
         assertEquals(car3Enter.licensePlate(),car3Leave.licensePlate(),"Oops, the license plate are not equal");
+
+        assertThrows(IllegalArgumentException.class,()->car3Enter.licensePlate());
+        assertThrows(IllegalArgumentException.class,()->car3Leave.licensePlate());
 
     }
 
