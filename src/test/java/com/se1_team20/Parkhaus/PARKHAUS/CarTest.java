@@ -108,6 +108,10 @@ class CarTest {
         assertEquals(7,car1Enter.space(),"Oops, carEnter does not show the correct show");
         assertEquals(7,car1Leave.space(),"Oops, carEnter does not show the correct show");
         assertEquals(car1Enter.space(),car1Leave.space(),"Oops, the space are not equal");
+
+        assertEquals(9,car2Enter.space(),"Oops, carEnter does not show the correct show");
+        assertEquals(9,car2Leave.space(),"Oops, carEnter does not show the correct show");
+        assertEquals(car2Enter.space(),car2Leave.space(),"Oops, the space are not equal");
     }
 
     @Test
