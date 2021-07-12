@@ -69,8 +69,8 @@ class ParkhausModelTest {
     @Test
     @DisplayName("Die KundenID für ein geparktes Auto wird korrekt angezeigt")
     void kundenIDTest() {
-        assertEquals("173", carEnter.nr());
-        assertEquals("173", carLeave.nr());
+        assertEquals(173, carEnter.nr());
+        assertEquals(173, carLeave.nr());
         assertEquals(carLeave.nr(),carEnter.nr());
     }
 }

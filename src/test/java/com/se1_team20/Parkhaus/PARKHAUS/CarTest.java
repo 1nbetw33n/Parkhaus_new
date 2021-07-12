@@ -58,10 +58,6 @@ class CarTest {
     @Test
     @DisplayName("Returns the starting time of the current car")
 
-    /*
-    * Berechnung von CarLeave führt zu anderem Ergebnis; Ich denke es liegt an Rundungsfehlern, konnte aber die genaue Ursache nicht rausfinden.
-    * Möglicherweise auch wegen Falschen Zahlen bei der Eingabe (konnte ich nicht genau prüfen
-     */
 
     void beginTest() {
         assertEquals(1624278150403L, car1Enter.begin(),"Oops, carEnter is not showing begin");
