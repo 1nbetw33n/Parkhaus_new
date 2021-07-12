@@ -44,8 +44,8 @@ class CarTest {
         car2Enter = new Car(new String[]{"enter","80","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
         car2Leave = new Car(new String[]{"leave","80","1626096329072","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
 
-        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","null","null","-10","*","-",""});
-        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","null","null","-10","*","-",""});
+        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","null","null","-10","*",null,null});
+        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","null","null","-10","*",null,null});
     }
 
     @AfterEach
@@ -166,6 +166,9 @@ class CarTest {
         assertEquals("*",car3Leave.kunde(),"Oops, carEnter does not show the correct client");
         assertEquals(car3Enter.kunde(),car3Leave.kunde(),"Oops, the client are not equal");
 
+        assertThrows(IllegalArgumentException.class,()->car3Enter.kunde());
+        assertThrows(IllegalArgumentException.class,()->car3Leave.kunde());
+
 
 
     }
@@ -185,6 +188,9 @@ class CarTest {
         assertEquals("-",car3Enter.typeCar(),"Oops, carEnter does not show the correct type of the car");
         assertEquals("-",car3Leave.typeCar(),"Oops, carEnter does not show the correct type of the car");
         assertEquals(car3Enter.typeCar(),car3Leave.typeCar(),"Oops, the type of the car are not equal");
+
+        assertThrows(NullPointerException.class,()->car3Enter.typeCar());
+        assertThrows(NullPointerException.class,()->car3Leave.typeCar());
     }
 
     @Test
@@ -203,8 +209,8 @@ class CarTest {
         assertEquals("",car3Leave.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
         assertEquals(car3Enter.licensePlate(),car3Leave.licensePlate(),"Oops, the license plate are not equal");
 
-        assertThrows(IllegalArgumentException.class,()->car3Enter.licensePlate());
-        assertThrows(IllegalArgumentException.class,()->car3Leave.licensePlate());
+        assertThrows(NullPointerException.class,()->car3Enter.licensePlate());
+        assertThrows(NullPointerException.class,()->car3Leave.licensePlate());
 
     }
 
@@ -222,6 +228,9 @@ class CarTest {
         assertEquals("null", car3Leave.hash());
         assertEquals("null", car3Enter.hash());
         assertEquals(car3Leave.hash(), car3Enter.hash());
+
+        assertThrows(NullPointerException.class,()->car3Leave.hash());
+        assertThrows(NullPointerException.class,()->car3Enter.hash());
     }
 
     @Test
@@ -232,5 +241,9 @@ class CarTest {
 
         assertEquals("80/1626096329072/2353630/235363/61fc0e486f096c277de87b57868e2f51/#4b1923/9/Handicapped/Van/SU-K 76", car2Leave.toString());
         assertEquals("80/1626096329072/_/_/61fc0e486f096c277de87b57868e2f51/#4b1923/9/Handicapped/Van/SU-K 76", car2Enter.toString());
+
+        assertEquals("-1/1626096329072/2353630/-23/null/null/-10/*/null/null",car3Leave.toString());
+        assertEquals("-1/1626096329072/_/_/null/null/-10/*/null/null",car3Enter.toString());
+
     }
 }
