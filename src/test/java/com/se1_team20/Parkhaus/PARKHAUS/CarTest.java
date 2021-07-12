@@ -136,6 +136,10 @@ class CarTest {
         assertEquals("Motorcycle",car1Enter.typeCar(),"Oops, carEnter does not show the correct type of the car");
         assertEquals("Motorcycle",car1Leave.typeCar(),"Oops, carEnter does not show the correct type of the car");
         assertEquals(car1Enter.typeCar(),car1Leave.typeCar(),"Oops, the type of the car are not equal");
+
+        assertEquals("Van",car2Enter.typeCar(),"Oops, carEnter does not show the correct type of the car");
+        assertEquals("Van",car2Leave.typeCar(),"Oops, carEnter does not show the correct type of the car");
+        assertEquals(car2Enter.typeCar(),car2Leave.typeCar(),"Oops, the type of the car are not equal");
     }
 
     @Test
