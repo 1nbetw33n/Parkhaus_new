@@ -40,7 +40,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
 
-    public ParkhausModel pModel = new ParkhausModel();
+    private ParkhausModel pModel = new ParkhausModel();
 
     //Reduces or increases the parking spaces
     // erstellt von Preet
@@ -88,9 +88,9 @@ public abstract class ParkhausServlet extends ParkingServlet {
         } else if ("cmd".equals(command) && "management".equals(param)) {
             handleRequest(request, response);
         } else if ("cmd".equals(command) && "config&name".equals(param)) {
-            handleConfig(param, response);
+            handleConfig(response);
         } else if ("cmd".equals(command) && "cars&name".equals(param)) {
-            savedCars(param, response);
+            savedCars(response);
         } else if ("cmd".equals(command) && "spaces".equals(param)) {
             handleRequest(request, response);
         } else {
@@ -188,11 +188,11 @@ public abstract class ParkhausServlet extends ParkingServlet {
         return formerCars;
     }
 
-    private void handleConfig(String name, HttpServletResponse response) {
+    private void handleConfig(HttpServletResponse response) {
         System.out.println("Config not implemented.");
     }
 
-    private void savedCars(String param, HttpServletResponse response) throws IOException {
+    private void savedCars(HttpServletResponse response) throws IOException {
 
         StringBuilder builder = new StringBuilder();
         int index = 0;
