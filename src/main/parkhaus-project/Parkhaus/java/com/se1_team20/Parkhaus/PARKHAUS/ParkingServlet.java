@@ -39,6 +39,7 @@ public abstract class ParkingServlet extends HttpServlet implements ParkingServl
         handleBody(request,response);
     }
 
+    //TODO: DELETE THIS METHOD HERE, BECAUSE INTELLIJ SAYS EVERYTHING WILL STILL WORK
     protected abstract void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
     /* template method */
