@@ -45,8 +45,6 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         String command              = requestParamString[0];
         String param                = requestParamString[1];
 
-        /*ServletContext application = request.getServletContext();*/
-
         if ("cmd".equals(command) && "customer_chart".equals(param)) {
             request.getRequestDispatcher("KundenChart.jsp").forward(request,response);
         }
@@ -59,18 +57,6 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         else if ("cmd".equals(command) && "revenue_chart_vehicle".equals(param)){
             request.getRequestDispatcher("AverageRevenueByVehicleTypeChart.jsp").forward(request, response);
         }
-        /*else if ("cmd".equals(command) && "total_revenue".equals(param)) {
-            eventDoubleAttribute(response,"total_revenue");
-        }
-        else if ("cmd".equals(command) && "average_revenue".equals(param)) {
-            eventDoubleAttribute(response,"average_revenue");
-        }
-        else if ("cmd".equals(command) && "total_cars_current".equals(param)) {
-            eventTotalCars(response, application);
-        }
-        else if ("cmd".equals(command) && "total_cars_former".equals(param)) {
-            eventFormerCars(response, application);
-        }*/
     }
 
 
@@ -90,26 +76,5 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
     protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 
     protected void handleEvent(String EVENT, String[] PARAMS) {}
-
-    /*protected final void eventDoubleAttribute(HttpServletResponse response, String attribute) throws IOException {
-        final PrintWriter OUT = response.getWriter();
-        Double doubleAttribute = mModel.getDoubleAttribute((Double) getContext().getAttribute(attribute));
-        OUT.println(doubleAttribute + ",-");
-        System.out.println(attribute + " = €" + doubleAttribute);
-    }
-
-    private void eventTotalCars(HttpServletResponse response, ServletContext application) throws IOException {
-        Integer cars = (Integer) getContext().getAttribute("total_cars");
-        final PrintWriter OUT = response.getWriter();
-        OUT.println(cars);
-        System.out.println("total_cars = " + cars);
-    }
-
-    private void eventFormerCars(HttpServletResponse response, ServletContext application) throws IOException {
-        List<CarIF> cars = (List<CarIF>) getContext().getAttribute("former-cars" + "Level1");
-        final PrintWriter OUT = response.getWriter();
-        OUT.println(cars.size());
-        System.out.println("former_cars = " + cars.size());
-    }*/
 
 }

@@ -83,10 +83,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
         ServletContext application = getContext();
 
-        //if ("cmd".equals(command) && "total_revenue".equals(param)) { eventDoubleAttribute(response, application, "total_revenue"); }
-        //else if ("cmd".equals(command) && "average_revenue".equals(param)) {eventDoubleAttribute(response, application, "average_revenue");}
-        //else if ("cmd".equals(command) && "total_cars".equals(param)) { eventTotalCars(response);}
-        //else if ("cmd".equals(command) && "get_bill".equals(param)) {eventDoubleAttribute(response, application, "get_bill");}
         if ("cmd".equals(command) && "checkout".equals(param)) {
             handleRequest(request, response);
         } else if ("cmd".equals(command) && "management".equals(param)) {
@@ -125,7 +121,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
         } else if ("change_max".equals(EVENT)) {
             configMax(Integer.parseInt(PARAMS[2]));
         }
-
     }
 
     private void handleEnter(final String[] PARAMS) {
@@ -161,9 +156,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
         getContext().setAttribute("cars" + getNAME(), pModel.filterNrErase(cars(), Integer.parseInt(PARAMS[1]))); //Erasing Car from cars()
 
-
-
-
     }
 
     //erstellt von Lukas
@@ -175,8 +167,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
 
     /*
      * @return the list of all cars stored in the servlet context so far
-     * Lukas: ParkhausModell implementierung hinzugefügt um Logik statisch zu transferieren
-     *  -> Funktionsaufruf sollte eigentlich entfallen, mir ist gerade keine bessere Lösung gekommen
      */
 
     @SuppressWarnings("unchecked")
@@ -197,21 +187,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
         List<CarIF> formerCars = (List<CarIF>) getContext().getAttribute("former-cars" + getNAME());
         return formerCars;
     }
-
-
-    /*protected final void eventDoubleAttribute(HttpServletResponse response, ServletContext application, String attribute) throws IOException {
-        final PrintWriter OUT = response.getWriter();
-        Double doubleAttribute = pModel.getDoubleAttribute((Double) application.getAttribute(attribute));
-        OUT.println(doubleAttribute + ",-");
-        System.out.println(attribute + " = €" + doubleAttribute);
-    }*/
-
-    /*private void eventTotalCars(HttpServletResponse response) throws IOException {
-        final PrintWriter OUT = response.getWriter();
-        OUT.println(cars().size());
-        System.out.println("total_cars = " + cars().size());
-    }*/
-
 
     private void handleConfig(String name, HttpServletResponse response) {
         System.out.println("Config not implemented.");

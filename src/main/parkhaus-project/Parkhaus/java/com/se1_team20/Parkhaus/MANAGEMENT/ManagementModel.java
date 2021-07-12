@@ -32,7 +32,6 @@ public class ManagementModel {
         return (cars.stream().filter(x -> x.kunde().equals(type)).count());
     }
 
-
     /* Erstellt von Lukas */
     public long filterDurationCustomerCar(List<CarIF> cars, String customer, String typeCar) {
         return cars.stream().filter(x->x.kunde().equals(customer)).filter(x->x.typeCar().equals(typeCar)).map(x -> x.duration()).reduce(0,Integer::sum);
