@@ -114,6 +114,16 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("Returns of the client of the car")
+    void clientTest(){
+
+        assertEquals("Handicapped",car1Enter.kunde(),"Oops, carEnter does not show the correct client");
+        assertEquals("Handicapped",car1Leave.kunde(),"Oops, carEnter does not show the correct client");
+        assertEquals(car1Enter.kunde(),car1Leave.kunde(),"Oops, the clients are not equal");
+
+    }
+
+    @Test
     @DisplayName("Returns the hash of the car")
     void hashTest() {
         assertEquals("8319c7d02f8b786e4f1a231af06da0c7", car1Leave.hash());
