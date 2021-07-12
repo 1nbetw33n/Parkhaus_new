@@ -44,7 +44,7 @@
 			}
 			else
 			{
-				final String TITLE = " Shares of Vehicles that visited the garage.";
+				final String TITLE = "Daily Total Revenue per Vehicle";
 				final String SUV = "SUV";
 				final String LIMOUSINE = "Limousine";
 				final String MOTORCYCLE = "Motorcycle";
