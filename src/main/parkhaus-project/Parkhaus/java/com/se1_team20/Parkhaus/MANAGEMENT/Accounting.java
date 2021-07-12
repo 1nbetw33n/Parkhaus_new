@@ -24,8 +24,6 @@ package com.se1_team20.Parkhaus.MANAGEMENT;
 10.Jul.2021
 */
 
-
-
 import com.sun.istack.internal.NotNull;
 
 import java.util.ArrayList;

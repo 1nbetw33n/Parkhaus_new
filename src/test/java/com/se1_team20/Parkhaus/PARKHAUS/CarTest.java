@@ -41,31 +41,38 @@ class CarTest {
         car1Enter = new Car(new String[]{"enter", "173", "1624278150403", "_", "_", "8319c7d02f8b786e4f1a231af06da0c7", "#714934","7","Handicapped", "Motorcycle", "SU-A 84"});
         car1Leave = new Car(new String[]{"leave","173","1624278155427","5018","502","8319c7d02f8b786e4f1a231af06da0c7","#714934","7","Handicapped", "Motorcycle", "SU-A 84"});
 
+        car2Enter = new Car(new String[]{"enter","80","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
+        car2Leave = new Car(new String[]{"enter","80","1626096329072","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
     }
 
     @AfterEach
     void tearDown() {
         car1Enter = null;
         car1Leave = null;
+
+        car2Enter = null;
+        car2Leave = null;
     }
     @Test
     @DisplayName("Returns the number of the current car")
     void nrTest() {
         assertEquals(173, car1Enter.nr());
         assertEquals(173, car1Leave.nr());
+
+        assertEquals(80,car2Enter.nr());
+        assertEquals(80,car2Leave.nr());
     }
 
     @Test
     @DisplayName("Returns the starting time of the current car")
 
-    /*
-    * Berechnung von CarLeave führt zu anderem Ergebnis; Ich denke es liegt an Rundungsfehlern, konnte aber die genaue Ursache nicht rausfinden.
-    * Möglicherweise auch wegen Falschen Zahlen bei der Eingabe (konnte ich nicht genau prüfen
-     */
 
     void beginTest() {
         assertEquals(1624278150403L, car1Enter.begin(),"Oops, carEnter is not showing begin");
         assertEquals(1624278150409L, car1Leave.begin(),"Oops, carLeave is not showing begin");
+
+        assertEquals(1626096329072L,car2Enter.begin(),"Oops,carEnter is not showing begin");
+        assertEquals(1626096329072L,car2Leave.begin(),"Oops,carLeave is not showing begin");
     }
 
     @Test
@@ -73,12 +80,18 @@ class CarTest {
     void endTest() {
         assertEquals(1624278155427L, car1Leave.end(), "Oops, carLeave is not showing correct end");
         assertEquals(0L, car1Enter.end(), "Oops, carEnter is not showing correct end");
+
+        //assertEquals(1626096329072L, car2Leave.end(),"Oops, carLeave is not showing the correct endtime");
+        assertEquals(0L,car2Enter.end(),"Oops, carEnter is not showing the correct endtime");
     }
 
     @Test
     @DisplayName("Returns the current duration")
     void durationTest() {
         assertEquals(5018, car1Leave.duration(),"Oops. carLeave does not show correct duration");
+        assertEquals(0, car1Enter.duration(),"Oops. carEnter does not show correct duration (0)");
+
+        assertEquals(2353630, car1Leave.duration(),"Oops. carLeave does not show correct duration");
         assertEquals(0, car1Enter.duration(),"Oops. carEnter does not show correct duration (0)");
     }
 
@@ -87,6 +100,9 @@ class CarTest {
     void priceTest() {
         assertEquals(0, car1Enter.price(),"Oops, carEnter does not show 0 for price");
         assertEquals(502, car1Leave.price(), "Oops, carLeave does not show correct price");
+
+        assertEquals(0, car2Enter.price(),"Oops, carEnter does not show 0 for price");
+        assertEquals(0, car2Leave.price(), "Oops, carLeave does not show correct price");
     }
 
     @Test
@@ -95,6 +111,10 @@ class CarTest {
         assertEquals("8319c7d02f8b786e4f1a231af06da0c7", car1Leave.hash());
         assertEquals("8319c7d02f8b786e4f1a231af06da0c7", car1Enter.hash());
         assertEquals(car1Leave.hash(), car1Enter.hash());
+
+        assertEquals("61fc0e486f096c277de87b57868e2f51", car2Leave.hash());
+        assertEquals("61fc0e486f096c277de87b57868e2f51", car2Enter.hash());
+        assertEquals(car2Leave.hash(), car2Enter.hash());
     }
 
     @Test

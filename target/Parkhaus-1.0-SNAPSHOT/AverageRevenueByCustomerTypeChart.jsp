@@ -32,6 +32,9 @@
 		<title>Daily Revenue per Customer</title>
 	</head>
 	<body>
+		<div style="text-align: center;">
+			<button onclick="window.history.back()">Go Back</button>
+		</div>
 		<%
 			ServletContext context = request.getServletContext();
 			@SuppressWarnings("unchecked")
@@ -44,7 +47,7 @@
 			}
 			else
 			{
-			    final String TITLE = " Shares of Customers that visited the garage.";
+			    final String TITLE = "Daily Total Revenue per Customer";
 			    final String HANDICAPPED = "Handicapped";
 			    final String FEMALE = "Female";
 			    final String COMPANY = "Company";

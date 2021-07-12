@@ -32,6 +32,9 @@
 		<title>Total Daily Revenue</title>
 	</head>
 	<body>
+		<div style="text-align: center;">
+			<button onclick="window.history.back()">Go Back</button>
+		</div>
 		<%
 			ServletContext context = request.getServletContext();
 			@SuppressWarnings("unchecked")
