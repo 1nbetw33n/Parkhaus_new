@@ -57,6 +57,7 @@ class ParkhausModelTest {
         carEnter = null;
         carLeave = null;
         cars = null;
+        obj=null;
     }
 
     @Test
