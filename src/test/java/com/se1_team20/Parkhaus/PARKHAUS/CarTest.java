@@ -111,6 +111,10 @@ class CarTest {
         assertEquals("8319c7d02f8b786e4f1a231af06da0c7", car1Leave.hash());
         assertEquals("8319c7d02f8b786e4f1a231af06da0c7", car1Enter.hash());
         assertEquals(car1Leave.hash(), car1Enter.hash());
+
+        assertEquals("61fc0e486f096c277de87b57868e2f51", car2Leave.hash());
+        assertEquals("61fc0e486f096c277de87b57868e2f51", car2Enter.hash());
+        assertEquals(car2Leave.hash(), car2Enter.hash());
     }
 
     @Test
