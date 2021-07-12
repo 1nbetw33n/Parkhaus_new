@@ -44,8 +44,8 @@ class CarTest {
         car2Enter = new Car(new String[]{"enter","80","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
         car2Leave = new Car(new String[]{"leave","80","1626096329072","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
 
-        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","null","-10","","-","SU-K 76"});
-        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","61fc0e486f096c277de87b57868e2f51","null","-10","","-","SU-K 76"});
+        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","null","-10","*","-","SU-K 76"});
+        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","61fc0e486f096c277de87b57868e2f51","null","-10","*","-","SU-K 76"});
     }
 
     @AfterEach
@@ -145,6 +145,10 @@ class CarTest {
         assertEquals("Handicapped",car2Enter.kunde(),"Oops, carEnter does not show the correct client");
         assertEquals("Handicapped",car2Leave.kunde(),"Oops, carEnter does not show the correct client");
         assertEquals(car2Enter.kunde(),car2Leave.kunde(),"Oops, the client are not equal");
+
+        assertEquals("*",car3Enter.kunde(),"Oops, carEnter does not show the correct client");
+        assertEquals("*",car3Leave.kunde(),"Oops, carEnter does not show the correct client");
+        assertEquals(car3Enter.kunde(),car3Leave.kunde(),"Oops, the client are not equal");
 
 
     }
