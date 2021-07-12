@@ -178,7 +178,7 @@
         }'
 ></ccm-highchart-3-0-1>
 <%}%>
-
+<br>
 <div style="text-align: center;">
     <button onclick="goBack()">Go Back</button>
 </div>
