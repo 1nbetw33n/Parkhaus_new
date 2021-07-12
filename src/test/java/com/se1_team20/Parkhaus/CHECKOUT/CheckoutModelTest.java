@@ -94,18 +94,19 @@ class CheckoutModelTest {
         assertNotEquals(this.car4, this.MODEL.filterByTicketNr(this.cars, 10));
     }
 
-    /*@Test
+    @Test
     @DisplayName("filterByLicensePlate - null test")
     void nullTestFilterByLicensePlate()
     {
-        assertNull(this.MODEL.filterByTicketNr(this.cars, "SU-I 3456tdf0"));
-        assertNull(this.MODEL.filterByTicketNr(this.cars, "SU-I 34dfshgtrsz56tdf0"));
-        assertNull(this.MODEL.filterByTicketNr(this.cars, "SU-I h34hgfsdzutr56tdf0"));
-        assertNull(this.MODEL.filterByTicketNr(this.cars, ""));
-        assertNull(this.MODEL.filterByTicketNr(this.cars, " "));
-        assertNull(this.MODEL.filterByTicketNr(this.cars, "        "));
+        assertNull(this.MODEL.filterByTicketNr(this.cars, 45676));
+        assertNull(this.MODEL.filterByTicketNr(this.cars, 0));
+        assertNull(this.MODEL.filterByTicketNr(this.cars, 999999));
+        assertNull(this.MODEL.filterByTicketNr(this.cars, -25));
+        assertNull(this.MODEL.filterByTicketNr(this.cars, -999999));
+        assertNull(this.MODEL.filterByTicketNr(this.cars, 12));
     }
 
+    /*
     @Test
     @DisplayName("filterByLicensePlate - not null test")
     void notNullTestFilterByLicensePlateLowerLimit()
