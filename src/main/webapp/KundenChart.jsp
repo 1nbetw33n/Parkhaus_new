@@ -36,9 +36,12 @@
     <title>Customer Distribution</title>
 </head>
 <body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 <%
-
-
     ServletContext sc = request.getServletContext();
     ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
     ManagementModel mModel = new ManagementModel();
@@ -70,7 +73,6 @@
         String dataDisplay3 = Long.toString(data3);
         data4 = mModel.filterAmountOfCustomerType(cars, "Handicapped");
         String dataDisplay4 = Long.toString(data4);
-
 %>
 <script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 <ccm-highchart-3-0-1
@@ -137,8 +139,10 @@
 }'
 ></ccm-highchart-3-0-1>
 <%}%>
-</body>
-<body>
+
+<div style="text-align: center;">
+    <button onclick="goBack()">Go Back</button>
+</div>
 
 </body>
 </html>
