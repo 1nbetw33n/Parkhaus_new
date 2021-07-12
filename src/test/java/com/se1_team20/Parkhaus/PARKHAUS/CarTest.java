@@ -70,6 +70,9 @@ class CarTest {
     void beginTest() {
         assertEquals(1624278150403L, car1Enter.begin(),"Oops, carEnter is not showing begin");
         assertEquals(1624278150409L, car1Leave.begin(),"Oops, carLeave is not showing begin");
+
+        assertEquals(1626096329072L,car2Enter.begin(),"Oops,carEnter is not showing begin");
+        assertEquals(1626096329072L,car2Leave.begin(),"Oops,carLeave is not showing begin");
     }
 
     @Test
