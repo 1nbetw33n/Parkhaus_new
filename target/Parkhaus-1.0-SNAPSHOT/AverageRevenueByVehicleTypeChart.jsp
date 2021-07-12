@@ -53,7 +53,6 @@
 				String displayLimousineData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, LIMOUSINE);
 				String displayMotorcycleData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, MOTORCYCLE);
 				String displayVanData = "" + MODEL.filterRevenueByVehicle(vehiclesThatLeft, VAN);
-				response.getWriter().println(displayVanData);
 		%>
 		<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
 		<ccm-highchart-3-0-1
