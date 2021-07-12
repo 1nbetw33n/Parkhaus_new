@@ -38,7 +38,11 @@ abstract class ParkhausServlet {
 }
 
 class ParkhausModel {
-
+    # {final} configMax(int) : int
+    + getDoubleAttribute(Double) : Double
+    + filterCustomerAmountWithoutSpecific(List<CarIF>,String) : long
+    + filterColorErase(List<CarIF>,String) : List<CarIF>
+    + filterNrErase(List<CarIF>,int) : List<CarIF>
 }
 
 class Level1Servlet {
@@ -59,6 +63,7 @@ class Car {
     + typeCar() : String
     + toString() : String
 }
+
 interface CarIF{
     nr() : int
     licensePlate() : String
@@ -73,14 +78,43 @@ interface CarIF{
     toString() : String
 }
 
+abstract class ManagementAuthenticationServlet {
+    - {final} {static} serialVersionUID
+    + doPost(HttpServletRequest,HttpServletResponse) :
+    - handleInvalid(PrintWriter) :
+    - handleSuccess(HttpServletRequest,HttpServletResponse) :
+}
+
+class ManagementServlet {
+    - {final} {static} serialVersionUID
+    + doGet(HttpServletRequest,HttpServletResponse) :
+    + handleRequest(HttpServletRequest,HttpServletResponse) :
+    # handleBody(HttpServletRequest,HttpServletResponse) :
+    # handleEvent(HttpServletRequest,HttpServletResponse) :
+}
+
+class Accounting {
+    - {static} Accounting instance
+    - {static} {final} List<HashMap<String,String>> BILLS
+    - Accounting()
+    + {static} synchronized getInstance() : Accounting
+    + checkBILLS(String,String) : boolean
+    ~ getBILLS() : List<HashMap<String,String>>
+}
+
+
+
 
 ParkingServletable <|-- ParkingServlet
 ParkingServlet <|-- ParkhausServlet
 ParkhausServlet <|-- Level1Servlet
 
+ParkhausServlet "0..*" o-left- "1" ParkhausModel : "              "
 CarIF "0..*" -left-o "1" ParkhausServlet : "             "
 CarIF <|-- Car
 
-
+ParkingServlet <|-left- ManagementAuthenticationServlet
+ManagementAuthenticationServlet <|-down- ManagementServlet
+ManagementAuthenticationServlet "1" o-left- "1" Accounting : "         "
 
 @enduml
