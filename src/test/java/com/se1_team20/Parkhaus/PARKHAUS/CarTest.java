@@ -80,6 +80,9 @@ class CarTest {
     void endTest() {
         assertEquals(1624278155427L, car1Leave.end(), "Oops, carLeave is not showing correct end");
         assertEquals(0L, car1Enter.end(), "Oops, carEnter is not showing correct end");
+
+        //assertEquals(1626096329072L, car2Leave.end(),"Oops, carLeave is not showing the correct endtime");
+        assertEquals(0L,car2Enter.end(),"Oops, carEnter is not showing the correct endtime");
     }
 
     @Test
