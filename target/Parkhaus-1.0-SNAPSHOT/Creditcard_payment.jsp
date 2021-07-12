@@ -46,7 +46,7 @@
 
     <form action="LastpageServlet" method="post">
         <label for="cname">Kreditkarteninhalter:</label>
-        <input type="text" id="cname" name="cname" size="30" maxlength="30" pattern="[A-Za-zäöü\s]{3,}" title="Surname whitespace familiename" placeholder="Kreditkarteninhalter/-in" required><br><br>
+        <input type="text" id="cname" name="cname" size="30" maxlength="30" pattern="([A-Za-z\ü\ö\ä\s\.]{3,})" title="Surname whitespace familiename" placeholder="Kreditkarteninhalter/-in" required><br><br>
 
         <div style="text-indent:-4px">
             <label for="cnumber">Kreditkartennummer:</label>
@@ -62,7 +62,7 @@
 
         <div style="text-indent:-102px">
             <label for="date">Expiry date:</label>
-            <input type="text" id="date" name="date" size="5" maxlength="5" pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" title="Last 2 digits of the month and of the year." placeholder="MM/YY" required ><br><br>
+            <input type="text" id="date" name="date" size="5" maxlength="5" pattern="^(0[1-9]|1[0-2])[\/]{1}?([0-9]{2})$" title="Last 2 digits of the month slash and of the year." placeholder="MM/YY" required ><br><br>
 
         </div>
 

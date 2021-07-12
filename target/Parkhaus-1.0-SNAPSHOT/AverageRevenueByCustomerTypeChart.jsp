@@ -28,76 +28,76 @@
 
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html>
-	<head>
-		<title>Daily Revenue per Customer</title>
-	</head>
-	<body>
-		<div style="text-align: center;">
-			<button onclick="window.history.back()">Go Back</button>
-		</div>
-		<%
-			ServletContext context = request.getServletContext();
-			@SuppressWarnings("unchecked")
-			List<CarIF> vehiclesThatLeft = (List<CarIF>)  context.getAttribute("former-cars" + "Level1");
-			final ManagementModel MODEL = new ManagementModel();
-			if (vehiclesThatLeft == null)
-			{
-			    final PrintWriter OUT = response.getWriter();
-			    OUT.println("<center>There's no data to display. </center>");
-			}
-			else
-			{
-			    /* UPPER PIE CHART */
-			    final String TITLE = "Daily Total Revenue per Customer";
-			    final String HANDICAPPED = "Handicapped";
-			    final String FEMALE = "Female";
-			    final String COMPANY = "Company";
-			    final String DAY = "Day";
-			    final Double handicappedData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED);
-			    final Double femaleData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, FEMALE);
-			    final Double companyData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, COMPANY);
-			    final Double dayData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, DAY);
-			   String displayHandicappedData = "" + handicappedData;
-			   String displayFemaleData = "" + femaleData;
-			   String displayCompanyData = "" + companyData;
-			   String displayDayData = "" + dayData;
-		%>
-		<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
-		<%-- UPPER PIE CHART --%>
-		<ccm-highchart-3-0-1
-				key='{
-  "settings": {
-    "chart": {
-      "plotBackgroundColor": null,
-      "plotBorderWidth": null,
-      "plotShadow": false,
-      "type": "pie"
-    },
-    "title": {
-      "text": "<%=TITLE%>"
-    },
-    "tooltip": {
-      "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
-    },
-    "plotOptions": {
-      "pie": {
-        "allowPointSelect": true,
-        "cursor": "pointer",
-        "dataLabels": {
-          "enabled": true,
-          "format": "<b>{point.name}</b>: {point.percentage:.1f} %",
-          "style": {
-            "color": "black"
-          }
-        }
-      }
-    },
-    "series": [
-      {
-        "name": "Customer-Type",
-        "colorByPoint": true,
-        "data": [
-          {
+<head>
+	<title>Daily Revenue per Customer</title>
+</head>
+<body>
+<div style="text-align: center;">
+	<button onclick="window.history.back()">Go Back</button>
+</div>
+<%
+	ServletContext context = request.getServletContext();
+	@SuppressWarnings("unchecked")
+	List<CarIF> vehiclesThatLeft = (List<CarIF>)  context.getAttribute("former-cars" + "Level1");
+	final ManagementModel MODEL = new ManagementModel();
+	if (vehiclesThatLeft == null)
+	{
+		final PrintWriter OUT = response.getWriter();
+		OUT.println("<center>There's no data to display. </center>");
+	}
+	else
+	{
+		/* UPPER PIE CHART */
+		final String TITLE = "Daily Total Revenue per Customer";
+		final String HANDICAPPED = "Handicapped";
+		final String FEMALE = "Female";
+		final String COMPANY = "Company";
+		final String DAY = "Day";
+		final Double handicappedData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED);
+		final Double femaleData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, FEMALE);
+		final Double companyData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, COMPANY);
+		final Double dayData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, DAY);
+		String displayHandicappedData = "" + handicappedData;
+		String displayFemaleData = "" + femaleData;
+		String displayCompanyData = "" + companyData;
+		String displayDayData = "" + dayData;
+%>
+<script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>
+<%-- UPPER PIE CHART --%>
+<ccm-highchart-3-0-1
+		key='{
+            "settings": {
+            "chart": {
+            "plotBackgroundColor": null,
+            "plotBorderWidth": null,
+            "plotShadow": false,
+            "type": "pie"
+        },
+        "title": {
+        "text": "<%=TITLE%>"
+        },
+        "tooltip": {
+            "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
+        },
+        "plotOptions": {
+            "pie": {
+                "allowPointSelect": true,
+                "cursor": "pointer",
+                "dataLabels": {
+                "enabled": true,
+                 "format": "<b>{point.name}</b>: {point.percentage:.1f} %",
+                "style": {
+                        "color": "black"
+                    }
+                }
+            }
+        },
+        "series": [
+            {
+                "name": "Customer-Type",
+                "colorByPoint": true,
+                 "data": [
+                    {
             "name": "<%=HANDICAPPED%>",
             "y": <%=displayHandicappedData%>,
             "sliced": true,
@@ -126,33 +126,33 @@
   },
   "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
 }'
-		></ccm-highchart-3-0-1>
-		<%-- LOWER BAR CHART --%>
-		<ccm-highchart-3-0-1
-				key='{
+></ccm-highchart-3-0-1>
+<%-- LOWER BAR CHART --%>
+<ccm-highchart-3-0-1
+		key='{
           "settings": {
             "chart": {
               "type": "column"
             },
             "title": {
-              "text": "Duration from Customers"
+              "text": ""
             },
             "subtitle": {
-              "text": "Sorted by Customer-/Car-Type"
+              "text": ""
             },
             "xAxis": {
               "categories": [
-                "Day",
-                "Company",
-                "Female",
-                "Handicapped"
+                "<%=HANDICAPPED%>",
+                "<%=FEMALE%>",
+                "<%=COMPANY%>",
+                "<%=DAY%>"
                 ],
               "crosshair": true
             },
             "yAxis": {
               "min": 0,
               "title": {
-                "text": "Duration (sec)"
+                "text": ""
               }
             },
             "tooltip": {
@@ -171,19 +171,27 @@
             "series": [
               {
                 "name":"<%=HANDICAPPED%>",
-                "data":<%=handicappedData%>
+                "data":[
+					<%=handicappedData%>
+				]
               },
               {
                 "name": "<%=FEMALE%>",
-                "data": <%=displayFemaleData%>
+                "data":  [
+					<%=displayFemaleData%>
+				]
               },
               {
                 "name": "<%=COMPANY%>",
-                "data": <%=displayCompanyData%>
+                "data": [
+					<%=displayCompanyData%>
+				]
               },
               {
                 "name": "<%=DAY%>",
-                "data": <%=displayDayData%>
+                "data": [
+					<%=displayDayData%>
+				]
               }
             ]
           },
@@ -194,8 +202,8 @@
           },
           "style": "min-width: 400px; max-width: 800px; min-height: 400px; max-height: 800px; margin: 0 auto"
         }'
-		></ccm-highchart-3-0-1>
-		<%}%>
+></ccm-highchart-3-0-1>
+<%}%>
 </body>
 </html>
 

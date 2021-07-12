@@ -60,14 +60,6 @@ class ParkhausModelTest {
         obj=null;
     }
 
-    @Test
-    @DisplayName("Return the new initialisied max value")
-    void configMaxTest(){
-
-        assertEquals(10,obj.configMax(10),"Oops, not getting the right value!!");
-        assertEquals(12,obj.configMax(12),"Oops, not getting the right value!!");
-        assertThrows(ArrayIndexOutOfBoundsException.class,()->obj.configMax(-12));
-    }
 
     @Test
     @DisplayName("Das Auto einer bestimmten Farbe wird korrekt gelöscht")
