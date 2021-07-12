@@ -13,9 +13,31 @@ abstract class ParkingServlet {
     # handleBody(HttpServletRequest, HttpServletResponse) :
     # {abstract} handleRequest(HttpServletRequest, HttpServletResponse) :
     # {abstract} handleEvent(String, String[]) :
+    + {final} getContext() : ServletContext
+    + {final} destroy() :
 }
 
 abstract class ParkhausServlet {
+    ~ {static} List<String> parkingspaces
+    ~ {static} int max
+    - Parkhausmodel pModel
+
+    ~ {abstract} getName() : String
+    # {final} configMax(int) :
+    + {final} doGet(HttpServletRequest, HttpServletResponse) :
+    # {final} handleRequest(HttpServletRequest, HttpServletResponse) :
+    # {final} handleRequest(HttpServletRequest, HttpServletResponse) :
+    # {final} handleEvent(String, String[]) :
+    - handleEnter(String[]) :
+    - handleLeave(String[]) :
+    - handleOccupied(String[]) :
+    ~ cars() : List<CarIF>
+    ~ formerCars() : List<CarIF>
+    - handleConfig(HttpServletResponse) :
+    - savedCars()(HttpServletResponse) :
+}
+
+class ParkhausModel {
 
 }
 
