@@ -51,11 +51,11 @@
 	<h1>Checkout Authentication</h1>
 	<form id="CheckoutForm" name="loginForm" method="post" action="CheckoutServlet">
 		<div id="enterLicensePlateDiv" class="paddingBtm">
-			<span id="enteredLicensePlateSpan">Enter License Plate: </span>
+			<span id="enteredTicketNrSpan">Enter Ticket Nr:</span>
 			<label for="userInput"></label>
 			<input id="userInput"
 			       type="text"
-			       name="entered_license_plate"
+			       name="entered_ticket_nr"
 			       oninvalid="alert('Invalid Input')"
 			       pattern="^[A-Z]{2}-[A-Z]\s([1-9]|[1-9][0-9]|100)$"
 			       title="^[A-Z]{2}-[A-Z]\s([1-9]|[1-9][0-9]|100)$. For example: SU-B 99"
