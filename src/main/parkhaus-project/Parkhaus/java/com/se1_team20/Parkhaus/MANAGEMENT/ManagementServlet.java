@@ -36,7 +36,6 @@ import java.util.List;
 public class ManagementServlet extends ManagementAuthenticationServlet {
 
     final private static long serialVersionUID = 1L;
-    ManagementModel mModel = new ManagementModel();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
