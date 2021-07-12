@@ -44,8 +44,8 @@ class CarTest {
         car2Enter = new Car(new String[]{"enter","80","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
         car2Leave = new Car(new String[]{"leave","80","1626096329072","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
 
-        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","null","9","","-","SU-K 76"});
-        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","61fc0e486f096c277de87b57868e2f51","null","9","","-","SU-K 76"});
+        car3Enter = new Car(new String[]{"enter","-1","1626096329072","_","_","61fc0e486f096c277de87b57868e2f51","null","-10","","-","SU-K 76"});
+        car3Leave = new Car(new String[]{"leave","-1","1626096329072","2353630","-23","61fc0e486f096c277de87b57868e2f51","null","-10","","-","SU-K 76"});
     }
 
     @AfterEach
@@ -121,13 +121,17 @@ class CarTest {
     @DisplayName("Returns the space of the car")
     void spaceTest() {
 
-        assertEquals(7,car1Enter.space(),"Oops, carEnter does not show the correct show");
-        assertEquals(7,car1Leave.space(),"Oops, carEnter does not show the correct show");
+        assertEquals(7,car1Enter.space(),"Oops, carEnter does not show the correct space");
+        assertEquals(7,car1Leave.space(),"Oops, carEnter does not show the correct space");
         assertEquals(car1Enter.space(),car1Leave.space(),"Oops, the space are not equal");
 
-        assertEquals(9,car2Enter.space(),"Oops, carEnter does not show the correct show");
-        assertEquals(9,car2Leave.space(),"Oops, carEnter does not show the correct show");
+        assertEquals(9,car2Enter.space(),"Oops, carEnter does not show the correct space");
+        assertEquals(9,car2Leave.space(),"Oops, carEnter does not show the correct space");
         assertEquals(car2Enter.space(),car2Leave.space(),"Oops, the space are not equal");
+
+        assertEquals(-10,car3Enter.space(),"Oops, carEnter does not show the correct space");
+        assertEquals(-10,car3Leave.space(),"Oops, carEnter does not show the correct space");
+        assertEquals(car3Enter.space(),car3Leave.space(),"Oops, the space are not equal");
     }
 
     @Test
