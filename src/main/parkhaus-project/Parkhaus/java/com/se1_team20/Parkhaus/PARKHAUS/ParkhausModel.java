@@ -43,7 +43,7 @@ public class ParkhausModel {
     static int max=10;
     static List<String> parkingspaces = new ArrayList<>(Arrays.asList(null, null, null, null, null, null, null, null, null, null));
 
-    protected final void configMax(int newmax) {
+    protected final int configMax(int newmax) {
 
         int count;
 
@@ -70,6 +70,8 @@ public class ParkhausModel {
         }
 
         max = newmax;
+
+        return max;
 
     }
 
