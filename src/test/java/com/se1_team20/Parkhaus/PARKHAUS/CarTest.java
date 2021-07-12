@@ -81,8 +81,7 @@ class CarTest {
         assertEquals(1624278155427L, car1Leave.end(), "Oops, carLeave is not showing correct end");
         assertEquals(0L, car1Enter.end(), "Oops, carEnter is not showing correct end");
 
-        //assertEquals(1626096329072L, car2Leave.end(),"Oops, carLeave is not showing the correct endtime");
-        assertEquals(0L,car2Enter.end(),"Oops, carEnter is not showing the correct endtime");
+
     }
 
     @Test
@@ -127,9 +126,9 @@ class CarTest {
     @DisplayName("Returns the type of the car")
     void typecarTest(){
 
-        assertEquals("Van",car1Enter.typeCar(),"Oops, carEnter does not show the correct type of the car");
-        assertEquals("Van",car1Leave.typeCar(),"Oops, carEnter does not show the correct type of the car");
-        assertEquals(car1Enter.kunde(),car1Leave.typeCar(),"Oops, the type of the car are not equal");
+        assertEquals("Motorcycle",car1Enter.typeCar(),"Oops, carEnter does not show the correct type of the car");
+        assertEquals("Motorcycle",car1Leave.typeCar(),"Oops, carEnter does not show the correct type of the car");
+        assertEquals(car1Enter.typeCar(),car1Leave.typeCar(),"Oops, the type of the car are not equal");
     }
 
     @Test
