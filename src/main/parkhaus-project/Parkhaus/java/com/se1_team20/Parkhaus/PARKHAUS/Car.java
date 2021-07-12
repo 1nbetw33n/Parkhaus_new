@@ -25,15 +25,10 @@ public class Car implements CarIF {
 
     private String[] params;
 
-
     public Car( String[] params )
     {
         this.params = params;
-
-
     }
-
-
 
     @Override
     public int nr()
