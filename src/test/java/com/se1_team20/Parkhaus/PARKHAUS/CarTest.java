@@ -119,8 +119,17 @@ class CarTest {
 
         assertEquals("Handicapped",car1Enter.kunde(),"Oops, carEnter does not show the correct client");
         assertEquals("Handicapped",car1Leave.kunde(),"Oops, carEnter does not show the correct client");
-        assertEquals(car1Enter.kunde(),car1Leave.kunde(),"Oops, the clients are not equal");
+        assertEquals(car1Enter.kunde(),car1Leave.kunde(),"Oops, the client are not equal");
 
+    }
+
+    @Test
+    @DisplayName("Returns the type of the car")
+    void typecarTest(){
+
+        assertEquals("Van",car1Enter.typeCar(),"Oops, carEnter does not show the correct type of the car");
+        assertEquals("Van",car1Leave.typeCar(),"Oops, carEnter does not show the correct type of the car");
+        assertEquals(car1Enter.kunde(),car1Leave.typeCar(),"Oops, the type of the car are not equal");
     }
 
     @Test
