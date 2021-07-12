@@ -16,7 +16,6 @@
   ~ with the terms of the license agreement you entered into with
   ~ se1_team20.
   ~  */
-   Erstellt von Preet
   --%>
 
 <%--
