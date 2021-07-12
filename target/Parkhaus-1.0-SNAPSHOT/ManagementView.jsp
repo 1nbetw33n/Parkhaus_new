@@ -80,6 +80,7 @@
 <div style="text-align: center;">
     <button onclick="goBack()">Go Back</button>
 </div>
+<br>
 <div style="text-align: center;">
     <form id="buttonFormId" name="buttonForm" method="get" action="ManagementServlet">
         <button type="button" value="total_revenue" onclick="showTotalCars('total_revenue_div')"/>
@@ -111,7 +112,7 @@
         Former Cars</button>
     </form>
 </div>
-
+<br>
 <div style="text-align: center;">
     <form id="chartFormId" name="chartForm" method="get" action="ManagementServlet">
         <button name="cmd" type="submit" value="customer_chart"/>
@@ -124,7 +125,7 @@
         Revenue per Vehicle
     </form>
 </div>
-
+<br>
 
 <% if (former_cars == null) {
     PrintWriter OUT = response.getWriter();
