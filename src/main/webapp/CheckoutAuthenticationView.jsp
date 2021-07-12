@@ -57,8 +57,8 @@
 			       type="text"
 			       name="entered_ticket_nr"
 			       oninvalid="alert('Invalid Input')"
-			       pattern="^[A-Z]{2}-[A-Z]\s([1-9]|[1-9][0-9]|100)$"
-			       title="^[A-Z]{2}-[A-Z]\s([1-9]|[1-9][0-9]|100)$. For example: SU-B 99"
+			       pattern="^([1-9]|[1-9][0-9]|100)$"
+			       title="^([1-9][0-9]|100)$. For example: 99 or 7 or 43 or ..."
 			       required
 			/>
 		</div>
