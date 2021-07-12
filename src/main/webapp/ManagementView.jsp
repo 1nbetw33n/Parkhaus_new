@@ -58,6 +58,10 @@
             document.getElementById(elem).style.display = "block";
         }
     }
+
+    function goBack() {
+        window.history.back();
+    }
 </script>
 
 <% ServletContext sc = request.getServletContext();
@@ -73,7 +77,9 @@
     double average_revenue = sc.getAttribute("average_revenue") == null ?  0.0 : (double) sc.getAttribute("average_revenue");
 
 %>
-
+<div style="text-align: center;">
+    <button onclick="goBack()">Go Back</button>
+</div>
 <div style="text-align: center;">
     <form id="buttonFormId" name="buttonForm" method="get" action="ManagementServlet">
         <button type="button" value="total_revenue" onclick="showTotalCars('total_revenue_div')"/>
