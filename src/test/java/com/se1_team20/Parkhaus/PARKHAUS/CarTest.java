@@ -100,6 +100,9 @@ class CarTest {
     void priceTest() {
         assertEquals(0, car1Enter.price(),"Oops, carEnter does not show 0 for price");
         assertEquals(502, car1Leave.price(), "Oops, carLeave does not show correct price");
+
+        assertEquals(0, car2Enter.price(),"Oops, carEnter does not show 0 for price");
+        assertEquals(0, car2Leave.price(), "Oops, carLeave does not show correct price");
     }
 
     @Test
