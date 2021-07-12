@@ -122,5 +122,8 @@ class CarTest {
     void testToString() {
         assertEquals("173/1624278155427/5018/502/8319c7d02f8b786e4f1a231af06da0c7/#714934/7/Handicapped/Motorcycle/SU-A 84", car1Leave.toString());
         assertEquals("173/1624278150403/_/_/8319c7d02f8b786e4f1a231af06da0c7/#714934/7/Handicapped/Motorcycle/SU-A 84", car1Enter.toString());
+
+        assertEquals("80/1626096329072/2353630/235363/61fc0e486f096c277de87b57868e2f51/#4b1923/9/Handicapped/Van/SU-K 76", car2Leave.toString());
+        assertEquals("80/1626096329072/_/_/61fc0e486f096c277de87b57868e2f51/#4b1923/9/Handicapped/Van/SU-K 76", car2Enter.toString());
     }
 }
