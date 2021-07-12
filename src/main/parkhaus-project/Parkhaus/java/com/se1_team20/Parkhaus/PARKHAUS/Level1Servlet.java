@@ -24,16 +24,8 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "level1Servlet", value = "/level1-servlet")
 public class Level1Servlet extends ParkhausServlet {
-
     @Override
     String getNAME() {
         return "Level1";
     }
-
-
-
-
-
-
-    }
-
+}
