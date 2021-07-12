@@ -58,6 +58,9 @@ class CarTest {
     void nrTest() {
         assertEquals(173, car1Enter.nr());
         assertEquals(173, car1Leave.nr());
+
+        assertEquals(80,car2Enter.nr());
+        assertEquals(80,car2Leave.nr());
     }
 
     @Test
