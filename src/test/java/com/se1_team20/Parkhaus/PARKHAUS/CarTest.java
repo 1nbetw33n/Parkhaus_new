@@ -133,6 +133,16 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("Returns the licenseplate of the car")
+    void licenseplateTest(){
+
+        assertEquals("SU-A 84",car1Enter.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
+        assertEquals("SU-A 84",car1Leave.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
+        assertEquals(car1Enter.licensePlate(),car1Leave.licensePlate(),"Oops, the license plate are not equal");
+
+    }
+
+    @Test
     @DisplayName("Returns the hash of the car")
     void hashTest() {
         assertEquals("8319c7d02f8b786e4f1a231af06da0c7", car1Leave.hash());
