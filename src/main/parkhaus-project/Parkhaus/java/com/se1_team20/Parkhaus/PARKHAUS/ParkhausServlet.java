@@ -170,7 +170,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
      */
 
     @SuppressWarnings("unchecked")
-    List<CarIF> cars() //List of all cars which are inside the Parkhaus
+    private List<CarIF> cars() //List of all cars which are inside the Parkhaus
     {
         if (getContext().getAttribute("cars" + getNAME()) == null) {
             getContext().setAttribute("cars" + getNAME(), new ArrayList<Car>());
@@ -180,7 +180,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         return cars;
     }
 
-    List<CarIF> formerCars() { // List of all cars which have left the Parkhaus
+    private List<CarIF> formerCars() { // List of all cars which have left the Parkhaus
         if (getContext().getAttribute("former-cars" + getNAME()) == null) {
             getContext().setAttribute("former-cars" + getNAME(), new ArrayList<Car>());
         }
