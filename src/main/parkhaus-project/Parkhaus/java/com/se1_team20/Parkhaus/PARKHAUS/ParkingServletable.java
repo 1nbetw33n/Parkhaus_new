@@ -64,13 +64,16 @@ public interface ParkingServletable{
         }
         return stringBuilder.toString();
     }
-    
+    //TODO: DELETE THIS METHOD HERE, BECAUSE INTELLIJ SAYS EVERYTHING WILL STILL WORK
     void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
-    
-    void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
+    //TODO: DELETE THIS METHOD HERE, BECAUSE INTELLIJ SAYS EVERYTHING WILL STILL WORK
+
+    void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+    //TODO: DELETE THIS METHOD HERE, BECAUSE INTELLIJ SAYS EVERYTHING WILL STILL WORK
     ServletContext getContext();
 
+    //TODO: DELETE THIS METHOD HERE, BECAUSE INTELLIJ SAYS EVERYTHING WILL STILL WORK
     void destroy();
 
 
