@@ -7,17 +7,14 @@ boundary index
 boundary CheckoutAuthenticationView
 boundary CheckoutView
 boundary Paymethod
-control ParkhausServlet
-control ManagementAuthenticationServlet
-control ManagementServlet
+control Level1Servlet
+control CheckoutAuthenticationServlet
+control CheckoutServlet
 control PaymethodServlet
 entity CheckoutModel
+Customer -> index : press CHECKOUT-Button
+index -> Level1Servlet : start CheckoutAuthentication-Mask
+Level1Servlet -> CheckoutAuthenticationView : show CheckoutAuthentication-Mask
+CheckoutAuthenticationView --> Customer : CheckoutAuthentication-Mask
 
-
-Level1Servlet-> Level1Servlet: 1 getRequest()
-Level1Servlet-> CheckoutAuthenticationServlet: 2 handleRequest(requestDispatcherObject.forward(request, response))
-
-CheckoutAuthenticationServlet -> CheckoutAuthenticationServlet:3 doPost()
-CheckoutAuthenticationServlet -> CheckoutAuthenticationView
-CheckoutServlet -> CheckoutView
 @enduml
