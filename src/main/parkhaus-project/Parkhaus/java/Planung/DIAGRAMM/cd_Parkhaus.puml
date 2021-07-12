@@ -1,13 +1,41 @@
 @startuml
 'https://plantuml.com/class-diagram
+interface ParkingServletable {
+    {static} getBody(HttpServletRequest): String
+    doGet(HttpServletRequest, HttpServletResponse) :
+    doPost(HttpServletRequest, HttpServletResponse) :
+    getContext() : ServletContext :
+    destroy() :
+}
+abstract class ParkingServlet {
+    + doGet(HttpServletRequest, HttpServletResponse) :
+    + doPost(HttpServletRequest, HttpServletResponse) :
+    # handleBody(HttpServletRequest, HttpServletResponse) :
+    # {abstract} handleRequest(HttpServletRequest, HttpServletResponse) :
+    # {abstract} handleEvent(String, String[]) :
+}
 
-interface ParkingServletable
-abstract class ParkingServlet
-abstract class ParkhausServlet
-class Level1Servlet
+abstract class ParkhausServlet {
+
+}
+
+class Level1Servlet {
+    ~ getName() : String
+}
 
 class Car {
-    String[] params
+    - String[] params
+    + nr() : int
+    + licensePlate() : String
+    + begin() : long
+    + end() : long
+    + duration() : int
+    + price() : int
+    + hash() : String
+    + space() : int
+    + kunde() : String
+    + typeCar() : String
+    + toString() : String
 }
 interface CarIF{
     nr() : int
@@ -23,27 +51,14 @@ interface CarIF{
     toString() : String
 }
 
-interface List
-interface Collection
 
 ParkingServletable <|-- ParkingServlet
 ParkingServlet <|-- ParkhausServlet
 ParkhausServlet <|-- Level1Servlet
 
-CarIF "0..*" -left-o "1" ParkhausServlet
+CarIF "0..*" -left-o "1" ParkhausServlet : "             "
 CarIF <|-- Car
 
 
-
-class ArrayList {
-Object[] elementData
-size()
-}
-
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
 
 @enduml
