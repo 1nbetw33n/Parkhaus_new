@@ -26,11 +26,9 @@ public class Car implements CarIF {
     private final String[] PARAMS;
 
 
-    public Car( String[] params )
+    public Car( final String[] params )
     {
         this.PARAMS = params;
-
-
     }
 
 
