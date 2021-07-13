@@ -33,8 +33,6 @@ class CarTest {
     private CarIF car1Leave;
     private CarIF car2Enter;
     private CarIF car2Leave;
-    private CarIF car3Enter;
-    private CarIF car3Leave;
 
     @BeforeEach
     void setUp() {
@@ -42,10 +40,8 @@ class CarTest {
         car1Leave = new Car(new String[]{"leave","173","1624278155427","5018","502","8319c7d02f8b786e4f1a231af06da0c7","#714934","7","Handicapped", "Motorcycle", "SU-A 84"});
 
         car2Enter = new Car(new String[]{"enter","13","1626112335125","_","_","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
-        car2Leave = new Car(new String[]{"leave","13","1626112335125","2353630","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
+        car2Leave = new Car(new String[]{"leave","13","1626112335125","0","235363","61fc0e486f096c277de87b57868e2f51","#4b1923","9","Handicapped","Van","SU-K 76"});
 
-        car3Enter = new Car(new String[]{"enter","-1","1626096323430","_","_",null,null,"-10","*",null,null});
-        car3Leave = new Car(new String[]{"leave","-1","1626096323430","-1","-23",null,null,"-10","*",null,null});
     }
 
     @AfterEach
@@ -56,10 +52,6 @@ class CarTest {
         car2Enter = null;
         car2Leave = null;
 
-        car3Enter = null;
-        car3Leave = null;
-
-
     }
     @Test
     @DisplayName("Returns the number of the current car")
@@ -67,15 +59,8 @@ class CarTest {
         assertEquals(173, car1Enter.nr());
         assertEquals(173, car1Leave.nr());
 
-        assertEquals(80,car2Enter.nr());
-        assertEquals(80,car2Leave.nr());
-
-        assertEquals(-1,car3Enter.nr());
-        assertEquals(-1,car3Leave.nr());
-
-
-
-
+        assertEquals(13,car2Enter.nr());
+        assertEquals(13,car2Leave.nr());
     }
 
     @Test
@@ -86,14 +71,9 @@ class CarTest {
         assertEquals(1624278150403L, car1Enter.begin(),"Oops, carEnter is not showing begin");
         assertEquals(1624278150409L, car1Leave.begin(),"Oops, carLeave is not showing begin");
 
-       assertEquals(1626112335125L,car2Enter.begin(),"Oops,carEnter is not showing begin");
-        assertEquals(1626112335125L,car2Leave.begin(),"Oops,carLeave is not showing begin");
+        assertEquals(1626112335125L,car2Enter.begin(),"Oops,carEnter is not showing begin");
+        assertEquals(1626112335125L,car2Leave.begin(),"Oops,carLeave is not showing begin"); // Grenzfall bei Duration = 0
 
-        assertEquals(1626096323430L,car3Enter.begin());
-        assertEquals(1626096323430L,car3Leave.begin());
-
-        //assertThrows(IllegalArgumentException.class,()->car3Enter.begin()); something is wrong
-        //assertThrows(IllegalArgumentException.class,()->car3Leave.end());
     }
 
     @Test
@@ -102,8 +82,8 @@ class CarTest {
         assertEquals(1624278155427L, car1Leave.end(), "Oops, carLeave is not showing correct end");
         assertEquals(0L, car1Enter.end(), "Oops, carEnter is not showing correct end");
 
-        assertEquals(1626096323430L,car3Leave.end(),"Oops, carLeave is not showing correct end");
-        assertEquals(1626096323430L,car3Enter.end(),"Oops, carLeave is not showing correct end");
+        assertEquals(1626112335125L,car2Leave.end(),"Oops, carLeave is not showing correct end");
+        assertEquals(0L,car2Enter.end(),"Oops, carLeave is not showing correct end");
 
     }
 
@@ -113,8 +93,8 @@ class CarTest {
         assertEquals(5018, car1Leave.duration(),"Oops. carLeave does not show correct duration");
         assertEquals(0, car1Enter.duration(),"Oops. carEnter does not show correct duration (0)");
 
-       // assertThrows(IllegalArgumentException.class,()->car3Leave.duration()); something is wrong
-        //assertThrows(IllegalArgumentException.class,()->car3Enter.duration());
+        assertEquals(0, car2Leave.duration());
+        assertEquals(0, car2Enter.duration());
 
     }
 
@@ -126,10 +106,6 @@ class CarTest {
 
         assertEquals(0, car2Enter.price(),"Oops, carEnter does not show 0 for price");
         assertEquals(235363, car2Leave.price(), "Oops, carLeave does not show correct price");
-
-        assertEquals(0, car3Enter.price(),"Oops, carEnter does not show 0 for price");
-        assertEquals(-23, car3Leave.price(), "Oops, carLeave does not show correct price");
-
 
     }
     @Test
@@ -143,11 +119,6 @@ class CarTest {
         assertEquals(9,car2Enter.space(),"Oops, carEnter does not show the correct space");
         assertEquals(9,car2Leave.space(),"Oops, carEnter does not show the correct space");
         assertEquals(car2Enter.space(),car2Leave.space(),"Oops, the space are not equal");
-
-        assertEquals(-10,car3Enter.space(),"Oops, carEnter does not show the correct space");
-        assertEquals(-10,car3Leave.space(),"Oops, carEnter does not show the correct space");
-        assertEquals(car3Enter.space(),car3Leave.space(),"Oops, the space are not equal");
-
 
     }
 
@@ -163,14 +134,6 @@ class CarTest {
         assertEquals("Handicapped",car2Leave.kunde(),"Oops, carEnter does not show the correct client");
         assertEquals(car2Enter.kunde(),car2Leave.kunde(),"Oops, the client are not equal");
 
-        assertEquals("*",car3Enter.kunde(),"Oops, carEnter does not show the correct client");
-        assertEquals("*",car3Leave.kunde(),"Oops, carEnter does not show the correct client");
-        assertEquals(car3Enter.kunde(),car3Leave.kunde(),"Oops, the client are not equal");
-
-
-
-
-
     }
 
     @Test
@@ -184,11 +147,6 @@ class CarTest {
         assertEquals("Van",car2Enter.typeCar(),"Oops, carEnter does not show the correct type of the car");
         assertEquals("Van",car2Leave.typeCar(),"Oops, carEnter does not show the correct type of the car");
         assertEquals(car2Enter.typeCar(),car2Leave.typeCar(),"Oops, the type of the car are not equal");
-
-        assertEquals(null,car3Enter.typeCar(),"Oops, carEnter does not show the correct type of the car");
-        assertEquals(null,car3Leave.typeCar(),"Oops, carEnter does not show the correct type of the car");
-        assertEquals(car3Enter.typeCar(),car3Leave.typeCar(),"Oops, the type of the car are not equal");
-
 
     }
 
@@ -204,14 +162,6 @@ class CarTest {
         assertEquals("SU-K 76",car2Leave.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
         assertEquals(car2Enter.licensePlate(),car2Leave.licensePlate(),"Oops, the license plate are not equal");
 
-       assertEquals(null,car3Enter.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
-        assertEquals(null,car3Leave.licensePlate(),"Oops, carEnter does not show the correct license plate of the car");
-        assertEquals(car3Enter.licensePlate(),car3Leave.licensePlate(),"Oops, the license plate are not equal");
-
-
-
-
-
     }
 
     @Test
@@ -225,10 +175,6 @@ class CarTest {
         assertEquals("61fc0e486f096c277de87b57868e2f51", car2Enter.hash());
         assertEquals(car2Leave.hash(), car2Enter.hash());
 
-        assertEquals(null,car3Leave.hash());
-        assertEquals(null,car3Enter.hash());
-
-
     }
 
     @Test
@@ -237,11 +183,7 @@ class CarTest {
         assertEquals("173/1624278155427/5018/502/8319c7d02f8b786e4f1a231af06da0c7/#714934/7/Handicapped/Motorcycle/SU-A 84", car1Leave.toString());
         assertEquals("173/1624278150403/_/_/8319c7d02f8b786e4f1a231af06da0c7/#714934/7/Handicapped/Motorcycle/SU-A 84", car1Enter.toString());
 
-        assertEquals("80/1626096329072/2353630/235363/61fc0e486f096c277de87b57868e2f51/#4b1923/9/Handicapped/Van/SU-K 76", car2Leave.toString());
-        assertEquals("80/1626096329072/_/_/61fc0e486f096c277de87b57868e2f51/#4b1923/9/Handicapped/Van/SU-K 76", car2Enter.toString());
-
-        assertEquals("-1/1626096329072/2353630/-23/null/null/-10/*/null/null",car3Leave.toString());
-        assertEquals("-1/1626096329072/_/_/null/null/-10/*/null/null",car3Enter.toString());
-
+        assertEquals("13/1626112335125/0/235363/61fc0e486f096c277de87b57868e2f51/#4b1923/9/Handicapped/Van/SU-K 76", car2Leave.toString());
+        assertEquals("13/1626112335125/_/_/61fc0e486f096c277de87b57868e2f51/#4b1923/9/Handicapped/Van/SU-K 76", car2Enter.toString());
     }
 }

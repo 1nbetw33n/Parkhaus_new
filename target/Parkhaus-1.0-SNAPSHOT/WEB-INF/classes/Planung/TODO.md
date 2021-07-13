@@ -17,10 +17,12 @@
         </li>
         <li><del>Redirection to Management View (OPTIONAL)</del></li>
         <li>
+            <del>
             <ul>Charts für Management View: Bella + Lukas
             <ul>Average Revenue</ul>
             <del><ul>Total Cars</ul></del>
             <del>Total Revenue</del></ul>
+            </del>
         </li>
         <li>
             <del>
@@ -31,10 +33,13 @@
             <ul>update glossar</ul>
             </del>
         </li>
-        <li>Names of all ServletContexts + Explanations into glossar</li>
+        <del><li>Names of all ServletContexts + Explanations into glossar</li></del>
+        <del>
         <li>
             <ul>Different Types</ul>
         </li>
+        </del>
+        <del>
         <li>
             Organize Repo: Bella,Rahgawi
             <ul><del>Delete unused Classes</del></ul>
@@ -50,6 +55,7 @@
             </ul>
             <ul><del>Delete Personal Spaces</del></ul>
         </li>
+        </del>
         <li style="color: cyan">
             <em>
            <del> Additional Ideas:

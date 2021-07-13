@@ -78,8 +78,8 @@ public class ParkhausModel {
         return cars.stream().filter(x -> !x.kunde().equals(withoutCustomerType)).count();
     }
     /* Lukas */
-    public List<CarIF> filterColorErase(List<CarIF> cars, String color) {
-        return  cars.stream().filter((x -> !x.hash().equals(color))).collect(Collectors.toList());
+    public List<CarIF> filterHashErase(List<CarIF> cars, String hash) {
+        return  cars.stream().filter((x -> !x.hash().equals(hash))).collect(Collectors.toList());
     }
     /* Lukas */
     public List<CarIF> filterNrErase(List<CarIF> cars, int nr) {

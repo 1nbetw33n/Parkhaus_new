@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor Customer
+boundary Parkhaushomepage
+boundary index
+boundary CheckoutAuthenticationView
+boundary ManagementAuthenticationView
+control FirstpageServlet
+control Level1Servlet
+control CheckoutAuthenticationServlet
+control ManagementAuthenticationServlet
+entity ParkhausModel
+Customer -> Parkhaushomepage : start Parkhaus
+Parkhaushomepage -> FirstpageServlet : start LoginMask
+FirstpageServlet -> Parkhaushomepage : show LoginMask
+Parkhaushomepage -> Customer : LoginMask
+Customer ->  Parkhaushomepage : enter credentials
+Customer -> Parkhaushomepage : check credentials
+alt valid credentials
+    Parkhaushomepage --> index : show ParkhausMainPage
+    index --> Customer : ParkhausMainPage
+else invalid credentials
+    Parkhaushomepage --> Customer : show Error Message
+end
+@enduml
