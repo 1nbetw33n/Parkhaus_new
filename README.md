@@ -1,28 +1,28 @@
 
 <html>
     <head>
-        <h1><center>TEAM 20 - PARKHAUS<center></center></h1>
+        <h1><center>TEAM 20 - PARKHAUS</center></h1>
     </head>
     <body>
-        <h2><center>▬▬▬▬▬▬ REPO STRUCTURE ▬▬▬▬▬▬</center></h2>
+        <h2><center>▬▬▬▬▬▬REPO STRUCTURE▬▬▬▬▬▬</center></h2>
         <br>
         <ul>
                 <li>
-                    <strong>CONTROLLER + MODELS: </strong>
+                    <h3>CONTROLLER + MODELS</h3>
                         <ul>
                                 <li>src/main/Parkhaus/java/com.se1_team20.Parkhaus</li>
                         </ul>
                 </li>
                 <br>
                 <li>
-                    <strong>VIEWS: </strong>
+                    <h3>VIEWS</h3>
                         <ul>
                                 <li>src/main/webapp</li>
                         </ul>
                 </li>
                 <br>
                 <li>
-                    <strong>TESTS: </strong>   
+                    <h3>TESTS</h3>   
                         <ul>
                             <li>src/test/java/com.se1_team20.Parkhaus</li>
                         </ul>
@@ -65,7 +65,8 @@
         <h2><center>▬▬▬▬▬▬ SERVLET CONTEXTS ▬▬▬▬▬</center></h2>
             <ul>
                 <li>
-                    <h3>FRONTPAGE</h3>
+                    <h3>▬▬▬▬▬▬▬▬▬▬ FRONTPAGE ▬▬▬▬▬▬▬▬▬▬</h3>
+                        <br>
                         <ul>
                             <h4>AUTHENTICATION</h4>
                                 <ul>
@@ -73,7 +74,10 @@
                                     <li>pword</li>
                                 </ul>
                         </ul>
-                    <h3>MAINPAGE</h3>
+                </li>
+                <li>
+                    <h3>▬▬▬▬▬▬▬▬▬▬ MAINPAGE ▬▬▬▬▬▬▬▬▬▬</h3>
+                        <br>
                         <ul>
                             <h4>BUTTONS</h4>
                                 <ul>
@@ -103,16 +107,21 @@
                                 </ul>
                                 <br>
                     </ul>
-                <h3>CHECKOUT</h3>
+            </li>
+            <li>
+                <h3>▬▬▬▬▬▬▬▬▬▬ CHECKOUT ▬▬▬▬▬▬▬▬▬▬</h3>
+                    <br>
                     <ul>
                         <h4>GENERAL</h4>
                             <ul>
                                 <li>entered_ticket_nr</li>
                                 <li>checked_out_car</li>
-                                <li>checked_out_car</li>
                             </ul>
                     </ul>
-                <h3>MANAGEMENT</h3>
+            </li>
+            <li>
+                <h3>▬▬▬▬▬▬▬▬▬▬ MANAGEMENT ▬▬▬▬▬▬▬▬▬▬</h3>
+                    <bR>
                     <ul>
                         <h4>AUTHENTICATION</h4>
                             <ul>
@@ -134,8 +143,8 @@
                                 <li>revenue_chart_vehicle</li>
                             </ul>
                     </ul>
-                </li>
-            </ul>
+            </li>
+        </ul>
   </body>
 </html>
     
