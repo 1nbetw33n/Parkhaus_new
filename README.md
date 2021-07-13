@@ -3,7 +3,7 @@
         <h1><center>TEAM 20 - PARKHAUS</center></h1>
     </head>
     <body>
-        <h2><center>▬▬▬▬▬▬REPO STRUCTURE▬▬▬▬▬▬</center></h2>
+        <h2><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬REPO STRUCTURE▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center></h2>
         <br>
         <ul>
                 <li>
@@ -27,7 +27,7 @@
                         </ul>
                 </li>
         </ul>
-        <h2><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ALIASES▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center></h2>
+        <h2><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ALIASES▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center></h2>
         <br>
         <ul>
             <li>
@@ -61,7 +61,7 @@
                     </ul>
             </li>
         </ul>
-        <h2><center>▬▬▬▬▬▬SERVLET CONTEXTS▬▬▬▬▬</center></h2>
+        <h2><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬SERVLET CONTEXTS▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center></h2>
             <ul>
                 <li>
                     <h3>▬▬▬▬▬▬▬▬▬▬ FRONTPAGE ▬▬▬▬▬▬▬▬▬▬</h3>
@@ -108,7 +108,7 @@
                     </ul>
             </li>
             <li>
-                <h3>▬▬▬▬▬▬▬▬▬▬ CHECKOUT ▬▬▬▬▬▬▬▬▬▬</h3>
+                <h3>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ CHECKOUT ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</h3>
                     <br>
                     <ul>
                         <h4>GENERAL</h4>
@@ -119,7 +119,7 @@
                     </ul>
             </li>
             <li>
-                <h3>▬▬▬▬▬▬▬▬▬▬ MANAGEMENT ▬▬▬▬▬▬▬▬▬▬</h3>
+                <h3>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ MANAGEMENT ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</h3>
                     <bR>
                     <ul>
                         <h4>AUTHENTICATION</h4>
