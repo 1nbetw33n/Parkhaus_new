@@ -64,7 +64,8 @@ alt credentials valid
         ManagementModel -> AverageRevenueByVehicleTypeChartTypeChart : toggle Charts
         AverageRevenueByVehicleTypeChartTypeChart -> Customer : display Charts
     end
+else credentials invalid
+    ManagementAuthenticationServlet --> ManagementAuthenticationView : show ManagementAuthenticationMask
+    ManagementAuthenticationView --> Customer : ManagementAuthenticationMask
 end
-
-
 @enduml
