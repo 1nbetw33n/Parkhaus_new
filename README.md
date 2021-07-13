@@ -73,6 +73,14 @@
                                     <li>management</li> 
                                     <li>spaces</li> 
                                 </ul>
+                                <br>
+                            <h4>OTHER</h4>
+                                <ul>
+                                    <li>config&name</li>
+                                    <li>cars&name</li>
+                                </ul>
+                                
+                                
                     </ul>
                 </li>
                 <li>entered_ticket_nr</li>
