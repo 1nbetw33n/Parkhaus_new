@@ -11,5 +11,10 @@ boundary KundenChart
 control ManagementAuthenticationServlet
 control ManagementServlet
 entity ManagementModel
+Customer -> index : press MANAGEMENT-Button
+index -> Level1Servlet : start ManagementAuthenticationMask
+Level1Servlet -> ManagementAuthenticationView : show ManagementAuthenticationMask
+ManagementAuthenticationView --> Customer : ManagementAuthenticationMask
+
 
 @enduml
