@@ -20,6 +20,9 @@ Customer -> ManagementAuthenticationView : start search for credentials(username
 ManagementAuthenticationView -> ManagementAuthenticationServlet : start search for username, password
 ManagementAuthenticationView -> ManagementModel : filter-search for username, password
 ManagementModel -> ManagementAuthenticationServlet : send results
+alt credentials valid
+    ManagementAuthenticationServlet --> ManagementView : handle success
+    ManagementView --> Customer : show table with infos for all cars that left
 
 
 @enduml
