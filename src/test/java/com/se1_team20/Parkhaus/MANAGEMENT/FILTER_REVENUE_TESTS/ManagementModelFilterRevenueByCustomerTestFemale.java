@@ -1,3 +1,4 @@
+
 /*
  *  copyright (c) 2021 se1_team20.
  *  Planet Earth, Milky Way, Virgo Supercluster.
@@ -24,7 +25,6 @@ package com.se1_team20.Parkhaus.MANAGEMENT.FILTER_REVENUE_TESTS;
 09.Jul.2021
 */
 
-import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel;
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModelTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

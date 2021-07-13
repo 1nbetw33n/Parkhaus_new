@@ -24,7 +24,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "LastpageServlet", value = "/LastpageServlet")
 public class LastpageServlet extends HttpServlet {
