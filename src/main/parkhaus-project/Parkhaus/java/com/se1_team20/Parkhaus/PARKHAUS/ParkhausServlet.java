@@ -209,7 +209,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
             if (cars().size() - 1 == index) {
                 builder.append(car.toString());
             }
-            builder.append(car.toString() + ",");
+            builder.append(car.toString())
+                   .append(",");
         }
         PrintWriter out = response.getWriter();
         out.println(builder);
