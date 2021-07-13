@@ -88,7 +88,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         } else if ("cmd".equals(command) && "management".equals(param)) {
             handleRequest(request, response);
         } else if ("cmd".equals(command) && "config&name".equals(param)) {
-            handleConfig(response);
+            handleConfig();
         } else if ("cmd".equals(command) && "cars&name".equals(param)) {
             savedCars(response);
         } else if ("cmd".equals(command) && "spaces".equals(param)) {
@@ -186,7 +186,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
         return (List<CarIF>) getContext().getAttribute("former-cars" + getNAME());
     }
 
-    private void handleConfig(HttpServletResponse response) {
+    private void handleConfig() {
         System.out.println("Config not implemented.");
     }
 
