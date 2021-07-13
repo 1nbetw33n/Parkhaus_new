@@ -200,7 +200,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
             if (formerCars().size() - 1 == index) {
                 builder.append(car.toString());
             }
-            builder.append(car.toString() + ",");
+            builder.append(car.toString())
+                   .append(",");
         }
         index = 0;
         for (CarIF car : cars()) {
