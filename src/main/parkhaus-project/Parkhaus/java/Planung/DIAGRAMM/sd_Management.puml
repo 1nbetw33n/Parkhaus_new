@@ -15,6 +15,11 @@ Customer -> index : press MANAGEMENT-Button
 index -> Level1Servlet : start ManagementAuthenticationMask
 Level1Servlet -> ManagementAuthenticationView : show ManagementAuthenticationMask
 ManagementAuthenticationView --> Customer : ManagementAuthenticationMask
+Customer -> ManagementAuthenticationView : enter username and password
+Customer -> ManagementAuthenticationView : start search for credentials(username, password)
+ManagementAuthenticationView -> ManagementAuthenticationServlet : start search for username, password
+ManagementAuthenticationView -> ManagementModel : filter-search for username, password
+ManagementModel -> ManagementAuthenticationServlet : send results
 
 
 @enduml
