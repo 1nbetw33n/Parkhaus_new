@@ -1,4 +1,3 @@
-
 @startuml
 'https://plantuml.com/class-diagram
 'Erstellt von Rahgawi
@@ -7,17 +6,29 @@ boundary index
 boundary CheckoutAuthenticationView
 boundary CheckoutView
 boundary Paymethod
-control ParkhausServlet
-control ManagementAuthenticationServlet
-control ManagementServlet
+control Level1Servlet
+control CheckoutAuthenticationServlet
+control CheckoutServlet
 control PaymethodServlet
 entity CheckoutModel
-
-
-Level1Servlet-> Level1Servlet: 1 getRequest()
-Level1Servlet-> CheckoutAuthenticationServlet: 2 handleRequest(requestDispatcherObject.forward(request, response))
-
-CheckoutAuthenticationServlet -> CheckoutAuthenticationServlet:3 doPost()
-CheckoutAuthenticationServlet -> CheckoutAuthenticationView
-CheckoutServlet -> CheckoutView
+Customer -> index : press CHECKOUT-Button
+index -> Level1Servlet : start CheckoutAuthentication-Mask
+Level1Servlet -> CheckoutAuthenticationView : show CheckoutAuthentication-Mask
+CheckoutAuthenticationView --> Customer : CheckoutAuthentication-Mask
+Customer -> CheckoutAuthenticationView : enter Ticket Nr.
+Customer -> CheckoutAuthenticationView : start search for Ticket Nr.(entered_ticket_nr)
+CheckoutAuthenticationView -> CheckoutAuthenticationServlet : start search for entered_ticket_nr
+CheckoutAuthenticationServlet -> CheckoutModel : filter-search for entered_ticket_nr
+CheckoutModel -> CheckoutAuthenticationServlet : send results
+alt car found with entered_ticket_nr
+    CheckoutAuthenticationServlet --> CheckoutView : handle success
+    CheckoutView --> Customer : show information for checked_out_car
+    Customer -> CheckoutView : press PaymentMethods-Button
+    CheckoutView -> PaymethodServlet : start Paymethod-Mask
+    PaymethodServlet -> Paymethod : show Paymethod-Mask
+    Paymethod -> Customer : Paymethod-Mask
+else no matching car found
+    CheckoutAuthenticationServlet -> CheckoutAuthenticationView : show CheckoutAuthentication-Mask
+    CheckoutAuthenticationView -> Customer : CheckoutAuthentication-Mask
+ end
 @enduml

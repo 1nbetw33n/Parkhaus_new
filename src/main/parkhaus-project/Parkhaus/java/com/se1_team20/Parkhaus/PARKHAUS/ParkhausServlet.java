@@ -40,7 +40,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
 
-    private ParkhausModel pModel = new ParkhausModel();
+    private final ParkhausModel pModel = new ParkhausModel();
 
     //Reduces or increases the parking spaces
     // erstellt von Preet
@@ -81,14 +81,13 @@ public abstract class ParkhausServlet extends ParkingServlet {
         String command = requestParamString[0];
         String param = requestParamString[1];
 
-        ServletContext application = getContext();
 
         if ("cmd".equals(command) && "checkout".equals(param)) {
             handleRequest(request, response);
         } else if ("cmd".equals(command) && "management".equals(param)) {
             handleRequest(request, response);
         } else if ("cmd".equals(command) && "config&name".equals(param)) {
-            handleConfig(response);
+            handleConfig();
         } else if ("cmd".equals(command) && "cars&name".equals(param)) {
             savedCars(response);
         } else if ("cmd".equals(command) && "spaces".equals(param)) {
@@ -175,20 +174,18 @@ public abstract class ParkhausServlet extends ParkingServlet {
         if (getContext().getAttribute("cars" + getNAME()) == null) {
             getContext().setAttribute("cars" + getNAME(), new ArrayList<Car>());
         }
-        List<CarIF> cars = (List<CarIF>) getContext().getAttribute("cars" + getNAME());
-
-        return cars;
+        return (List<CarIF>) getContext().getAttribute("cars" + getNAME());
     }
 
+    @SuppressWarnings("unchecked")
     private List<CarIF> formerCars() { // List of all cars which have left the Parkhaus
         if (getContext().getAttribute("former-cars" + getNAME()) == null) {
             getContext().setAttribute("former-cars" + getNAME(), new ArrayList<Car>());
         }
-        List<CarIF> formerCars = (List<CarIF>) getContext().getAttribute("former-cars" + getNAME());
-        return formerCars;
+        return (List<CarIF>) getContext().getAttribute("former-cars" + getNAME());
     }
 
-    private void handleConfig(HttpServletResponse response) {
+    private void handleConfig() {
         System.out.println("Config not implemented.");
     }
 
@@ -202,7 +199,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
             if (formerCars().size() - 1 == index) {
                 builder.append(car.toString());
             }
-            builder.append(car.toString() + ",");
+            builder.append(car.toString())
+                   .append(",");
         }
         index = 0;
         for (CarIF car : cars()) {
@@ -210,7 +208,8 @@ public abstract class ParkhausServlet extends ParkingServlet {
             if (cars().size() - 1 == index) {
                 builder.append(car.toString());
             }
-            builder.append(car.toString() + ",");
+            builder.append(car.toString())
+                   .append(",");
         }
         PrintWriter out = response.getWriter();
         out.println(builder);

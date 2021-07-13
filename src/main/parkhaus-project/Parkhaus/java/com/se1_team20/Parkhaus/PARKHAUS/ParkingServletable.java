@@ -20,10 +20,7 @@
 /*Architektur von Bella*/
 package com.se1_team20.Parkhaus.PARKHAUS;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,7 +48,6 @@ public interface ParkingServletable{
                 }
 
             } else {
-                stringBuilder.append("");
             }
 
         } catch (final IOException E) {
@@ -64,14 +60,5 @@ public interface ParkingServletable{
         }
         return stringBuilder.toString();
     }
-    
-    void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
-    
-    void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
-
-    ServletContext getContext();
-
-    void destroy();
-
 
 }

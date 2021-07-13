@@ -27,7 +27,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet("/CheckoutServlet")
 public class CheckoutServlet extends CheckoutAuthenticationServlet {
@@ -36,7 +35,6 @@ public class CheckoutServlet extends CheckoutAuthenticationServlet {
 
      public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {response.setContentType("text/html");}
 
-    protected void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
 
     protected void handleEvent(String EVENT, String[] PARAMS) {}
 

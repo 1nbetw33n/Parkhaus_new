@@ -108,10 +108,6 @@
             "y": <%=displayFemaleData%>
           },
           {
-            "name": "<%=COMPANY%>",
-            "y": <%=displayCompanyData%>
-          },
-          {
             "name": "<%=DAY%>",
             "y": <%=displayDayData%>
           }
@@ -142,10 +138,7 @@
             },
             "xAxis": {
               "categories": [
-                "<%=HANDICAPPED%>",
-                "<%=FEMALE%>",
-                "<%=COMPANY%>",
-                "<%=DAY%>"
+                    ""
                 ],
               "crosshair": true
             },
@@ -179,12 +172,6 @@
                 "name": "<%=FEMALE%>",
                 "data":  [
 					<%=displayFemaleData%>
-				]
-              },
-              {
-                "name": "<%=COMPANY%>",
-                "data": [
-					<%=displayCompanyData%>
 				]
               },
               {

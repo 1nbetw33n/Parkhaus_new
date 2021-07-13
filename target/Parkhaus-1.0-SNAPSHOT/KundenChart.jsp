@@ -43,6 +43,7 @@
 </script>
 <%
     ServletContext sc = request.getServletContext();
+    @SuppressWarnings("unchecked")
     ArrayList<CarIF> cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
     ManagementModel mModel = new ManagementModel();
 

@@ -24,7 +24,6 @@ package com.se1_team20.Parkhaus.MANAGEMENT.FILTER_REVENUE_TESTS;
 09.Jul.2021
 */
 
-import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel;
 import com.se1_team20.Parkhaus.MANAGEMENT.ManagementModelTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -42,7 +41,7 @@ public class ManagementModelFilterRevenueByCustomerTestCompany extends Managemen
     void companyEqualsTestFilterRevenue()
     {
         assertEquals(0.,  mModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
-        assertEquals(0.,  mModel.filterRevenueByCustomer(this.cars, "Company")); /*TODO: figure out, why this test fails */
+        assertEquals(0.,  mModel.filterRevenueByCustomer(this.cars, "Company"));
     }
 
     @Test
@@ -50,7 +49,7 @@ public class ManagementModelFilterRevenueByCustomerTestCompany extends Managemen
     void companyNotEqualsTestFilterRevenue()
     {
         assertNotEquals(5168. * 5., mModel.filterRevenueByCustomer(new ArrayList<>(), "Company"));
-        assertNotEquals(5168. * 5., mModel.filterRevenueByCustomer(this.cars, "Company")); /*TODO: figure out, why this test fails */
+        assertNotEquals(5168. * 5., mModel.filterRevenueByCustomer(this.cars, "Company"));
     }
 
     @Test
