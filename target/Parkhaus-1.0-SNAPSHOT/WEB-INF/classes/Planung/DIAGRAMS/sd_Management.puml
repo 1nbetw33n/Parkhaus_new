@@ -1,0 +1,71 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor Customer
+boundary index
+boundary ManagementAuthenticationView
+boundary ManagementView
+boundary AverageRevenueByCustomerTypeChart
+boundary AverageRevenueByVehicleTypeChart
+boundary IncomeChart
+boundary KundenChart
+control ManagementAuthenticationServlet
+control ManagementServlet
+entity ManagementModel
+Customer -> index : press MANAGEMENT-Button
+index -> Level1Servlet : start ManagementAuthenticationMask
+Level1Servlet -> ManagementAuthenticationView : show ManagementAuthenticationMask
+ManagementAuthenticationView --> Customer : ManagementAuthenticationMask
+Customer -> ManagementAuthenticationView : enter username and password
+Customer -> ManagementAuthenticationView : start search for credentials(username, password)
+ManagementAuthenticationView -> ManagementAuthenticationServlet : start search for username, password
+ManagementAuthenticationView -> ManagementModel : filter-search for username, password
+ManagementModel -> ManagementAuthenticationServlet : send results
+alt credentials valid
+    ManagementAuthenticationServlet --> ManagementView : handle success
+    ManagementView --> Customer : show table with infos for all cars that left
+    Customer -> ManagementServlet : press Button
+    alt Total Revenue Button
+        ManagementServlet -> ManagementView : toggle total_revenue
+        ManagementView -> Customer : display total_revenue
+    end
+    alt Average Revenue Button
+        ManagementServlet -> ManagementView : toggle average_revenue
+        ManagementView -> Customer : display average_revenue
+    end
+    alt Current Cars Button
+        ManagementServlet -> ManagementView : toggle total_cars.size()
+        ManagementView -> Customer : display total_cars.size()
+    end
+    alt Former Cars Button
+        ManagementServlet -> ManagementView : toggle former_cars.size()
+        ManagementView -> Customer : display former_cars.size()
+    end
+    alt Customer Distribution Chart
+        ManagementServlet -> KundenChart : start Customer Distribution Chart
+        KundenChart -> ManagementModel : calculate Data
+        ManagementModel -> KundenChart : toggle Chart
+        KundenChart -> Customer : display Chart
+    end
+    alt Duration Overview Chart
+        ManagementServlet -> IncomeChart : start Duration Overview Chart
+        IncomeChart -> ManagementModel : calculate Data
+        ManagementModel -> IncomeChart : toggle Chart
+        IncomeChart -> Customer : display Chart
+    end
+    alt Average Revenue By Customer Type Charts
+        ManagementServlet -> AverageRevenueByCustomerTypeChart : start Average Revenue By Customer Type Charts
+        AverageRevenueByCustomerTypeChart -> ManagementModel : calculate Data
+        ManagementModel -> AverageRevenueByCustomerTypeChart : toggle Charts
+        AverageRevenueByCustomerTypeChart -> Customer : display Charts
+    end
+    alt Average Revenue By Vehicle Type Charts
+        ManagementServlet -> AverageRevenueByVehicleTypeChartTypeChart : start Average Revenue By Vehicle Type Charts
+        AverageRevenueByVehicleTypeChartTypeChart -> ManagementModel : calculate Data
+        ManagementModel -> AverageRevenueByVehicleTypeChartTypeChart : toggle Charts
+        AverageRevenueByVehicleTypeChartTypeChart -> Customer : display Charts
+    end
+else credentials invalid
+    ManagementAuthenticationServlet --> ManagementAuthenticationView : show ManagementAuthenticationMask
+    ManagementAuthenticationView --> Customer : ManagementAuthenticationMask
+end
+@enduml
