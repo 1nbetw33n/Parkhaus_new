@@ -175,17 +175,15 @@ public abstract class ParkhausServlet extends ParkingServlet {
         if (getContext().getAttribute("cars" + getNAME()) == null) {
             getContext().setAttribute("cars" + getNAME(), new ArrayList<Car>());
         }
-        List<CarIF> cars = (List<CarIF>) getContext().getAttribute("cars" + getNAME());
-
-        return cars;
+        return (List<CarIF>) getContext().getAttribute("cars" + getNAME());
     }
+
 
     private List<CarIF> formerCars() { // List of all cars which have left the Parkhaus
         if (getContext().getAttribute("former-cars" + getNAME()) == null) {
             getContext().setAttribute("former-cars" + getNAME(), new ArrayList<Car>());
         }
-        List<CarIF> formerCars = (List<CarIF>) getContext().getAttribute("former-cars" + getNAME());
-        return formerCars;
+        return (List<CarIF>) getContext().getAttribute("former-cars" + getNAME());
     }
 
     private void handleConfig(HttpServletResponse response) {
