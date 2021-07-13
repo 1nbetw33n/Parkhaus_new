@@ -52,6 +52,12 @@ alt credentials valid
         ManagementModel -> IncomeChart : toggle Chart
         IncomeChart -> Customer : display Chart
     end
+    alt Average Revenue By Customer Type Charts
+        ManagementServlet -> AverageRevenueByCustomerTypeChart : start Average Revenue By Customer Type Charts
+        AverageRevenueByCustomerTypeChart -> ManagementModel : calculate Data
+        ManagementModel -> AverageRevenueByCustomerTypeChart : toggle Charts
+        AverageRevenueByCustomerTypeChart -> Customer : display Charts
+    end
 end
 
 
