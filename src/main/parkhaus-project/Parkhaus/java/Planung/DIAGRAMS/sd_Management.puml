@@ -24,23 +24,28 @@ alt credentials valid
     ManagementAuthenticationServlet --> ManagementView : handle success
     ManagementView --> Customer : show table with infos for all cars that left
     Customer -> ManagementServlet : press Button
-    alt Total Revenue-Button
+    alt Total Revenue Button
         ManagementServlet -> ManagementView : toggle total_revenue
         ManagementView -> Customer : display total_revenue
     end
-    alt Average Revenue-Button
+    alt Average Revenue Button
         ManagementServlet -> ManagementView : toggle average_revenue
         ManagementView -> Customer : display average_revenue
     end
-    alt Current Cars-Button
+    alt Current Cars Button
         ManagementServlet -> ManagementView : toggle total_cars.size()
         ManagementView -> Customer : display total_cars.size()
     end
-    alt Former Cars-Button
+    alt Former Cars Button
         ManagementServlet -> ManagementView : toggle former_cars.size()
         ManagementView -> Customer : display former_cars.size()
     end
-
+    alt Customer Distribution Chart
+        ManagementServlet -> KundenChart : start Customer Distribution Chart
+        KundenChart -> ManagementModel : calculate Data
+        ManagementModel -> KundenChart : toggle Chart
+        KundenChart -> Customer : display Chart
+    end
 end
 
 
