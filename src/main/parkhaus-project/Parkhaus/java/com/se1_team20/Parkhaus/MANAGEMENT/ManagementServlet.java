@@ -58,20 +58,7 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         }
     }
 
-
-   public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        final String PARAM  = request.getParameter("username");
-        final PrintWriter OUT = response.getWriter();
-
-        //TODO: UNSAFE STUFF; REFLECTED CROSS SITE SCRIPTING VULNERABILITY; SHOULD BE DELETED
-        //* html  stuff to display the top part of the management view *//*
-        OUT.write("<html><body><div id='servletResponse' style='text-align: center;'>");
-        OUT.write("<h2>Management Interface</h2>");
-        OUT.write("<p style='color: purple; font-size: large;'>" + "Logged in as: " + PARAM + "</p>");
-        OUT.write("</div></body></html>");
-        OUT.close();
-    }
+    protected void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
 
     protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 
