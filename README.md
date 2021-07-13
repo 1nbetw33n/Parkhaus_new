@@ -27,6 +27,7 @@
                         </ul>
                 </li>
         </ul>
+        <br>
         <h2><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬ALIASES▬▬▬▬▬▬▬▬▬▬▬▬▬▬<center></h2>
         <br>
         <ul>
@@ -61,6 +62,7 @@
                     </ul>
             </li>
         </ul>
+        <br>
         <h2><center>▬▬▬▬▬▬▬▬▬▬▬SERVLET CONTEXTS▬▬▬▬▬▬▬▬▬▬▬<center></h2>
             <ul>
                 <li>
