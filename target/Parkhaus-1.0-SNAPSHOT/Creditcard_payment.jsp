@@ -30,10 +30,13 @@
 --%>
 <!DOCTYPE html>
 <html>
-<body style="background-color: bisque">
+
 <head>
     <title>Payment Step2</title>
 </head>
+
+
+<body style="background-color: bisque">
 
 <div style="text-align:center">
     <h1>Geben Sie bitte ihren Bankdaten ein</h1>

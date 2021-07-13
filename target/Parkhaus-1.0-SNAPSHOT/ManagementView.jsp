@@ -66,10 +66,11 @@
 
 <% ServletContext sc = request.getServletContext();
 
-
+@SuppressWarnings("unchecked")
     ArrayList<CarIF> total_cars  = (ArrayList<CarIF>) sc.getAttribute("cars"+"Level1");
     int total_cars_size = 0;
     if (total_cars!= null) total_cars_size = total_cars.size();
+    @SuppressWarnings("unchecked")
     ArrayList<CarIF> former_cars = (ArrayList<CarIF>) sc.getAttribute("former-cars" + "Level1");
     int former_cars_size = 0;
     if (former_cars != null) former_cars_size = former_cars.size();
