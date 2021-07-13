@@ -1,32 +1,67 @@
 
 <html>
     <head>
-        <h1>This is the Repo for our Parkhaus-Project</h1>
-    </head>
-    <head>
-        <h2>This repo is structured into:</h2>
+        <h1><center>TEAM 20 - PARKHAUS<center></center></h1>
     </head>
     <body>
-        <ul style="list-style-type: square;">
+        <h2><center>▬▬▬▬▬▬ REPO STRUCTURE ▬▬▬▬▬▬</center></h2>
+        <br>
+        <ul>
                 <li>
-                    misc - contains how_to's related to git
+                    <strong>CONTROLLER + MODELS: </strong>
+                        <ul>
+                                <li>src/main/Parkhaus/java/com.se1_team20.Parkhaus</li>
+                        </ul>
                 </li>
-                <li><strong>parkhaus-project - contains the parkhaus project</strong></li>
+                <br>
                 <li>
-                    team_space with separations into sub directories for each exercise
+                    <strong>VIEWS: </strong>
+                        <ul>
+                                <li>src/main/webapp</li>
+                        </ul>
+                </li>
+                <br>
+                <li>
+                    <strong>TESTS: </strong>   
+                        <ul>
+                            <li>src/test/java/com.se1_team20.Parkhaus</li>
+                        </ul>
                 </li>
         </ul>
-    </body>
-    <body>
-    <br>
-    <b>Aliases, method specifications and general infos stored in glossar</b>
-    <br>
-    <br>
-    <i><b>Enjoy</b> and let us know if you <b>found some <del>trashy Code</del> Errors!:)</b></i>
-    <br>
-    <em>We also <b>appreciate</b>, telling us all our <sup>logical</sup> <sub>errors</sub><b>:)</b></em>
-    <br>
-    <br>
+        <h2><center>▬▬▬▬▬▬▬▬ ALIASES ▬▬▬▬▬▬▬▬</center></h2>
+        <br>
+        <ul>
+            <li>
+                <h4>Annabella Abshagen</h4>
+                    <ul>
+                        <li>1nbetw33n</li>
+                    </ul>
+            </li>
+            <br>
+            <li>
+                <h4>Lukas Busse</h4>
+                    <ul>
+                        <li>Masternuss</li>
+                    </ul>
+            </li>
+            <br>
+            <li>
+                <h4>Inderprit Singh Multani</h4>
+                    <ul>
+                        <li>Preet149</li>
+                        <li>Multani</li>
+                        <li>Preet</li>
+                    </ul>
+            </li>
+            <br>
+            <li>
+                <h4>Rahgawi Rajakumaraswamy</h4>
+                    <ul>
+                        <li>rahgawirajakumaraswamy</li>
+                        <li>Rahgawi</li>
+                    </ul>
+            </li>
+        </ul>
   </body>
 </html>
     
