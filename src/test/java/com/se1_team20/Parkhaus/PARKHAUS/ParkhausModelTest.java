@@ -94,15 +94,9 @@ class ParkhausModelTest {
     @DisplayName("Das Auto einer bestimmten Farbe wird korrekt gelöscht")
     void filterColorEraseTest() {
         List<CarIF> newcars = new ArrayList<>();
-        newcars.add(carEnter);
-        assertEquals(cars, newcars);
-        assertNotEquals(cars, cm.filterColorErase(newcars, carEnter.hash()));
-
-        List<CarIF> newcars1 = new ArrayList<>();
-
-        newcars1.add(car1Enter);
-        assertEquals(cars,newcars1);
-        assertNotEquals(cars,cm.filterColorErase(newcars1, car1Enter.hash()));
+        newcars.add(car1Enter);
+        assertEquals(cars,newcars);
+        assertNotEquals(cars,cm.filterColorErase(newcars, car1Enter.hash()));
 
 
     }
