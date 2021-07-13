@@ -94,12 +94,19 @@
                                     <li>former-cars</li>
                                 </ul>
                                 <br>
-                                
+                    </ul>
+                <h3>CHECKOUT</h3>
+                    <ul>
+                        <h4>GENERAL</h4>
+                            <ul>
+                                <li>entered_ticket_nr</li>
+                                <li>checked_out_car</li>
+                                <li>checked_out_car</li>
+                            </ul>
+                    </ul>
+                
                     </ul>
                 </li>
-                <li>entered_ticket_nr</li>
-                <li>checked_out_car</li>
-                <li>checked_out_car</li>
             </ul>
   </body>
 </html>
