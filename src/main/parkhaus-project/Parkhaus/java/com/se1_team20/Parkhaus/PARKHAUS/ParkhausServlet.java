@@ -40,7 +40,7 @@ public abstract class ParkhausServlet extends ParkingServlet {
     /* abstract methods, to be defined in subclasses */
     abstract String getNAME(); // each ParkhausServlet should have a name, e.g. "Level1"
 
-    private ParkhausModel pModel = new ParkhausModel();
+    private final ParkhausModel pModel = new ParkhausModel();
 
     //Reduces or increases the parking spaces
     // erstellt von Preet
