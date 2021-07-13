@@ -45,7 +45,7 @@
 			       name="entered_ticket_nr"
 			       oninvalid="alert('Invalid Input')"
 			       pattern="^([1-9]|[1-9][0-9]|100)$"
-			       title="^([1-9][0-9]|100)$. For example: 99 or 7 or 43 or ..."
+			       title="^([1-9]|[1-9][0-9]|100)$. For example: 99 or 7 or 43 or ..."
 			       required
 			/>
 		</div>
