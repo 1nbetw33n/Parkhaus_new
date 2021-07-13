@@ -81,7 +81,6 @@ public abstract class ParkhausServlet extends ParkingServlet {
         String command = requestParamString[0];
         String param = requestParamString[1];
 
-        ServletContext application = getContext();
 
         if ("cmd".equals(command) && "checkout".equals(param)) {
             handleRequest(request, response);
