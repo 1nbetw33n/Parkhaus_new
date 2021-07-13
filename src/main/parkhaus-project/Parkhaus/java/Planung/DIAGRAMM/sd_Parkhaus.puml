@@ -1,11 +1,14 @@
 @startuml
 'https://plantuml.com/sequence-diagram
+actor Customer
+boundary Parkhaushomepage
+boundary index
+boundary CheckoutAuthenticationView
+boundary ManagementAuthenticationView
+control FirstpageServlet
+control Level1Servlet
+control CheckoutAuthenticationServlet
+control ManagementAuthenticationServlet
+entity ParkhausModel
 
-autonumber
-
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
 @enduml
