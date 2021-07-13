@@ -1,4 +1,15 @@
 @startuml
 'https://plantuml.com/sequence-diagram
+actor Customer
+boundary index
+boundary ManagementAuthenticationView
+boundary ManagementView
+boundary AverageRevenueByCustomerTypeChart
+boundary AverageRevenueByVehicleTypeChart
+boundary IncomeChart
+boundary KundenChart
+control ManagementAuthenticationServlet
+control ManagementServlet
+entity ManagementModel
 
 @enduml
