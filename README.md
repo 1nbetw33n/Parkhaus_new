@@ -61,7 +61,7 @@
                     </ul>
             </li>
         </ul>
-        <h2><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬SERVLET CONTEXTS▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬<center></h2>
+        <h2><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬SERVLET CONTEXTS▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬<center></h2>
             <ul>
                 <li>
                     <h3>▬▬▬▬▬▬▬▬▬▬FRONTPAGE▬▬▬▬▬▬▬▬▬▬</h3>
