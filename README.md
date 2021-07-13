@@ -111,7 +111,13 @@
                                 <li>username</li>
                                 <li>password</li>
                             </ul>
-                        <
+                        <h4>BUTTONS</h4>
+                            <ul>
+                                <li>total_revenue</li>
+                                <li>average_revenue</li>
+                                <li>total_cars_size</li>
+                                <li>former_cars_size</li>
+                            </ul>
                     </ul>
                 </li>
             </ul>
