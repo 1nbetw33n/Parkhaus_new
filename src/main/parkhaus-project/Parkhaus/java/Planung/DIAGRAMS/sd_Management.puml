@@ -58,6 +58,12 @@ alt credentials valid
         ManagementModel -> AverageRevenueByCustomerTypeChart : toggle Charts
         AverageRevenueByCustomerTypeChart -> Customer : display Charts
     end
+    alt Average Revenue By Vehicle Type Charts
+        ManagementServlet -> AverageRevenueByVehicleTypeChartTypeChart : start Average Revenue By Vehicle Type Charts
+        AverageRevenueByVehicleTypeChartTypeChart -> ManagementModel : calculate Data
+        ManagementModel -> AverageRevenueByVehicleTypeChartTypeChart : toggle Charts
+        AverageRevenueByVehicleTypeChartTypeChart -> Customer : display Charts
+    end
 end
 
 
