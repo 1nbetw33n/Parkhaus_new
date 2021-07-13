@@ -79,6 +79,14 @@
                                     <li>config&name</li>
                                     <li>cars&name</li>
                                 </ul>
+                                <br>
+                                <h4>EVENTS</h4>
+                                <ul>
+                                    <li>enter</li>
+                                    <li>leave</li>
+                                    <li>occupied</li>
+                                    <li>change_max</li>
+                                </ul>
                                 
                                 
                     </ul>
