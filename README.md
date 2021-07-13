@@ -118,6 +118,13 @@
                                 <li>total_cars_size</li>
                                 <li>former_cars_size</li>
                             </ul>
+                        <h4>CHARTS</h4>
+                            <ul>
+                                <li>customer_chart</li>
+                                <li>income_chart</li>
+                                <li>revenue_chart_customer</li>
+                                <li>revenue_chart_vehicle</li>
+                            </ul>
                     </ul>
                 </li>
             </ul>
