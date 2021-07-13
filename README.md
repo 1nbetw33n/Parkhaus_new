@@ -1,6 +1,5 @@
 <html>
     <head>
-        <title>TEAM20 - PARKHAUS</title>
         <h1><center>TEAM 20 - PARKHAUS</center></h1>
     </head>
     <body>
@@ -28,7 +27,7 @@
                         </ul>
                 </li>
         </ul>
-        <h2><center>▬▬▬▬▬▬▬▬ALIASES▬▬▬▬▬▬▬▬</center></h2>
+        <h2><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ALIASES▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center></h2>
         <br>
         <ul>
             <li>
