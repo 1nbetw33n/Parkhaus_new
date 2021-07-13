@@ -45,10 +45,6 @@ public class PaymethodServlet extends ParkingServlet {
 
     }
 
-    @Override
-    protected void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 
     @Override
     protected void handleEvent(String EVENT, String[] PARAMS) {
