@@ -104,7 +104,14 @@
                                 <li>checked_out_car</li>
                             </ul>
                     </ul>
-                
+                <h3>MANAGEMENT</h3>
+                    <ul>
+                        <h4>AUTHENTICATION</h4>
+                            <ul>
+                                <li>username</li>
+                                <li>password</li>
+                            </ul>
+                        <
                     </ul>
                 </li>
             </ul>
