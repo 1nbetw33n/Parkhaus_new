@@ -97,6 +97,14 @@ class ParkhausModelTest {
         newcars.add(carEnter);
         assertEquals(cars, newcars);
         assertNotEquals(cars, cm.filterColorErase(newcars, carEnter.hash()));
+
+        List<CarIF> newcars1 = new ArrayList<>();
+
+        newcars1.add(car1Enter);
+        assertEquals(cars,newcars1);
+        assertNotEquals(cars,cm.filterColorErase(newcars1, car1Enter.hash()));
+
+
     }
 
     @Test
