@@ -65,6 +65,14 @@
         <h2><center>▬▬▬▬▬▬ SERVLET CONTEXTS ▬▬▬▬▬</center></h2>
             <ul>
                 <li>
+                    <h3>FRONTPAGE</h3>
+                        <ul>
+                            <h4>AUTHENTICATION</h4>
+                                <ul>
+                                    <li>name</li>
+                                    <li>pword</li>
+                                </ul>
+                        </ul>
                     <h3>MAINPAGE</h3>
                         <ul>
                             <h4>BUTTONS</h4>
