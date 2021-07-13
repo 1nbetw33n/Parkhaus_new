@@ -32,6 +32,10 @@ alt credentials valid
         ManagementServlet -> ManagementView : toggle average_revenue
         ManagementView -> Customer : display average_revenue
     end
+    alt Current Cars-Button
+        ManagementServlet -> ManagementView : toggle total_cars.size()
+        ManagementView -> Customer : display total_cars.size()
+    end
 
 
 end
