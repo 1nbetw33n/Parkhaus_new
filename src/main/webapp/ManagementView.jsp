@@ -88,37 +88,37 @@
             <p><%=total_revenue + ",-"%>
             </p>
         </div>
-        Total Revenue</button>
+        Total Revenue
 
         <button type="button" value="total_revenue" onclick="showTotalCars('average_revenue_div')"/>
         <div id="average_revenue_div" style="display: none;">
             <p><%=average_revenue + ",-"%>
             </p>
         </div>
-        Average Revenue</button>
+        Average Revenue
 
         <button type="button" value="total_revenue" onclick="showTotalCars('total_cars_div')"/>
         <div id="total_cars_div" style="display: none;">
             <p><%=total_cars_size%>
             </p>
         </div>
-        Current Cars</button>
+        Current Cars
 
         <button type="button" value="total_revenue" onclick="showTotalCars('former_cars_div')"/>
         <div id="former_cars_div" style="display: none;">
             <p><%=former_cars_size%>
             </p>
         </div>
-        Former Cars</button>
+        Former Cars
     </form>
 </div>
 <br>
 <div style="text-align: center;">
     <form id="chartFormId" name="chartForm" method="get" action="ManagementServlet">
         <button name="cmd" type="submit" value="customer_chart"/>
-        Customer Distribution</button>
+        Customer Distribution
         <button name="cmd" type="submit" value="income_chart"/>
-        Duration Overview</button>
+        Duration Overview
         <button name="cmd" type="submit" value="revenue_chart_customer"/>
         Revenue per Customer
         <button name="cmd" type="submit" value="revenue_chart_vehicle"/>
