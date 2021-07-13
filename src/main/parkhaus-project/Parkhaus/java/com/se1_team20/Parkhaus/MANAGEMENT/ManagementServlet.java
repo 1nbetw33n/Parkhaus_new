@@ -58,8 +58,6 @@ public class ManagementServlet extends ManagementAuthenticationServlet {
         }
     }
 
-    protected void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
-
     protected void handleBody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 
     protected void handleEvent(String EVENT, String[] PARAMS) {}
