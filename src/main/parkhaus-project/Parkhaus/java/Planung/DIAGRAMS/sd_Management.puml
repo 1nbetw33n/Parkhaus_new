@@ -46,6 +46,12 @@ alt credentials valid
         ManagementModel -> KundenChart : toggle Chart
         KundenChart -> Customer : display Chart
     end
+    alt Duration Overview Chart
+        ManagementServlet -> IncomeChart : start Duration Overview Chart
+        IncomeChart -> ManagementModel : calculate Data
+        ManagementModel -> IncomeChart : toggle Chart
+        IncomeChart -> Customer : display Chart
+    end
 end
 
 
