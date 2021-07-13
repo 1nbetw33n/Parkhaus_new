@@ -29,8 +29,11 @@ alt credentials valid
         ManagementView -> Customer : display total_revenue
     end
     alt Average Revenue-Button
-        ManagementServlet -> ManagementView : toggle av
-        ManagementView -> Customer : display total_revenue
+        ManagementServlet -> ManagementView : toggle average_revenue
+        ManagementView -> Customer : display average_revenue
+    end
+
+
 end
 
 
