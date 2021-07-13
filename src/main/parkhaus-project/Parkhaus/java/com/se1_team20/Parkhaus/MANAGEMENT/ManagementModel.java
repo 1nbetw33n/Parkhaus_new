@@ -37,7 +37,7 @@ public class ManagementModel {
         return cars.stream().filter(x->x.kunde().equals(customer)).filter(x->x.typeCar().equals(typeCar)).map(x -> x.duration()).reduce(0,Integer::sum);
     }
 
-    /* created by 1nbetw33n */
+    /* created by Rahgawi */
     public Double filterRevenueByCustomer(final List<CarIF>CARS, final String CUSTOMERTYPE)
     {
         return CARS.stream()
