@@ -20,9 +20,6 @@
 
 package com.se1_team20.Parkhaus.PARKHAUS;
 
-import com.se1_team20.Parkhaus.PARKHAUS.Car;
-import com.se1_team20.Parkhaus.PARKHAUS.CarIF;
-import com.se1_team20.Parkhaus.PARKHAUS.ParkhausModel;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -92,13 +89,14 @@ class ParkhausModelTest {
 
     @Test
     @DisplayName("Das Auto einer bestimmten Farbe wird korrekt gelöscht")
-    void filterColorEraseTest() {
+    void filterHashEraseTest() {
         List<CarIF> newcars = new ArrayList<>();
+        newcars.add(carEnter);
+        newcars.add(carLeave);
         newcars.add(car1Enter);
+        newcars.add(car1Leave);
         assertEquals(cars,newcars);
-        assertNotEquals(cars,cm.filterColorErase(newcars, car1Enter.hash()));
-
-
+        assertNotEquals(cars,cm.filterHashErase(newcars, car1Enter.hash()));
     }
 
     @Test
