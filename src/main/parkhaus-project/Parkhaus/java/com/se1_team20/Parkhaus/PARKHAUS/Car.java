@@ -23,12 +23,12 @@ package com.se1_team20.Parkhaus.PARKHAUS;
 
 public class Car implements CarIF {
 
-    private String[] params;
+    private final String[] PARAMS;
 
 
     public Car( String[] params )
     {
-        this.params = params;
+        this.PARAMS = params;
 
 
     }
@@ -38,29 +38,29 @@ public class Car implements CarIF {
     @Override
     public int nr()
     {
-        return Integer.parseInt(params[1]);
+        return Integer.parseInt(PARAMS[1]);
     }
 
-    public String licensePlate(){return this.params[10];}
+    public String licensePlate(){return this.PARAMS[10];}
 
     @Override
     public long begin()
     {
-        return params[0].equals("enter") ? Long.parseLong(params[2]) : end()-duration();
+        return PARAMS[0].equals("enter") ? Long.parseLong(PARAMS[2]) : end()-duration();
     }
 
     @Override
     // Now returns 0 if the car hasnt left yet
     public long end()
     {
-        return (this.params[0].equals("leave")) ?  Long.parseLong(params[2]) : 0;
+        return (this.PARAMS[0].equals("leave")) ?  Long.parseLong(PARAMS[2]) : 0;
     }
 
     @Override
     // Now returns 0 if the car hasnt left yet
     public int duration()
     {
-        return  (this.params[0].equals("leave")) ? Integer.parseInt(params[3]) : 0;
+        return  (this.PARAMS[0].equals("leave")) ? Integer.parseInt(PARAMS[3]) : 0;
     }
 
     @Override
@@ -68,26 +68,26 @@ public class Car implements CarIF {
     public int price()
     {
         if (this.kunde().equals("Company")) return 0;
-        return (this.params[0].equals("leave")) ? Integer.parseInt(this.params[4]) : 0;
+        return (this.PARAMS[0].equals("leave")) ? Integer.parseInt(this.PARAMS[4]) : 0;
     }
 
     public String hash() {
-        return this.params[5];
+        return this.PARAMS[5];
     }
 
-    public int space() {return Integer.parseInt(this.params[7]);}
+    public int space() {return Integer.parseInt(this.PARAMS[7]);}
 
-    public String kunde(){ return this.params[8];}
+    public String kunde(){ return this.PARAMS[8];}
 
-    public String typeCar() { return this.params[9];}
+    public String typeCar() { return this.PARAMS[9];}
 
     @Override
     public String toString(){
         StringBuilder builder = new StringBuilder();
-        for (String value: params) {
-            if (value.equals(params[0])) {
+        for (String value: PARAMS) {
+            if (value.equals(PARAMS[0])) {
                 // DO Nothing, eg. dont print enter of leave
-            } else if (value.equals(params[1])) {
+            } else if (value.equals(PARAMS[1])) {
                 builder.append(value);
             } else {
                 builder.append("/")
