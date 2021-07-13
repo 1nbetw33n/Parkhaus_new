@@ -62,6 +62,23 @@
                     </ul>
             </li>
         </ul>
+        <h2><center>▬▬▬▬▬▬ SERVLET CONTEXTS ▬▬▬▬▬</center></h2>
+            <ul>
+                <li>
+                    <h3>MAINPAGE</h3>
+                        <ul>
+                            <h4>BUTTONS</h4>
+                                <ul>
+                                    <li>checkout</li>
+                                    <li>management</li> 
+                                    <li>spaces</li> 
+                                </ul>
+                    </ul>
+                </li>
+                <li>entered_ticket_nr</li>
+                <li>checked_out_car</li>
+                <li>checked_out_car</li>
+            </ul>
   </body>
 </html>
     
