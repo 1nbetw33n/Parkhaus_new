@@ -23,6 +23,11 @@ ManagementModel -> ManagementAuthenticationServlet : send results
 alt credentials valid
     ManagementAuthenticationServlet --> ManagementView : handle success
     ManagementView --> Customer : show table with infos for all cars that left
+    Customer -> ManagementServlet : press Button
+    alt Total Revenue-Button
+        ManagementServlet -> ManagementView : toggle total_revenue
+        ManagementView -> Customer : display total_revenue
+    end
 
 
 @enduml
