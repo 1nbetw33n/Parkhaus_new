@@ -52,9 +52,9 @@
 		final String HANDICAPPED = "Handicapped";
 		final String FEMALE = "Female";
 		final String DAY = "Day";
-		final Double handicappedData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED);
-		final Double femaleData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, FEMALE);
-		final Double dayData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, DAY);
+		final double handicappedData = (MODEL.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED) / 100.); //QUICK FIX, TO DISPLAY THE DATA UNIFORMLY
+		final double femaleData = (MODEL.filterRevenueByCustomer(vehiclesThatLeft, FEMALE) / 100.);
+		final double dayData = (MODEL.filterRevenueByCustomer(vehiclesThatLeft, DAY) / 100.);
 		String displayHandicappedData = "" + handicappedData;
 		String displayFemaleData = "" + femaleData;
 		String displayDayData = "" + dayData;
