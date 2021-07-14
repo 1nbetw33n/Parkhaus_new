@@ -45,33 +45,21 @@ public abstract class ParkhausServlet extends ParkingServlet {
     //Reduces or increases the parking spaces
     // erstellt von Preet
     protected final void configMax(int newmax) {
-
         int count;
-
         if (newmax > max) {
-
             count = newmax - max;
-
             while (count != 0) {
-
                 parkingspaces.add(null); //Adding more parking spaces
-
                 count--;
             }
         } else {
-
             count = max - newmax;
-
             while (count != 0) {
-
                 parkingspaces.remove(parkingspaces.size() - 1);
-
                 count--;
             }
         }
-
         max = newmax;
-
     }
 
     //erstellt vom Team
