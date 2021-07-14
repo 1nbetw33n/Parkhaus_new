@@ -79,8 +79,8 @@
                 <td><span style="color: white; "><b>LicensePlate</b></span></td>
                 <td><span style="color: white; "><b>TicketNr</b></span></td>
                 <td><span style="color: white; "><b>ParkingSpaceNumber</b></span></td>
-                <td><span style="color: white; "><b>CustomerType</b></span></td>
                 <td><span style="color: white; "><b>VehicleType</b></span></td>
+                <td><span style="color: white; "><b>CustomerType</b></span></td>
                 <td><span style="color: white; "><b>Duration</b></span></td>
                 <td><span style="color: white; "><b>Price</b></span></td>
             </tr>
