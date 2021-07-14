@@ -1,7 +1,6 @@
 <%@ page import="com.se1_team20.Parkhaus.PARKHAUS.CarIF" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="com.se1_team20.Parkhaus.MANAGEMENT.ManagementModel" %>
 <%--
   ~ /* copyright (c) 2021 se1_team20.
   ~  Planet Earth, Milky Way, Virgo Supercluster.
