@@ -51,15 +51,12 @@
 		final String TITLE = "Daily Total Revenue per Customer";
 		final String HANDICAPPED = "Handicapped";
 		final String FEMALE = "Female";
-		final String COMPANY = "Company";
 		final String DAY = "Day";
-		final Double handicappedData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED);
-		final Double femaleData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, FEMALE);
-		final Double companyData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, COMPANY);
-		final Double dayData = MODEL.filterRevenueByCustomer(vehiclesThatLeft, DAY);
+		final double handicappedData = (MODEL.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED) / 100.); //QUICK FIX, TO DISPLAY THE DATA UNIFORMLY
+		final double femaleData = (MODEL.filterRevenueByCustomer(vehiclesThatLeft, FEMALE) / 100.);
+		final double dayData = (MODEL.filterRevenueByCustomer(vehiclesThatLeft, DAY) / 100.);
 		String displayHandicappedData = "" + handicappedData;
 		String displayFemaleData = "" + femaleData;
-		String displayCompanyData = "" + companyData;
 		String displayDayData = "" + dayData;
 %>
 <script src='https://ccmjs.github.io/akless-components/highchart/versions/ccm.highchart-3.0.1.js'></script>

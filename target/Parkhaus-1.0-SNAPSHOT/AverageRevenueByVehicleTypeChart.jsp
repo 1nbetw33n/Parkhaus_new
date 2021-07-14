@@ -52,12 +52,12 @@
 				final String LIMOUSINE = "Limousine";
 				final String MOTORCYCLE = "Motorcycle";
 				final String VAN = "Van";
-				final Double SUVData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, SUV);
-				final Double limousineData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, LIMOUSINE);
-				final Double motorcycleData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, MOTORCYCLE);
-				final Double vanData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, VAN);
+				final double SUVData = (MODEL.filterRevenueByVehicle(vehiclesThatLeft, SUV) / 100.); //QUICK FIX, TO DISPLAY THE DATA UNIFORMLY
+				final double limousineData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, LIMOUSINE) / 100.;
+				final double motorcycleData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, MOTORCYCLE) / 100.;
+				final double vanData = MODEL.filterRevenueByVehicle(vehiclesThatLeft, VAN) / 100.;
 				String displaySUVData = "" + SUVData;
-				String displayLimousineData = "" + limousineData;
+				String displayLimousineData = "" + limousineData ;
 				String displayMotorcycleData = "" + motorcycleData;
 				String displayVanData = "" + vanData;
 		%>
