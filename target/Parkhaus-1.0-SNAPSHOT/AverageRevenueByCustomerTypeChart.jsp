@@ -52,7 +52,7 @@
 		final String HANDICAPPED = "Handicapped";
 		final String FEMALE = "Female";
 		final String DAY = "Day";
-		final double handicappedData = (MODEL.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED) / 100.);
+		final double handicappedData = (MODEL.filterRevenueByCustomer(vehiclesThatLeft, HANDICAPPED) / 100.); //QUICK FIX, TO DISPLAY THE DATA UNIFORMLY
 		final double femaleData = (MODEL.filterRevenueByCustomer(vehiclesThatLeft, FEMALE) / 100.);
 		final double dayData = (MODEL.filterRevenueByCustomer(vehiclesThatLeft, DAY) / 100.);
 		String displayHandicappedData = "" + handicappedData;
