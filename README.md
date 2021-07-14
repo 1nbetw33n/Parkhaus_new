@@ -42,6 +42,7 @@
                 <h4>Lukas Busse</h4>
                     <ul>
                         <li>Masternuss</li>
+                        <li>Lukas Busse</lI>
                     </ul>
             </li>
             <br>
@@ -64,6 +65,7 @@
         </ul>
         <br>
         <h2><center>▬▬▬▬▬▬▬▬▬▬▬SERVLET CONTEXTS▬▬▬▬▬▬▬▬▬▬▬<center></h2>
+            <br>
             <ul>
                 <li>
                     <h3>▬▬▬▬▬▬▬▬▬▬FRONTPAGE▬▬▬▬▬▬▬▬▬▬</h3>
